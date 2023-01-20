@@ -1,0 +1,194 @@
+netsuite.savedcsvimport custimport_594_5172601_925 {
+  scriptid = "custimport_594_5172601_925"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "BS Project Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB_PERCENTCOMPLETEOVERRIDE@f = {
+        record = "JOB:PERCENTCOMPLETEOVERRIDE"
+        fieldmappings = {
+          fieldmapping = {
+            COMMENTS = {
+              field = "COMMENTS"
+              columnreference = {
+                column = "PCO Notes"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            PERCENT = {
+              field = "PERCENT"
+              columnreference = {
+                column = "Cumulative % Complete"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            PERIOD = {
+              field = "PERIOD"
+              columnreference = {
+                column = "Accounting Period"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "Project Name Final"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              columnreference = {
+                column = "Export to OA"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_openair_last_rev_rec_date_cus = {
+              field = netsuite.entitycustomfield.instance.custentity_openair_last_rev_rec_date_cus.scriptid
+              columnreference = {
+                column = "OA Last Rev Rec Date"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_openair_pco_custom = {
+              field = netsuite.entitycustomfield.instance.custentity_openair_pco_custom.scriptid
+              columnreference = {
+                column = "OA PCO"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_amount = {
+              field = netsuite.entitycustomfield.instance.custentity_so_amount.scriptid
+              columnreference = {
+                column = "Amount"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_business_line = {
+              field = netsuite.entitycustomfield.instance.custentity_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_currency = {
+              field = netsuite.entitycustomfield.instance.custentity_so_currency.scriptid
+              columnreference = {
+                column = "Currency"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_product_family = {
+              field = netsuite.entitycustomfield.instance.custentity_so_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_product_line = {
+              field = netsuite.entitycustomfield.instance.custentity_so_product_line.scriptid
+              columnreference = {
+                column = "Product Line"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_quantity = {
+              field = netsuite.entitycustomfield.instance.custentity_so_quantity.scriptid
+              columnreference = {
+                column = "Quantity"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "ExternalID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            PARENT = {
+              field = "PARENT"
+              columnreference = {
+                column = "Customer ID"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+            STARTDATE = {
+              field = "STARTDATE"
+              columnreference = {
+                column = "Start Date"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

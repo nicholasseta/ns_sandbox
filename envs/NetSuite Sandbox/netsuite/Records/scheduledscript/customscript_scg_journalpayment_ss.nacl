@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_journalpayment_ss {
+  scriptid = "customscript_scg_journalpayment_ss"
+  defaultfunction = "scg_jepymt_processList"
+  isinactive = false
+  name = "SCG JournalPayment SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_JournalPayment_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_journalpayment_ss = {
+        scriptid = "customdeploy_scg_journalpayment_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "TESTING"
+        title = "SCG JournalPayment SS"
+        recurrence = {
+          single = {
+            startdate = "2019-09-04"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

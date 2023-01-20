@@ -1,0 +1,52 @@
+netsuite.mapreducescript customscript_scg_save_load_mr {
+  scriptid = "customscript_scg_save_load_mr"
+  isinactive = false
+  name = "SCG | MR | Save"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 429199/scg_mr_saveload.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscriptscg_srch_load = {
+        scriptid = "custscriptscg_srch_load"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Search"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = "-119"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_saveload = {
+        scriptid = "customdeploy_scg_saveload"
+        buffersize = "1"
+        concurrencylimit = "1"
+        custscriptscg_srch_load = netsuite.savedsearch.instance.customsearch4753.scriptid
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "SCG | MR | Save"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2022-03-21"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,384 @@
+netsuite.savedsearch customsearch_atlas_ar_aging_rpt_2 {
+  scriptid = "customsearch_atlas_ar_aging_rpt_2"
+  dependencies = {
+    dependency = [
+      netsuite.transactionbodycustomfield.instance.custbody_note_create_user.scriptid,
+    ]
+  }
+  definition = "d96535c0ff53e2ee71ae4e0e181f26d9463bf48c6dca27303ad5a43bbea8bb34@GZC@2022.2.15@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"
+  search_filter = [
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_ACCOUNT"
+      FIELD_ATTRIBUTE = "ANYOF"
+      FIELD_TYPE = "SELECT"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "122"
+        },
+      ]
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_STATUS"
+      FIELD_ATTRIBUTE = "NONEOF"
+      FIELD_TYPE = "SELECT"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "CustCred:B"
+        },
+        {
+          KEY_ID = 1
+          FIELD_VALUE = "CustCred:V"
+        },
+        {
+          KEY_ID = 2
+          FIELD_VALUE = "CustRfnd:V"
+        },
+        {
+          KEY_ID = 3
+          FIELD_VALUE = "CustInvc:B"
+        },
+        {
+          KEY_ID = 4
+          FIELD_VALUE = "CustInvc:D"
+        },
+        {
+          KEY_ID = 5
+          FIELD_VALUE = "CustInvc:E"
+        },
+        {
+          KEY_ID = 6
+          FIELD_VALUE = "CustInvc:V"
+        },
+        {
+          KEY_ID = 7
+          FIELD_VALUE = "Journal:A"
+        },
+        {
+          KEY_ID = 8
+          FIELD_VALUE = "Journal:R"
+        },
+        {
+          KEY_ID = 9
+          FIELD_VALUE = "CustPymt:A"
+        },
+      ]
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_TRANDATE"
+      FIELD_MODIFIER = "ONORBEFORE"
+      FIELD_ATTRIBUTE = "TODAY"
+      FIELD_TYPE = "DATE"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "2019-12-02 05:00:00.0 UTC"
+        },
+        {
+          KEY_ID = 1
+          FIELD_VALUE = "2019-12-02 05:00:00.0 UTC"
+        },
+      ]
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_AMOUNTREMAINING"
+      FIELD_ATTRIBUTE = "GT"
+      FIELD_TYPE = "CURRENCY"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "0.00"
+        },
+        {
+          KEY_ID = 1
+        },
+      ]
+    },
+  ]
+  available_filters = [
+    {
+      SEQ_NUMBER = 1
+      FIELD_NAME = "Transaction_TRANDATE"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+    {
+      SEQ_NUMBER = 2
+      FIELD_NAME = "Transaction_NAME"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+  ]
+  return_fields = [
+    {
+      FIELD_ALIAS = "CUSTBODY_NOTE_CREATE_USER"
+      FIELD_INDEX = 1
+      FIELD_SUMMARY_TYPE = "GROUP"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 2
+      FIELD_LABEL = "Current"
+      FIELD_SUMMARY_LABEL = "Current"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &lt; 1) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &lt; 1) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN -({amountremaining}) END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 3
+      FIELD_LABEL = "# of Current"
+      FIELD_SUMMARY_LABEL = "# of Current"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &lt; 1) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &lt; 1) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN {internalid} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN {internalid} END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 4
+      FIELD_LABEL = "1-30 Days"
+      FIELD_SUMMARY_LABEL = "1-30 Days"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 1 AND 30) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate}BETWEEN 1 AND 30) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN -({amountremaining}) END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 5
+      FIELD_LABEL = "Internal ID "
+      FIELD_SUMMARY_LABEL = "#  of 1-30 Days"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 1 AND 30) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate}BETWEEN 1 AND 30) THEN {internalid} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN {internalid} END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 6
+      FIELD_LABEL = "31-60 Days"
+      FIELD_SUMMARY_LABEL = "31-60 Days"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 31 AND 60) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN -({amountremaining}) END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 7
+      FIELD_LABEL = "Internal ID "
+      FIELD_SUMMARY_LABEL = "# of 31-60 Days"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 31 AND 60) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {internalid}  END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 8
+      FIELD_LABEL = "61-90 Days"
+      FIELD_SUMMARY_LABEL = "61-90 Days"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 61 AND 90) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN -({amountremaining}) END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 9
+      FIELD_LABEL = "Internal ID "
+      FIELD_SUMMARY_LABEL = "# of 61-90 Days"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 61 AND 90) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN  {internalid}WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {internalid} END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 10
+      FIELD_LABEL = "91-120 Days"
+      FIELD_SUMMARY_LABEL = "91-120 Days"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 91 AND 120) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN -({amountremaining}) END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 11
+      FIELD_LABEL = "Internal ID "
+      FIELD_SUMMARY_LABEL = "# of 91-120 Days"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 91 AND 120) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {internalid} END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 12
+      FIELD_LABEL = "&gt; 120 Days"
+      FIELD_SUMMARY_LABEL = "&gt; 120 Days"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &gt; 120) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &gt; 120) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN -({amountremaining}) END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 13
+      FIELD_LABEL = "Internal ID "
+      FIELD_SUMMARY_LABEL = "# of &gt; 120 Days"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &gt; 120) THEN {internalid}WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &gt; 120) THEN {internalid}WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN {internalid} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN {internalid} END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 14
+      FIELD_LABEL = "Amount Outstanding"
+      FIELD_SUMMARY_LABEL = "Amount Outstanding"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FORMULA = "NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &lt; 1) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &lt; 1) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN -({amountremaining}) END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 1 AND 30) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate}BETWEEN 1 AND 30) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN -({amountremaining}) END,0)  + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 31 AND 60) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN -({amountremaining}) END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 61 AND 90) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN -({amountremaining}) END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 91 AND 120) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN -({amountremaining}) END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &gt; 120) THEN {amount} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &gt; 120) THEN {amountremaining} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN {amountremaining} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN -({amountremaining}) END,0)"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULATEXT"
+      FIELD_INDEX = 15
+      FIELD_LABEL = "Internal ID"
+      FIELD_SUMMARY_LABEL = "# of Outstanding"
+      FIELD_SUMMARY_TYPE = "COUNT"
+      FIELD_FORMULA = "NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &lt; 1) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &lt; 1) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN {internalid} WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &lt; 1) THEN {internalid} END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 1 AND 30) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate}BETWEEN 1 AND 30) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 1 AND 30) THEN {internalid} END,0)  + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 31 AND 60) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 31 AND 60) THEN {internalid} END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {internalid} WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 61 AND 90) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 61 AND 90) THEN {internalid}  END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} BETWEEN 91 AND 120) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} BETWEEN 91 AND 120) THEN {internalid}  END,0) + NVL(CASE WHEN ({recordtype} &lt;&gt; &apos;invoice&apos; AND {recordtype} &lt;&gt; &apos;customerpayment&apos; AND TRUNC({today})-{trandate} &gt; 120) THEN{internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NOT NULL AND TRUNC({today})-{duedate} &gt; 120) THEN {internalid}  WHEN ({recordtype} = &apos;invoice&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN {internalid}  WHEN ({recordtype} = &apos;customerpayment&apos; AND {duedate} IS NULL AND TRUNC({today})-{trandate} &gt; 120) THEN {internalid}  END,0)"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULANUMERIC"
+      FIELD_INDEX = 16
+      FIELD_LABEL = "Max Days"
+      FIELD_SUMMARY_LABEL = "Max Days"
+      FIELD_SUMMARY_TYPE = "MAX"
+      FIELD_FORMULA = "TRUNC ({today})-{duedate}"
+      FIELD_FORMULA_ERROR = false
+    },
+  ]
+  detail_fields = [
+    {
+      FIELD_ALIAS = "Transaction_MAINLINE"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_TRANDATE"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_POSTINGPERIOD"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_TYPE"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_NUMBER"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_NAME"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_ACCOUNT"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_MEMO"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_AMOUNT"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+  ]
+  sort_columns = [
+    {
+      KEY_FIELD = "Transaction_NAME"
+      FILELD_ORDER = 1
+      FLAG_DESCENDING = false
+    },
+  ]
+  audience = {
+    FLAG_AUDIENCE_ALL_CUSTOMERS = false
+    FLAG_AUDIENCE_ALL_EMPLOYEES = false
+    FLAG_AUDIENCE_ALL_PARTNERS = false
+    FLAG_AUDIENCE_ALL_ROLES = true
+    FLAG_AUDIENCE_ALL_VENDORS = false
+  }
+  KEY_SCRIPT_ID = "customsearch_atlas_ar_aging_rpt_2"
+  FIELD_DEFAULT_NAME = "A/R Aging - Open Collections VM"
+  FIELD_SEARCH_TYPE = "Transaction"
+  FLAG_PUBLIC = true
+  FLAG_LIST = false
+  FLAG_PORTLET = true
+  FLAG_MACHINE = true
+  FLAG_REMINDER = false
+  FLAG_SHOW_LINK = false
+  FLAG_PREFERRED_LIST = false
+  FLAG_PREFERRED_PORTLET = false
+  FLAG_PREFERRED_MACHINE = false
+  FLAG_PREFERRED_FORM = false
+  FLAG_PREFERRED_RESULTS = false
+  FLAG_VIEW_AS_REPORT = false
+  FLAG_VIEW_AS_GRAPH = false
+  FLAG_VIEW_AS_GRID = false
+  FLAG_UNRESTRICTED = false
+  FLAG_DISABLE_DRILL_DOWN = false
+  FIELD_CURRENCY_RATE_TYPE = "ACCTTYPE"
+  FLAG_HIDE_FILTER_DROPDOWNS = false
+  KEY_DEFAULT_TEXT_FIELD_FILTER = "STARTSWITH"
+  FLAG_AVAILABLE_AS_FEED = false
+  FLAG_GLOBAL_EDIT = false
+  FLAG_CSV = false
+  FLAG_EXCEL = false
+  FLAG_PDF = false
+  FLAG_TRIGGERED_ALERT = false
+  FLAG_SCHEDULED_ALERT = false
+  FLAG_SCHEDULED_ALERT_SUMMARIES = false
+  FLAG_SEND_EMPTY_RESULTS = false
+  FLAG_ALERT_ALLOW_SUBSCRIBE = false
+  FLAG_ALERT_INCLUDE_VIEW_LINK = true
+  FLAG_HAS_TOTALS = true
+  FLAG_INCLUDE_PERIOD_END_TRANSACTIONS = false
+  FLAG_BUILT_IN = false
+  FLAG_SEND_ON_UPDATE = false
+  FLAG_SHOW_AUDIT_TRAIL = false
+  KEY_AUDIENCE = 0
+}

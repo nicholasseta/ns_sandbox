@@ -1,0 +1,192 @@
+netsuite.savedcsvimport custimport_233_5172601_780 {
+  scriptid = "custimport_233_5172601_780"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Bizview WIP Import"
+  ignorereadonly = true
+  importname = "Bizview WIP Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SALESORDER"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_so_salesorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+    roles = "ADMINISTRATOR"
+  }
+  filemappings = {
+    filemapping = {
+      SALESORDER = {
+        file = "SALESORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SALESORDER = {
+        record = "SALESORDER"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "Partner Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End User Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Bill To Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              value = "Bizview WIP Migration"
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "B"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Sub Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "2/1/2020"
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "#"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      SALESORDER_ITEM@f = {
+        record = "SALESORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              columnreference = {
+                column = "Billing Schedule"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            custcol_erp_version = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_erp_version.scriptid
+              columnreference = {
+                column = "ERP Version Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              columnreference = {
+                column = "Remaining Hours"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_scg_oa_rate = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_scg_oa_rate.scriptid
+              columnreference = {
+                column = "Hourly Rate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Remaining Hours"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Hourly Rate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_113_5172601_694 {
+  scriptid = "custimport_113_5172601_694"
+  charencoding = "MacRoman"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Cash Sales Trigger Script"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CASHSALE"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_cash_sale.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CASHSALE = {
+        file = "CASHSALE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CASHSALE = {
+        record = "CASHSALE"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_trigger_script_wf = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_trigger_script_wf.scriptid
+              value = "12/13/2018 5:37:00 pm"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Source Internal ID"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

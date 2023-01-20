@@ -1,0 +1,851 @@
+netsuite.savedcsvimport custimport_492_5172601_164 {
+  scriptid = "custimport_492_5172601_164"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Credit and Rebill - CM"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CREDITMEMO"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_107_5172601_717.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CREDITMEMO_APPLY@f = {
+        file = "CREDITMEMO:APPLY"
+        foreignkey = "INVOICE INTERNAL ID"
+      }
+      CREDITMEMO = {
+        file = "CREDITMEMO"
+        primarykey = "Internal ID"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CREDITMEMO = {
+        record = "CREDITMEMO"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody3 = {
+              field = netsuite.transactionbodycustomfield.instance.custbody3.scriptid
+              columnreference = {
+                column = "IDL Expense Approval Required"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_bill_to_address_override = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_bill_to_address_override.scriptid
+              columnreference = {
+                column = "Bill To Address Override"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_contract_reference = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_contract_reference.scriptid
+              columnreference = {
+                column = "Contract Reference"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_contract_start_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_contract_start_date.scriptid
+              columnreference = {
+                column = "Contract Start Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            CUSTBODY_CREDIT_REBILL_NOTES = {
+              field = "CUSTBODY_CREDIT_REBILL_NOTES"
+              columnreference = {
+                column = "Credit and Rebill Notes"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_expand_licenses_on_invoice = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_expand_licenses_on_invoice.scriptid
+              columnreference = {
+                column = "Expand Licenses on Invoice"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_expand_service_items = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_expand_service_items.scriptid
+              columnreference = {
+                column = "Expand Service Items on Invoice (PDF)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_fastspring_fee = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_fastspring_fee.scriptid
+              columnreference = {
+                column = "Fastspring Fee"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_invoice_contact = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_invoice_contact.scriptid
+              columnreference = {
+                column = "INVOICE CONTACT ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_invoice_label_translation = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_invoice_label_translation.scriptid
+              columnreference = {
+                column = "Invoice Label Translation"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_oa_invoice_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_oa_invoice_number.scriptid
+              columnreference = {
+                column = "OpenAir Invoice Number"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_order_source = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_order_source.scriptid
+              columnreference = {
+                column = "Order Source"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "PARTNER/JV/RESELLER ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_po_num_custom = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_po_num_custom.scriptid
+              columnreference = {
+                column = "PO# (Custom)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_sales_geo = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sales_geo.scriptid
+              columnreference = {
+                column = "Sales Geo"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_scg_sf_total_tax = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_scg_sf_total_tax.scriptid
+              columnreference = {
+                column = "Tax"
+                file = "CREDITMEMO:APPLY"
+                type = "NAME"
+              }
+            }
+            custbody_so_bdr = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_bdr.scriptid
+              columnreference = {
+                column = "BDR"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_so_demorep = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_demorep.scriptid
+              columnreference = {
+                column = "Demo Rep"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "END USER ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_ordertype = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+              columnreference = {
+                column = "Order Type"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "BILL TO ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo (Main)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            OTHERREFNUM = {
+              field = "OTHERREFNUM"
+              columnreference = {
+                column = "PO/Check Number"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "119"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Document Number"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO__BILLINGADDRESS@f = {
+        record = "CREDITMEMO::BILLINGADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Billing Address :  Address 1"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "Billing Address :  Address 2"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "Billing Address :  Address 3"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "Billing Address :  Addressee"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "Billing Address :  Phone"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "Billing Address :  Attention"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Billing Address :  City"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Billing Address : Country"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Billing Address :  State"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Billing Address :  Zip"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO__SHIPPINGADDRESS@f = {
+        record = "CREDITMEMO::SHIPPINGADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Shipping Address :  Address 1"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "Shipping Address :  Address 2"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "Shipping Address :  Address 3"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "Shipping Address :  Addressee"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "Shipping Address :  Attention"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Shipping Address :  City"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Shipping Address : Country"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Shipping Address :  State"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Shipping Address :  Zip"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO_APPLY@f = {
+        record = "CREDITMEMO:APPLY"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Balance"
+                file = "CREDITMEMO:APPLY"
+                type = "NAME"
+              }
+            }
+            DOC = {
+              field = "DOC"
+              columnreference = {
+                column = "INVOICE INTERNAL ID"
+                file = "CREDITMEMO:APPLY"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO_ITEM@f = {
+        record = "CREDITMEMO:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_arm_sourceexternalid = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_arm_sourceexternalid.scriptid
+              columnreference = {
+                column = "ARM Source External ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_ava_preowned = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_ava_preowned.scriptid
+              columnreference = {
+                column = "Pre-Owned Item"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_billable_expense = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_billable_expense.scriptid
+              columnreference = {
+                column = "Billable Expense"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_bundle_description = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_bundle_description.scriptid
+              columnreference = {
+                column = "Bundle Description"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_bundle_name = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_bundle_name.scriptid
+              columnreference = {
+                column = "Bundle Name"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_comm_amt = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_comm_amt.scriptid
+              columnreference = {
+                column = "Commission Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_customer_code = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_customer_code.scriptid
+              columnreference = {
+                column = "Customer Code"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_customer_name_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_customer_name_line.scriptid
+              columnreference = {
+                column = "Customer Name (Line)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_delivery_type = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_delivery_type.scriptid
+              columnreference = {
+                column = "Delivery Type"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_end_user_customer_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_end_user_customer_line.scriptid
+              columnreference = {
+                column = "End User Customer (Line)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_erp_version = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_erp_version.scriptid
+              columnreference = {
+                column = "ERP Version"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_invoice_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_invoice_date.scriptid
+              columnreference = {
+                column = "Invoice Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_invoice_num = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_invoice_num.scriptid
+              columnreference = {
+                column = "Invoice #"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_oa_billing_rule_type = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_billing_rule_type.scriptid
+              columnreference = {
+                column = "OpenAir Billing Rule"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_oa_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_business_line.scriptid
+              columnreference = {
+                column = "OA Business Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_oa_client_notes = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_client_notes.scriptid
+              columnreference = {
+                column = "OA Client Notes"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_oa_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_date.scriptid
+              columnreference = {
+                column = "OA: Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_oa_wbs_assignees = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_wbs_assignees.scriptid
+              columnreference = {
+                column = "OpenAir: Assigned Users"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_oa_wbs_task_name = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_wbs_task_name.scriptid
+              columnreference = {
+                column = "OpenAir: Task Name"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_print_milestone_item = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_print_milestone_item.scriptid
+              columnreference = {
+                column = "Print Milestone Item"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_print_time_entry = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_print_time_entry.scriptid
+              columnreference = {
+                column = "Print Time Entry"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_reference_contractline = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_reference_contractline.scriptid
+              columnreference = {
+                column = "Reference Contract Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev Rec End Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Rec Start Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_sat_clause_term_length = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_sat_clause_term_length.scriptid
+              columnreference = {
+                column = "Sat Clause Term Length (Months)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_sat_clause_type = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_sat_clause_type.scriptid
+              columnreference = {
+                column = "Sat Clause Type"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_satisfaction_clause_required = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_satisfaction_clause_required.scriptid
+              columnreference = {
+                column = "Satisfaction Clause Required"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_scg_oa_rate = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_scg_oa_rate.scriptid
+              columnreference = {
+                column = "OA Rate"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_scg_sf_pretax_amt = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_scg_sf_pretax_amt.scriptid
+              columnreference = {
+                column = "SF Pre-Tax Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_scg_sf_tax_amt = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_scg_sf_tax_amt.scriptid
+              columnreference = {
+                column = "SF Tax Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_scg_sf_tax_rate = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_scg_sf_tax_rate.scriptid
+              columnreference = {
+                column = "SF Tax Rate 1"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_scg_sf_tax_rate2 = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_scg_sf_tax_rate2.scriptid
+              columnreference = {
+                column = "SF Tax Rate2"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_service_type = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_service_type.scriptid
+              columnreference = {
+                column = "Service Type"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_site_id = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_site_id.scriptid
+              columnreference = {
+                column = "Site ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_so_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_so_commrate = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_commrate.scriptid
+              columnreference = {
+                column = "Commission Rate"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_term_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_end_date.scriptid
+              columnreference = {
+                column = "Term End Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_term_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_start_date.scriptid
+              columnreference = {
+                column = "Term Start Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_unit_price = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_unit_price.scriptid
+              columnreference = {
+                column = "Unit Price"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            JOB = {
+              field = "JOB"
+              columnreference = {
+                column = "PROJECT ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Item"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

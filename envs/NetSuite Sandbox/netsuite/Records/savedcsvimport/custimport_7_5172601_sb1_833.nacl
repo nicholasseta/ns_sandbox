@@ -1,0 +1,498 @@
+netsuite.savedcsvimport custimport_7_5172601_sb1_833 {
+  scriptid = "custimport_7_5172601_sb1_833"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_vendor_form.scriptid
+  ignorereadonly = true
+  importname = "SCG Vendor Import Addresses"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "VENDOR"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      VENDOR = {
+        file = "VENDOR"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDOR = {
+        record = "VENDOR"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Vendor ID"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS@f = {
+        line = 1
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Address2:Address1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "Address2:Address2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "Address2:Address3"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "Address2:Addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "Address2: Phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "Address2: Attention"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Address2: City"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Address2: Country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Address2: State"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Address2: Zip"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK@f = {
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              columnreference = {
+                column = "Address1: Default Billing"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              columnreference = {
+                column = "Address1: Default Shipping"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS_2@ffu = {
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Address1:Address1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "Address1:Address2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "Address1:Address3"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "Address1:Addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "Address1: Phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "Address1: Attention"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Address1: City"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Address1: Country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Address1: State"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Address1: Zip"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_2@fu = {
+        line = 1
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              columnreference = {
+                column = "Address2: Default Billing"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              columnreference = {
+                column = "Address2: Default Shipping"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS_3@ffu = {
+        line = 3
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Address4:Address1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "Address4:Address2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "Address4:Address3"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "Address4:Addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "Address4: Phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "Address4: Attention"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Address4: City"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Address4: Country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Address4: State"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Address4: Zip"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_3@fu = {
+        line = 2
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              columnreference = {
+                column = "Address3: Default Billing"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              columnreference = {
+                column = "Address3: Default Shipping"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS_4@ffu = {
+        line = 2
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Address3:Address1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "Address3:Address2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "Address3:Address3"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "Address3:Addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "Address3: Phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "Address3: Attention"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Address3: City"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Address3: Country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Address3: State"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Address3: Zip"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_4@fu = {
+        line = 3
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              columnreference = {
+                column = "Address4: Default Billing"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              columnreference = {
+                column = "Address4: Default Shipping"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

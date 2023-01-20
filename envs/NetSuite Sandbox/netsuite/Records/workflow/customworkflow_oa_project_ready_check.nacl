@@ -1,0 +1,54 @@
+netsuite.workflow customworkflow_oa_project_ready_check {
+  scriptid = "customworkflow_oa_project_ready_check"
+  description = "Check a box"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch238.scriptid
+  isinactive = false
+  islogenabled = false
+  keephistory = "NEVER"
+  name = "OA Project Ready Check"
+  recordtypes = "SALESORDER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  recurrence = {
+    every30minutes = {
+      startdate = "2018-10-19"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate24 = {
+        scriptid = "workflowstate24"
+        donotexitworkflow = false
+        name = "Check OA Project Ready Box"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction103 = {
+                scriptid = "workflowaction103"
+                field = netsuite.transactionbodycustomfield.instance.custbody_oa_project_ready.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

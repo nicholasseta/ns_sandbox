@@ -1,0 +1,103 @@
+netsuite.customtransactiontype customtransaction_acquisition_entry {
+  scriptid = "customtransaction_acquisition_entry"
+  cancloseorder = false
+  isposting = true
+  isvoidable = true
+  name = "Acquisition Entry"
+  showstatus = false
+  transactionstyle = "JOURNAL"
+  segments = {
+    classposition = "LINES"
+    departmentposition = "LINES"
+    isclassmandatory = false
+    isdepartmentmandatory = false
+    islocationmandatory = false
+    locationposition = "LINES"
+  }
+  permissions = {
+    permission = {
+      ADMINISTRATOR = {
+        permittedlevel = "FULL"
+        permittedrole = "ADMINISTRATOR"
+      }
+      customrole_fpa_view = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_fpa_view.scriptid
+      }
+      customrole_is_ap_clerk = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole_is_ap_clerk.scriptid
+      }
+      customrole_is_accountant = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole_is_accountant.scriptid
+      }
+      customrole1054 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1054.scriptid
+      }
+      customrole1035 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1035.scriptid
+      }
+      customrole1028 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1028.scriptid
+      }
+      customrole1051 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1051.scriptid
+      }
+      customrole1041 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1041.scriptid
+      }
+      customrole_is_acct_mgr = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+      }
+      customrole1034 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1034.scriptid
+      }
+      customrole1050 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1050.scriptid
+      }
+      customrole1039 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1039.scriptid
+      }
+      customrole1047 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1047.scriptid
+      }
+      customrole1046 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1046.scriptid
+      }
+      customrole1049 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1049.scriptid
+      }
+      customrole1048 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1048.scriptid
+      }
+    }
+  }
+  links = {
+    link = {
+      BASICTRANSACTIONSFINANCIAL = {
+        linkcategory = "BASICTRANSACTIONSFINANCIAL"
+        linklabel = "Make Acquisition Entry"
+        linktasktype = "LIST"
+      }
+      ACCOUNTCENTERFINANCIALOTHERTRANSACTIONS = {
+        linkcategory = "ACCOUNTCENTERFINANCIALOTHERTRANSACTIONS"
+        linklabel = "Make Acquisition Entry"
+        linktasktype = "LIST"
+      }
+    }
+  }
+}

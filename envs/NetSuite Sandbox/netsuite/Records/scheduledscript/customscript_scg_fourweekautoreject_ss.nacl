@@ -1,0 +1,40 @@
+netsuite.scheduledscript customscript_scg_fourweekautoreject_ss {
+  scriptid = "customscript_scg_fourweekautoreject_ss"
+  defaultfunction = "is_fourWeekAutoReject"
+  isinactive = false
+  name = "SCG FourWeekAutoReject SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_FourWeekAutoReject_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_fourweekautoreject2_ss = {
+        scriptid = "customdeploy_scg_fourweekautoreject2_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG FourWeekAutoReject SS 2"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2021-03-30"
+            starttime = "02:00:00Z"
+          }
+        }
+      }
+      customdeploy_scg_fourweekautoreject_ss = {
+        scriptid = "customdeploy_scg_fourweekautoreject_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG FourWeekAutoReject SS"
+        recurrence = {
+          single = {
+            startdate = "2021-03-29"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+netsuite.savedcsvimport custimport_166_5172601_570 {
+  scriptid = "custimport_166_5172601_570"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "David - Update Services"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SERVICESALEITEM"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SERVICESALEITEM = {
+        file = "SERVICESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SERVICESALEITEM = {
+        record = "SERVICESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custitem_integration_id = {
+              field = netsuite.itemcustomfield.instance.custitem_integration_id.scriptid
+              columnreference = {
+                column = "External ID"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_family = {
+              field = netsuite.itemcustomfield.instance.custitem_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_line_item = {
+              field = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+              columnreference = {
+                column = "Product Line"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_type = {
+              field = netsuite.itemcustomfield.instance.custitem_product_type.scriptid
+              columnreference = {
+                column = "Product Type"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            DISPLAYNAME = {
+              field = "DISPLAYNAME"
+              columnreference = {
+                column = "Product Code"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "InternalId"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            ITEMID = {
+              field = "ITEMID"
+              columnreference = {
+                column = "Product Name"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            SALESDESCRIPTION = {
+              field = "SALESDESCRIPTION"
+              columnreference = {
+                column = "Product Description"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

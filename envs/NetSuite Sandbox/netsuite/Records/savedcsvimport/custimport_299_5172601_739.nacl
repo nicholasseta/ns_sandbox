@@ -1,0 +1,205 @@
+netsuite.savedcsvimport custimport_299_5172601_739 {
+  scriptid = "custimport_299_5172601_739"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "LV - Def Rev -Unbilled"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SALESORDER"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_so_salesorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SALESORDER = {
+        file = "SALESORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SALESORDER = {
+        record = "SALESORDER"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Base Currency"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID (Prior System Reference)"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "B"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      SALESORDER_ITEM@f = {
+        record = "SALESORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Deferred Rev Base Amount"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_erp_version = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_erp_version.scriptid
+              columnreference = {
+                column = "ERP Version"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              value = "1"
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev End Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Start Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_term_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_end_date.scriptid
+              columnreference = {
+                column = "Rev End Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_term_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_start_date.scriptid
+              columnreference = {
+                column = "Rev Start Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            LINE = {
+              field = "LINE"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              value = "1"
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Deferred Rev Base Amount"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Taxcode"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

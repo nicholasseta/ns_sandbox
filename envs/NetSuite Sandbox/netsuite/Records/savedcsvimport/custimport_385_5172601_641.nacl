@@ -1,0 +1,170 @@
+netsuite.savedcsvimport custimport_385_5172601_641 {
+  scriptid = "custimport_385_5172601_641"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "30080 Fix LV GMBH"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOURNALENTRY"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_journalentry.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOURNALENTRY = {
+        file = "JOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOURNALENTRY = {
+        record = "JOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Main Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "96"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "11/30/2020"
+            }
+          }
+        }
+      }
+      JOURNALENTRY_LINE@f = {
+        record = "JOURNALENTRY:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            CREDIT = {
+              field = "CREDIT"
+              columnreference = {
+                column = "Credit"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            custcol_partnerjvreseller = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_partnerjvreseller.scriptid
+              columnreference = {
+                column = "Partner/JV/Reseller"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            custcol_so_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "Debit"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Department"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Name"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

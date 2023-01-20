@@ -1,0 +1,34 @@
+netsuite.usereventscript customscript_scg_returnauthorization_ue {
+  scriptid = "customscript_scg_returnauthorization_ue"
+  beforeloadfunction = "is_ra_beforeLoad"
+  beforesubmitfunction = "is_ra_beforeSubmit"
+  isinactive = false
+  name = "SCG ReturnAuthorization UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_ReturnAuthorization_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_returnauthorization_ue = {
+        scriptid = "customdeploy_scg_returnauthorization_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CUSTOMGLLINES|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "RETURNAUTHORIZATION"
+        status = "RELEASED"
+      }
+    }
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteScripts_SCG_add3rdPartyCommissionLines_LIB_js@duuv.path
+      },
+    ]
+  }
+}

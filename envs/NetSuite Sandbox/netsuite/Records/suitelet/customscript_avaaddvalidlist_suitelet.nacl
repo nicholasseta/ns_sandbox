@@ -1,0 +1,44 @@
+netsuite.suitelet customscript_avaaddvalidlist_suitelet {
+  scriptid = "customscript_avaaddvalidlist_suitelet"
+  isinactive = false
+  name = "AVA_AddressValidationResultList_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_AddressValidationResultList.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_addressresultslistroleid = {
+        scriptid = "custscript_addressresultslistroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avaaddressvalidlist = {
+        scriptid = "customdeploy_avaaddressvalidlist"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "Address Validation Result List"
+      }
+    }
+  }
+}

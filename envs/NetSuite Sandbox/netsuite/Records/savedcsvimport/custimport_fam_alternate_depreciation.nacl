@@ -1,0 +1,95 @@
+netsuite.savedcsvimport custimport_fam_alternate_depreciation {
+  scriptid = "custimport_fam_alternate_depreciation"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = "[scriptid=customrecord_ncfar_altdepreciation]"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "FAM Alternate Depreciation"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_ncfar_altdepreciation_custrecord_altdepr_accountingbook@uuvuu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdepr_accountingbook]"
+              value = "1"
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdepr_depractive@uuvuu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdepr_depractive]"
+              value = "1"
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdepr_originalcost@uuvuu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdepr_originalcost]"
+              columnreference = {
+                column = "Asset Original Cost"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdepraltmethod@uuvu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdepraltmethod]"
+              columnreference = {
+                column = "Alternate Method"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdeprasset@uuvu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdeprasset]"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdeprlifetime@uuvu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdeprlifetime]"
+              columnreference = {
+                column = "Asset Lifetime"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdeprrv@uuvu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdeprrv]"
+              value = "0"
+            }
+            customrecord_ncfar_altdepreciation_custrecord_altdeprstartdeprdate@uuvu = {
+              field = "[scriptid=customrecord_ncfar_altdepreciation.custrecord_altdeprstartdeprdate]"
+              columnreference = {
+                column = "Depreciation Start Date"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

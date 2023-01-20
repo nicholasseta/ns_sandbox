@@ -1,0 +1,123 @@
+netsuite.savedcsvimport custimport_584_5172601_131 {
+  scriptid = "custimport_584_5172601_131"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Logi PO Import"
+  ignorereadonly = true
+  importname = "Logi PO Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "PURCHASEORDER"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_po_purchaseorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      PURCHASEORDER = {
+        file = "PURCHASEORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      PURCHASEORDER = {
+        record = "PURCHASEORDER"
+        fieldmappings = {
+          fieldmapping = {
+            APPROVALSTATUS = {
+              field = "APPROVALSTATUS"
+              value = "2"
+            }
+            custbody_scg_dept_resp_4_apprvl = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_scg_dept_resp_4_apprvl.scriptid
+              columnreference = {
+                column = "Department ID"
+                file = "PURCHASEORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_scg_po_appvl_current_state = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+              value = "11"
+            }
+            EMPLOYEE = {
+              field = "EMPLOYEE"
+              value = "3319798"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Header Memo"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "5/20/2022"
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "PO External ID"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      PURCHASEORDER_EXPENSE@f = {
+        record = "PURCHASEORDER:EXPENSE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account ID"
+                file = "PURCHASEORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount Remaining"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

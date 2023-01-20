@@ -1,0 +1,31 @@
+netsuite.mapreducescript customscript955 {
+  scriptid = "customscript955"
+  description = "Single Use - Delete all revenue events related to order products from prior to 10/11/2021 so those order products can be deleted."
+  isinactive = false
+  name = "Pre 10/11/21 Rev Events to Delete"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_scg_del_by_ids_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "Pre 10/11/21 Rev Events to Delete"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2022-04-05"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

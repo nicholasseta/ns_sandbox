@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_scg_custrefundcomplete_ss {
+  scriptid = "customscript_scg_custrefundcomplete_ss"
+  defaultfunction = "is_custRefundComplete"
+  isinactive = false
+  name = "SCG CustomerRefundComplete SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_CustomerRefundComplete_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_custrefundcomplete_ss = {
+        scriptid = "customdeploy_scg_custrefundcomplete_ss"
+        isdeployed = false
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG CustomerRefundComplete SS"
+        recurrence = {
+          everyweekday = {
+            repeat = "PT15M"
+            startdate = "2020-08-13"
+            starttime = "09:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

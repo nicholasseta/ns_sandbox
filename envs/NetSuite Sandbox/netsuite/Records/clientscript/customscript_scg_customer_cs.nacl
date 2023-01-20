@@ -1,0 +1,26 @@
+netsuite.clientscript customscript_scg_customer_cs {
+  scriptid = "customscript_scg_customer_cs"
+  isinactive = false
+  name = "SCG Customer CS"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  saverecordfunction = "is_cus_saveRecord"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Customer_CS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_customer_cs = {
+        scriptid = "customdeploy_scg_customer_cs"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "CUSTOMER"
+        status = "RELEASED"
+      }
+    }
+  }
+}

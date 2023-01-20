@@ -1,0 +1,88 @@
+netsuite.savedcsvimport custimport_204_5172601_523 {
+  scriptid = "custimport_204_5172601_523"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "Jet Customer Currency Update"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "Jet Customer Currency Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CUSTOMER_CURRENCY@f = {
+        line = 2
+        record = "CUSTOMER:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "10"
+            }
+          }
+        }
+      }
+      CUSTOMER_CURRENCY_2@fu = {
+        record = "CUSTOMER:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "13"
+            }
+          }
+        }
+      }
+      CUSTOMER_CURRENCY_3@fu = {
+        line = 1
+        record = "CUSTOMER:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "12"
+            }
+          }
+        }
+      }
+    }
+  }
+}

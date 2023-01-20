@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_601_5172601_955 {
+  scriptid = "custimport_601_5172601_955"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "OP Link Update - Inv"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_118_5172601_591.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custcol_reference_contractline = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_reference_contractline.scriptid
+              columnreference = {
+                column = "**ARM Source External ID"
+                file = "INVOICE"
+                type = "EXTERNAL_ID"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+              columnreference = {
+                column = "Line ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

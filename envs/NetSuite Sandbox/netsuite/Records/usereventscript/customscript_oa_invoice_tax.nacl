@@ -1,0 +1,63 @@
+netsuite.usereventscript customscript_oa_invoice_tax {
+  scriptid = "customscript_oa_invoice_tax"
+  beforeloadfunction = "hideOATaxField"
+  beforesubmitfunction = "setTaxOA"
+  isinactive = false
+  name = "OpenAir: Export Invoice Total Tax"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_tax_export_integration.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_invoice_tax_export = {
+        scriptid = "custscript_oa_invoice_tax_export"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "To be used when taxes applied to an invoice are to be sent back to OpenAir immediately after the invoice is created."
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "To be used when taxes applied to an invoice are to be sent back to OpenAir immediately after the invoice is created."
+        isformula = false
+        ismandatory = false
+        label = "Enable OpenAir Invoice Tax Export"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy2 = {
+        scriptid = "customdeploy2"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        custscript_oa_invoice_tax_export = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "CREDITMEMO"
+        status = "RELEASED"
+      }
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        custscript_oa_invoice_tax_export = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "INVOICE"
+        status = "RELEASED"
+      }
+    }
+  }
+}

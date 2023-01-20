@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_runschedscript_updcr_ss {
+  scriptid = "customscript_scg_runschedscript_updcr_ss"
+  defaultfunction = "runScheduledScript"
+  isinactive = false
+  name = "SCG RunSchedScript UpdCR SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RunSchedScript_UpdCR_SS_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_runschedscript_updcr_ss = {
+        scriptid = "customdeploy_scg_runschedscript_updcr_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG RunSchedScript UpdCR SS"
+        recurrence = {
+          single = {
+            startdate = "2019-01-06"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

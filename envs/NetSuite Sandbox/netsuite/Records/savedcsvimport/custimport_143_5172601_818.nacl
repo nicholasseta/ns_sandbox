@@ -1,0 +1,135 @@
+netsuite.savedcsvimport custimport_143_5172601_818 {
+  scriptid = "custimport_143_5172601_818"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = "[scriptid=customrecord_ncfar_deprhistory]"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "*Data Migration - Fixed Assets - Depreciation History"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_ncfar_deprhistory_custrecord_deprhistaccountingbook@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistaccountingbook]"
+              value = "1"
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistamount@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistamount]"
+              columnreference = {
+                column = "Transaction Amount"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistasset@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistasset]"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistassettype@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistassettype]"
+              columnreference = {
+                column = "Asset Type"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistbookvalue@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistbookvalue]"
+              columnreference = {
+                column = "Net Book Value"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistcurrentage@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistcurrentage]"
+              columnreference = {
+                column = "Depreciation Period"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistdate@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistdate]"
+              columnreference = {
+                column = "Date"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistmethod@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistmethod]"
+              columnreference = {
+                column = "Depreciation Method"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistquantity@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistquantity]"
+              columnreference = {
+                column = "Quantity"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhistsubsidiary@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhistsubsidiary]"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            customrecord_ncfar_deprhistory_custrecord_deprhisttype@uuvu = {
+              field = "[scriptid=customrecord_ncfar_deprhistory.custrecord_deprhisttype]"
+              columnreference = {
+                column = "Transaction Type"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

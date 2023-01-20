@@ -1,0 +1,40 @@
+netsuite.scheduledscript customscript_scg_sendpoapprvlrememail_ss {
+  scriptid = "customscript_scg_sendpoapprvlrememail_ss"
+  defaultfunction = "is_sendReminderEmail"
+  isinactive = false
+  name = "SCG sendPOApprvlReminderEmail SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendPOApprvlReminderEmail_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendpoaprvlrememail2_ss = {
+        scriptid = "customdeploy_scg_sendpoaprvlrememail2_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG sendPOApprvlReminderEmail SS 2"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2021-03-31"
+            starttime = "03:00:00Z"
+          }
+        }
+      }
+      customdeploy_scg_sendpoapprvlrememail_ss = {
+        scriptid = "customdeploy_scg_sendpoapprvlrememail_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG sendPOApprvlReminderEmail SS"
+        recurrence = {
+          single = {
+            startdate = "2021-03-29"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

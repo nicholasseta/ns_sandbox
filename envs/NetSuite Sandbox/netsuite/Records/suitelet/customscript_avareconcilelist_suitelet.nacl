@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_avareconcilelist_suitelet {
+  scriptid = "customscript_avareconcilelist_suitelet"
+  isinactive = false
+  name = "AVA_Reconciliation_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_ReconcileTransactions.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_reconciliationroleid = {
+        scriptid = "custscript_reconciliationroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avareconcilelist = {
+        scriptid = "customdeploy_avareconcilelist"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_reconciliationroleid = "1, 1028, 1012, 1029"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "Reconcile List"
+      }
+    }
+  }
+}

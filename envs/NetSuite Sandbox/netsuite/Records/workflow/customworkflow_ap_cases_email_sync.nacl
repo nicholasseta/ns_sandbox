@@ -1,0 +1,66 @@
+netsuite.workflow customworkflow_ap_cases_email_sync {
+  scriptid = "customworkflow_ap_cases_email_sync"
+  description = "Ensure that the Email field matches the Vendor Email field"
+  initoncreate = false
+  initonvieworupdate = true
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "A/P Cases (Email Sync)"
+  recordtypes = "SUPPORTCASE"
+  releasestatus = "RELEASED"
+  runasadmin = false
+  initcondition = {
+    formula = "\"Custom Form\" IN (\"Entry Form1\")"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Custom_Form@s = {
+          name = "Custom Form"
+          value = "STDEVENTCUSTOMFORM"
+          index = 0
+        }
+        Entry_Form1@s = {
+          name = "Entry Form1"
+          selectrecordtype = "-167"
+          value = netsuite.entryForm.instance.custform_is_ap_case_form.scriptid
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15131 = {
+        scriptid = "workflowstate15131"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction87930 = {
+                scriptid = "workflowaction87930"
+                field = "STDEVENTEMAIL"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.crmcustomfield.instance.custevent_vendor_email.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_507_5172601_987 {
+  scriptid = "custimport_507_5172601_987"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_order.attr.scriptid
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Order Subsidiary Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_order_custrecord_is_ord_subsidiary@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_subsidiary.scriptid
+              columnreference = {
+                column = "*NS Sub IntID"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Order Int ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

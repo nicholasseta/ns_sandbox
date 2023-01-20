@@ -1,0 +1,63 @@
+netsuite.workflow customworkflow_email_monthly_statement {
+  scriptid = "customworkflow_email_monthly_statement"
+  description = "Email statements to cutomers who have balance greater than 0"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch706.scriptid
+  isinactive = true
+  islogenabled = true
+  keephistory = "ONLYWHENTESTING"
+  name = "Email Monthly Statement"
+  recordtypes = "CUSTOMER"
+  releasestatus = "TESTING"
+  runasadmin = false
+  recurrence = {
+    monthly = {
+      dayofmonth = "10"
+      everyxmonths = 1
+      startdate = "2019-10-10"
+      starttime = "23:00:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate32 = {
+        scriptid = "workflowstate32"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction141 = {
+                scriptid = "workflowaction141"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                isinactive = false
+                recipientemail = "vicky.marquez@insightsoftware.com"
+                recipienttype = "ADDRESS"
+                schedulemode = "DELAY"
+                sender = "[ACCOUNT_SPECIFIC_VALUE]"
+                sendertype = "SPECIFIC"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+netsuite.savedcsvimport custimport_3_5172601_755 {
+  scriptid = "custimport_3_5172601_755"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG COA Import"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "ACCOUNT"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      ACCOUNT = {
+        file = "ACCOUNT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      ACCOUNT = {
+        record = "ACCOUNT"
+        fieldmappings = {
+          fieldmapping = {
+            ACCTNAME = {
+              field = "ACCTNAME"
+              columnreference = {
+                column = "Account"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            ACCTNUMBER = {
+              field = "ACCTNUMBER"
+              columnreference = {
+                column = "Number"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            ACCTTYPE = {
+              field = "ACCTTYPE"
+              columnreference = {
+                column = "Type"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              columnreference = {
+                column = "Include Children"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            PARENT = {
+              field = "PARENT"
+              columnreference = {
+                column = "Sub Account Internal ID"
+                file = "ACCOUNT"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "ACCOUNT"
+                type = "INTERNAL_ID"
+              }
+            }
+            UNIT = {
+              field = "UNIT"
+              columnreference = {
+                column = "Default Unit"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            UNITSTYPE = {
+              field = "UNITSTYPE"
+              columnreference = {
+                column = "Unit Type"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

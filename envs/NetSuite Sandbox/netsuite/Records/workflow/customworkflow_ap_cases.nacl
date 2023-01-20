@@ -1,0 +1,129 @@
+netsuite.workflow customworkflow_ap_cases {
+  scriptid = "customworkflow_ap_cases"
+  description = "Set default value for the Company field on the IS A/P Case Form to catch-all company 49609 A/P Vendor Case"
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "A/P Cases"
+  recordtypes = "SUPPORTCASE"
+  releasestatus = "RELEASED"
+  runasadmin = false
+  initcondition = {
+    formula = "\"Custom Form\" IN (\"Entry Form1\")"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Custom_Form@s = {
+          name = "Custom Form"
+          value = "STDEVENTCUSTOMFORM"
+          index = 0
+        }
+        Entry_Form1@s = {
+          name = "Entry Form1"
+          selectrecordtype = "-167"
+          value = netsuite.entryForm.instance.custform_is_ap_case_form.scriptid
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15130 = {
+        scriptid = "workflowstate15130"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 73
+        positiony = 113
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction87928 = {
+                scriptid = "workflowaction87928"
+                field = "STDEVENTCASEPROFILE"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Custom Form\" IN (\"Entry Form1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Custom_Form@s = {
+                        name = "Custom Form"
+                        value = "STDEVENTCUSTOMFORM"
+                        index = 0
+                      }
+                      Entry_Form1@s = {
+                        name = "Entry Form1"
+                        selectrecordtype = "-167"
+                        value = netsuite.entryForm.instance.custform_is_ap_case_form.scriptid
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction87929 = {
+                scriptid = "workflowaction87929"
+                field = netsuite.crmcustomfield.instance.custevent_vendor_email.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDEVENTEMAIL"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction87927 = {
+                scriptid = "workflowaction87927"
+                field = "STDEVENTCOMPANY"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Custom Form\" IN (\"Entry Form1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Custom_Form@s = {
+                        name = "Custom Form"
+                        value = "STDEVENTCUSTOMFORM"
+                        index = 0
+                      }
+                      Entry_Form1@s = {
+                        name = "Entry Form1"
+                        selectrecordtype = "-167"
+                        value = netsuite.entryForm.instance.custform_is_ap_case_form.scriptid
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            index = 1
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

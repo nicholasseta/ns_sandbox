@@ -1,0 +1,36 @@
+netsuite.account Accounts_Receivable_12000_Allowance_for_Doubtful_Accounts_12400@suusssu {
+  acctType = "_accountsReceivable"
+  acctNumber = "12400"
+  acctName = "Allowance for Doubtful Accounts"
+  includeChildren = true
+  generalRate = "_current"
+  parent = netsuite.account.instance.Accounts_Receivable_12000@su
+  cashFlowRate = "_average"
+  isInactive = false
+  eliminate = false
+  subsidiaryList = [
+    netsuite.subsidiary.instance.GS_Topco__LP@szds,
+  ]
+  localizationsList = {
+    accountLocalizations = [
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_1
+        acctNumber = "41600000"
+        acctName = "CLIENT DOUTEUX"
+      },
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_2
+        acctName = "Einzelwertberichtigung Forderungen LuL"
+      },
+    ]
+  }
+  revalue = true
+  identifier = "Accounts Receivable_12000_Allowance for Doubtful Accounts_12400"
+  externalId = "12400"
+  custom_custrecord_account_number = "12400"
+  custom_custrecord_csv_update = "2"
+  custom_custrecord_elim_checkbox = false
+  custom_custrecord_glm_include = true
+  custom_custrecord_has_mx_localization = false
+  custom_custrecord_revalue_checkbox = true
+}

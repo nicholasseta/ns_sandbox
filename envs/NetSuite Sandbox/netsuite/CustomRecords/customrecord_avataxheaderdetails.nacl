@@ -1,0 +1,679 @@
+type netsuite.customrecord_avataxheaderdetails {
+  annotations {
+    serviceid scriptid {
+    }
+    string recordname {
+    }
+    string customsegment {
+    }
+    netsuite.customrecordtype_accesstype accesstype {
+    }
+    boolean allowattachments {
+    }
+    boolean allowinlineediting {
+    }
+    boolean allowinlinedeleting {
+    }
+    boolean allowinlinedetaching {
+    }
+    boolean allowmobileaccess {
+    }
+    boolean allownumberingoverride {
+    }
+    boolean allowquickadd {
+    }
+    boolean allowquicksearch {
+    }
+    boolean allowuiaccess {
+    }
+    string description {
+    }
+    boolean enabledle {
+    }
+    boolean enablekeywords {
+    }
+    boolean enablemailmerge {
+    }
+    boolean enablenametranslation {
+    }
+    boolean enablenumbering {
+    }
+    boolean enableoptimisticlocking {
+    }
+    boolean enablesystemnotes {
+    }
+    boolean hierarchical {
+    }
+    string numberingprefix {
+    }
+    string numberingsuffix {
+    }
+    string numberingmindigits {
+    }
+    string numberinginit {
+    }
+    string icon {
+    }
+    boolean iconbuiltin {
+    }
+    netsuite.generic_custom_record_icon iconindex {
+    }
+    boolean includeinsearchmenu {
+    }
+    boolean includename {
+    }
+    boolean isinactive {
+    }
+    boolean isordered {
+    }
+    boolean showcreationdate {
+    }
+    boolean showcreationdateonlist {
+    }
+    boolean showid {
+    }
+    boolean showlastmodified {
+    }
+    boolean showlastmodifiedonlist {
+    }
+    boolean shownotes {
+    }
+    boolean showowner {
+    }
+    boolean showownerallowchange {
+    }
+    boolean showowneronlist {
+    }
+    netsuite.customrecordtype_instances instances {
+    }
+    netsuite.customrecordtype_links links {
+    }
+    netsuite.customrecordtype_permissions permissions {
+    }
+    netsuite.customrecordtype_recordsublists recordsublists {
+    }
+    netsuite.customrecordtype_subtabs subtabs {
+    }
+    string application_id {
+    }
+    hidden_string source {
+    }
+    hidden_string internalId {
+    }
+  }
+  serviceid scriptid {
+    _required = true
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.customRecordTranslationsList translationsList {
+  }
+  unknown custom_custrecord_ava_documentinternalid {
+    scriptid = "custrecord_ava_documentinternalid"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    help = "Stores the Internal Id of a transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "NetSuite Document Internal ID"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-30"
+    showinlist = true
+    storevalue = true
+    index = 0
+  }
+  string custom_custrecord_ava_documentid {
+    scriptid = "custrecord_ava_documentid"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = "Stores the AvaTax Document ID that is returned from AvaTax services."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "AvaTax Document ID"
+    maxlength = "60"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 1
+  }
+  string custom_custrecord_ava_documentno {
+    scriptid = "custrecord_ava_documentno"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = "Stores the Document Number of the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "NetSuite Document No"
+    maxlength = "60"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 2
+  }
+  string custom_custrecord_ava_documentdate {
+    scriptid = "custrecord_ava_documentdate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    help = "Stores the document date of the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Document Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 3
+  }
+  number custom_custrecord_ava_documenttype {
+    scriptid = "custrecord_ava_documenttype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    help = '''
+Stores the AvaTax Document type.
+1 - SalesOrder
+2 - SalesInvoice
+3 - PurchaseOrder
+4 - PurchaseInvoice
+5 - ReturnOrder
+6 - ReturnInvoice
+'''
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Document Type"
+    maxvalue = "6"
+    minvalue = "1"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 4
+  }
+  number custom_custrecord_ava_documentstatus {
+    scriptid = "custrecord_ava_documentstatus"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    help = '''
+Stores the AvaTax document status information.
+0 - Temporary
+1 - Saved
+2 - Posted
+3 - Committed
+4 - Cancelled
+5 - Adjusted
+'''
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Document Status"
+    maxvalue = "5"
+    minvalue = "0"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 5
+  }
+  number custom_custrecord_ava_netsuitedoctype {
+    scriptid = "custrecord_ava_netsuitedoctype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    help = '''
+Stores the NetSuite Document Type information.
+1 - Invoice
+2 - Cash Sale
+3 - Credit Memo
+4 - Cash Refund
+'''
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "NetSuite Document Type"
+    maxvalue = "4"
+    minvalue = "1"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 6
+  }
+  string custom_custrecord_ava_taxcalculationdate {
+    scriptid = "custrecord_ava_taxcalculationdate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    help = "Stores the date when the tax calculation happened for the transaction using AvaTax services."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Tax Calculation Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 7
+  }
+  number custom_custrecord_ava_totalamount {
+    scriptid = "custrecord_ava_totalamount"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    help = "Stores the total amount of the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Total Amount"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 8
+  }
+  number custom_custrecord_ava_totaldiscount {
+    scriptid = "custrecord_ava_totaldiscount"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    help = "Stores the total discount of the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Total Discount"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 9
+  }
+  number custom_custrecord_ava_totalnontaxable {
+    scriptid = "custrecord_ava_totalnontaxable"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    help = "Stores the total amount of exemption that is used in the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Total Non-Taxable"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 10
+  }
+  number custom_custrecord_ava_totaltaxable {
+    scriptid = "custrecord_ava_totaltaxable"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    help = "Stores the total Taxable amount for the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Total Taxable"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 11
+  }
+  number custom_custrecord_ava_totaltax {
+    scriptid = "custrecord_ava_totaltax"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    help = "Stores the total Tax amount for the transaction."
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Total Tax"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 12
+  }
+  boolean custom_custrecord_ava_scheduled {
+    scriptid = "custrecord_ava_scheduled"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    help = "An identifier that is used to schedule transactions for Post & Commit operations using AvaTax services."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Scheduled"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 13
+  }
+  string custom_custrecord_ava_shipcode {
+    scriptid = "custrecord_ava_shipcode"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = "Stores AvaTax Shipping codes that is used in the transaction."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Code"
+    maxlength = "100"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 14
+  }
+  string custom_custrecord_ava_basecurrency {
+    scriptid = "custrecord_ava_basecurrency"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Base Currency"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 15
+  }
+  string custom_custrecord_ava_exchangerate {
+    scriptid = "custrecord_ava_exchangerate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Exchange Rate"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 16
+  }
+  string custom_custrecord_ava_foreigncurr {
+    scriptid = "custrecord_ava_foreigncurr"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Foreign Currency"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 17
+  }
+  boolean custom_custrecord_ava_multicurrency {
+    scriptid = "custrecord_ava_multicurrency"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Multi-Currency"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 18
+  }
+  netsuite.subsidiary custom_custrecord_ava_subsidiaryid {
+    scriptid = "custrecord_ava_subsidiaryid"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Subsidiary"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-117"
+    showinlist = false
+    storevalue = true
+    index = 19
+  }
+  number custom_custrecord_ava_gsttax {
+    scriptid = "custrecord_ava_gsttax"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "GST/HST Tax"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 20
+  }
+  number custom_custrecord_ava_psttax {
+    scriptid = "custrecord_ava_psttax"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "PST Tax"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 21
+  }
+  scriptid = "customrecord_avataxheaderdetails"
+  accesstype = "NONENEEDED"
+  allowattachments = false
+  allowinlinedeleting = false
+  allowinlinedetaching = true
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = false
+  allowquickadd = false
+  allowquicksearch = false
+  allowuiaccess = true
+  enabledle = true
+  enablekeywords = true
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = false
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = false
+  isinactive = false
+  isordered = false
+  recordname = "AVATAXHEADERDETAILS"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = false
+  showlastmodifiedonlist = false
+  shownotes = false
+  showowner = false
+  showownerallowchange = false
+  showowneronlist = false
+  permissions = {
+    permission = {
+      customrole1028 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1028.scriptid
+      }
+      customrole1051 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1051.scriptid
+      }
+      customrole1041 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1041.scriptid
+      }
+      customrole_tax = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_tax.scriptid
+      }
+    }
+  }
+  metadataType = "customrecordtype"
+}

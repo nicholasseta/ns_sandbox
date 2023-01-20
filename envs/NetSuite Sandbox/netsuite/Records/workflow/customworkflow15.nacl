@@ -1,0 +1,64 @@
+netsuite.workflow customworkflow15 {
+  scriptid = "customworkflow15"
+  initcontexts = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSTORE|WORKBOOKBUILDER|WORKFLOW"
+  initoncreate = false
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "SCG|Uncheck 'New Source' if Element"
+  recordtypes = netsuite.customrecord_contractlines.attr.scriptid
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    formula = "isEmpty(\"Revenue Element\") = 'F' AND isChecked(\"New Source External ID\") = 'T'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Revenue_Element@s = {
+          name = "Revenue Element"
+          value = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_revenue_element.scriptid
+          index = 0
+        }
+        New_Source_External_ID@s = {
+          name = "New Source External ID"
+          value = netsuite.customrecord_contractlines.field.custom_custrecord_is_new_ext_id.scriptid
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15161 = {
+        scriptid = "workflowstate15161"
+        donotexitworkflow = false
+        name = "Uncheck 'New Source External ID'"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88232 = {
+                scriptid = "workflowaction88232"
+                contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSTORE|WORKBOOKBUILDER|WORKFLOW"
+                field = netsuite.customrecord_contractlines.field.custom_custrecord_is_new_ext_id.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

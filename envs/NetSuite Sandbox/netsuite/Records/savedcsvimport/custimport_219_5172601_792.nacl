@@ -1,0 +1,92 @@
+netsuite.savedcsvimport custimport_219_5172601_792 {
+  scriptid = "custimport_219_5172601_792"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "Document #, Collection Risk, Reason Code, Note Create Date, Note Create User, Collection Notes"
+  ignorereadonly = true
+  importname = "Update Collection Notes"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_70_5172601_239.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_collection_reason_code = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_collection_reason_code.scriptid
+              columnreference = {
+                column = "Reason Code"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_collection_risk = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_collection_risk.scriptid
+              columnreference = {
+                column = "Collection Risk"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_collections_notes = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_collections_notes.scriptid
+              columnreference = {
+                column = "Collection Notes"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_note_create_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_note_create_date.scriptid
+              columnreference = {
+                column = "Note Create Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_note_create_user = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_note_create_user.scriptid
+              columnreference = {
+                column = "Note Create User"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Document Number"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

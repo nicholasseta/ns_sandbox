@@ -1,0 +1,61 @@
+netsuite.savedcsvimport custimport_287_5172601_259 {
+  scriptid = "custimport_287_5172601_259"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "Customer Multiple Email Update"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "Customer Multiple Email Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_scg_mult_inv_emails = {
+              field = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+              columnreference = {
+                column = "MULTIPLE INVOICE EMAIL"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NETSUITE ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+netsuite.savedcsvimport custimport_8_5172601_731 {
+  scriptid = "custimport_8_5172601_731"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Exp Category Migration"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EXPENSECATEGORY"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EXPENSECATEGORY = {
+        file = "EXPENSECATEGORY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EXPENSECATEGORY = {
+        record = "EXPENSECATEGORY"
+        fieldmappings = {
+          fieldmapping = {
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Description"
+                file = "EXPENSECATEGORY"
+                type = "NAME"
+              }
+            }
+            EXPENSEACCT = {
+              field = "EXPENSEACCT"
+              columnreference = {
+                column = "GL Internal ID"
+                file = "EXPENSECATEGORY"
+                type = "INTERNAL_ID"
+              }
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "EXPENSECATEGORY"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1\u00054\u00055\u00056\u00059\u000510\u000511\u000512\u000515\u000516\u000534\u000535\u000536\u000522\u000523\u000525\u000526\u000527\u000529\u000533\u000544\u000546\u000547\u000538\u000543"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+netsuite.savedcsvimport custimport_121_5172601_656 {
+  scriptid = "custimport_121_5172601_656"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "(e.g. Vodafone)"
+  ignorereadonly = true
+  importname = "Bill/Invoice Import"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORBILL"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_bill.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORBILL = {
+        file = "VENDORBILL"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORBILL = {
+        record = "VENDORBILL"
+        fieldmappings = {
+          fieldmapping = {
+            APPROVALSTATUS = {
+              field = "APPROVALSTATUS"
+              columnreference = {
+                column = "Vendor Bill: Approval Status"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Vendor Bill : Currency"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            custbody_vendor_bill_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_vendor_bill_date.scriptid
+              columnreference = {
+                column = "Vendor Bill : Date (Req)"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor Bill : Vendor ID (Req)"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Vendor Bill : Subsidiary"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "12/12/2018"
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Vendor Bill : Invoice No."
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDORBILL_EXPENSE@f = {
+        record = "VENDORBILL:EXPENSE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Vendor Bill Expenses : Account Internal ID"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Vendor Bill Expenses : Amount (Req)"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Vendor Bill Expenses : Department"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            ISBILLABLE = {
+              field = "ISBILLABLE"
+              columnreference = {
+                column = "Vendor Bill Expenses : Billable"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Vendor Bill Expenses : Memo"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Vendor Bill : Tax Code"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

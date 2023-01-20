@@ -1,0 +1,83 @@
+netsuite.mapreducescript customscript_yp_mr_updateinvoicepdfs {
+  scriptid = "customscript_yp_mr_updateinvoicepdfs"
+  description = "This script will delete current invoice PDFs and resets the _yp_pdf to 0, so as to trigger the User Event Script that creates the new invoice PDF"
+  isinactive = false
+  name = "YP_MR_UpdateInvoicePdfs.js"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_YP_MR_UpdateInvoicePdfs_js@duuv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscriptcustscript_yp_originrecordid = {
+        scriptid = "custscriptcustscript_yp_originrecordid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Origin Record ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+      custscriptcustscript_yp_originrecordtype = {
+        scriptid = "custscriptcustscript_yp_originrecordtype"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Origin Record Type"
+        searchlevel = "2"
+        storevalue = true
+        index = 1
+      }
+      custscriptcustscript_yp_invoicearray = {
+        scriptid = "custscriptcustscript_yp_invoicearray"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXTAREA"
+        isformula = false
+        ismandatory = false
+        label = "Invoice Array"
+        searchlevel = "2"
+        storevalue = true
+        index = 2
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = false
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "YP_MR_UpdateInvoicePdfs.js"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2020-03-04"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

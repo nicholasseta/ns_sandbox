@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_237_5172601_216 {
+  scriptid = "custimport_237_5172601_216"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Bizview Vendor Sub Update"
+  ignorereadonly = true
+  importname = "Bizview Vendor Sub Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORSUBSIDIARYRELATIONSHIP"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORSUBSIDIARYRELATIONSHIP = {
+        file = "VENDORSUBSIDIARYRELATIONSHIP"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORSUBSIDIARYRELATIONSHIP = {
+        record = "VENDORSUBSIDIARYRELATIONSHIP"
+        fieldmappings = {
+          fieldmapping = {
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor Internal ID"
+                file = "VENDORSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Internal ID"
+                file = "VENDORSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

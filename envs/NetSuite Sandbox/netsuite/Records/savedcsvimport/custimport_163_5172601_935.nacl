@@ -1,0 +1,166 @@
+netsuite.savedcsvimport custimport_163_5172601_935 {
+  scriptid = "custimport_163_5172601_935"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "CXO Vendor Bills"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORBILL"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_bill.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORBILL = {
+        file = "VENDORBILL"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORBILL_ITEM@f = {
+        record = "VENDORBILL:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Transaction Amount"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Description"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              value = "1458"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Code"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+      VENDORBILL = {
+        record = "VENDORBILL"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account ID"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Transaction Currency"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            custbody_vendor_bill_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_vendor_bill_date.scriptid
+              value = "3/31/2019"
+            }
+            DUEDATE = {
+              field = "DUEDATE"
+              columnreference = {
+                column = "Due Date"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor ID"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "ExternalID"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Internal ID"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "3/31/2019"
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Reference No."
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+netsuite.role customrole1022 {
+  scriptid = "customrole1022"
+  accountingbooksoption = "PRIMARY"
+  centertype = "ACCOUNTCENTER"
+  coreadminpermission = false
+  custrecord_permission_certification = false
+  custrecord_permission_generation = false
+  custrecord_permission_sending = false
+  employeerestriction = "NONE"
+  employeeselectionunrestricted = false
+  isinactive = false
+  issalesrole = false
+  issinglesignononly = false
+  issupportrole = false
+  iswebserviceonlyrole = false
+  name = "IS Sales Invoices Only"
+  restrictbydevice = false
+  restricttimeandexpenses = false
+  subsidiaryoption = "ALLACTIVE"
+  subsidiaryviewingallowed = false
+  tfaduration = "0"
+  tfarequired = "OFF"
+  permissions = {
+    permission = {
+      TRAN_CUSTCRED = {
+        permkey = "TRAN_CUSTCRED"
+        permlevel = "VIEW"
+      }
+      TRAN_CUSTRFND = {
+        permkey = "TRAN_CUSTRFND"
+        permlevel = "VIEW"
+      }
+      TRAN_FIND = {
+        permkey = "TRAN_FIND"
+        permlevel = "VIEW"
+      }
+      TRAN_CUSTINVC = {
+        permkey = "TRAN_CUSTINVC"
+        permlevel = "EDIT"
+      }
+      LIST_CURRENCY = {
+        permkey = "LIST_CURRENCY"
+        permlevel = "EDIT"
+      }
+      LIST_CUSTJOB = {
+        permkey = "LIST_CUSTJOB"
+        permlevel = "EDIT"
+      }
+      LIST_FILECABINET = {
+        permkey = "LIST_FILECABINET"
+        permlevel = "VIEW"
+      }
+      LIST_FINHISTORY = {
+        permkey = "LIST_FINHISTORY"
+        permlevel = "VIEW"
+      }
+      LIST_FIND = {
+        permkey = "LIST_FIND"
+        permlevel = "VIEW"
+      }
+      LIST_CALL = {
+        permkey = "LIST_CALL"
+        permlevel = "VIEW"
+      }
+      LIST_CRMMESSAGE = {
+        permkey = "LIST_CRMMESSAGE"
+        permlevel = "VIEW"
+      }
+      ADMI_SAVEDASHBOARD = {
+        permkey = "ADMI_SAVEDASHBOARD"
+        permlevel = "FULL"
+      }
+      customrecord_billing_portal = {
+        permkey = netsuite.customrecord_billing_portal.attr.scriptid
+        permlevel = "NONE"
+      }
+    }
+  }
+}

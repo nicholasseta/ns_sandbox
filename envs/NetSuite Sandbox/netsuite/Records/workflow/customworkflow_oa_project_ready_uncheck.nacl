@@ -1,0 +1,54 @@
+netsuite.workflow customworkflow_oa_project_ready_uncheck {
+  scriptid = "customworkflow_oa_project_ready_uncheck"
+  description = "Uncheck box"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch238.scriptid
+  isinactive = false
+  islogenabled = false
+  keephistory = "NEVER"
+  name = "OA Project Ready Uncheck"
+  recordtypes = "SALESORDER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  recurrence = {
+    every30minutes = {
+      startdate = "2018-10-19"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate25 = {
+        scriptid = "workflowstate25"
+        donotexitworkflow = false
+        name = "Uncheck OA Project Ready"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction104 = {
+                scriptid = "workflowaction104"
+                field = netsuite.transactionbodycustomfield.instance.custbody_oa_project_ready.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

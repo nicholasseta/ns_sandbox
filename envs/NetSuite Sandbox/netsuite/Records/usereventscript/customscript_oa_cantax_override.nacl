@@ -1,0 +1,70 @@
+netsuite.usereventscript customscript_oa_cantax_override {
+  scriptid = "customscript_oa_cantax_override"
+  beforeloadfunction = "beforeLoadOAExpenseTaxOverride"
+  beforesubmitfunction = "beforeSubmitOAExpenseTaxOverride"
+  isinactive = false
+  name = "OpenAir: Canadian Tax Override"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_expense_tax_override.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_can_tax_override = {
+        scriptid = "custscript_oa_can_tax_override"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Enable Canadian Expense Tax Override"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        custscript_oa_can_tax_override = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "EXPENSEREPORT"
+        runasrole = netsuite.role.instance.customrole1015.scriptid
+        status = "RELEASED"
+      }
+      customdeploy2 = {
+        scriptid = "customdeploy2"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        custscript_oa_can_tax_override = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|BANKSTATEMENTPARSER|ADVANCEDREVREC|BANKCONNECTIVITY|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "VENDORBILL"
+        runasrole = netsuite.role.instance.customrole1015.scriptid
+        status = "RELEASED"
+      }
+    }
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 2851/features_and_preferences.js]"
+      },
+    ]
+  }
+}

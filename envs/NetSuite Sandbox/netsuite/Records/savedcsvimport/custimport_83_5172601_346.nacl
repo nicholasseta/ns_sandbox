@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_83_5172601_346 {
+  scriptid = "custimport_83_5172601_346"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "JE Exchange Rate Update"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOURNALENTRY"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_journalentry.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOURNALENTRY = {
+        file = "JOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOURNALENTRY = {
+        record = "JOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Invoice Exchange Rate"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

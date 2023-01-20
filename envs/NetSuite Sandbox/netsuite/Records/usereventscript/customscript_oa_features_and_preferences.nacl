@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_oa_features_and_preferences {
+  scriptid = "customscript_oa_features_and_preferences"
+  beforeloadfunction = "getFeaturesOnLoad"
+  description = "Sets the values of the features and preferences on the Features and Preferences custom record for use in the OpenAir integration."
+  isinactive = false
+  name = "OpenAir: Get Features and Preferences"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/features_and_preferences.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = netsuite.customrecord_oa_features_and_preferences.attr.scriptid
+        status = "RELEASED"
+      }
+    }
+  }
+}

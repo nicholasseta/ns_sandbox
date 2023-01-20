@@ -1,0 +1,166 @@
+netsuite.savedcsvimport custimport_191_5172601_686 {
+  scriptid = "custimport_191_5172601_686"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "LV Prepaid Schedule"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOURNALENTRY"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_69_5172601_639.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOURNALENTRY = {
+        file = "JOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOURNALENTRY = {
+        record = "JOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            APPROVED = {
+              field = "APPROVED"
+              value = "T"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              value = "Prepaid Schedule"
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "96"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "7/1/2020"
+            }
+          }
+        }
+      }
+      JOURNALENTRY_LINE@f = {
+        record = "JOURNALENTRY:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account"
+                file = "JOURNALENTRY"
+                type = "EXTERNAL_ID"
+              }
+            }
+            custcol_prepaid_description_je = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_prepaid_description_je.scriptid
+              columnreference = {
+                column = "Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "Debit"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Department"
+                file = "JOURNALENTRY"
+                type = "EXTERNAL_ID"
+              }
+            }
+            ENDDATE = {
+              field = "ENDDATE"
+              columnreference = {
+                column = "Amortization End Date"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor ID"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            SCHEDULE = {
+              field = "SCHEDULE"
+              columnreference = {
+                column = "Prepaid Schedule"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            STARTDATE = {
+              field = "STARTDATE"
+              columnreference = {
+                column = "Amortization Start Date"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

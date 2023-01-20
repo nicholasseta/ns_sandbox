@@ -1,0 +1,165 @@
+netsuite.savedcsvimport custimport_6_5172601_295 {
+  scriptid = "custimport_6_5172601_295"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Item Non Inventory Migration"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYSALEITEM"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYSALEITEM = {
+        file = "NONINVENTORYSALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYSALEITEM = {
+        record = "NONINVENTORYSALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              columnreference = {
+                column = "Default Billing Schedule"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_integration_id = {
+              field = netsuite.itemcustomfield.instance.custitem_integration_id.scriptid
+              columnreference = {
+                column = "External ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_category = {
+              field = netsuite.itemcustomfield.instance.custitem_product_category.scriptid
+              columnreference = {
+                column = "Product Category"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_family = {
+              field = netsuite.itemcustomfield.instance.custitem_product_family.scriptid
+              columnreference = {
+                column = "ProductFamily"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_type = {
+              field = netsuite.itemcustomfield.instance.custitem_product_type.scriptid
+              columnreference = {
+                column = "Product Type"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_proj_service_type = {
+              field = netsuite.itemcustomfield.instance.custitem_proj_service_type.scriptid
+            }
+            DEFERREDREVENUEACCOUNT = {
+              field = "DEFERREDREVENUEACCOUNT"
+              columnreference = {
+                column = "Deferred Revenue Account ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            DISPLAYNAME = {
+              field = "DISPLAYNAME"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            INCOMEACCOUNT = {
+              field = "INCOMEACCOUNT"
+              columnreference = {
+                column = "Income Account ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            ITEMID = {
+              field = "ITEMID"
+              columnreference = {
+                column = "Product Code (new)"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            REVENUERECOGNITIONRULE = {
+              field = "REVENUERECOGNITIONRULE"
+              columnreference = {
+                column = "Rev Rec Rule"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              columnreference = {
+                column = "Rev Forecast Rule"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            SALESDESCRIPTION = {
+              field = "SALESDESCRIPTION"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+            TAXSCHEDULE = {
+              field = "TAXSCHEDULE"
+              columnreference = {
+                column = "Tax Schedule"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

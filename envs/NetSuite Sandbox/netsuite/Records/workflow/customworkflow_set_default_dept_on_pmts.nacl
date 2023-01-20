@@ -1,0 +1,51 @@
+netsuite.workflow customworkflow_set_default_dept_on_pmts {
+  scriptid = "customworkflow_set_default_dept_on_pmts"
+  description = "Default dept on payments to 73 Accounting & Finance"
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Set Default Dept on Payment"
+  recordtypes = "CUSTOMERPAYMENT"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15157 = {
+        scriptid = "workflowstate15157"
+        donotexitworkflow = false
+        name = "Set Dept"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERFIELDEDIT = {
+            triggertype = "AFTERFIELDEDIT"
+            setfieldvalueaction = {
+              workflowaction88207 = {
+                scriptid = "workflowaction88207"
+                clienttriggerfields = "STDBODYACCOUNT|STDBODYCUSTOMER|STDBODYSUBSIDIARY"
+                clienttriggerfieldsissublistfield = false
+                field = "STDBODYDEPARTMENT"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

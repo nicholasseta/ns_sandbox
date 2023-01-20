@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_scg_senddelvendemail_sl {
+  scriptid = "customscript_scg_senddelvendemail_sl"
+  defaultfunction = "is_po_sendDelayedVendEmail"
+  isinactive = false
+  name = "SCG sendEmailToVendor SL"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendEmailToVendor_SL_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_senddelvendemail_sl = {
+        scriptid = "customdeploy_scg_senddelvendemail_sl"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "SCG sendEmailToVendor SL"
+      }
+    }
+  }
+}

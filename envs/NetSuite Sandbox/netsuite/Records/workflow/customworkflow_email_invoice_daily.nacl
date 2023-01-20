@@ -1,0 +1,277 @@
+netsuite.workflow customworkflow_email_invoice_daily {
+  scriptid = "customworkflow_email_invoice_daily"
+  description = "Emails invoices that were created today."
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch914.scriptid
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "EMAIL Invoices - Daily"
+  recordtypes = "INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  recurrence = {
+    daily = {
+      everyxdays = 1
+      startdate = "2020-02-10"
+      starttime = "04:30:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate46 = {
+        scriptid = "workflowstate46"
+        donotexitworkflow = false
+        name = "Set Email on Invoice"
+        positionx = 453
+        positiony = 203
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction158 = {
+                scriptid = "workflowaction158"
+                field = "STDBODYEMAIL"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "{entity.custentity_scg_mult_inv_emails}"
+                valuetype = "FORMULA"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition32 = {
+              scriptid = "workflowtransition32"
+              tostate = netsuite.workflow.instance.customworkflow_email_invoice_daily.workflowstates.workflowstate.workflowstate15139.scriptid
+              initcondition = {
+                formula = "\"Invoice Label Translation\" IN (\"Invoice Sales Label Translation1\")"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Invoice_Label_Translation@s = {
+                      name = "Invoice Label Translation"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_invoice_label_translation.scriptid
+                      index = 0
+                    }
+                    Invoice_Sales_Label_Translation1@s = {
+                      name = "Invoice Sales Label Translation1"
+                      selectrecordtype = netsuite.customrecord_invoice_label.attr.scriptid
+                      value = "[scriptid=customrecord_invoice_label.val_37753144_5172601_sb1_156]"
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 0
+            }
+            workflowtransition28 = {
+              scriptid = "workflowtransition28"
+              tostate = netsuite.workflow.instance.customworkflow_email_invoice_daily.workflowstates.workflowstate.workflowstate42.scriptid
+              initcondition = {
+                formula = "isEmpty(\"E-Document Template\") = 'T'"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    E_Document_Template@bs = {
+                      name = "E-Document Template"
+                      value = "[scriptid=custbody_psg_ei_template]"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+            workflowtransition95 = {
+              scriptid = "workflowtransition95"
+              tostate = netsuite.workflow.instance.customworkflow_email_invoice_daily.workflowstates.workflowstate.workflowstate15155.scriptid
+              initcondition = {
+                formula = "\"Invoice Label Translation\" IN (\"Invoice Sales Label Translation1\")"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Invoice_Label_Translation@s = {
+                      name = "Invoice Label Translation"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_invoice_label_translation.scriptid
+                      index = 0
+                    }
+                    Invoice_Sales_Label_Translation1@s = {
+                      name = "Invoice Sales Label Translation1"
+                      selectrecordtype = netsuite.customrecord_invoice_label.attr.scriptid
+                      value = "[scriptid=customrecord_invoice_label.val_50108793_5172601_984]"
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 2
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate42 = {
+        scriptid = "workflowstate42"
+        donotexitworkflow = false
+        name = "Send Email"
+        positionx = 453
+        positiony = 383
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction157 = {
+                scriptid = "workflowaction157"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                sender = "[ACCOUNT_SPECIFIC_VALUE]"
+                sendertype = "SPECIFIC"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction88296 = {
+                scriptid = "workflowaction88296"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_email_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+      workflowstate15139 = {
+        scriptid = "workflowstate15139"
+        donotexitworkflow = false
+        name = "Send French Email"
+        positionx = 583
+        positiony = 293
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction87941 = {
+                scriptid = "workflowaction87941"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                sender = "[ACCOUNT_SPECIFIC_VALUE]"
+                sendertype = "SPECIFIC"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction88297 = {
+                scriptid = "workflowaction88297"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_email_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 2
+      }
+      workflowstate15155 = {
+        scriptid = "workflowstate15155"
+        donotexitworkflow = false
+        name = "Send German Email"
+        positionx = 323
+        positiony = 293
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction88199 = {
+                scriptid = "workflowaction88199"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                sender = "[ACCOUNT_SPECIFIC_VALUE]"
+                sendertype = "SPECIFIC"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction88298 = {
+                scriptid = "workflowaction88298"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_email_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 3
+      }
+    }
+  }
+}

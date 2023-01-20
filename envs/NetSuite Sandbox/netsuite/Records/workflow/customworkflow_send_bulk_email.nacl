@@ -1,0 +1,110 @@
+netsuite.workflow customworkflow_send_bulk_email {
+  scriptid = "customworkflow_send_bulk_email"
+  initoncreate = false
+  initonvieworupdate = false
+  isinactive = true
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Send Bulk Email - Phishing Notice"
+  recordtypes = "INVOICE"
+  releasestatus = "NOTINITIATING"
+  runasadmin = false
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate37 = {
+        scriptid = "workflowstate37"
+        donotexitworkflow = false
+        name = "Set Email Address"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction151 = {
+                scriptid = "workflowaction151"
+                field = "STDBODYEMAIL"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "{entity.custentity_scg_mult_inv_emails}"
+                valuetype = "FORMULA"
+                initcondition = {
+                  formula = "isEmpty(\"Customer:Multiple Invoice Emails\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Customer_Multiple_Invoice_Emails@fss = {
+                        name = "Customer:Multiple Invoice Emails"
+                        value = "STDBODYCUSTOMER:[scriptid=custentity_scg_mult_inv_emails]"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition26 = {
+              scriptid = "workflowtransition26"
+              tostate = netsuite.workflow.instance.customworkflow_send_bulk_email.workflowstates.workflowstate.workflowstate38.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate38 = {
+        scriptid = "workflowstate38"
+        donotexitworkflow = false
+        name = "Send Email"
+        positionx = 443
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction152 = {
+                scriptid = "workflowaction152"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                sender = "[ACCOUNT_SPECIFIC_VALUE]"
+                sendertype = "SPECIFIC"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+    },
+  ]
+}

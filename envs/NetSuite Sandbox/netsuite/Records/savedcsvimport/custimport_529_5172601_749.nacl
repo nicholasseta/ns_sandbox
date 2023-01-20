@@ -1,0 +1,76 @@
+netsuite.savedcsvimport custimport_529_5172601_749 {
+  scriptid = "custimport_529_5172601_749"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_contractlines.attr.scriptid
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_109_5172601_591.scriptid
+  ignorereadonly = true
+  importname = "SFB Data Fix - Order Product Updates"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = true
+  usemultithread = true
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_contractlines_custrecord_is_cl_create_forecast_plan@uvuuuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_create_forecast_plan.scriptid
+              columnreference = {
+                column = "Create Revenue Event (Trigger Plan)"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_contractlines_custrecord_is_new_ext_id@uvuuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_new_ext_id.scriptid
+              columnreference = {
+                column = "New Source External ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_contractlines_custrecord_is_update_rev_element@uvuuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_update_rev_element.scriptid
+              columnreference = {
+                column = "Update Revenue Element"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Order Product Internal ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

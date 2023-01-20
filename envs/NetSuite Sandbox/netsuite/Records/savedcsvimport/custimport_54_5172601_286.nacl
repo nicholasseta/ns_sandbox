@@ -1,0 +1,206 @@
+netsuite.savedcsvimport custimport_54_5172601_286 {
+  scriptid = "custimport_54_5172601_286"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Global SO Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SALESORDER"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_so_salesorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SALESORDER = {
+        file = "SALESORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SALESORDER = {
+        record = "SALESORDER"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custbody_legacy_transaction_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_legacy_transaction_number.scriptid
+              columnreference = {
+                column = "OrderNumber"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "NetsuiteResellerID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_sales_geo = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sales_geo.scriptid
+              value = "3"
+            }
+            custbody_so_ordertype = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+              columnreference = {
+                column = "OrderType"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "NetsuiteCustomerInternalID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange_rate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "OrderNumber"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "B"
+            }
+            SALESREP = {
+              field = "SALESREP"
+              columnreference = {
+                column = "SalesRep"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "subsidiaryID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Sales_Order_Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      SALESORDER_ITEM@f = {
+        record = "SALESORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "LineAmount"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "Erp"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "RevRecEndDate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "RevRecStartDate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item Internal ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Rate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+netsuite.savedcsvimport custimport_504_5172601_417 {
+  scriptid = "custimport_504_5172601_417"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = false
+  importname = "Payment Method"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_70_5172601_239.scriptid
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_stripe_payment_method = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_stripe_payment_method.scriptid
+              value = "6"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NetSuite ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

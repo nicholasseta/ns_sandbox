@@ -1,0 +1,58 @@
+netsuite.savedcsvimport custimport_408_5172601_223 {
+  scriptid = "custimport_408_5172601_223"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "*Data Migration - Add Subsidiary to Customer"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMERSUBSIDIARYRELATIONSHIP = {
+        file = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMERSUBSIDIARYRELATIONSHIP = {
+        record = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+        fieldmappings = {
+          fieldmapping = {
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

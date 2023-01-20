@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_runss_updcscurrency_ss {
+  scriptid = "customscript_scg_runss_updcscurrency_ss"
+  defaultfunction = "runScheduledScript"
+  isinactive = false
+  name = "SCG_RunSchedScript_UpdCScurrency_SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RunSchedScript_UpdCScurrency_SS_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_runss_updcscurrency_ss = {
+        scriptid = "customdeploy_scg_runss_updcscurrency_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG_RunSchedScript_UpdCScurrency_SS"
+        recurrence = {
+          single = {
+            startdate = "2019-03-14"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+netsuite.emailtemplate custemailtmpl_annual_maint_enhancement {
+  scriptid = "custemailtmpl_annual_maint_enhancement"
+  addcompanyaddress = true
+  addunsubscribelink = true
+  isinactive = true
+  isprivate = false
+  name = "Annual Maintenance Enhancements (Invoice)"
+  recordtype = "TRANSACTION"
+  subject = "\${transaction.subsidiary.namenohierarchy} – Annual Maintenance Enhancements -  \${customer.companyName} Invoice# \${transaction.tranId}"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_annual_maint_enhancement.html")
+}

@@ -1,0 +1,90 @@
+netsuite.savedcsvimport custimport_209_5172601_159 {
+  scriptid = "custimport_209_5172601_159"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Update Invoices"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_70_5172601_239.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "TAX Adjusment"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Start Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "End Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External Id"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

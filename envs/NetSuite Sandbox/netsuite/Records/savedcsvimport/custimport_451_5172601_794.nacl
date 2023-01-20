@@ -1,0 +1,186 @@
+netsuite.savedcsvimport custimport_451_5172601_794 {
+  scriptid = "custimport_451_5172601_794"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "IDL WIP Migration"
+  ignorereadonly = false
+  importname = "IDL WIP Migration"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SALESORDER"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_so_salesorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SALESORDER = {
+        file = "SALESORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SALESORDER = {
+        record = "SALESORDER"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_disable_invoice_email_notice = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_disable_invoice_email_notice.scriptid
+              value = "F"
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "Partner Int ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_sales_geo = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sales_geo.scriptid
+              value = "3"
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "EU Int ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Bill to Int ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Project Name"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              value = "IDL WIP Migration"
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "A"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Name"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "8/1/2021"
+            }
+          }
+        }
+      }
+      SALESORDER_ITEM@f = {
+        record = "SALESORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount Remaining"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              value = "10"
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "item"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Rate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "tax code"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+      SALESORDER__SHIPPINGADDRESS@f = {
+        record = "SALESORDER::SHIPPINGADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Sales Geo"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

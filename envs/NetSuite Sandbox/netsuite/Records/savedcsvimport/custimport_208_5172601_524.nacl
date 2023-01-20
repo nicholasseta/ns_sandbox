@@ -1,0 +1,161 @@
+netsuite.savedcsvimport custimport_208_5172601_524 {
+  scriptid = "custimport_208_5172601_524"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "New Credit Memos"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CREDITMEMO"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_credit_memo.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CREDITMEMO = {
+        file = "CREDITMEMO"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CREDITMEMO = {
+        record = "CREDITMEMO"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              value = "122"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Internal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "77"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO_ITEM@f = {
+        record = "CREDITMEMO:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Deferred Revenue Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev End Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Start Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item Internal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "1627"
+            }
+          }
+        }
+      }
+    }
+  }
+}

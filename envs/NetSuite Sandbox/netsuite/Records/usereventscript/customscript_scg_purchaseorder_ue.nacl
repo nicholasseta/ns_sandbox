@@ -1,0 +1,28 @@
+netsuite.usereventscript customscript_scg_purchaseorder_ue {
+  scriptid = "customscript_scg_purchaseorder_ue"
+  beforeloadfunction = "is_po_beforeLoad"
+  beforesubmitfunction = "is_po_beforeSubmit"
+  isinactive = false
+  name = "SCG PurchaseOrder UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_PurchaseOrder_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_purchaseorder_ue = {
+        scriptid = "customdeploy_scg_purchaseorder_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_scg_sendemailtovendor_wf {
+  scriptid = "customscript_scg_sendemailtovendor_wf"
+  defaultfunction = "is_send_Vendor_Email"
+  isinactive = false
+  name = "SCG_sendEmailToVendor_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendEmailToVendor_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendemailtovendor_wf = {
+        scriptid = "customdeploy_scg_sendemailtovendor_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

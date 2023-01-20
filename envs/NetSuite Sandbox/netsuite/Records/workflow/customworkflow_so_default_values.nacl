@@ -1,0 +1,94 @@
+netsuite.workflow customworkflow_so_default_values {
+  scriptid = "customworkflow_so_default_values"
+  initcontexts = "USERINTERFACE"
+  initoncreate = false
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "PO Required"
+  recordtypes = "INVOICE|SALESORDER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    formula = "isChecked(\"Customer:PO Required\") = 'T' AND isEmpty(\"PO/Check #\") = 'T'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Customer_PO_Required@fs = {
+          name = "Customer:PO Required"
+          value = "STDBODYCUSTOMER:[scriptid=custentity_po_required]"
+          index = 0
+        }
+        PO_Check__@dsn = {
+          name = "PO/Check #"
+          value = "STDBODYOTHERREFNUM"
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate30 = {
+        scriptid = "workflowstate30"
+        donotexitworkflow = true
+        name = "On View or Edit"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFOREUSERSUBMIT = {
+            triggertype = "BEFOREUSERSUBMIT"
+            confirmaction = {
+              workflowaction134 = {
+                scriptid = "workflowaction134"
+                isinactive = false
+                messagetext = "A purchase order is required for this customer. Click Cancel to enter the PO. Click OK to continue saving this record."
+                initcondition = {
+                  formula = "isChecked(\"Customer:PO Required\") = 'T' AND isEmpty(\"PO/Check #\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Customer_PO_Required@fs = {
+                        name = "Customer:PO Required"
+                        value = "STDBODYCUSTOMER:[scriptid=custentity_po_required]"
+                        index = 0
+                      }
+                      PO_Check__@dsn = {
+                        name = "PO/Check #"
+                        value = "STDBODYOTHERREFNUM"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowstatecustomfields = {
+          workflowstatecustomfield = {
+            custwfstate_approved = {
+              scriptid = "custwfstate_approved"
+              applyformatting = false
+              defaultchecked = false
+              displaytype = "NORMAL"
+              fieldtype = "CHECKBOX"
+              label = "Approved"
+              storevalue = true
+              index = 0
+            }
+          }
+        }
+        index = 0
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.entitycustomfield.instance.custentity_po_required.scriptid
+    },
+  ]
+}

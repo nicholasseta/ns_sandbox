@@ -1,0 +1,85 @@
+netsuite.suitelet customscript_oa_sso_admin {
+  scriptid = "customscript_oa_sso_admin"
+  defaultfunction = "buildSuiteletOAAdministration"
+  isinactive = false
+  name = "OpenAir: Administration module"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = true
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_single_sign_on.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_suitesignon_record = {
+        scriptid = "custscript_oa_suitesignon_record"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "This preference stores the SuiteSignOn record to be used for OpenAir single sign-on. It is required in order for the single sign-on suitelets to function."
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        help = "This preference stores the SuiteSignOn record to be used for OpenAir single sign-on. It is required in order for the single sign-on suitelets to function. To verify your SuiteSignOn record ID, navigate to: Setup &gt; Integration &gt; SuiteSignOn."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir SuiteSignOn record ID"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+      custscript_oa_content_height = {
+        scriptid = "custscript_oa_content_height"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "570px"
+        description = "This preference stores the height of the iFrame used in the OpenAir single sign-on suitelet. It defaults to a value of 570px, however it can be optionally overridden on a per-account basis."
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        help = "This preference stores the height of the iFrame used in the OpenAir single sign-on suitelet. It defaults to a value of 570px, however it can be optionally overridden on a per-account basis."
+        isformula = false
+        ismandatory = false
+        label = "Suitelet content height (px)"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 1
+      }
+      custscript_oa_content_width = {
+        scriptid = "custscript_oa_content_width"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        defaultvalue = "1245px"
+        description = "This preference stores the width of the iFrame used in the OpenAir single sign-on suitelet. It defaults to a value of 1245px, however it can be optionally overridden on a per-account basis."
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        help = "This preference stores the width of the iFrame used in the OpenAir single sign-on suitelet. It defaults to a value of 1245px, however it can be optionally overridden on a per-account basis."
+        isformula = false
+        ismandatory = false
+        label = "Suitelet content width (px)"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 2
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_sso_admin_deploy = {
+        scriptid = "customdeploy_oa_sso_admin_deploy"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "ERROR"
+        status = "RELEASED"
+        title = "OpenAir: Administration module deployment"
+      }
+    }
+  }
+}

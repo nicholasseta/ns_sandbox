@@ -1,0 +1,32 @@
+netsuite.transactioncolumncustomfield custcol_print_item {
+  scriptid = "custcol_print_item"
+  accesslevel = "2"
+  applyformatting = false
+  colexpense = false
+  colexpensereport = false
+  colgrouponinvoices = false
+  colitemfulfillment = false
+  colitemfulfillmentorder = "F"
+  coljournal = false
+  colkititem = false
+  colpackingslip = false
+  colperiodendjournal = false
+  colpickingticket = false
+  colprintflag = false
+  colpurchase = false
+  colreturnform = false
+  colsale = true
+  colstorewithgroups = false
+  defaultchecked = false
+  defaultvalue = "case when {custbody_expand_licenses_on_invoice.id} !='T' AND {custbody_so_ordertype}='Renewal' AND {custcol_ava_incomeaccount} IN  ('Recurring Subscription (On-Prem Term License) Revenue','SaaS Revenue')   THEN 'Software Subscription Renewal' WHEN {subsidiary.id}='10' THEN {custcol_item_display_name} WHEN {custcol_is_commission_item} ='T' then 'Commission' WHEN {itemtype} ='Description' THEN '' ELSE {item} END"
+  description = "Use in printing summary invoice"
+  displaytype = "LOCKED"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  isformula = true
+  ismandatory = false
+  label = "Print Item"
+  searchlevel = "2"
+  showhierarchy = false
+  storevalue = false
+}

@@ -1,0 +1,3436 @@
+netsuite.workflow customworkflow_is_po_apprvl_wf {
+  scriptid = "customworkflow_is_po_apprvl_wf"
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = true
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "IS Purchase Order Approval Workflow"
+  recordtypes = "PURCHASEORDER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowcustomfields = {
+    workflowcustomfield = {
+      custworkflow_po_submitter_2 = {
+        scriptid = "custworkflow_po_submitter_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Submitter"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 0
+      }
+      custworkflow_actual_apprvr_rejctr_2 = {
+        scriptid = "custworkflow_actual_apprvr_rejctr_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Actual Approver/Rejector"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 1
+      }
+      custworkflow_next_approver_track_2 = {
+        scriptid = "custworkflow_next_approver_track_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Next Approver (Tracking)"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 2
+      }
+      custworkflow7_2 = {
+        scriptid = "custworkflow7_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        label = "Missing Dept Approvers"
+        storevalue = true
+        index = 3
+      }
+      custworkflow8_2 = {
+        scriptid = "custworkflow8_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "DATE"
+        label = "Auto Reject Date"
+        storevalue = true
+        index = 4
+      }
+      custworkflow9_2 = {
+        scriptid = "custworkflow9_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "DATE"
+        label = "Auto Approve Date"
+        storevalue = true
+        index = 5
+      }
+      custworkflow10_2 = {
+        scriptid = "custworkflow10_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Dept Next Approver"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 6
+      }
+      custworkflow11_2 = {
+        scriptid = "custworkflow11_2"
+        applyformatting = true
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        label = "Dept Approved Number"
+        storevalue = true
+        index = 7
+      }
+      custworkflow12_2 = {
+        scriptid = "custworkflow12_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Specific Next Approver"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 8
+      }
+      custworkflow13_2 = {
+        scriptid = "custworkflow13_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "DATE"
+        label = "Reminder Date"
+        storevalue = true
+        index = 9
+      }
+      custworkflow_scg_isintercompany = {
+        scriptid = "custworkflow_scg_isintercompany"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        label = "Is Intercompany"
+        storevalue = true
+        index = 10
+      }
+      custworkflow3 = {
+        scriptid = "custworkflow3"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        label = "Inactive Approvers"
+        storevalue = true
+        index = 11
+      }
+      custworkflow4 = {
+        scriptid = "custworkflow4"
+        applyformatting = true
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "INTEGER"
+        label = "WF States to Bypass"
+        storevalue = true
+        index = 12
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15145 = {
+        scriptid = "workflowstate15145"
+        donotexitworkflow = false
+        name = "Finance - Procurement"
+        positionx = 153
+        positiony = -137
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88019 = {
+                scriptid = "workflowaction88019"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_43921511_5172601_sb1_380.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88029 = {
+                scriptid = "workflowaction88029"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88213 = {
+                scriptid = "workflowaction88213"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetext = "0"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setdisplaytypeaction = {
+              workflowaction88030 = {
+                scriptid = "workflowaction88030"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88031 = {
+                scriptid = "workflowaction88031"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88032 = {
+                scriptid = "workflowaction88032"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 1
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            returnusererroraction = {
+              workflowaction88173 = {
+                scriptid = "workflowaction88173"
+                errortext = "Unable to save because the Region field on the Subsidiary Record is empty.  Please update the Region field on the subsidiary record before resubmitting this PO."
+                isinactive = false
+                initcondition = {
+                  formula = "isEmpty(\"Subsidiary (Main):Region (old)\") = 'T' AND \"Total\" > 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main__Region__old_@sjkfsjk = {
+                        name = "Subsidiary (Main):Region (old)"
+                        value = "STDBODYSUBSIDIARY:[scriptid=custrecord_sub_region_old]"
+                        index = 0
+                      }
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction88097 = {
+                scriptid = "workflowaction88097"
+                errortext = "Unable to save due to missing Department Approver(s).  Please validate that the selected Responsible Department for Approval has  Approvers configured for all Regional Director, VP/SVP/GM, and ELT Member fields."
+                isinactive = false
+                initcondition = {
+                  formula = "isChecked(\"Workflow:Missing Dept Approvers\") = 'T' AND \"Total\" > 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Workflow_Missing_Dept_Approvers@fss = {
+                        name = "Workflow:Missing Dept Approvers"
+                        value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow7_2.scriptid
+                        index = 0
+                      }
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction88212 = {
+                scriptid = "workflowaction88212"
+                errortext = "Unable to save due to Inactive Approver(s).  Please update any inactive employees designated as approvers in the  selected Responsible Department for Approval record, as well as in the Purchase Order Approvers custom record."
+                isinactive = false
+                initcondition = {
+                  formula = "isChecked(\"Workflow:Inactive Approvers\") = 'T' AND \"Total\" > 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Workflow_Inactive_Approvers@fs = {
+                        name = "Workflow:Inactive Approvers"
+                        value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow3.scriptid
+                        index = 0
+                      }
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+            }
+            customaction = {
+              workflowaction88099 = {
+                scriptid = "workflowaction88099"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow7_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_chkmissdeptapps_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88211 = {
+                scriptid = "workflowaction88211"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow3.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_chkinactiveapprvrs_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88204 = {
+                scriptid = "workflowaction88204"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_scg_isintercompany.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_isintercompanyvendor_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction88205 = {
+                scriptid = "workflowaction88205"
+                field = netsuite.transactionbodycustomfield.instance.custbody_is_intercompany.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_scg_isintercompany.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition48 = {
+              scriptid = "workflowtransition48"
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.scriptid
+              triggertype = "AFTERSUBMIT"
+              initcondition = {
+                formula = "\"Total\" > 1000.00 AND isChecked(\"Is Intercompany?\") = 'F'"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Is_Intercompany_@sa = {
+                      name = "Is Intercompany?"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_is_intercompany.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 0
+            }
+            workflowtransition88 = {
+              scriptid = "workflowtransition88"
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15151.scriptid
+              triggertype = "AFTERSUBMIT"
+              initcondition = {
+                formula = "\"Total\" <= 1000.00 OR isChecked(\"Is Intercompany?\") = 'T'"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Is_Intercompany_@sa = {
+                      name = "Is Intercompany?"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_is_intercompany.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate_director_approval = {
+        scriptid = "workflowstate_director_approval"
+        donotexitworkflow = false
+        name = "Director Approval"
+        positionx = 153
+        positiony = 33
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88020 = {
+                scriptid = "workflowaction88020"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_43921512_5172601_sb1_904.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88036 = {
+                scriptid = "workflowaction88036"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "1"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88172 = {
+                scriptid = "workflowaction88172"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88039 = {
+                scriptid = "workflowaction88039"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_reject_reason_po.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+              workflowaction88083 = {
+                scriptid = "workflowaction88083"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 4
+              }
+              workflowaction88101 = {
+                scriptid = "workflowaction88101"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_auto_reject_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow8_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 5
+              }
+              workflowaction88175 = {
+                scriptid = "workflowaction88175"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_unappr_po_rem_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 6
+              }
+            }
+            customaction = {
+              workflowaction88171 = {
+                scriptid = "workflowaction88171"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_getnextapprover_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88189 = {
+                scriptid = "workflowaction88189"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpendapprvlemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88100 = {
+                scriptid = "workflowaction88100"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow8_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcautorejectdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88174 = {
+                scriptid = "workflowaction88174"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcreminderdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+              workflowaction88214 = {
+                scriptid = "workflowaction88214"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_wfstatebypasscheck_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 4
+              }
+              workflowaction88216 = {
+                scriptid = "workflowaction88216"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 5
+              }
+            }
+            sendemailaction = {
+              workflowaction88038 = {
+                scriptid = "workflowaction88038"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88088 = {
+                scriptid = "workflowaction88088"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_director_approve = {
+                scriptid = "workflowaction_director_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_director_reject = {
+                scriptid = "workflowaction_director_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88042 = {
+                scriptid = "workflowaction88042"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction88043 = {
+                scriptid = "workflowaction88043"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88044 = {
+                scriptid = "workflowaction88044"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition57 = {
+              scriptid = "workflowtransition57"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_reject.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition80 = {
+              scriptid = "workflowtransition80"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_vp_svp_gm_approval.scriptid
+              initcondition = {
+                formula = "\"Total\" > 5000.00 AND \"Workflow:WF States to Bypass\" = 0"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+            workflowtransition89 = {
+              scriptid = "workflowtransition89"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" <= 5000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 2
+            }
+            workflowtransition96 = {
+              scriptid = "workflowtransition96"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_elt_member_approval.scriptid
+              initcondition = {
+                formula = "\"Total\" > 15000.00 AND \"Workflow:WF States to Bypass\" = 1"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 3
+            }
+            workflowtransition97 = {
+              scriptid = "workflowtransition97"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" <= 15000.00 AND \"Workflow:WF States to Bypass\" = 1"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 4
+            }
+            workflowtransition98 = {
+              scriptid = "workflowtransition98"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_approver.scriptid
+              initcondition = {
+                formula = "\"Total\" >= 20000.00 AND \"Workflow:WF States to Bypass\" = 2"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 5
+            }
+            workflowtransition99 = {
+              scriptid = "workflowtransition99"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_director_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" < 20000.00 AND \"Workflow:WF States to Bypass\" = 2"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 6
+            }
+          }
+        }
+        index = 1
+      }
+      workflowstate_finance_procurement_2 = {
+        scriptid = "workflowstate_finance_procurement_2"
+        donotexitworkflow = false
+        name = "Finance - Procurement 2"
+        positionx = 693
+        positiony = 183
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88023 = {
+                scriptid = "workflowaction88023"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_45659043_5172601_sb1_324.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88093 = {
+                scriptid = "workflowaction88093"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88085 = {
+                scriptid = "workflowaction88085"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            sendemailaction = {
+              workflowaction88073 = {
+                scriptid = "workflowaction88073"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval and Verification.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please&nbsp;contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            customaction = {
+              workflowaction88123 = {
+                scriptid = "workflowaction88123"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_emailfinanceprocurmt_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88222 = {
+                scriptid = "workflowaction88222"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88090 = {
+                scriptid = "workflowaction88090"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_finance_2_approve = {
+                scriptid = "workflowaction_finance_2_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_finance_2_reject = {
+                scriptid = "workflowaction_finance_2_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88058 = {
+                scriptid = "workflowaction88058"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88059 = {
+                scriptid = "workflowaction88059"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88060 = {
+                scriptid = "workflowaction88060"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition59 = {
+              scriptid = "workflowtransition59"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_finance_2_reject.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition87 = {
+              scriptid = "workflowtransition87"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_finance_2_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15151.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 1
+            }
+          }
+        }
+        index = 2
+      }
+      workflowstate_finance_approver = {
+        scriptid = "workflowstate_finance_approver"
+        donotexitworkflow = false
+        name = "Head of FP&A Approval"
+        positionx = 433
+        positiony = 363
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88025 = {
+                scriptid = "workflowaction88025"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_43921515_5172601_sb1_683.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88126 = {
+                scriptid = "workflowaction88126"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88086 = {
+                scriptid = "workflowaction88086"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88132 = {
+                scriptid = "workflowaction88132"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_unappr_po_rem_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            customaction = {
+              workflowaction88125 = {
+                scriptid = "workflowaction88125"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_getnextapprover_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88192 = {
+                scriptid = "workflowaction88192"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpendapprvlemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88131 = {
+                scriptid = "workflowaction88131"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcreminderdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88219 = {
+                scriptid = "workflowaction88219"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            sendemailaction = {
+              workflowaction88074 = {
+                scriptid = "workflowaction88074"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please&nbsp;contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88091 = {
+                scriptid = "workflowaction88091"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_final_finance_approve = {
+                scriptid = "workflowaction_final_finance_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_final_finance_reject = {
+                scriptid = "workflowaction_final_finance_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88061 = {
+                scriptid = "workflowaction88061"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88062 = {
+                scriptid = "workflowaction88062"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88063 = {
+                scriptid = "workflowaction88063"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88237 = {
+                scriptid = "workflowaction88237"
+                contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+                displaytype = "NORMAL"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 3
+              }
+              workflowaction88238 = {
+                scriptid = "workflowaction88238"
+                contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+                displaytype = "NORMAL"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 4
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition60 = {
+              scriptid = "workflowtransition60"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_approver.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_final_finance_reject.scriptid
+              contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition83 = {
+              scriptid = "workflowtransition83"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_approver.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_final_finance_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_cfo_approval.scriptid
+              initcondition = {
+                formula = "\"Total\" >= 50000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+            workflowtransition92 = {
+              scriptid = "workflowtransition92"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_approver.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_final_finance_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" < 50000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 2
+            }
+          }
+        }
+        index = 3
+      }
+      workflowstate_cfo_approval = {
+        scriptid = "workflowstate_cfo_approval"
+        donotexitworkflow = false
+        name = "CFO Approval"
+        positionx = 693
+        positiony = 363
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88026 = {
+                scriptid = "workflowaction88026"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_45659040_5172601_sb1_494.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88128 = {
+                scriptid = "workflowaction88128"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88087 = {
+                scriptid = "workflowaction88087"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88134 = {
+                scriptid = "workflowaction88134"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_unappr_po_rem_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            customaction = {
+              workflowaction88127 = {
+                scriptid = "workflowaction88127"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_getnextapprover_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88193 = {
+                scriptid = "workflowaction88193"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpendapprvlemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88133 = {
+                scriptid = "workflowaction88133"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcreminderdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88220 = {
+                scriptid = "workflowaction88220"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            sendemailaction = {
+              workflowaction88075 = {
+                scriptid = "workflowaction88075"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please&nbsp;contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88092 = {
+                scriptid = "workflowaction88092"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_cfo_approve = {
+                scriptid = "workflowaction_cfo_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_cfo_reject = {
+                scriptid = "workflowaction_cfo_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88064 = {
+                scriptid = "workflowaction88064"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88065 = {
+                scriptid = "workflowaction88065"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88066 = {
+                scriptid = "workflowaction88066"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition61 = {
+              scriptid = "workflowtransition61"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_cfo_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_cfo_reject.scriptid
+              contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition84 = {
+              scriptid = "workflowtransition84"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_cfo_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_cfo_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_ceo_approval.scriptid
+              initcondition = {
+                formula = "\"Total\" >= 100000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+            workflowtransition93 = {
+              scriptid = "workflowtransition93"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_cfo_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_cfo_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" < 100000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 2
+            }
+          }
+        }
+        index = 4
+      }
+      workflowstate15151 = {
+        scriptid = "workflowstate15151"
+        donotexitworkflow = true
+        name = "Approved"
+        positionx = 1043
+        positiony = -147
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88024 = {
+                scriptid = "workflowaction88024"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_45681029_5172601_sb1_246.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88080 = {
+                scriptid = "workflowaction88080"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "2"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88188 = {
+                scriptid = "workflowaction88188"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Total\" <= 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+            }
+            sendemailaction = {
+              workflowaction88076 = {
+                scriptid = "workflowaction88076"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {employee.firstName} {employee.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;has been Approved.<br><br>Please contact me if you have any questions.<br><br>{nextapprover.firstName} {nextapprover.lastName}<br>{nextapprover.email}"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYEMPLOYEE"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYNEXTAPPROVER"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} has been Approved"
+                usetemplate = false
+                initcondition = {
+                  formula = "\"Total\" > 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction88077 = {
+                scriptid = "workflowaction88077"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {custworkflow_submitter_2.firstName} {custworkflow_submitter_2.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;has been Approved.<br><br>Please contact me if you have any questions.<br><br>{nextapprover.firstName} {nextapprover.lastName}<br>{nextapprover.email}"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = true
+                recipientfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYNEXTAPPROVER"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} has been Approved"
+                usetemplate = false
+                initcondition = {
+                  formula = "\"Workflow:Submitter\" NOT IN (\"Employee\") AND \"Total\" > 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Workflow_Submitter@f = {
+                        name = "Workflow:Submitter"
+                        value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                        index = 0
+                      }
+                      Employee = {
+                        name = "Employee"
+                        value = "STDBODYEMPLOYEE"
+                        index = 1
+                      }
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            customaction = {
+              workflowaction88197 = {
+                scriptid = "workflowaction88197"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendapprovalemail_wf.scriptid
+                initcondition = {
+                  formula = "\"Total\" > 1000.00"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Total = {
+                        name = "Total"
+                        value = "STDBODYTOTAL"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                parametersettings = {
+                  parametersetting = {
+                    customscript_scg_sendapprovalemail_wf_custscript_scg_wf_submitter@uuuvuuu = {
+                      targetparameter = netsuite.workflowactionscript.instance.customscript_scg_sendapprovalemail_wf.scriptcustomfields.scriptcustomfield.custscript_scg_wf_submitter.scriptid
+                      valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                      index = 0
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction88200 = {
+                scriptid = "workflowaction88200"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendemailtovendor_wf.scriptid
+                initcondition = {
+                  formula = "isChecked(\"Delay Email to Vendor\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Delay_Email_to_Vendor@s = {
+                        name = "Delay Email to Vendor"
+                        value = netsuite.transactionbodycustomfield.instance.custbody_delay_email_to_vendor.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setdisplaytypeaction = {
+              workflowaction88067 = {
+                scriptid = "workflowaction88067"
+                displaytype = "HIDDEN"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88068 = {
+                scriptid = "workflowaction88068"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88069 = {
+                scriptid = "workflowaction88069"
+                displaytype = "DISABLED"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88239 = {
+                scriptid = "workflowaction88239"
+                contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+                displaytype = "NORMAL"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 3
+              }
+            }
+            setdisplaylabelaction = {
+              workflowaction88124 = {
+                scriptid = "workflowaction88124"
+                displaylabel = "Approved By"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        index = 5
+      }
+      workflowstate15152 = {
+        scriptid = "workflowstate15152"
+        donotexitworkflow = false
+        name = "Rejected"
+        positionx = 1043
+        positiony = -37
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88027 = {
+                scriptid = "workflowaction88027"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_45840326_5172601_sb1_704.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88081 = {
+                scriptid = "workflowaction88081"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "3"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            sendemailaction = {
+              workflowaction88078 = {
+                scriptid = "workflowaction88078"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {employee.firstName} {employee.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;has been Rejected.<br><br>Reason for Rejection: {custbody_scg_reject_reason_po}<br>&nbsp;<br>Please contact me if you have any questions.<br><br>{nextapprover.firstName} {nextapprover.lastName}<br>{nextapprover.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYEMPLOYEE"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYNEXTAPPROVER"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} has been Rejected"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88079 = {
+                scriptid = "workflowaction88079"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {custworkflow_po_submitter_2.firstName} {custworkflow_po_submitter_2.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currrency} {total}</b>&nbsp;has been Rejected.<br><br>Reason for Rejection: {custbody_scg_reject_reason_po}<br>&nbsp;<br>Please contact me if you have any questions.<br><br>{nextapprover.firstName} {nextapprover.lastName}<br>{nextapprover.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYNEXTAPPROVER"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} has been Rejected"
+                usetemplate = false
+                initcondition = {
+                  formula = "\"Workflow:Submitter\" NOT IN (\"Employee\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Workflow_Submitter@f = {
+                        name = "Workflow:Submitter"
+                        value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                        index = 0
+                      }
+                      Employee = {
+                        name = "Employee"
+                        value = "STDBODYEMPLOYEE"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            customaction = {
+              workflowaction88198 = {
+                scriptid = "workflowaction88198"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendrejectionemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                parametersettings = {
+                  parametersetting = {
+                    customscript_scg_sendrejectionemail_wf_custscript_scg_wf_submitter_2@uuuvuuuu = {
+                      targetparameter = netsuite.workflowactionscript.instance.customscript_scg_sendrejectionemail_wf.scriptcustomfields.scriptcustomfield.custscript_scg_wf_submitter_2.scriptid
+                      valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                      index = 0
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction88053 = {
+                scriptid = "workflowaction88053"
+                checkconditionbeforeexecution = true
+                eventtypes = "VIEW"
+                isinactive = false
+                label = "Resubmit for Approval"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "\"User Role\" IN (\"Role1\") OR \"User\" IN (\"Workflow:Submitter\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 2
+                      }
+                      Workflow_Submitter@f = {
+                        name = "Workflow:Submitter"
+                        value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_po_submitter_2.scriptid
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_close_po = {
+                scriptid = "workflowaction_close_po"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Close PO"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88070 = {
+                scriptid = "workflowaction88070"
+                displaytype = "HIDDEN"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88071 = {
+                scriptid = "workflowaction88071"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88072 = {
+                scriptid = "workflowaction88072"
+                displaytype = "DISABLED"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            setdisplaylabelaction = {
+              workflowaction88104 = {
+                scriptid = "workflowaction88104"
+                displaylabel = "Rejected By"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition66 = {
+              scriptid = "workflowtransition66"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.workflowactions.BEFORELOAD.addbuttonaction.workflowaction88053.scriptid
+              contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15154.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition102 = {
+              scriptid = "workflowtransition102"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_close_po.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15160.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 1
+            }
+          }
+        }
+        index = 6
+      }
+      workflowstate15154 = {
+        scriptid = "workflowstate15154"
+        donotexitworkflow = false
+        name = "Supervisor = Null"
+        positionx = 423
+        positiony = 93
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88054 = {
+                scriptid = "workflowaction88054"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition67 = {
+              scriptid = "workflowtransition67"
+              contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_director_approval.scriptid
+              triggertype = "ONENTRY"
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+          }
+        }
+        index = 7
+      }
+      workflowstate_vp_svp_gm_approval = {
+        scriptid = "workflowstate_vp_svp_gm_approval"
+        donotexitworkflow = false
+        name = "VP/SVP/GM Approval"
+        positionx = 203
+        positiony = 273
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88136 = {
+                scriptid = "workflowaction88136"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_43921513_5172601_sb1_826.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88179 = {
+                scriptid = "workflowaction88179"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88160 = {
+                scriptid = "workflowaction88160"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88185 = {
+                scriptid = "workflowaction88185"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_unappr_po_rem_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            customaction = {
+              workflowaction88176 = {
+                scriptid = "workflowaction88176"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_getnextapprover_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88190 = {
+                scriptid = "workflowaction88190"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpendapprvlemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88182 = {
+                scriptid = "workflowaction88182"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcreminderdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88215 = {
+                scriptid = "workflowaction88215"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_wfstatebypasscheck_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+              workflowaction88217 = {
+                scriptid = "workflowaction88217"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 4
+              }
+            }
+            sendemailaction = {
+              workflowaction88168 = {
+                scriptid = "workflowaction88168"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88164 = {
+                scriptid = "workflowaction88164"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_vp_svp_gm_approve = {
+                scriptid = "workflowaction_vp_svp_gm_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_vp_svp_gm_reject = {
+                scriptid = "workflowaction_vp_svp_gm_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88148 = {
+                scriptid = "workflowaction88148"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88152 = {
+                scriptid = "workflowaction88152"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88153 = {
+                scriptid = "workflowaction88153"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88236 = {
+                scriptid = "workflowaction88236"
+                contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+                displaytype = "NORMAL"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 3
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition76 = {
+              scriptid = "workflowtransition76"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_vp_svp_gm_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_vp_svp_gm_reject.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition81 = {
+              scriptid = "workflowtransition81"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_vp_svp_gm_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_vp_svp_gm_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_elt_member_approval.scriptid
+              initcondition = {
+                formula = "\"Total\" > 15000.00 AND \"Workflow:WF States to Bypass\" = 0"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+            workflowtransition90 = {
+              scriptid = "workflowtransition90"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_vp_svp_gm_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_vp_svp_gm_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" <= 15000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 2
+            }
+            workflowtransition100 = {
+              scriptid = "workflowtransition100"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_vp_svp_gm_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_vp_svp_gm_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_approver.scriptid
+              initcondition = {
+                formula = "\"Total\" >= 20000.00 AND \"Workflow:WF States to Bypass\" = 1"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 3
+            }
+            workflowtransition101 = {
+              scriptid = "workflowtransition101"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_vp_svp_gm_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_vp_svp_gm_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" < 20000.00 AND \"Workflow:WF States to Bypass\" = 1"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                    Workflow_WF_States_to_Bypass@fsss = {
+                      name = "Workflow:WF States to Bypass"
+                      value = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow4.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 4
+            }
+          }
+        }
+        index = 8
+      }
+      workflowstate_elt_member_approval = {
+        scriptid = "workflowstate_elt_member_approval"
+        donotexitworkflow = false
+        name = "ELT Member Approval"
+        positionx = 203
+        positiony = 363
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88137 = {
+                scriptid = "workflowaction88137"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_43921514_5172601_sb1_615.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88180 = {
+                scriptid = "workflowaction88180"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88161 = {
+                scriptid = "workflowaction88161"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88186 = {
+                scriptid = "workflowaction88186"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_unappr_po_rem_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            customaction = {
+              workflowaction88177 = {
+                scriptid = "workflowaction88177"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_getnextapprover_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88191 = {
+                scriptid = "workflowaction88191"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpendapprvlemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88183 = {
+                scriptid = "workflowaction88183"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcreminderdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88218 = {
+                scriptid = "workflowaction88218"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            sendemailaction = {
+              workflowaction88169 = {
+                scriptid = "workflowaction88169"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88165 = {
+                scriptid = "workflowaction88165"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_elt_member_approve = {
+                scriptid = "workflowaction_elt_member_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_elt_member_reject = {
+                scriptid = "workflowaction_elt_member_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88149 = {
+                scriptid = "workflowaction88149"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88154 = {
+                scriptid = "workflowaction88154"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88155 = {
+                scriptid = "workflowaction88155"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition77 = {
+              scriptid = "workflowtransition77"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_elt_member_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_elt_member_reject.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition82 = {
+              scriptid = "workflowtransition82"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_elt_member_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_elt_member_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_approver.scriptid
+              initcondition = {
+                formula = "\"Total\" >= 20000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+            workflowtransition91 = {
+              scriptid = "workflowtransition91"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_elt_member_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_elt_member_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                formula = "\"Total\" < 20000.00"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Total = {
+                      name = "Total"
+                      value = "STDBODYTOTAL"
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 2
+            }
+          }
+        }
+        index = 9
+      }
+      workflowstate_ceo_approval = {
+        scriptid = "workflowstate_ceo_approval"
+        donotexitworkflow = false
+        name = "CEO Approval"
+        positionx = 693
+        positiony = 273
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88138 = {
+                scriptid = "workflowaction88138"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_45659041_5172601_sb1_392.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88181 = {
+                scriptid = "workflowaction88181"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88162 = {
+                scriptid = "workflowaction88162"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_next_approver_track_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88187 = {
+                scriptid = "workflowaction88187"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_unappr_po_rem_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            customaction = {
+              workflowaction88178 = {
+                scriptid = "workflowaction88178"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow12_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_getnextapprover_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88194 = {
+                scriptid = "workflowaction88194"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpendapprvlemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88184 = {
+                scriptid = "workflowaction88184"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow13_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_calcreminderdate_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction88221 = {
+                scriptid = "workflowaction88221"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_sendpotrackingemail_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+            }
+            sendemailaction = {
+              workflowaction88170 = {
+                scriptid = "workflowaction88170"
+                attachmenttype = "SPECIFIC"
+                body = "Hello {nextapprover.firstName} {nextapprover.lastName},<br><br>Purchase Order {tranid} for&nbsp;<b>{currency} {total}</b>&nbsp;requires your Approval.&nbsp;<br><br>Employee: {employee.firstName} {employee.lastName}<br><br><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=approve&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Approve</a></p><p><a href=\"https://5172601-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=753&deploy=1&compid=5172601_SB1&h=b920f4f6244cffd267f4&action=reject&poid={id}&porectype=purchaseorder&approver={nextapprover.id}&cstate={custbody_scg_po_appvl_current_state.id}\">Click to Reject</a><br></p><br><br>Please contact me if you have any questions.<br><br>{employee.firstName} {employee.lastName}<br>{employee.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = true
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYEMPLOYEE"
+                sendertype = "FIELD"
+                subject = "Purchase Order {tranid} Requires Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          ONEXIT = {
+            triggertype = "ONEXIT"
+            setfieldvalueaction = {
+              workflowaction88166 = {
+                scriptid = "workflowaction88166"
+                field = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowcustomfields.workflowcustomfield.custworkflow_actual_apprvr_rejctr_2.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction_ceo_approve = {
+                scriptid = "workflowaction_ceo_approve"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction_ceo_reject = {
+                scriptid = "workflowaction_ceo_reject"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction88150 = {
+                scriptid = "workflowaction88150"
+                displaytype = "DISABLED"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88156 = {
+                scriptid = "workflowaction88156"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88157 = {
+                scriptid = "workflowaction88157"
+                displaytype = "HIDDEN"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition78 = {
+              scriptid = "workflowtransition78"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_ceo_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_ceo_reject.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate15152.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition94 = {
+              scriptid = "workflowtransition94"
+              buttonaction = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_ceo_approval.workflowactions.BEFORELOAD.addbuttonaction.workflowaction_ceo_approve.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_is_po_apprvl_wf.workflowstates.workflowstate.workflowstate_finance_procurement_2.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 1
+            }
+          }
+        }
+        index = 10
+      }
+      workflowstate15160 = {
+        scriptid = "workflowstate15160"
+        donotexitworkflow = true
+        name = "Closed"
+        positionx = 1033
+        positiony = 583
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88225 = {
+                scriptid = "workflowaction88225"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_appvl_current_state.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = netsuite.customlist.instance.customlist_po_apprvl_crrnt_state.customvalues.customvalue.val_55953156_5172601_211.scriptid
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88226 = {
+                scriptid = "workflowaction88226"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "2"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setdisplaytypeaction = {
+              workflowaction88227 = {
+                scriptid = "workflowaction88227"
+                displaytype = "HIDDEN"
+                field = "STDBODYNEXTAPPROVER"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88228 = {
+                scriptid = "workflowaction88228"
+                displaytype = "HIDDEN"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction88229 = {
+                scriptid = "workflowaction88229"
+                displaytype = "DISABLED"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+            }
+            setdisplaylabelaction = {
+              workflowaction88230 = {
+                scriptid = "workflowaction88230"
+                displaylabel = "Rejected By"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_po_button_appvr.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            lockrecordaction = {
+              workflowaction88231 = {
+                scriptid = "workflowaction88231"
+                isinactive = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        index = 11
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.othercustomfield.instance.custrecord_sub_region_old.scriptid
+    },
+  ]
+}

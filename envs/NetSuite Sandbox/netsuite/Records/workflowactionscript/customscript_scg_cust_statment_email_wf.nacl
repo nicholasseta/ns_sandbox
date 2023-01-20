@@ -1,0 +1,63 @@
+netsuite.workflowactionscript customscript_scg_cust_statment_email_wf {
+  scriptid = "customscript_scg_cust_statment_email_wf"
+  defaultfunction = "is_cus_stmnt_email_wfAction"
+  isinactive = false
+  name = "SCG Customer Statement Email WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Customer_Statement_Email_WF_js@dssssv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_email_template = {
+        scriptid = "custscript_email_template"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Template"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = "-120"
+        storevalue = true
+        index = 0
+      }
+      custscript_email_author = {
+        scriptid = "custscript_email_author"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Author"
+        onparentdelete = "SET_NULL"
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 1
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_cust_statment_email_wf = {
+        scriptid = "customdeploy_scg_cust_statment_email_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "CUSTOMER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

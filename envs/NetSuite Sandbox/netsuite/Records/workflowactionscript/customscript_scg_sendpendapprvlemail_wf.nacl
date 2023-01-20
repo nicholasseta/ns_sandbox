@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_scg_sendpendapprvlemail_wf {
+  scriptid = "customscript_scg_sendpendapprvlemail_wf"
+  defaultfunction = "is_send_PendApprvl_Email"
+  isinactive = false
+  name = "SCG_sendPendApprvlEmail_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendPendApprvlEmail_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendpendapprvlemail_wf = {
+        scriptid = "customdeploy_scg_sendpendapprvlemail_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

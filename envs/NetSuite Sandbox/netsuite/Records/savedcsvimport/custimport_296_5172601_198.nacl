@@ -1,0 +1,58 @@
+netsuite.savedcsvimport custimport_296_5172601_198 {
+  scriptid = "custimport_296_5172601_198"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Vendor - Add Subsidiary"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORSUBSIDIARYRELATIONSHIP"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORSUBSIDIARYRELATIONSHIP = {
+        file = "VENDORSUBSIDIARYRELATIONSHIP"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORSUBSIDIARYRELATIONSHIP = {
+        record = "VENDORSUBSIDIARYRELATIONSHIP"
+        fieldmappings = {
+          fieldmapping = {
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Internal ID"
+                file = "VENDORSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "VENDORSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

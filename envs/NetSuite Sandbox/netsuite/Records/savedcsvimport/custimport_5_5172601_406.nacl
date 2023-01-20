@@ -1,0 +1,58 @@
+netsuite.savedcsvimport custimport_5_5172601_406 {
+  scriptid = "custimport_5_5172601_406"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG COA Update Account"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "ACCOUNT"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      ACCOUNT = {
+        file = "ACCOUNT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      ACCOUNT = {
+        record = "ACCOUNT"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            PARENT = {
+              field = "PARENT"
+              columnreference = {
+                column = "Sub Account of"
+                file = "ACCOUNT"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

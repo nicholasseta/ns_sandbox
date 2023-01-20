@@ -1,0 +1,32 @@
+netsuite.transactioncolumncustomfield custcol_print_erp_epm {
+  scriptid = "custcol_print_erp_epm"
+  accesslevel = "2"
+  applyformatting = false
+  colexpense = false
+  colexpensereport = false
+  colgrouponinvoices = false
+  colitemfulfillment = false
+  colitemfulfillmentorder = "F"
+  coljournal = false
+  colkititem = false
+  colpackingslip = false
+  colperiodendjournal = false
+  colpickingticket = false
+  colprintflag = false
+  colpurchase = false
+  colreturnform = false
+  colsale = true
+  colstorewithgroups = false
+  defaultchecked = false
+  defaultvalue = "case when {custcol_ava_incomeaccount} NOT IN ('Recurring Subscription (On-Prem Term License) Revenue','SaaS Revenue')  then {class} else ' ' end"
+  description = "Use in printing summary invoice"
+  displaytype = "LOCKED"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  isformula = true
+  ismandatory = false
+  label = "Print ERP/EPM"
+  searchlevel = "2"
+  showhierarchy = false
+  storevalue = false
+}

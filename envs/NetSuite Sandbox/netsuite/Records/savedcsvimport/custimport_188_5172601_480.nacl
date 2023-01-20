@@ -1,0 +1,130 @@
+netsuite.savedcsvimport custimport_188_5172601_480 {
+  scriptid = "custimport_188_5172601_480"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Uncleared Checks"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CHECK"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_check.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CHECK = {
+        file = "CHECK"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CHECK = {
+        record = "CHECK"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "NS Bank Account"
+                file = "CHECK"
+                type = "EXTERNAL_ID"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Payee Internal ID"
+                file = "CHECK"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "79"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "DocumentNumber"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CHECK_EXPENSE@f = {
+        record = "CHECK:EXPENSE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              value = "53"
+            }
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+netsuite.transactionbodycustomfield custbody_ordertype_translated {
+  scriptid = "custbody_ordertype_translated"
+  accesslevel = "2"
+  applyformatting = false
+  bodycustomerpayment = false
+  bodydeposit = false
+  bodydepositapplication = false
+  bodyexpensereport = false
+  bodyitemfulfillment = false
+  bodyitemfulfillmentorder = false
+  bodyjournal = false
+  bodyothertransaction = false
+  bodyperiodendjournal = false
+  bodypickingticket = false
+  bodyprintflag = false
+  bodyprintpackingslip = false
+  bodyprintstatement = false
+  bodypurchase = false
+  bodysale = true
+  bodyvendorpayment = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = '''
+CASE 
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_so_ordertype} ='Amendment' THEN 'Ergänzung / Änderung' 
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_so_ordertype} ='New' THEN 'Neu'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_so_ordertype} ='Canceled' THEN 'Stornierung'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_so_ordertype} ='Renewal' THEN 'Verlängerung'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_so_ordertype} ='Reversal' THEN 'Rückerstattung'
+END
+'''
+  displaytype = "STATICTEXT"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  globalsearch = false
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "Order Type Translated"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = false
+  storevalue = false
+  subtab = "TRANSACTIONBILLING"
+}

@@ -1,0 +1,76 @@
+netsuite.savedcsvimport custimport_231_5172601_203 {
+  scriptid = "custimport_231_5172601_203"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "Employee Update for OA"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = true
+  importname = "Employee Update for OA"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              value = "T"
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Dept Internal ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NS Internal ID"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "F"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Sub Internal ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+netsuite.savedcsvimport custimport_36_5172601_sb1_243 {
+  scriptid = "custimport_36_5172601_sb1_243"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Hubble Open AP Items - Credit Notes"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORCREDIT"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_credit.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORCREDIT = {
+        file = "VENDORCREDIT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORCREDIT = {
+        record = "VENDORCREDIT"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "APAccount"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "VendorID"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange rate"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "80"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Reference No"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDORCREDIT_EXPENSE@f = {
+        record = "VENDORCREDIT:EXPENSE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "ExpenseAccountID"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Open Balance Amount CCY"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Legacy_ID_NO"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

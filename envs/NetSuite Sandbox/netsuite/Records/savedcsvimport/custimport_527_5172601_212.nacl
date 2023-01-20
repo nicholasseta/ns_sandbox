@@ -1,0 +1,66 @@
+netsuite.savedcsvimport custimport_527_5172601_212 {
+  scriptid = "custimport_527_5172601_212"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SFB Data Fix - Service Item Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SERVICESALEITEM"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SERVICESALEITEM = {
+        file = "SERVICESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SERVICESALEITEM = {
+        record = "SERVICESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            CREATEREVENUEPLANSON = {
+              field = "CREATEREVENUEPLANSON"
+              columnreference = {
+                column = "Create Revenue Plans On"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              columnreference = {
+                column = "Rev Rec Forecast Rule"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

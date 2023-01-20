@@ -1,0 +1,86 @@
+netsuite.savedcsvimport custimport_673_5172601_sb1_205 {
+  scriptid = "custimport_673_5172601_sb1_205"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_vendor_form.scriptid
+  ignorereadonly = true
+  importname = "vendor_test"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "VENDOR"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDOR = {
+        file = "VENDOR"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDOR = {
+        record = "VENDOR"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "Name"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            custentity_oa_user_or_vendor = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_user_or_vendor.scriptid
+              value = "2"
+            }
+            ISPERSON = {
+              field = "ISPERSON"
+            }
+            OPENINGBALANCEACCOUNT = {
+              field = "OPENINGBALANCEACCOUNT"
+              value = "113"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "10"
+            }
+            WORKCALENDAR = {
+              field = "WORKCALENDAR"
+              value = "1"
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS@f = {
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+netsuite.account Equity_30000_Retained_Earnings_30020@uusu {
+  acctType = "_equity"
+  acctNumber = "30020"
+  acctName = "Retained Earnings"
+  includeChildren = true
+  generalRate = "_historical"
+  parent = netsuite.account.instance.Equity_30000
+  cashFlowRate = "_historical"
+  isInactive = false
+  eliminate = false
+  subsidiaryList = [
+    netsuite.subsidiary.instance.GS_Topco__LP@szds,
+  ]
+  localizationsList = {
+    accountLocalizations = [
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_1
+        acctNumber = "10610000"
+        acctName = "RESERVE LEGALE"
+      },
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_2
+        acctName = "Gewinnruecklagen"
+      },
+    ]
+  }
+  revalue = false
+  identifier = "Equity_30000_Retained Earnings_30020"
+  externalId = "30020"
+  custom_custrecord_account_number = "30020"
+  custom_custrecord_csv_update = "2"
+  custom_custrecord_elim_checkbox = false
+  custom_custrecord_glm_include = false
+  custom_custrecord_has_mx_localization = false
+  custom_custrecord_revalue_checkbox = false
+}

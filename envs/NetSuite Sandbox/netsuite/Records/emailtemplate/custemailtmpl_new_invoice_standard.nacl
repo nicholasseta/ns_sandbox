@@ -1,0 +1,12 @@
+netsuite.emailtemplate custemailtmpl_new_invoice_standard {
+  scriptid = "custemailtmpl_new_invoice_standard"
+  addcompanyaddress = true
+  addunsubscribelink = true
+  isinactive = false
+  isprivate = false
+  name = "New Invoice - Standard"
+  recordtype = "TRANSACTION"
+  subject = "Invoice \${transaction.tranId} from \${transaction.subsidiary.namenohierarchy}, an insightsoftware company"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_new_invoice_standard.html")
+}

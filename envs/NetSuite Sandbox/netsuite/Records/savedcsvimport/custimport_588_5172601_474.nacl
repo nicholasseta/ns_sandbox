@@ -1,0 +1,212 @@
+netsuite.savedcsvimport custimport_588_5172601_474 {
+  scriptid = "custimport_588_5172601_474"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "American Express Bill Import with business line"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORBILL"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_bill.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      VENDORBILL = {
+        file = "VENDORBILL"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORBILL_ITEM@f = {
+        record = "VENDORBILL:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            ITEM = {
+              field = "ITEM"
+            }
+          }
+        }
+      }
+      VENDORBILL = {
+        record = "VENDORBILL"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              value = "546"
+            }
+            APPROVALSTATUS = {
+              field = "APPROVALSTATUS"
+              value = "1"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            custbody_vendor_bill_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_vendor_bill_date.scriptid
+              columnreference = {
+                column = "Statement Date"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            DUEDATE = {
+              field = "DUEDATE"
+              columnreference = {
+                column = "Due Date"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Invoice Number"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo (Main)"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Statement Date"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Invoice Number"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDORBILL_EXPENSE@f = {
+        record = "VENDORBILL:EXPENSE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account Number"
+                file = "VENDORBILL"
+                type = "EXTERNAL_ID"
+              }
+            }
+            AMORTIZATIONENDDATE = {
+              field = "AMORTIZATIONENDDATE"
+              columnreference = {
+                column = "Prepaid End"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            AMORTIZATIONSCHED = {
+              field = "AMORTIZATIONSCHED"
+              columnreference = {
+                column = "Prepaid"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            AMORTIZSTARTDATE = {
+              field = "AMORTIZSTARTDATE"
+              columnreference = {
+                column = "Prepaid Start"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            custcol_so_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Dept"
+                file = "VENDORBILL"
+                type = "EXTERNAL_ID"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Description"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

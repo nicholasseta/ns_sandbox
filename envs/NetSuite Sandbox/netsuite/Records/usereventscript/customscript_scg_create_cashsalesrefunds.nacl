@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_scg_create_cashsalesrefunds {
+  scriptid = "customscript_scg_create_cashsalesrefunds"
+  aftersubmitfunction = "is_csr_afterSubmit"
+  isinactive = false
+  name = "SCG Create CashSales n Refunds UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Create_CashSales_n_Refunds_UE_js@duuuuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_create_cashsalesrefunds = {
+        scriptid = "customdeploy_scg_create_cashsalesrefunds"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WORKBOOKBUILDER|WORKFLOW|ACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = netsuite.customrecord_scg_cash_sales_refunds.attr.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

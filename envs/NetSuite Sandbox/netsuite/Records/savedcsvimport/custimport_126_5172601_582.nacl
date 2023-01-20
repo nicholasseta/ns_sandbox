@@ -1,0 +1,115 @@
+netsuite.savedcsvimport custimport_126_5172601_582 {
+  scriptid = "custimport_126_5172601_582"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = true
+  importname = "Employee Update OA"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              columnreference = {
+                column = "Export to OA"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Dept External ID"
+                file = "EMPLOYEE"
+                type = "EXTERNAL_ID"
+              }
+            }
+            EMAIL = {
+              field = "EMAIL"
+              columnreference = {
+                column = "New Email"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            HIREDATE = {
+              field = "HIREDATE"
+              columnreference = {
+                column = "Start date"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              columnreference = {
+                column = "Inactive"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            RELEASEDATE = {
+              field = "RELEASEDATE"
+              columnreference = {
+                column = "Departure date"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+            TITLE = {
+              field = "TITLE"
+              columnreference = {
+                column = "Job Title"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

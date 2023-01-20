@@ -1,0 +1,69 @@
+netsuite.workflow customworkflow2 {
+  scriptid = "customworkflow2"
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "Invoice Message: CXO BV"
+  recordtypes = "INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = false
+  initcondition = {
+    formula = "\"Subsidiary Name\" IN (\"Subsidiary Name1\") AND \"Shipping Address\" NOT LIKE '%Netherlands%'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Subsidiary_Name@s = {
+          name = "Subsidiary Name"
+          value = netsuite.transactionbodycustomfield.instance.custbody_subsidiary_name.scriptid
+          index = 0
+        }
+        Subsidiary_Name1@s = {
+          name = "Subsidiary Name1"
+          selectrecordtype = netsuite.customlist.instance.customlist_subsidiary_name.scriptid
+          value = netsuite.customlist.instance.customlist_subsidiary_name.customvalues.customvalue.val_2559993_5172601_693.scriptid
+          index = 1
+        }
+        Shipping_Address@s = {
+          name = "Shipping Address"
+          value = "STDBODYSHIPPINGADDRESS_TEXT"
+          index = 2
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate33 = {
+        scriptid = "workflowstate33"
+        donotexitworkflow = false
+        name = "Set Invoice Messaging"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction142 = {
+                scriptid = "workflowaction142"
+                field = netsuite.transactionbodycustomfield.instance.custbody_ava_invoicemessage.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetext = "Invoice subject to the reverse charge – VAT to be accounted for by the recipient."
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

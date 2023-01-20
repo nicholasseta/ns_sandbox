@@ -1,0 +1,38 @@
+netsuite.clientscript customscript_scg_dept_req_exp_acct_cs {
+  scriptid = "customscript_scg_dept_req_exp_acct_cs"
+  isinactive = false
+  name = "SCG deptRequiredForExpenseAccts CS"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_deptRequiredForExpenseAccts_CS_js@duuv.path
+  validatelinefunction = "is_mdm_validateLine"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_dept_req_exp_acct_cs_aj = {
+        scriptid = "customdeploy_scg_dept_req_exp_acct_cs_aj"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "OCRPLUGIN|RECORDACTION|ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+        isdeployed = false
+        loglevel = "ERROR"
+        recordtype = "ADVINTERCOMPANYJOURNALENTRY"
+        status = "RELEASED"
+      }
+      customdeploy_scg_dept_req_exp_acct_cs_je = {
+        scriptid = "customdeploy_scg_dept_req_exp_acct_cs_je"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "OCRPLUGIN|RECORDACTION|ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+        isdeployed = false
+        loglevel = "ERROR"
+        recordtype = "JOURNALENTRY"
+        status = "RELEASED"
+      }
+    }
+  }
+}

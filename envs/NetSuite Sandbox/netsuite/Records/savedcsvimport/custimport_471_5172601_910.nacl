@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_471_5172601_910 {
+  scriptid = "custimport_471_5172601_910"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = false
+  importname = "Item Rev Rec Fields"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "OTHERCHARGERESALEITEM"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      OTHERCHARGERESALEITEM = {
+        file = "OTHERCHARGERESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      OTHERCHARGERESALEITEM = {
+        record = "OTHERCHARGERESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            CREATEREVENUEPLANSON = {
+              field = "CREATEREVENUEPLANSON"
+              columnreference = {
+                column = "Create Revenue Plans On"
+                file = "OTHERCHARGERESALEITEM"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "OTHERCHARGERESALEITEM"
+                type = "NAME"
+              }
+            }
+            REVENUERECOGNITIONRULE = {
+              field = "REVENUERECOGNITIONRULE"
+              columnreference = {
+                column = "Revenue Recognition Rule"
+                file = "OTHERCHARGERESALEITEM"
+                type = "NAME"
+              }
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              columnreference = {
+                column = "Rev Rec Forecast Rule"
+                file = "OTHERCHARGERESALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

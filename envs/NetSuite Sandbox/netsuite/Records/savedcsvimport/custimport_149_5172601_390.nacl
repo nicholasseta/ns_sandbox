@@ -1,0 +1,99 @@
+netsuite.savedcsvimport custimport_149_5172601_390 {
+  scriptid = "custimport_149_5172601_390"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "CXO Service Item Update"
+  ignorereadonly = true
+  importname = "CXO Service Item Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SERVICESALEITEM"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SERVICESALEITEM = {
+        file = "SERVICESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SERVICESALEITEM = {
+        record = "SERVICESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              columnreference = {
+                column = "Item Billing Schedule"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            CREATEREVENUEPLANSON = {
+              field = "CREATEREVENUEPLANSON"
+              columnreference = {
+                column = "Create Revenue Plans On"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_ava_taxcode = {
+              field = netsuite.itemcustomfield.instance.custitem_ava_taxcode.scriptid
+              columnreference = {
+                column = "AvaTax Taxcode"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_sf_isinactive = {
+              field = netsuite.itemcustomfield.instance.custitem_sf_isinactive.scriptid
+              columnreference = {
+                column = "SF IsActive"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            REVENUERECOGNITIONRULE = {
+              field = "REVENUERECOGNITIONRULE"
+              columnreference = {
+                column = "Revenue Recognition Rule"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              columnreference = {
+                column = "Rev Rec Forecast Rule"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

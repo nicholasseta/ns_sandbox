@@ -1,0 +1,46 @@
+netsuite.suitelet customscript_ava_recalcutility {
+  scriptid = "customscript_ava_recalcutility"
+  description = "Utility for creating Recalculation Batches"
+  isinactive = false
+  name = "AVA_RecalculationUtility_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_RecalculateForm.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_recalcroleid = {
+        scriptid = "custscript_recalcroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_recalcform = {
+        scriptid = "customdeploy_recalcform"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_recalcroleid = "1,1029"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "Create Recalculation Batch"
+      }
+    }
+  }
+}

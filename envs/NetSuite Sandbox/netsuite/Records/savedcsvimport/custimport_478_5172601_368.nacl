@@ -1,0 +1,111 @@
+netsuite.savedcsvimport custimport_478_5172601_368 {
+  scriptid = "custimport_478_5172601_368"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_order.attr.scriptid
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "CALUMO WIP"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_order_custrecord_is_ord_currency@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_currency.scriptid
+              columnreference = {
+                column = "Currency"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_order_custrecord_is_ord_enduser@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_enduser.scriptid
+              columnreference = {
+                column = "EU IntID"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            customrecord_order_custrecord_is_ord_entity@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_entity.scriptid
+              columnreference = {
+                column = "BT IntID"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            customrecord_order_custrecord_is_ord_memo@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_memo.scriptid
+              value = "CALUMO WIP"
+            }
+            customrecord_order_custrecord_is_ord_sales_geo@uvuuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_sales_geo.scriptid
+              columnreference = {
+                column = "Sales Geo"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_order_custrecord_is_ord_subsidiary@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_subsidiary.scriptid
+              columnreference = {
+                column = "Subsidiary Name"
+                file = "CUSTOMRECORD"
+                type = "INTERNAL_ID"
+              }
+            }
+            customrecord_order_custrecord_is_ord_total@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_is_ord_total.scriptid
+              columnreference = {
+                column = "Amount Remaining"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_order_custrecord_ord_po_number@uvuuu = {
+              field = netsuite.customrecord_order.field.custom_custrecord_ord_po_number.scriptid
+              columnreference = {
+                column = "PO Details"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Order Name"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

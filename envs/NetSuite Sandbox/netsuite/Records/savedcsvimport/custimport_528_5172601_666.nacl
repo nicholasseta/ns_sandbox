@@ -1,0 +1,66 @@
+netsuite.savedcsvimport custimport_528_5172601_666 {
+  scriptid = "custimport_528_5172601_666"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SFB Data Fix - NonInv Item Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYSALEITEM"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYSALEITEM = {
+        file = "NONINVENTORYSALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYSALEITEM = {
+        record = "NONINVENTORYSALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            CREATEREVENUEPLANSON = {
+              field = "CREATEREVENUEPLANSON"
+              columnreference = {
+                column = "Create Revenue Plans On"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              columnreference = {
+                column = "Rev Rec Forecast Rule"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

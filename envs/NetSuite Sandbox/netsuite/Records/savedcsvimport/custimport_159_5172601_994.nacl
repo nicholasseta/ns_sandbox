@@ -1,0 +1,90 @@
+netsuite.savedcsvimport custimport_159_5172601_994 {
+  scriptid = "custimport_159_5172601_994"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = true
+  importname = "Employee Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE_ROLES@f = {
+        record = "EMPLOYEE:ROLES"
+        fieldmappings = {
+          fieldmapping = {
+            SELECTEDROLE = {
+              field = "SELECTEDROLE"
+              value = "1022"
+            }
+          }
+        }
+      }
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Dept"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            GIVEACCESS = {
+              field = "GIVEACCESS"
+              value = "T"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "ID"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "F"
+            }
+            SENDEMAIL = {
+              field = "SENDEMAIL"
+              value = "T"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

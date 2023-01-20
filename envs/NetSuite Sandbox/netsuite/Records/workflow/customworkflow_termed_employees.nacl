@@ -1,0 +1,77 @@
+netsuite.workflow customworkflow_termed_employees {
+  scriptid = "customworkflow_termed_employees"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch_termed_employees.scriptid
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Termed Employees to Inactivate"
+  recordtypes = "EMPLOYEE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  recurrence = {
+    daily = {
+      everyxdays = 1
+      startdate = "2018-11-26"
+      starttime = "05:00:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate27 = {
+        scriptid = "workflowstate27"
+        donotexitworkflow = false
+        name = "Inactivate Employee"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction107 = {
+                scriptid = "workflowaction107"
+                field = "STDENTITYISINACTIVE"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Name/ID\" != 'Harvey, Warren' AND \"Name/ID\" != 'Bierer, Michael H'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Name_ID@d = {
+                        name = "Name/ID"
+                        value = "STDENTITYENTITYID"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction108 = {
+                scriptid = "workflowaction108"
+                field = "STDENTITYGIVEACCESS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

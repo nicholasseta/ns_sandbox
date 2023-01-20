@@ -1,0 +1,30 @@
+netsuite.mapreducescript customscript_mr_order_project_missing {
+  scriptid = "customscript_mr_order_project_missing"
+  isinactive = false
+  name = "MR_Order_Project_Missing"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_MR_Order_Proj_Missing_js@dsssv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_mr_order_project_missing = {
+        scriptid = "customdeploy_mr_order_project_missing"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "MR_Order_Project_Missing"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2021-12-28"
+            starttime = "15:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

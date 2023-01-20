@@ -1,0 +1,26 @@
+netsuite.usereventscript customscript_scg_project_ue {
+  scriptid = "customscript_scg_project_ue"
+  aftersubmitfunction = "is_pr_afterSubmit"
+  isinactive = false
+  name = "SCG Project UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Project_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_project_ue = {
+        scriptid = "customdeploy_scg_project_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "JOB"
+        status = "RELEASED"
+      }
+    }
+  }
+}

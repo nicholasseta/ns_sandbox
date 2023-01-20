@@ -1,0 +1,138 @@
+netsuite.savedcsvimport custimport_511_5172601_578 {
+  scriptid = "custimport_511_5172601_578"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = false
+  importname = "REFRESH Create Employees w/ Access & Roles"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE_ROLES@f = {
+        record = "EMPLOYEE:ROLES"
+        fieldmappings = {
+          fieldmapping = {
+            SELECTEDROLE = {
+              field = "SELECTEDROLE"
+              columnreference = {
+                column = "Role"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Dept ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+            EMAIL = {
+              field = "EMAIL"
+              columnreference = {
+                column = "Email"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            FIRSTNAME = {
+              field = "FIRSTNAME"
+              columnreference = {
+                column = "First Name"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            GIVEACCESS = {
+              field = "GIVEACCESS"
+              value = "T"
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "F"
+            }
+            ISSUPPORTREP = {
+              field = "ISSUPPORTREP"
+              columnreference = {
+                column = "Support Rep"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            LASTNAME = {
+              field = "LASTNAME"
+              columnreference = {
+                column = "Last Name"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            MIDDLENAME = {
+              field = "MIDDLENAME"
+              columnreference = {
+                column = "Middle Name"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Sub ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUPERVISOR = {
+              field = "SUPERVISOR"
+              columnreference = {
+                column = "Supervisor"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            TITLE = {
+              field = "TITLE"
+              columnreference = {
+                column = "Job Title"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

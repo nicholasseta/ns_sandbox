@@ -1,0 +1,390 @@
+netsuite.workflow customworkflow_email_invoices {
+  scriptid = "customworkflow_email_invoices"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch_new_invoices.scriptid
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Mass Email - New Invoices"
+  recordtypes = "INVOICE"
+  releasestatus = "NOTINITIATING"
+  runasadmin = true
+  recurrence = {
+    single = {
+      startdate = "2018-12-14"
+      starttime = "15:30:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate20 = {
+        scriptid = "workflowstate20"
+        donotexitworkflow = false
+        name = "Evaluate Invoices"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction97 = {
+                scriptid = "workflowaction97"
+                field = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" NOT IN (\"{#Subsidiary#}1\",\"{#Subsidiary#}2\",\"{#Subsidiary#}3\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      __Subsidiary__2@_00123nn_00125 = {
+                        name = "{#Subsidiary#}2"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      __Subsidiary__3@_00123nn_00125 = {
+                        name = "{#Subsidiary#}3"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction126 = {
+                scriptid = "workflowaction126"
+                field = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\",\"{#Subsidiary#}2\",\"{#Subsidiary#}3\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      __Subsidiary__2@_00123nn_00125 = {
+                        name = "{#Subsidiary#}2"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      __Subsidiary__3@_00123nn_00125 = {
+                        name = "{#Subsidiary#}3"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction114 = {
+                scriptid = "workflowaction114"
+                field = "STDBODYEMAIL"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "{entity.custentity_scg_mult_inv_emails}"
+                valuetype = "FORMULA"
+                initcondition = {
+                  formula = "isEmpty(\"Customer:Multiple Invoice Emails\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Customer_Multiple_Invoice_Emails@fss = {
+                        name = "Customer:Multiple Invoice Emails"
+                        value = "STDBODYCUSTOMER:[scriptid=custentity_scg_mult_inv_emails]"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition23 = {
+              scriptid = "workflowtransition23"
+              tostate = netsuite.workflow.instance.customworkflow_email_invoices.workflowstates.workflowstate.workflowstate21.scriptid
+              initcondition = {
+                formula = "\"Order Type\" NOT IN (\"Order Type1\")"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Order_Type@s = {
+                      name = "Order Type"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+                      index = 0
+                    }
+                    Order_Type1@s = {
+                      name = "Order Type1"
+                      selectrecordtype = netsuite.customlist.instance.customlist_so_ordertype.scriptid
+                      value = netsuite.customlist.instance.customlist_so_ordertype.customvalues.customvalue.val_5682_5172601_sb1_660.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 0
+            }
+            workflowtransition27 = {
+              scriptid = "workflowtransition27"
+              tostate = netsuite.workflow.instance.customworkflow_email_invoices.workflowstates.workflowstate.workflowstate44.scriptid
+              initcondition = {
+                formula = "\"Order Type\" IN (\"Order Type1\")"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Order_Type@s = {
+                      name = "Order Type"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+                      index = 0
+                    }
+                    Order_Type1@s = {
+                      name = "Order Type1"
+                      selectrecordtype = netsuite.customlist.instance.customlist_so_ordertype.scriptid
+                      value = netsuite.customlist.instance.customlist_so_ordertype.customvalues.customvalue.val_5682_5172601_sb1_660.scriptid
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate21 = {
+        scriptid = "workflowstate21"
+        donotexitworkflow = false
+        name = "New Invoices (Not Renewals)"
+        positionx = 473
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction99 = {
+                scriptid = "workflowaction99"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction115 = {
+                scriptid = "workflowaction115"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_email_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+      workflowstate44 = {
+        scriptid = "workflowstate44"
+        donotexitworkflow = false
+        name = "New Invoices (Renewals)"
+        positionx = 473
+        positiony = 243
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction100 = {
+                scriptid = "workflowaction100"
+                attachmentfile = "[/Invoice Attachments/Atlas Whats New 2019.pdf]"
+                attachmenttype = "SPECIFIC"
+                conditionsavedsearch = netsuite.savedsearch.instance.customsearch_invoice_renewals_atlas.scriptid
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction160 = {
+                scriptid = "workflowaction160"
+                attachmentfile = "[/Invoice Attachments/Hubble Whats New 2019.pdf]"
+                attachmenttype = "SPECIFIC"
+                conditionsavedsearch = netsuite.savedsearch.instance.customsearch_invoice_renewals_hubble.scriptid
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction161 = {
+                scriptid = "workflowaction161"
+                attachmentfile = "[/Invoice Attachments/Wands for SAP Whats New 2019.pdf]"
+                attachmenttype = "SPECIFIC"
+                conditionsavedsearch = netsuite.savedsearch.instance.customsearch_invoice_renewal_wands_sap.scriptid
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction162 = {
+                scriptid = "workflowaction162"
+                attachmentfile = "[/Invoice Attachments/Wands for Oracle Whats New 2019.pdf]"
+                attachmenttype = "SPECIFIC"
+                conditionsavedsearch = netsuite.savedsearch.instance.customsearch_invoice_renewal_wands_oracl.scriptid
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+              workflowaction163 = {
+                scriptid = "workflowaction163"
+                attachmentfile = "[/Invoice Attachments/Spreadsheet Server Whats New 2019.pdf]"
+                attachmenttype = "SPECIFIC"
+                conditionsavedsearch = netsuite.savedsearch.instance.customsearch_invoice_renewal_sserver.scriptid
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 4
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction164 = {
+                scriptid = "workflowaction164"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_email_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 2
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+    },
+  ]
+}

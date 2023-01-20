@@ -1,0 +1,25 @@
+netsuite.bundleinstallationscript customscript_fl_bi_installation {
+  scriptid = "customscript_fl_bi_installation"
+  description = '''
+Bundle installation script triggered after installation/update/uninstallation of France Localization bundle.
+  Script checks for dependencies before installation (EMEA Localization bundle). After installation/update it runs registration
+  procedures for EBP/CSR/TRF bundles. Before uninstallation, it runs unregistration procedures for EBP/CSR/TRF bundles.
+'''
+  isinactive = false
+  name = "France Localization Bundle Installer"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 143437/com.netsuite.francelocalization/src/entrypoints/bi/fl_bi_installation.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_fl_bi_installation = {
+        scriptid = "customdeploy_fl_bi_installation"
+        isdeployed = true
+        loglevel = "ERROR"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "FL Bundle Installer"
+      }
+    }
+  }
+}

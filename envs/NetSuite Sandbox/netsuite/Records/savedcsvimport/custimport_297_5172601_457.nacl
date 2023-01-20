@@ -1,0 +1,213 @@
+netsuite.savedcsvimport custimport_297_5172601_457 {
+  scriptid = "custimport_297_5172601_457"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "*Data Migration - AR Invoices"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_118_5172601_591.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Balance"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              value = "1"
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              value = "1137"
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              value = "1"
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Balance"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            TAX1AMT = {
+              field = "TAX1AMT"
+              value = "0"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "21357"
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              value = "122"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_disable_invoice_email_notice = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_disable_invoice_email_notice.scriptid
+              value = "T"
+            }
+            custbody_legacy_transaction_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_legacy_transaction_number.scriptid
+              columnreference = {
+                column = "Invoice No"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_po_required = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_po_required.scriptid
+              value = "F"
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "end user / project Internal ID"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            DUEDATE = {
+              field = "DUEDATE"
+              columnreference = {
+                column = "Due Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "NetSuite Customer Internal ID"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External Id"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              value = "AR Balance as of Sep 30, 2022"
+            }
+            OTHERREFNUM = {
+              field = "OTHERREFNUM"
+              columnreference = {
+                column = "PO No"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "132"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "230"
+            }
+            TERMS = {
+              field = "TERMS"
+              columnreference = {
+                column = "Payment Terms"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

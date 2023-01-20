@@ -1,0 +1,137 @@
+netsuite.clientscript customscript_oa_po_integration {
+  scriptid = "customscript_oa_po_integration"
+  fieldchangedfunction = "validateExportField"
+  isinactive = false
+  name = "OpenAir: PO/VB/VC Validate"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  saverecordfunction = "validateSavePOToOpenAir"
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_purchase_integration.js]"
+  validatelinefunction = "validatePOLine"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_po_integration = {
+        scriptid = "custscript_oa_po_integration"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Enable OpenAir Purchase Integration"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+      custscript_oa_user_create_po = {
+        scriptid = "custscript_oa_user_create_po"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Validate OpenAir PO/Vendor Bill"
+        searchlevel = "2"
+        setting = "USER"
+        storevalue = true
+        index = 1
+      }
+      custscript_oa_vb_oa_po_export = {
+        scriptid = "custscript_oa_vb_oa_po_export"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Vendor Bill to OpenAir PO Integration"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 2
+      }
+      custscript_oa_vc_oa_po_export = {
+        scriptid = "custscript_oa_vc_oa_po_export"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Vendor Credit to OpenAir PO Integration"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 3
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_po_integration = {
+        scriptid = "customdeploy_oa_po_integration"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        custscript_oa_po_integration = false
+        custscript_oa_user_create_po = false
+        custscript_oa_vb_oa_po_export = false
+        custscript_oa_vc_oa_po_export = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        recordtype = "PURCHASEORDER"
+        status = "RELEASED"
+      }
+      customdeploy_oa_vb_integration = {
+        scriptid = "customdeploy_oa_vb_integration"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        custscript_oa_po_integration = false
+        custscript_oa_user_create_po = false
+        custscript_oa_vb_oa_po_export = false
+        custscript_oa_vc_oa_po_export = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        recordtype = "VENDORBILL"
+        status = "RELEASED"
+      }
+      customdeploy_oa_vc_integration = {
+        scriptid = "customdeploy_oa_vc_integration"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        custscript_oa_po_integration = false
+        custscript_oa_user_create_po = false
+        custscript_oa_vb_oa_po_export = false
+        custscript_oa_vc_oa_po_export = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "VENDORCREDIT"
+        status = "RELEASED"
+      }
+    }
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 2851/features_and_preferences.js]"
+      },
+    ]
+  }
+}

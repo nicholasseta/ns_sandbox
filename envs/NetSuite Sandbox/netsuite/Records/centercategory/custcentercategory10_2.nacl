@@ -1,0 +1,31 @@
+netsuite.centercategory custcentercategory10_2 {
+  scriptid = "custcentercategory10_2"
+  center = "ACCOUNTCENTER"
+  centertab = netsuite.centertab.instance.custcentertab19_2.scriptid
+  label = "Reconciliation"
+  links = {
+    link = {
+      customscript_avaentityuselist_suitlet_customdeploy_entityuselist@uuvu = {
+        linklabel = "Entity/Use Code"
+        linkobject = netsuite.suitelet.instance.customscript_avaentityuselist_suitlet.scriptdeployments.scriptdeployment.customdeploy_entityuselist.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 0
+      }
+      customscript_avareconcilelist_suitelet_customdeploy_avareconcilelist@uuvu = {
+        linklabel = "Create Batch"
+        linkobject = netsuite.suitelet.instance.customscript_avareconcilelist_suitelet.scriptdeployments.scriptdeployment.customdeploy_avareconcilelist.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 1
+      }
+      customscript_ava_reconciliation_suitelet_customdeploy_ava_reconcileresult@uuuvuu = {
+        linklabel = "View Results"
+        linkobject = netsuite.suitelet.instance.customscript_ava_reconciliation_suitelet.scriptdeployments.scriptdeployment.customdeploy_ava_reconcileresult.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 2
+      }
+    }
+  }
+}

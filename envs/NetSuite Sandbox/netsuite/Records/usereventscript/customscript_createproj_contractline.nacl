@@ -1,0 +1,26 @@
+netsuite.usereventscript customscript_createproj_contractline {
+  scriptid = "customscript_createproj_contractline"
+  isinactive = false
+  name = "Neocol - Create Proj from Contract Line"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_IS_CreateProj_ContractLine_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_createproj_contractline2 = {
+        scriptid = "customdeploy_createproj_contractline2"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = netsuite.customrecord_contractlines.attr.scriptid
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+netsuite.workflowactionscript customscript_scg_emailfinanceprocurmt_wf {
+  scriptid = "customscript_scg_emailfinanceprocurmt_wf"
+  defaultfunction = "is_poAppvl_emailFinanceProcurement"
+  isinactive = false
+  name = "SCG EmailFinanceProcurement WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_EmailFinanceProcurement_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_emailfinanceprocurmt_wf = {
+        scriptid = "customdeploy_scg_emailfinanceprocurmt_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+netsuite.savedcsvimport custimport_138_5172601_116 {
+  scriptid = "custimport_138_5172601_116"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "E4A Credit Memos"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CREDITMEMO"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_credit_memo.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CREDITMEMO = {
+        file = "CREDITMEMO"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CREDITMEMO = {
+        record = "CREDITMEMO"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "account internal id"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_legacy_transaction_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_legacy_transaction_number.scriptid
+              columnreference = {
+                column = "Legacy Transaction #"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Interal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "exchangerate"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "1/31/2019"
+            }
+          }
+        }
+      }
+      CREDITMEMO_ITEM@f = {
+        record = "CREDITMEMO:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "item internal id"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "linequantity"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

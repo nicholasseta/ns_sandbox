@@ -1,0 +1,90 @@
+netsuite.savedcsvimport custimport_40_5172601_486 {
+  scriptid = "custimport_40_5172601_486"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Items for Purchase Migration"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYPURCHASEITEM"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYPURCHASEITEM = {
+        file = "NONINVENTORYPURCHASEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYPURCHASEITEM = {
+        record = "NONINVENTORYPURCHASEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            DISPLAYNAME = {
+              field = "DISPLAYNAME"
+              columnreference = {
+                column = "Display Name"
+                file = "NONINVENTORYPURCHASEITEM"
+                type = "NAME"
+              }
+            }
+            EXPENSEACCOUNT = {
+              field = "EXPENSEACCOUNT"
+              columnreference = {
+                column = "GL Account ID"
+                file = "NONINVENTORYPURCHASEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            ITEMID = {
+              field = "ITEMID"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYPURCHASEITEM"
+                type = "NAME"
+              }
+            }
+            PURCHASEDESCRIPTION = {
+              field = "PURCHASEDESCRIPTION"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYPURCHASEITEM"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+            TAXSCHEDULE = {
+              field = "TAXSCHEDULE"
+              columnreference = {
+                column = "Tax Schedule"
+                file = "NONINVENTORYPURCHASEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

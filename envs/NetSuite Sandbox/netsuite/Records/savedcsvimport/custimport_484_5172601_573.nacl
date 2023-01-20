@@ -1,0 +1,334 @@
+netsuite.savedcsvimport custimport_484_5172601_573 {
+  scriptid = "custimport_484_5172601_573"
+  charencoding = "MacRoman"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_vendor_form.scriptid
+  ignorereadonly = true
+  importname = "*Data Migration - Vendors - Calumo"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "VENDOR"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDOR = {
+        file = "VENDOR"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDOR = {
+        record = "VENDOR"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNTNUMBER = {
+              field = "ACCOUNTNUMBER"
+              columnreference = {
+                column = "CompanyNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COMMENTS = {
+              field = "COMMENTS"
+              columnreference = {
+                column = "Comments"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "*ContactName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            EMAIL = {
+              field = "EMAIL"
+              columnreference = {
+                column = "EmailAddress"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            FAX = {
+              field = "FAX"
+              columnreference = {
+                column = "FaxNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            FIRSTNAME = {
+              field = "FIRSTNAME"
+              columnreference = {
+                column = "FirstName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ISPERSON = {
+              field = "ISPERSON"
+              value = "F"
+            }
+            LASTNAME = {
+              field = "LASTNAME"
+              columnreference = {
+                column = "LastName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            LEGALNAME = {
+              field = "LEGALNAME"
+              columnreference = {
+                column = "LegalName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            MOBILEPHONE = {
+              field = "MOBILEPHONE"
+              columnreference = {
+                column = "MobileNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            PHONE = {
+              field = "PHONE"
+              columnreference = {
+                column = "PhoneNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "174"
+            }
+            TAXIDNUM = {
+              field = "TAXIDNUM"
+              columnreference = {
+                column = "TaxNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            TERMS = {
+              field = "TERMS"
+              columnreference = {
+                column = "Terms"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            URL = {
+              field = "URL"
+              columnreference = {
+                column = "Website"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            VATREGNUMBER = {
+              field = "VATREGNUMBER"
+              columnreference = {
+                column = "TaxNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            WORKCALENDAR = {
+              field = "WORKCALENDAR"
+              value = "1"
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS@f = {
+        line = 1
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "POAddressLine1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "POAddressLine2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "*ContactName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "POAttentionTo"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "POCity"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "POCountry"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "PORegion"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "POPostalCode"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK@f = {
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              value = "T"
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS_2@ffu = {
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "SAAddressLine1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "SAAddressLine2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "*ContactName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "SAAttentionTo"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "SACity"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "SACountry"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "SARegion"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "SAPostalCode"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_2@fu = {
+        line = 1
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              value = "T"
+            }
+          }
+        }
+      }
+    }
+  }
+}

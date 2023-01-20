@@ -1,0 +1,201 @@
+netsuite.scheduledscript customscript_oa_create_je_from_time {
+  scriptid = "customscript_oa_create_je_from_time"
+  defaultfunction = "je_from_time"
+  description = "Script used to create journal entries from cost data on time entries"
+  isinactive = false
+  name = "OpenAir: Create JE from Time"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_cost_je_from_time.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_je_from_time_error_email = {
+        scriptid = "custscript_oa_je_from_time_error_email"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Email address where the log of the script run should be sent."
+        displaytype = "NORMAL"
+        fieldtype = "EMAIL"
+        help = "Enter the email address to which the script log should be sent."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Journal Entry Error Email"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+      custscript_oa_je_from_time_error_from = {
+        scriptid = "custscript_oa_je_from_time_error_from"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "The email address from which the log will be sent."
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        help = "Enter the email address from which the script log will be sent."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Journal Entry Error Email From"
+        onparentdelete = "SET_NULL"
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 1
+      }
+      custscript_oa_je_from_time_level = {
+        scriptid = "custscript_oa_je_from_time_level"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "The OpenAir loaded cost level to use for creating journal entries from time entries."
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        help = "The OpenAir loaded cost level to use for creating journal entries from time entries."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Cost Level To Use for JE"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_oa_je_from_time_cost_level.scriptid
+        storevalue = true
+        index = 2
+      }
+      custscript_oa_je_from_time_location = {
+        scriptid = "custscript_oa_je_from_time_location"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "If needed on journal entries, indicate where the location field is on the journal entry, the header or line."
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        help = "If needed on journal entries, indicate where the location field is on the journal entry, the header or line."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Location for JE"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_oa_je_from_time_classes.scriptid
+        storevalue = true
+        index = 3
+      }
+      custscript_oa_je_from_time_dept = {
+        scriptid = "custscript_oa_je_from_time_dept"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "If needed on journal entries, indicate where the department field is on the journal entry, the header or line."
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        help = "If needed on journal entries, indicate where the department field is on the journal entry, the header or line."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Department for JE"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_oa_je_from_time_classes.scriptid
+        storevalue = true
+        index = 4
+      }
+      custscript_oa_je_from_time_class = {
+        scriptid = "custscript_oa_je_from_time_class"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Class for JE"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_oa_je_from_time_classes.scriptid
+        storevalue = true
+        index = 5
+      }
+      custscript_oa_je_from_time_ow = {
+        scriptid = "custscript_oa_je_from_time_ow"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Indicate if this is a OneWorld account"
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "Indicate if this is a OneWorld account"
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: This is a OneWorld Account"
+        searchlevel = "2"
+        storevalue = true
+        index = 6
+      }
+      custscript_oa_je_from_time_use_date = {
+        scriptid = "custscript_oa_je_from_time_use_date"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: JE Date to Use"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = netsuite.customlist.instance.customlist_oa_je_from_time_use_date.scriptid
+        storevalue = true
+        index = 7
+      }
+      custscript_oa_je_from_time_credit_proj = {
+        scriptid = "custscript_oa_je_from_time_credit_proj"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = false
+        defaultchecked = false
+        description = "Indicate whether the credit line of the journal entry created from a time entry should have the project on it."
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "Indicate whether the credit line of the journal entry created from a time entry should have the project on it."
+        isformula = false
+        ismandatory = false
+        label = "OpenAir: Include Project on Credit Line"
+        searchlevel = "2"
+        storevalue = true
+        index = 8
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_create_je_from_time = {
+        scriptid = "customdeploy_oa_create_je_from_time"
+        custscript_oa_je_from_time_credit_proj = false
+        custscript_oa_je_from_time_ow = false
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "OpenAir: Create JE from Time"
+        recurrence = {
+          single = {
+            startdate = "2012-07-02"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 2851/features_and_preferences.js]"
+      },
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+netsuite.workflow customworkflow3 {
+  scriptid = "customworkflow3"
+  description = "Sets fields used by Boomi integration for the Summary Transactions."
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "Set Integration Fields"
+  recordtypes = "CREDITMEMO|CUSTOMERPAYMENT|INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate34 = {
+        scriptid = "workflowstate34"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setfieldvalueaction = {
+              workflowaction143 = {
+                scriptid = "workflowaction143"
+                eventtypes = "COPY"
+                field = netsuite.transactionbodycustomfield.instance.custbody_sf_opportunity_id.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction144 = {
+                scriptid = "workflowaction144"
+                eventtypes = "COPY"
+                field = netsuite.transactionbodycustomfield.instance.custbody_sf_order_id.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction145 = {
+                scriptid = "workflowaction145"
+                eventtypes = "COPY|CREATE"
+                field = netsuite.transactionbodycustomfield.instance.custbody_syncerrormessage.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction146 = {
+                scriptid = "workflowaction146"
+                eventtypes = "COPY|CREATE"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_non_int_modification.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+              workflowaction147 = {
+                scriptid = "workflowaction147"
+                eventtypes = "COPY|CREATE"
+                field = netsuite.transactionbodycustomfield.instance.custbody_sf_fin_trx_ext_id.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 4
+              }
+              workflowaction148 = {
+                scriptid = "workflowaction148"
+                eventtypes = "COPY|CREATE"
+                field = netsuite.transactionbodycustomfield.instance.custbody_sf_pdf_ext_id.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 5
+              }
+            }
+            index = 0
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction149 = {
+                scriptid = "workflowaction149"
+                eventtypes = "APPROVE|CREATE|XEDIT|EDIT|MARKCOMPLETE|REJECT"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_non_int_modification.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "{today}"
+                valuetype = "FORMULA"
+                initcondition = {
+                  formula = "\"User\" NOT IN (\"Employee1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                      Employee1 = {
+                        name = "Employee1"
+                        selectrecordtype = "-4"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

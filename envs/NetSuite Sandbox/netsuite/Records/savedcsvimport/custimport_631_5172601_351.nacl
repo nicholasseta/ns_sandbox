@@ -1,0 +1,70 @@
+netsuite.savedcsvimport custimport_631_5172601_351 {
+  scriptid = "custimport_631_5172601_351"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Cred - Update Stamped Rule (scripts)"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CREDITMEMO"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_107_5172601_717.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CREDITMEMO = {
+        file = "CREDITMEMO"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CREDITMEMO = {
+        record = "CREDITMEMO"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO_ITEM@f = {
+        record = "CREDITMEMO:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custcol_rev_rec_rule = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_rule.scriptid
+              value = "14"
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+              columnreference = {
+                column = "Line ID"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

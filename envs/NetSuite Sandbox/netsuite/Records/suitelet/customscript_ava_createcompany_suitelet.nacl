@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_ava_createcompany_suitelet {
+  scriptid = "customscript_ava_createcompany_suitelet"
+  isinactive = false
+  name = "AVA_CreateCompany_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_CreateCompanyForm.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_createcomproleid = {
+        scriptid = "custscript_createcomproleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_ava_createcompany_suitelet = {
+        scriptid = "customdeploy_ava_createcompany_suitelet"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audslctrole = "ADMINISTRATOR"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "Create Company"
+      }
+    }
+  }
+}

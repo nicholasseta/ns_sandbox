@@ -1,0 +1,51 @@
+netsuite.centercategory custcentercategory_scg_email_stmts_invoices {
+  scriptid = "custcentercategory_scg_email_stmts_invoices"
+  center = "BASIC"
+  centertab = "BASICCENTERLISTS"
+  label = "Statement Notifications"
+  links = {
+    link = {
+      customsearch946 = {
+        linklabel = "Statement Notification List"
+        linkobject = netsuite.savedsearch.instance.customsearch946.scriptid
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+        index = 0
+      }
+      customsearch_emails_2 = {
+        linklabel = "Statement Notification Emails"
+        linkobject = netsuite.savedsearch.instance.customsearch_emails_2.scriptid
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+        index = 1
+      }
+      customsearch_scg_stmt_proc_by_cust_faile = {
+        linklabel = "Failed Statement Notification"
+        linkobject = netsuite.savedsearch.instance.customsearch_scg_stmt_proc_by_cust_faile.scriptid
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+        index = 2
+      }
+      customsearch_statement_proc_cust_update = {
+        linklabel = "Customers - Invalid or No Emails"
+        linkobject = netsuite.savedsearch.instance.customsearch_statement_proc_cust_update.scriptid
+        linktasktype = "SRCH_RSLT"
+        shortlist = false
+        index = 3
+      }
+      customscript_scg_sendincjoindstmtinvs_sl_customdeploy_scg_sendincjoindstmtinvs_sl@uuuvuuu = {
+        linklabel = "Reprocess Failed Statement Notification"
+        linkobject = netsuite.suitelet.instance.customscript_scg_sendincjoindstmtinvs_sl.scriptdeployments.scriptdeployment.customdeploy_scg_sendincjoindstmtinvs_sl.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 4
+      }
+      custlink_1_5172601_468 = {
+        linkobject = netsuite.centerlink.instance.custlink_1_5172601_468.scriptid
+        linktasktype = "LINK"
+        shortlist = false
+        index = 5
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+netsuite.savedcsvimport custimport_558_5172601_219 {
+  scriptid = "custimport_558_5172601_219"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Deposit in Transit"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMERPAYMENT"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_45_5172601_sb1_109.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMERPAYMENT = {
+        file = "CUSTOMERPAYMENT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMERPAYMENT = {
+        record = "CUSTOMERPAYMENT"
+        fieldmappings = {
+          fieldmapping = {
+            ARACCT = {
+              field = "ARACCT"
+              value = "122"
+            }
+            AUTOAPPLY = {
+              field = "AUTOAPPLY"
+              value = "F"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "1"
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            CUSTOMER = {
+              field = "CUSTOMER"
+              columnreference = {
+                column = "Customer Internal ID"
+                file = "CUSTOMERPAYMENT"
+                type = "INTERNAL_ID"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              value = "23"
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            PAYMENT = {
+              field = "PAYMENT"
+              columnreference = {
+                column = "Amount"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            PAYMENTMETHOD = {
+              field = "PAYMENTMETHOD"
+              columnreference = {
+                column = "Type"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "126"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "CUSTOMERPAYMENT"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Transaction #"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            UNDEPFUNDS = {
+              field = "UNDEPFUNDS"
+              value = "T"
+            }
+          }
+        }
+      }
+    }
+  }
+}

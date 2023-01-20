@@ -1,0 +1,1441 @@
+type netsuite.customrecord_order {
+  annotations {
+    serviceid scriptid {
+    }
+    string recordname {
+    }
+    string customsegment {
+    }
+    netsuite.customrecordtype_accesstype accesstype {
+    }
+    boolean allowattachments {
+    }
+    boolean allowinlineediting {
+    }
+    boolean allowinlinedeleting {
+    }
+    boolean allowinlinedetaching {
+    }
+    boolean allowmobileaccess {
+    }
+    boolean allownumberingoverride {
+    }
+    boolean allowquickadd {
+    }
+    boolean allowquicksearch {
+    }
+    boolean allowuiaccess {
+    }
+    string description {
+    }
+    boolean enabledle {
+    }
+    boolean enablekeywords {
+    }
+    boolean enablemailmerge {
+    }
+    boolean enablenametranslation {
+    }
+    boolean enablenumbering {
+    }
+    boolean enableoptimisticlocking {
+    }
+    boolean enablesystemnotes {
+    }
+    boolean hierarchical {
+    }
+    string numberingprefix {
+    }
+    string numberingsuffix {
+    }
+    string numberingmindigits {
+    }
+    string numberinginit {
+    }
+    string icon {
+    }
+    boolean iconbuiltin {
+    }
+    netsuite.generic_custom_record_icon iconindex {
+    }
+    boolean includeinsearchmenu {
+    }
+    boolean includename {
+    }
+    boolean isinactive {
+    }
+    boolean isordered {
+    }
+    boolean showcreationdate {
+    }
+    boolean showcreationdateonlist {
+    }
+    boolean showid {
+    }
+    boolean showlastmodified {
+    }
+    boolean showlastmodifiedonlist {
+    }
+    boolean shownotes {
+    }
+    boolean showowner {
+    }
+    boolean showownerallowchange {
+    }
+    boolean showowneronlist {
+    }
+    netsuite.customrecordtype_instances instances {
+    }
+    netsuite.customrecordtype_links links {
+    }
+    netsuite.customrecordtype_permissions permissions {
+    }
+    netsuite.customrecordtype_recordsublists recordsublists {
+    }
+    netsuite.customrecordtype_subtabs subtabs {
+    }
+    string application_id {
+    }
+    hidden_string source {
+    }
+    hidden_string internalId {
+    }
+  }
+  serviceid scriptid {
+    _required = true
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.customRecordTranslationsList translationsList {
+  }
+  string custom_custrecord_is_ord_status {
+    scriptid = "custrecord_is_ord_status"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Status"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 0
+  }
+  netsuite.customrecord_contracttag custom_custrecord_c_contracttag {
+    scriptid = "custrecord_c_contracttag"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = true
+    label = "Contract Tag"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = netsuite.customrecord_contracttag.attr.scriptid
+    showinlist = false
+    storevalue = true
+    index = 1
+  }
+  netsuite.vendor custom_custrecord_is_ord_entity {
+    scriptid = "custrecord_is_ord_entity"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Customer"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-9"
+    showinlist = false
+    storevalue = true
+    index = 2
+  }
+  netsuite.subsidiary custom_custrecord_is_ord_subsidiary {
+    scriptid = "custrecord_is_ord_subsidiary"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = true
+    isparent = false
+    label = "Subsidiary"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-117"
+    showinlist = false
+    storevalue = true
+    index = 3
+  }
+  string custom_custrecord_is_ord_sf_opportunity_id {
+    scriptid = "custrecord_is_ord_sf_opportunity_id"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Opportunity ID"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 4
+  }
+  netsuite.currency custom_custrecord_is_ord_currency {
+    scriptid = "custrecord_is_ord_currency"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Currency"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-122"
+    showinlist = false
+    storevalue = true
+    index = 5
+  }
+  number custom_custrecord_is_ord_exchangerate {
+    scriptid = "custrecord_is_ord_exchangerate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "FLOAT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Exchange Rate"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 6
+  }
+  string custom_custrecord_is_ord_oppty_close_date {
+    scriptid = "custrecord_is_ord_oppty_close_date"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Opportunity Close Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 7
+  }
+  netsuite.customer custom_custrecord_is_ord_enduser {
+    scriptid = "custrecord_is_ord_enduser"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "End User"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 8
+  }
+  netsuite.contact custom_custrecord_is_cl_services_contact {
+    scriptid = "custrecord_is_cl_services_contact"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Services Contact"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-6"
+    showinlist = false
+    storevalue = true
+    index = 9
+  }
+  string custom_custrecord_is_ord_contract_start_date {
+    scriptid = "custrecord_is_ord_contract_start_date"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Contract Start Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 10
+  }
+  netsuite.customer custom_custrecord_is_ord_distributor {
+    scriptid = "custrecord_is_ord_distributor"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Distributor"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 11
+  }
+  number custom_custrecord_is_ord_fastspring_fee {
+    scriptid = "custrecord_is_ord_fastspring_fee"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Fastspring Fee"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 12
+  }
+  netsuite.contact custom_custrecordis_ord_invoice_contact {
+    scriptid = "custrecordis_ord_invoice_contact"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Invoice Contact"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-6"
+    showinlist = false
+    storevalue = true
+    index = 13
+  }
+  string custom_custrecord_is_ord_license_billing_sched {
+    scriptid = "custrecord_is_ord_license_billing_sched"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "License Billing Schedule"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 14
+  }
+  string custom_custrecord_is_ord_maint_billing_sched {
+    scriptid = "custrecord_is_ord_maint_billing_sched"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Maintenance Billing Schedule"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 15
+  }
+  string custom_custrecord_is_ord_services_billing_sched {
+    scriptid = "custrecord_is_ord_services_billing_sched"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Services Billing Schedule"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 16
+  }
+  netsuite.customer custom_custrecord_is_ord_partnerjvreseller {
+    scriptid = "custrecord_is_ord_partnerjvreseller"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Partner JV Reseller"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 17
+  }
+  string custom_custrecord_is_ord_memo {
+    scriptid = "custrecord_is_ord_memo"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Memo"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 18
+  }
+  number custom_custrecord_is_ord_total {
+    scriptid = "custrecord_is_ord_total"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Order Total"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 19
+  }
+  unknown custom_custrecord_is_ord_ordertype {
+    scriptid = "custrecord_is_ord_ordertype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Order Type"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = netsuite.customlist.instance.customlist_so_ordertype.scriptid
+    showinlist = false
+    storevalue = true
+    index = 20
+  }
+  unknown custom_custrecord_is_ord_sales_geo {
+    scriptid = "custrecord_is_ord_sales_geo"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Sales Geo"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = netsuite.customlist.instance.customlist_sales_geo_list.scriptid
+    showinlist = false
+    storevalue = true
+    index = 21
+  }
+  string custom_custrecord_is_ord_sf_ord {
+    scriptid = "custrecord_is_ord_sf_ord"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    defaultvalue = "'https://glsft2.lightning.force.com/lightning/r/Order/'||{custrecord_is_ord_sf_order_id}||'/view'"
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "URL"
+    globalsearch = false
+    isformula = true
+    ismandatory = false
+    isparent = false
+    label = "Salesforce Order"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = false
+    index = 22
+  }
+  string custom_custrecord_ord_payment_mthd {
+    scriptid = "custrecord_ord_payment_mthd"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Payment Method"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 23
+  }
+  string custom_custrecord_ord_payment_terms {
+    scriptid = "custrecord_ord_payment_terms"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Payment Terms"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 24
+  }
+  number custom_custrecord_ord_satclause_termlength {
+    scriptid = "custrecord_ord_satclause_termlength"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "FLOAT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Sat Clause Term Length (months)"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 25
+  }
+  unknown custom_custrecord_ord_satclause_type {
+    scriptid = "custrecord_ord_satclause_type"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Sat Clause Type"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = netsuite.customlist.instance.customlist_sat_clause_type.scriptid
+    showinlist = false
+    storevalue = true
+    index = 26
+  }
+  boolean custom_custrecord_ord_satclause_required {
+    scriptid = "custrecord_ord_satclause_required"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Satisfaction Clause Required"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 27
+  }
+  string custom_custrecord_ord_stripe_chargeid {
+    scriptid = "custrecord_ord_stripe_chargeid"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Stripe Charge ID"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 28
+  }
+  string custom_custrecord_ord_po_number {
+    scriptid = "custrecord_ord_po_number"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "PO Number"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 29
+  }
+  netsuite.customer custom_custrecord_ord_billing_contact {
+    scriptid = "custrecord_ord_billing_contact"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Contact"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 30
+  }
+  boolean custom_custrecord_ord_po_required {
+    scriptid = "custrecord_ord_po_required"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "PO Required"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 31
+  }
+  boolean custom_custrecord_ord_create_installproj {
+    scriptid = "custrecord_ord_create_installproj"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Create Install Project"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 32
+  }
+  string custom_custrecord_is_ord_sf_order_id {
+    scriptid = "custrecord_is_ord_sf_order_id"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = true
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "SF Order ID"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 33
+  }
+  string custom_custrecord_order_external_id {
+    scriptid = "custrecord_order_external_id"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    defaultvalue = "{externalid}"
+    displaytype = "STATICTEXT"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = true
+    ismandatory = false
+    isparent = false
+    label = "External ID (Sourced)"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = false
+    index = 34
+  }
+  string custom_custrecord_is_ord_billaddr1 {
+    scriptid = "custrecord_is_ord_billaddr1"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Address 1"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_101_5172601_sb1_920.scriptid
+    index = 35
+  }
+  string custom_custrecord_is_ord_billaddr2 {
+    scriptid = "custrecord_is_ord_billaddr2"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Address 2"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_101_5172601_sb1_920.scriptid
+    index = 36
+  }
+  string custom_custrecord_is_ord_billcity {
+    scriptid = "custrecord_is_ord_billcity"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing City"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_101_5172601_sb1_920.scriptid
+    index = 37
+  }
+  string custom_custrecord_is_ord_billstate {
+    scriptid = "custrecord_is_ord_billstate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing State"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_101_5172601_sb1_920.scriptid
+    index = 38
+  }
+  string custom_custrecord_is_ord_billzip {
+    scriptid = "custrecord_is_ord_billzip"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Zip"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_101_5172601_sb1_920.scriptid
+    index = 39
+  }
+  string custom_custrecord_is_ord_billcountry {
+    scriptid = "custrecord_is_ord_billcountry"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Country"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_101_5172601_sb1_920.scriptid
+    index = 40
+  }
+  unknown custom_custrecord_ord_data_load_context {
+    scriptid = "custrecord_ord_data_load_context"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Data Load Context"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = netsuite.customlist.instance.customlist_data_load_context.scriptid
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_103_5172601_sb1_728.scriptid
+    index = 41
+  }
+  string custom_custrecord_is_ord_shipattention {
+    scriptid = "custrecord_is_ord_shipattention"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Attention"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 42
+  }
+  string custom_custrecord_is_ord_shipaddressee {
+    scriptid = "custrecord_is_ord_shipaddressee"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Addressee"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 43
+  }
+  string custom_custrecord_is_ord_shipphone {
+    scriptid = "custrecord_is_ord_shipphone"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "PHONE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Phone"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 44
+  }
+  string custom_custrecord_is_ord_shipaddr1 {
+    scriptid = "custrecord_is_ord_shipaddr1"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Address 1"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 45
+  }
+  string custom_custrecord_is_ord_shipaddr2 {
+    scriptid = "custrecord_is_ord_shipaddr2"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Address 2"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 46
+  }
+  string custom_custrecord_is_ord_shipcity {
+    scriptid = "custrecord_is_ord_shipcity"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping City"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 47
+  }
+  string custom_custrecord_is_ord_shipstate {
+    scriptid = "custrecord_is_ord_shipstate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping State"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 48
+  }
+  string custom_custrecord_is_ord_shipzip {
+    scriptid = "custrecord_is_ord_shipzip"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Zip"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 49
+  }
+  string custom_custrecord_is_ord_shipcountry {
+    scriptid = "custrecord_is_ord_shipcountry"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Shipping Country"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_100_5172601_sb1_483.scriptid
+    index = 50
+  }
+  boolean custom_custrecord_ins_migrating_order {
+    scriptid = "custrecord_ins_migrating_order"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Migrating Order"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    subtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_103_5172601_sb1_728.scriptid
+    index = 51
+  }
+  string custom_custrecord_is_ord_sf_deal_id {
+    scriptid = "custrecord_is_ord_sf_deal_id"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "SF Deal ID"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 52
+  }
+  scriptid = "customrecord_order"
+  accesstype = "CUSTRECORDENTRYPERM"
+  allowattachments = true
+  allowinlinedeleting = false
+  allowinlinedetaching = true
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = false
+  allowquickadd = true
+  allowquicksearch = false
+  allowuiaccess = true
+  enabledle = true
+  enablekeywords = true
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = true
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = true
+  isinactive = false
+  isordered = false
+  recordname = "Order"
+  showcreationdate = true
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = true
+  showlastmodifiedonlist = false
+  shownotes = true
+  showowner = true
+  showownerallowchange = false
+  showowneronlist = false
+  permissions = {
+    permission = {
+      ADMINISTRATOR = {
+        permittedlevel = "FULL"
+        permittedrole = "ADMINISTRATOR"
+      }
+      customrole_is_ap_clerk = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_ap_clerk.scriptid
+      }
+      customrole1024 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1024.scriptid
+      }
+      customrole_is_ar_clerk = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_ar_clerk.scriptid
+      }
+      customrole1023 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1023.scriptid
+      }
+      customrole_is_accountant = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_accountant.scriptid
+      }
+      customrole1054 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1054.scriptid
+      }
+      customrole1028 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1028.scriptid
+      }
+      customrole1051 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1051.scriptid
+      }
+      customrole1041 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1041.scriptid
+      }
+      customrole_is_acct_mgr = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+      }
+      customrole1034 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1034.scriptid
+      }
+      customrole1050 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1050.scriptid
+      }
+      customrole1036 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1036.scriptid
+      }
+      customrole1026 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1026.scriptid
+      }
+      customrole1047 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1047.scriptid
+      }
+      customrole_tax = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_tax.scriptid
+      }
+      customrole1046 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1046.scriptid
+      }
+      customrole1049 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1049.scriptid
+      }
+      customrole1048 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1048.scriptid
+      }
+    }
+  }
+  links = {
+    link = {
+      BASICTRANSACTIONSORDERMANAGEMENT = {
+        linkcategory = "BASICTRANSACTIONSORDERMANAGEMENT"
+        linktasktype = "LIST"
+      }
+    }
+  }
+  subtabs = {
+    subtab = {
+      tab_104_5172601_sb1_740 = {
+        scriptid = "tab_104_5172601_sb1_740"
+        tabtitle = "Contract Lines"
+        index = 0
+      }
+      tab_101_5172601_sb1_920 = {
+        scriptid = "tab_101_5172601_sb1_920"
+        tabtitle = "Billing"
+        index = 1
+      }
+      tab_103_5172601_sb1_728 = {
+        scriptid = "tab_103_5172601_sb1_728"
+        tabtitle = "System Information"
+        index = 2
+      }
+      tab_100_5172601_sb1_483 = {
+        scriptid = "tab_100_5172601_sb1_483"
+        tabtitle = "Shipping"
+        index = 3
+      }
+    }
+  }
+  recordsublists = {
+    recordsublist = {
+      sublist_15_5172601_939 = {
+        scriptid = "sublist_15_5172601_939"
+        recorddescr = "Order Transactions"
+        recordsearch = "[scriptid=customsearch3193]"
+        recordtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_104_5172601_sb1_740.scriptid
+        index = 0
+      }
+      sublist_12_5172601_556 = {
+        scriptid = "sublist_12_5172601_556"
+        recorddescr = "Order Revenue Arrangements"
+        recordsearch = netsuite.savedsearch.instance.customsearch3251.scriptid
+        recordtab = netsuite.customrecord_order.attr.subtabs.subtab.tab_104_5172601_sb1_740.scriptid
+        index = 1
+      }
+    }
+  }
+  metadataType = "customrecordtype"
+}

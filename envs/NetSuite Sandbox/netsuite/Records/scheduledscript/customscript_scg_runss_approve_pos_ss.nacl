@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_runss_approve_pos_ss {
+  scriptid = "customscript_scg_runss_approve_pos_ss"
+  defaultfunction = "runScheduledScript"
+  isinactive = false
+  name = "SCG RunSchedScript Approve POs SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RunSchedScript_Approve_POs_SS_js@duuuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_runss_approve_pos_ss = {
+        scriptid = "customdeploy_scg_runss_approve_pos_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG RunSchedScript Approve POs SS"
+        recurrence = {
+          single = {
+            startdate = "2022-05-23"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

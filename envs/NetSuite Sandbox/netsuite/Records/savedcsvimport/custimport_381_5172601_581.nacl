@@ -1,0 +1,55 @@
+netsuite.savedcsvimport custimport_381_5172601_581 {
+  scriptid = "custimport_381_5172601_581"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_is_ap_case_form.scriptid
+  ignorereadonly = false
+  importname = "Close November 2020 Support Cases"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SUPPORTCASE"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SUPPORTCASE = {
+        file = "SUPPORTCASE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SUPPORTCASE = {
+        record = "SUPPORTCASE"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "SUPPORTCASE"
+                type = "NAME"
+              }
+            }
+            STATUS = {
+              field = "STATUS"
+              value = "5"
+            }
+          }
+        }
+      }
+    }
+  }
+}

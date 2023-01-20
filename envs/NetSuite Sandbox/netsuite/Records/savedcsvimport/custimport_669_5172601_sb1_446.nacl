@@ -1,0 +1,302 @@
+netsuite.savedcsvimport custimport_669_5172601_sb1_446 {
+  scriptid = "custimport_669_5172601_sb1_446"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "test invoice without a script"
+  ignorereadonly = true
+  importname = "Invoice PDF Test"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_118_5172601_591.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_billable_expense = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_billable_expense.scriptid
+              columnreference = {
+                column = "Billable Expense"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_bundle_description = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_bundle_description.scriptid
+              columnreference = {
+                column = "Bundle Description"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_bundle_name = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_bundle_name.scriptid
+              columnreference = {
+                column = "Bundle Name"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_oa_client_notes = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_client_notes.scriptid
+              columnreference = {
+                column = "OA Client Notes"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_oa_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_date.scriptid
+              columnreference = {
+                column = "OA: Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_oa_wbs_assignees = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_wbs_assignees.scriptid
+              columnreference = {
+                column = "OpenAir: Assigned Users"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_oa_wbs_task_name = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_oa_wbs_task_name.scriptid
+              columnreference = {
+                column = "OpenAir: Task Name"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_print_milestone_item = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_print_milestone_item.scriptid
+              columnreference = {
+                column = "Print Milestone Item"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_print_time_entry = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_print_time_entry.scriptid
+              columnreference = {
+                column = "Print Time Entry"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              columnreference = {
+                column = "Quantity for Customer"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_syntec_amount = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_syntec_amount.scriptid
+              columnreference = {
+                column = "Syntec Amount"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_syntec_indice_de_facturation = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_syntec_indice_de_facturation.scriptid
+              columnreference = {
+                column = "Syntec Indice de facturation"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_syntec_indice_initiale = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_syntec_indice_initiale.scriptid
+              columnreference = {
+                column = "Syntec Indice Initiale"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_term_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_end_date.scriptid
+              columnreference = {
+                column = "Term End Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_term_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_start_date.scriptid
+              columnreference = {
+                column = "Term Start Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_unit_price = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_unit_price.scriptid
+              columnreference = {
+                column = "Unit Price"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item ID"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              value = "122"
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_invoice_contact = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_invoice_contact.scriptid
+              columnreference = {
+                column = "Invoice Contact"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_payment_reference_num = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_payment_reference_num.scriptid
+              columnreference = {
+                column = "Payment Reference Number"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End User"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_ordertype = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+              columnreference = {
+                column = "Order Type"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_viitteenne = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_viitteenne.scriptid
+              columnreference = {
+                column = "Viitteenne"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer ID"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+netsuite.usereventscript customscript_scg_pymtrefnum_ue {
+  scriptid = "customscript_scg_pymtrefnum_ue"
+  description = "Create/calculate the payment reference number for Finland"
+  isinactive = false
+  name = "SCG Payment Ref Num UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_pymtrefnum_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_pymtrefnum_ue_cm = {
+        scriptid = "customdeploy_scg_pymtrefnum_ue_cm"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        eventtype = "CREATE"
+        executioncontext = "OCRPLUGIN|ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "CREDITMEMO"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+      customdeploy_scg_pymtrefnum_ue = {
+        scriptid = "customdeploy_scg_pymtrefnum_ue"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        eventtype = "CREATE"
+        executioncontext = "OCRPLUGIN|ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "INVOICE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

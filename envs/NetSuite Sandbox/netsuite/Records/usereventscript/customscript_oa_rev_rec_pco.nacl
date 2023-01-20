@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_oa_rev_rec_pco {
+  scriptid = "customscript_oa_rev_rec_pco"
+  beforesubmitfunction = "setPrjPcoSublistBeforeSubmit"
+  description = "Script to update the Rev Rec Percent Complete Override entries based on a project header custom fields. This allows the Project Manager, Finance Manager, or an integration to provide percent of completion updates without manually editing the sublist directly."
+  isinactive = false
+  name = "OpenAir: Rev Rec PCO"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/setPrjPcoSublistBeforeSubmit.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "JOB"
+        status = "RELEASED"
+      }
+    }
+  }
+}

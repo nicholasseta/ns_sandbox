@@ -1,0 +1,29 @@
+netsuite.mapreducescript customscript_avaaddressvalidation_sched {
+  scriptid = "customscript_avaaddressvalidation_sched"
+  isinactive = false
+  name = "AVA_AddressValidate_Map"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_MAP_ValidateBatchAddresses.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_addressvalidate = {
+        scriptid = "customdeploy_addressvalidate"
+        buffersize = "1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "AVA_AddressValidate_Map"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2021-01-18"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

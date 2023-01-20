@@ -1,0 +1,36 @@
+netsuite.entitycustomfield custentity_stripe_customer_account_link {
+  scriptid = "custentity_stripe_customer_account_link"
+  accesslevel = "2"
+  appliestocontact = false
+  appliestocustomer = true
+  appliestoemployee = false
+  appliestogenericrsrc = false
+  appliestogroup = false
+  appliestoothername = false
+  appliestopartner = false
+  appliestopricelist = false
+  appliestoproject = false
+  appliestoprojecttemplate = false
+  appliestostatement = false
+  appliestovendor = false
+  applyformatting = false
+  availableexternally = false
+  availabletosso = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = "'https://app.suitesync.io/customers/'||{subsidiary.custrecord_stripe_account_id}||'/'||{id}||'/'||(to_number(({datecreated}- to_date('01-JAN-1970','DD-MON-YYYY')) * (86400)))"
+  description = "Link to a SuiteSync-hosted payment form which allows customers make payments on their account using card or bank transfer. https://dashboard.suitesync.io/docs/b2b-payments#payments-without-a-salesorder-or-invoice"
+  displaytype = "LOCKED"
+  encryptatrest = false
+  fieldtype = "URL"
+  globalsearch = false
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "Stripe Customer Account Link"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = false
+  storevalue = false
+  subtab = "ENTITYMAIN"
+}

@@ -1,0 +1,58 @@
+netsuite.savedcsvimport custimport_609_5172601_866 {
+  scriptid = "custimport_609_5172601_866"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_contractlines.attr.scriptid
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_109_5172601_591.scriptid
+  ignorereadonly = true
+  importname = "Order Product - Clear PCO Fields"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_contractlines_custrecord_cumulative_percent_complete@uvuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_cumulative_percent_complete.scriptid
+            }
+            customrecord_contractlines_custrecord_percent_complete_date@uvuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_percent_complete_date.scriptid
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "internal ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

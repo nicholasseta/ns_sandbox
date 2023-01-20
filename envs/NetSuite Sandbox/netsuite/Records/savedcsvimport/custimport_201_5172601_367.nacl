@@ -1,0 +1,58 @@
+netsuite.savedcsvimport custimport_201_5172601_367 {
+  scriptid = "custimport_201_5172601_367"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Customer-Subsidiary Relationship"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMERSUBSIDIARYRELATIONSHIP = {
+        file = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMERSUBSIDIARYRELATIONSHIP = {
+        record = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+        fieldmappings = {
+          fieldmapping = {
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "internal id"
+                file = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "sub id"
+                file = "CUSTOMERSUBSIDIARYRELATIONSHIP"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

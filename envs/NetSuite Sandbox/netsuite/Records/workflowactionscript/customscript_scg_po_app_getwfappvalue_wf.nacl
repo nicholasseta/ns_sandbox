@@ -1,0 +1,27 @@
+netsuite.workflowactionscript customscript_scg_po_app_getwfappvalue_wf {
+  scriptid = "customscript_scg_po_app_getwfappvalue_wf"
+  defaultfunction = "getWorkflowApproverValues"
+  isinactive = false
+  name = "SCG POApprvl getWFApproverValues WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returnrecordtype = "-4"
+  returntype = "SELECT"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_POApproval_getWorkflowApproverValues_WF_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_po_app_getwfappvalue_wf = {
+        scriptid = "customdeploy_scg_po_app_getwfappvalue_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

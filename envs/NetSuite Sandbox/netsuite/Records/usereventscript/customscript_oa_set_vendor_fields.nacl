@@ -1,0 +1,66 @@
+netsuite.usereventscript customscript_oa_set_vendor_fields {
+  scriptid = "customscript_oa_set_vendor_fields"
+  beforesubmitfunction = "setOpenAirVendorFieldsVBIntegration"
+  isinactive = false
+  name = "OpenAir: Set Vendor Fields"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_export_to_openair_flags.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_expense_vb_int = {
+        scriptid = "custscript_oa_expense_vb_int"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Check this box to enable the OpenAir expense report, NetSuite vendor bill integration."
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "Check this box to enable the OpenAir expense report, NetSuite vendor bill integration."
+        isformula = false
+        ismandatory = false
+        label = "Expense Report - Vendor Bill Integration"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+      custscript_oa_expense_vb_tax = {
+        scriptid = "custscript_oa_expense_vb_tax"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Exp Rep To Vendor Bill Taxes"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 1
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_set_vendor_fields = {
+        scriptid = "customdeploy_oa_set_vendor_fields"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        custscript_oa_expense_vb_int = false
+        custscript_oa_expense_vb_tax = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "VENDOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

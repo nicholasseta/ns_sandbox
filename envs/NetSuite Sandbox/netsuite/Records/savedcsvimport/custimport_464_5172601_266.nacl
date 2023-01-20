@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_464_5172601_266 {
+  scriptid = "custimport_464_5172601_266"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = false
+  importname = "Populate Invoice Line Descriptions"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = true
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_70_5172601_239.scriptid
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Notes"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+              columnreference = {
+                column = "Invoice Line"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Invoice - NetSuite  ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

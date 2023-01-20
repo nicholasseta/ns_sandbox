@@ -1,0 +1,55 @@
+netsuite.savedcsvimport custimport_55_5172601_955 {
+  scriptid = "custimport_55_5172601_955"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = "STANDARDJOBFORM"
+  ignorereadonly = true
+  importname = "Inactivate Projects"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Project Internal ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "T"
+            }
+          }
+        }
+      }
+    }
+  }
+}

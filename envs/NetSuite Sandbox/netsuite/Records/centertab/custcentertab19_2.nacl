@@ -1,0 +1,47 @@
+netsuite.centertab custcentertab19_2 {
+  scriptid = "custcentertab19_2"
+  allcustomers = false
+  allemployees = false
+  allpartners = false
+  allroles = false
+  allvendors = false
+  audslctrole = "[scriptid=customrole1028]|[scriptid=customrole1041]|[scriptid=customrole_is_acct_mgr]|[scriptid=customrole1000]"
+  center = "ACCOUNTCENTER"
+  label = "Avalara"
+  portlets = {
+    portlet = {
+      portlet_104_t401867_457 = {
+        scriptid = "portlet_104_t401867_457"
+        isportletshown = true
+        portlet = "RECENTRECORDS"
+        portletcolumn = "1"
+        index = 0
+      }
+      portlet_105_t401867_457 = {
+        scriptid = "portlet_105_t401867_457"
+        isportletshown = true
+        portlet = "SETTINGS"
+        portletcolumn = "1"
+        index = 1
+      }
+      portlet_106_t401867_457 = {
+        scriptid = "portlet_106_t401867_457"
+        isportletshown = true
+        portlet = "TASKLINKS"
+        portletcolumn = "2"
+        index = 2
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.role.instance.customrole1028.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1041.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+    },
+  ]
+}

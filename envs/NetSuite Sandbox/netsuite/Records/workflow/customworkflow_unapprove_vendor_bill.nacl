@@ -1,0 +1,144 @@
+netsuite.workflow customworkflow_unapprove_vendor_bill {
+  scriptid = "customworkflow_unapprove_vendor_bill"
+  initoncreate = true
+  initonvieworupdate = true
+  inittriggertype = "BEFORELOAD"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Un-Approve Vendor Bill"
+  recordtypes = "VENDORBILL"
+  releasestatus = "RELEASED"
+  runasadmin = false
+  initcondition = {
+    formula = "\"Status\" IN (\"Transaction Status1\")"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Status = {
+          name = "Status"
+          value = "STDBODYSTATUS"
+          index = 0
+        }
+        Transaction_Status1@s = {
+          name = "Transaction Status1"
+          selectrecordtype = "-164"
+          value = "92"
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15135 = {
+        scriptid = "workflowstate15135"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction87934 = {
+                scriptid = "workflowaction87934"
+                checkconditionbeforeexecution = true
+                isinactive = false
+                label = "Un-Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "\"Status\" IN (\"Transaction Status1\") AND \"User Role\" IN (\"Role1\",\"Role2\",\"Role3\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Status = {
+                        name = "Status"
+                        value = "STDBODYSTATUS"
+                        index = 0
+                      }
+                      Transaction_Status1@s = {
+                        name = "Transaction Status1"
+                        selectrecordtype = "-164"
+                        value = "92"
+                        index = 1
+                      }
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 2
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 3
+                      }
+                      Role2 = {
+                        name = "Role2"
+                        selectrecordtype = "-118"
+                        value = netsuite.role.instance.customrole1028.scriptid
+                        index = 4
+                      }
+                      Role3 = {
+                        name = "Role3"
+                        selectrecordtype = "-118"
+                        value = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+                        index = 5
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition30 = {
+              scriptid = "workflowtransition30"
+              buttonaction = netsuite.workflow.instance.customworkflow_unapprove_vendor_bill.workflowstates.workflowstate.workflowstate15135.workflowactions.BEFORELOAD.addbuttonaction.workflowaction87934.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_unapprove_vendor_bill.workflowstates.workflowstate.workflowstate15136.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate15136 = {
+        scriptid = "workflowstate15136"
+        donotexitworkflow = false
+        name = "State 2"
+        positionx = 243
+        positiony = 243
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction87935 = {
+                scriptid = "workflowaction87935"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "1"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+    }
+  }
+}

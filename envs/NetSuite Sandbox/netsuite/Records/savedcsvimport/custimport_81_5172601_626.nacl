@@ -1,0 +1,146 @@
+netsuite.savedcsvimport custimport_81_5172601_626 {
+  scriptid = "custimport_81_5172601_626"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Open AP Vendor Credits"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORCREDIT"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_credit.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORCREDIT = {
+        file = "VENDORCREDIT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORCREDIT = {
+        record = "VENDORCREDIT"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              value = "546"
+            }
+            AUTOAPPLY = {
+              field = "AUTOAPPLY"
+              value = "F"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            custbody_vendor_bill_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_vendor_bill_date.scriptid
+              columnreference = {
+                column = "Date"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "NS Vendor Internal ID (Optional)"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "No."
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "67"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsdiary"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "No."
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDORCREDIT_ITEM@f = {
+        record = "VENDORCREDIT:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Open Balance"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              value = "1458"
+            }
+          }
+        }
+      }
+    }
+  }
+}

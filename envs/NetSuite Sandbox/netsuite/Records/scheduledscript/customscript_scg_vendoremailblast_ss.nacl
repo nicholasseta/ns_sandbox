@@ -1,0 +1,95 @@
+netsuite.scheduledscript customscript_scg_vendoremailblast_ss {
+  scriptid = "customscript_scg_vendoremailblast_ss"
+  defaultfunction = "is_sendVendEmailBlast"
+  isinactive = false
+  name = "SCG VendorEmailBlast SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_VendorEmailBlast_SS_js@duuv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_veb_sub_ids = {
+        scriptid = "custscript_veb_sub_ids"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Subsidiary Ids"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+      custscript_veb_template_id = {
+        scriptid = "custscript_veb_template_id"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Template"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = "-120"
+        storevalue = true
+        index = 1
+      }
+      custscript_veb_emailauthor = {
+        scriptid = "custscript_veb_emailauthor"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Author"
+        onparentdelete = "SET_NULL"
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 2
+      }
+      custscript_veb_reprocess = {
+        scriptid = "custscript_veb_reprocess"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Reprocess Failed Emails"
+        searchlevel = "2"
+        storevalue = true
+        index = 3
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_vendoremailblast_ss = {
+        scriptid = "customdeploy_scg_vendoremailblast_ss"
+        custscript_veb_reprocess = false
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG VendorEmailBlast SS"
+        recurrence = {
+          single = {
+            startdate = "2022-04-05"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

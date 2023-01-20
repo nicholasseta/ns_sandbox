@@ -1,0 +1,46 @@
+netsuite.suitelet customscript_oa_sso_purchases {
+  scriptid = "customscript_oa_sso_purchases"
+  defaultfunction = "buildSuiteletOAPurchases"
+  isinactive = false
+  name = "OpenAir: Purchases module"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = true
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_single_sign_on.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_term_purchases = {
+        scriptid = "custscript_oa_term_purchases"
+        accesslevel = "2"
+        applyformatting = true
+        checkspelling = true
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        help = "If you need to override the OpenAir SSO suitelet title for this module, enter the override name here."
+        isformula = false
+        ismandatory = false
+        label = "Purchases terminology override"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_sso_purchases_deploy = {
+        scriptid = "customdeploy_oa_sso_purchases_deploy"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "ERROR"
+        status = "RELEASED"
+        title = "OpenAir: Purchases module deployment"
+      }
+    }
+  }
+}

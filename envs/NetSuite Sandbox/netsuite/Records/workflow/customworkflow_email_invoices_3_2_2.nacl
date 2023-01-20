@@ -1,0 +1,343 @@
+netsuite.workflow customworkflow_email_invoices_3_2_2 {
+  scriptid = "customworkflow_email_invoices_3_2_2"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch_new_invoices_2_3.scriptid
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "Mass Email - 15 Days Before Due"
+  recordtypes = "INVOICE"
+  releasestatus = "NOTINITIATING"
+  runasadmin = true
+  recurrence = {
+    single = {
+      startdate = "2018-12-14"
+      starttime = "15:30:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate20 = {
+        scriptid = "workflowstate20"
+        donotexitworkflow = false
+        name = "Evaluate Invoices"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction97 = {
+                scriptid = "workflowaction97"
+                field = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" NOT IN (\"{#Subsidiary#}1\",\"{#Subsidiary#}2\",\"{#Subsidiary#}3\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      __Subsidiary__2@_00123nn_00125 = {
+                        name = "{#Subsidiary#}2"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      __Subsidiary__3@_00123nn_00125 = {
+                        name = "{#Subsidiary#}3"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction125 = {
+                scriptid = "workflowaction125"
+                field = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                isinactive = true
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\",\"{#Subsidiary#}2\",\"{#Subsidiary#}3\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      __Subsidiary__2@_00123nn_00125 = {
+                        name = "{#Subsidiary#}2"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      __Subsidiary__3@_00123nn_00125 = {
+                        name = "{#Subsidiary#}3"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction114 = {
+                scriptid = "workflowaction114"
+                field = "STDBODYEMAIL"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "{entity.custentity_scg_mult_inv_emails}"
+                valuetype = "FORMULA"
+                initcondition = {
+                  formula = "isEmpty(\"Customer:Multiple Invoice Emails\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Customer_Multiple_Invoice_Emails@fss = {
+                        name = "Customer:Multiple Invoice Emails"
+                        value = "STDBODYCUSTOMER:[scriptid=custentity_scg_mult_inv_emails]"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition25 = {
+              scriptid = "workflowtransition25"
+              tostate = netsuite.workflow.instance.customworkflow_email_invoices_3_2_2.workflowstates.workflowstate.workflowstate23.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate23 = {
+        scriptid = "workflowstate23"
+        donotexitworkflow = false
+        name = "Email Invoices"
+        positionx = 463
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction102 = {
+                scriptid = "workflowaction102"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" NOT IN (\"{#Subsidiary#}1\",\"{#Subsidiary#}2\",\"{#Subsidiary#}3\",\"{#Subsidiary#}4\",\"{#Subsidiary#}5\",\"{#Subsidiary#}6\",\"{#Subsidiary#}7\",\"{#Subsidiary#}8\",\"{#Subsidiary#}9\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      __Subsidiary__2@_00123nn_00125 = {
+                        name = "{#Subsidiary#}2"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      __Subsidiary__3@_00123nn_00125 = {
+                        name = "{#Subsidiary#}3"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                      __Subsidiary__4@_00123nn_00125 = {
+                        name = "{#Subsidiary#}4"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 4
+                      }
+                      __Subsidiary__5@_00123nn_00125 = {
+                        name = "{#Subsidiary#}5"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 5
+                      }
+                      __Subsidiary__6@_00123nn_00125 = {
+                        name = "{#Subsidiary#}6"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 6
+                      }
+                      __Subsidiary__7@_00123nn_00125 = {
+                        name = "{#Subsidiary#}7"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 7
+                      }
+                      __Subsidiary__8@_00123nn_00125 = {
+                        name = "{#Subsidiary#}8"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 8
+                      }
+                      __Subsidiary__9@_00123nn_00125 = {
+                        name = "{#Subsidiary#}9"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 9
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction122 = {
+                scriptid = "workflowaction122"
+                attachmenttype = "SPECIFIC"
+                includeformat = "PDF"
+                includerecordlink = false
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\",\"{#Subsidiary#}2\",\"{#Subsidiary#}3\",\"{#Subsidiary#}4\",\"{#Subsidiary#}5\",\"{#Subsidiary#}6\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      __Subsidiary__2@_00123nn_00125 = {
+                        name = "{#Subsidiary#}2"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      __Subsidiary__3@_00123nn_00125 = {
+                        name = "{#Subsidiary#}3"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                      __Subsidiary__4@_00123nn_00125 = {
+                        name = "{#Subsidiary#}4"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 4
+                      }
+                      __Subsidiary__5@_00123nn_00125 = {
+                        name = "{#Subsidiary#}5"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 5
+                      }
+                      __Subsidiary__6@_00123nn_00125 = {
+                        name = "{#Subsidiary#}6"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 6
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction117 = {
+                scriptid = "workflowaction117"
+                field = netsuite.transactionbodycustomfield.instance.custbody_last_email_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+    },
+  ]
+}

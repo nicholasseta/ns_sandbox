@@ -1,0 +1,75 @@
+netsuite.savedcsvimport custimport_4_5172601_974 {
+  scriptid = "custimport_4_5172601_974"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "ERP Import"
+  ignorereadonly = true
+  importname = "ERP Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CLASSIFICATION"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CLASSIFICATION = {
+        file = "CLASSIFICATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CLASSIFICATION = {
+        record = "CLASSIFICATION"
+        fieldmappings = {
+          fieldmapping = {
+            custrecord_erp_subsegment = {
+              field = netsuite.othercustomfield.instance.custrecord_erp_subsegment.scriptid
+              columnreference = {
+                column = "ERP Sub Segment"
+                file = "CLASSIFICATION"
+                type = "NAME"
+              }
+            }
+            custrecord_erp_tier = {
+              field = netsuite.othercustomfield.instance.custrecord_erp_tier.scriptid
+              columnreference = {
+                column = "ERP Tier"
+                file = "CLASSIFICATION"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "CLASSIFICATION"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+netsuite.savedcsvimport custimport_167_5172601_950 {
+  scriptid = "custimport_167_5172601_950"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "David - Update Products"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYSALEITEM"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYSALEITEM = {
+        file = "NONINVENTORYSALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYSALEITEM = {
+        record = "NONINVENTORYSALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custitem_integration_id = {
+              field = netsuite.itemcustomfield.instance.custitem_integration_id.scriptid
+              columnreference = {
+                column = "External ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_family = {
+              field = netsuite.itemcustomfield.instance.custitem_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_line_item = {
+              field = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+              columnreference = {
+                column = "Product Line"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_type = {
+              field = netsuite.itemcustomfield.instance.custitem_product_type.scriptid
+              columnreference = {
+                column = "Product Type"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            DISPLAYNAME = {
+              field = "DISPLAYNAME"
+              columnreference = {
+                column = "Product Code"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "InternalId"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            ITEMID = {
+              field = "ITEMID"
+              columnreference = {
+                column = "Product Name"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            SALESDESCRIPTION = {
+              field = "SALESDESCRIPTION"
+              columnreference = {
+                column = "Product Description"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

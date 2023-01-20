@@ -1,0 +1,50 @@
+netsuite.workflow customworkflow6 {
+  scriptid = "customworkflow6"
+  description = "Sets this field from the Customer record to the Invoice On Create."
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "Set Disable Invoice Email Field"
+  recordtypes = "INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = false
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15124 = {
+        scriptid = "workflowstate15124"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction87919 = {
+                scriptid = "workflowaction87919"
+                field = netsuite.transactionbodycustomfield.instance.custbody_disable_invoice_email_notice.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.entitycustomfield.instance.custentity_disable_invoice_email_notice.scriptid
+                valuejoinfield = "STDBODYCUSTOMER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+netsuite.transactionbodycustomfield custbody_payment_method_translated {
+  scriptid = "custbody_payment_method_translated"
+  accesslevel = "2"
+  applyformatting = false
+  bodycustomerpayment = false
+  bodydeposit = false
+  bodydepositapplication = false
+  bodyexpensereport = false
+  bodyitemfulfillment = false
+  bodyitemfulfillmentorder = false
+  bodyjournal = false
+  bodyothertransaction = false
+  bodyperiodendjournal = false
+  bodypickingticket = false
+  bodyprintflag = false
+  bodyprintpackingslip = false
+  bodyprintstatement = false
+  bodypurchase = false
+  bodysale = true
+  bodyvendorpayment = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = '''
+CASE 
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='ACH/Wire' THEN 'SEPA/Überweisung'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='Cash' THEN 'Bargeld'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='Check' THEN 'Scheck'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='Credit Card' THEN 'Kreditkarte'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='Direct Debit' THEN 'Lastschriftverfahren'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='Favors' THEN 'Vergünstigung/Guthaben/Rabatt'
+WHEN {custbody_invoice_label_translation} ='German' AND {custbody_stripe_payment_method} ='Stripe' THEN 'Abzug'
+END
+'''
+  displaytype = "STATICTEXT"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  globalsearch = false
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "Payment Method Translated"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = false
+  storevalue = false
+  subtab = "TRANSACTIONBILLING"
+}

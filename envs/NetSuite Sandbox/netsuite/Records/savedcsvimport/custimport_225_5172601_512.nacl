@@ -1,0 +1,66 @@
+netsuite.savedcsvimport custimport_225_5172601_512 {
+  scriptid = "custimport_225_5172601_512"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = true
+  importname = "Subsidiary Change Old.1"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            EMAIL = {
+              field = "EMAIL"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "T"
+            }
+            LASTNAME = {
+              field = "LASTNAME"
+              columnreference = {
+                column = "Last Name"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

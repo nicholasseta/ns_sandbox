@@ -1,0 +1,57 @@
+netsuite.workflow customworkflow11 {
+  scriptid = "customworkflow11"
+  initoncreate = false
+  initonvieworupdate = false
+  isinactive = true
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Subsidiary Set Values"
+  recordtypes = "SUBSIDIARY"
+  releasestatus = "TESTING"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15132 = {
+        scriptid = "workflowstate15132"
+        donotexitworkflow = false
+        name = "Set Value"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction87931 = {
+                scriptid = "workflowaction87931"
+                field = netsuite.othercustomfield.instance.custrecord_print_erp_epm.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isChecked(\"Add to New Customer\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Add_to_New_Customer@s = {
+                        name = "Add to New Customer"
+                        value = netsuite.othercustomfield.instance.custrecord_scg_add_to_new_cust.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+netsuite.savedcsvimport custimport_428_5172601_980 {
+  scriptid = "custimport_428_5172601_980"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "IDL Customers"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNTNUMBER = {
+              field = "ACCOUNTNUMBER"
+              columnreference = {
+                column = "Account Name"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "Account Name"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "1"
+            }
+            custentity_legacy_id = {
+              field = netsuite.entitycustomfield.instance.custentity_legacy_id.scriptid
+              columnreference = {
+                column = "Legacy Source Id 1"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            custentity_legacy_source = {
+              field = netsuite.entitycustomfield.instance.custentity_legacy_source.scriptid
+              columnreference = {
+                column = "From Data Source"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              value = "T"
+            }
+            custentity_salesforceid = {
+              field = netsuite.entitycustomfield.instance.custentity_salesforceid.scriptid
+              columnreference = {
+                column = "18 Digit Account ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            custentity_type = {
+              field = netsuite.entitycustomfield.instance.custentity_type.scriptid
+              columnreference = {
+                column = "Type"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ENTITYSTATUS = {
+              field = "ENTITYSTATUS"
+              value = "13"
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "18 Digit Account ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ISPERSON = {
+              field = "ISPERSON"
+              value = "F"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "CUSTOMER"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+      CUSTOMER_ADDRESSBOOK_ADDRESSBOOKADDRESS@f = {
+        record = "CUSTOMER:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "Billing Street"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "Billing City"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Billing Country"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "Billing State/Province"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "Billing Zip/Postal Code"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

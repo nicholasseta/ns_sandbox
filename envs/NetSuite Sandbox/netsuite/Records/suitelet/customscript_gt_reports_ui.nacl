@@ -1,0 +1,58 @@
+netsuite.suitelet customscript_gt_reports_ui {
+  scriptid = "customscript_gt_reports_ui"
+  isinactive = false
+  name = "Grant Thornton - Reports UI"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 446298/gt_app/gt_reports_ui.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_gt_reports_ui_page = {
+        scriptid = "custscript_gt_reports_ui_page"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Page"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_gt_reports_ui_status = {
+        scriptid = "customdeploy_gt_reports_ui_status"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_gt_reports_ui_page = "status"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Grant Thornton - Reports UI (Reports Status)"
+      }
+      customdeploy_gt_reports_ui_report = {
+        scriptid = "customdeploy_gt_reports_ui_report"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_gt_reports_ui_page = "report"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Grant Thornton - Reports UI (Run Reports)"
+      }
+    }
+  }
+}

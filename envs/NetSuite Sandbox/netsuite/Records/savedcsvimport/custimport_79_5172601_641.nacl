@@ -1,0 +1,107 @@
+netsuite.savedcsvimport custimport_79_5172601_641 {
+  scriptid = "custimport_79_5172601_641"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = true
+  importname = "Employee Update"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            COMMENTS = {
+              field = "COMMENTS"
+              columnreference = {
+                column = "Comment"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              columnreference = {
+                column = "Export to OpenAir"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Department ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              columnreference = {
+                column = "Inactive"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            RELEASEDATE = {
+              field = "RELEASEDATE"
+              columnreference = {
+                column = "End Date"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUPERVISOR = {
+              field = "SUPERVISOR"
+              columnreference = {
+                column = "Supervisor ID"
+                file = "EMPLOYEE"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

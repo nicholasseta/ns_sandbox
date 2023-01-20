@@ -1,0 +1,60 @@
+netsuite.savedcsvimport custimport_76_5172601_534 {
+  scriptid = "custimport_76_5172601_534"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "To update legacy ID number with Epicor/Sage invoice numbers"
+  ignorereadonly = true
+  importname = "Hubble Open AR - Invoices updates"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_78_5172601_sb1_700.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_legacy_transaction_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_legacy_transaction_number.scriptid
+              columnreference = {
+                column = "Legacy ID Number"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,340 @@
+netsuite.workflow customworkflow1 {
+  scriptid = "customworkflow1"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Set Field Values"
+  recordtypes = "CUSTOMER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate18 = {
+        scriptid = "workflowstate18"
+        donotexitworkflow = false
+        name = "Set Field Values"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setdisplaytypeaction = {
+              workflowaction110 = {
+                scriptid = "workflowaction110"
+                displaytype = "HIDDEN"
+                field = "STDENTITYEMAILTRANSACTIONS"
+                isinactive = true
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction118 = {
+                scriptid = "workflowaction118"
+                displaytype = "HIDDEN"
+                field = "STDENTITYEMAIL"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+              workflowaction135 = {
+                scriptid = "workflowaction135"
+                displaytype = "HIDDEN"
+                eventtypes = "COPY|CREATE|EDIT"
+                field = netsuite.entitycustomfield.instance.custentity_aging1.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 2
+              }
+              workflowaction136 = {
+                scriptid = "workflowaction136"
+                displaytype = "HIDDEN"
+                eventtypes = "COPY|CREATE|EDIT"
+                field = netsuite.entitycustomfield.instance.custentity_aging2.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 3
+              }
+              workflowaction137 = {
+                scriptid = "workflowaction137"
+                displaytype = "HIDDEN"
+                eventtypes = "COPY|CREATE|EDIT"
+                field = netsuite.entitycustomfield.instance.custentity_aging3.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 4
+              }
+              workflowaction138 = {
+                scriptid = "workflowaction138"
+                displaytype = "HIDDEN"
+                eventtypes = "COPY|CREATE|EDIT"
+                field = netsuite.entitycustomfield.instance.custentity_aging.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 5
+              }
+              workflowaction139 = {
+                scriptid = "workflowaction139"
+                displaytype = "HIDDEN"
+                eventtypes = "COPY|CREATE|EDIT"
+                field = netsuite.entitycustomfield.instance.custentity_aging4.scriptid
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 6
+              }
+              workflowaction88200 = {
+                scriptid = "workflowaction88200"
+                displaytype = "HIDDEN"
+                field = "STDENTITYEMAILTRANSACTIONS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 7
+              }
+              workflowaction88209 = {
+                scriptid = "workflowaction88209"
+                displaytype = "NORMAL"
+                field = "STDENTITYEMAIL"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 8
+              }
+            }
+            index = 0
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction111 = {
+                scriptid = "workflowaction111"
+                field = "STDENTITYEMAILPREFERENCE"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "2"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction112 = {
+                scriptid = "workflowaction112"
+                field = "STDENTITYPRINTTRANSACTIONS"
+                isinactive = true
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isEmpty(\"Multiple Invoice Emails\") = 'T' OR isChecked(\"Send Invoice via Portal\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Multiple_Invoice_Emails@s = {
+                        name = "Multiple Invoice Emails"
+                        value = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+                        index = 0
+                      }
+                      Send_Invoice_via_Portal@s = {
+                        name = "Send Invoice via Portal"
+                        value = netsuite.entitycustomfield.instance.custentity_send_invoice_portal.scriptid
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction113 = {
+                scriptid = "workflowaction113"
+                field = "STDENTITYPRINTTRANSACTIONS"
+                isinactive = true
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isEmpty(\"Multiple Invoice Emails\") = 'F' OR isChecked(\"Send Invoice via Portal\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Multiple_Invoice_Emails@s = {
+                        name = "Multiple Invoice Emails"
+                        value = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+                        index = 0
+                      }
+                      Send_Invoice_via_Portal@s = {
+                        name = "Send Invoice via Portal"
+                        value = netsuite.entitycustomfield.instance.custentity_send_invoice_portal.scriptid
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+              workflowaction130 = {
+                scriptid = "workflowaction130"
+                field = netsuite.entitycustomfield.instance.custentity_intercompany.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetext = "Yes"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "{representingsubsidiary.id} is not null"
+                  type = "FORMULA"
+                }
+                index = 3
+              }
+              workflowaction131 = {
+                scriptid = "workflowaction131"
+                field = netsuite.entitycustomfield.instance.custentity_intercompany.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "{representingsubsidiary.id} is null"
+                  type = "FORMULA"
+                }
+                index = 4
+              }
+            }
+            index = 1
+          }
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction92 = {
+                scriptid = "workflowaction92"
+                field = "STDENTITYEMAILTRANSACTIONS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction88291 = {
+                scriptid = "workflowaction88291"
+                field = "[scriptid=custentity_edoc_gen_trans_pdf]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isEmpty(\"eInvoice Address\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      eInvoice_Address@s = {
+                        name = "eInvoice Address"
+                        value = netsuite.entitycustomfield.instance.custentity_einvoice_address__c.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction88288 = {
+                scriptid = "workflowaction88288"
+                field = "[scriptid=custentity_psg_ei_entity_edoc_standard]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[scriptid=customrecord_psg_ei_standards.val_60990010_5172601_371]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isEmpty(\"eInvoice Address\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      eInvoice_Address@s = {
+                        name = "eInvoice Address"
+                        value = netsuite.entitycustomfield.instance.custentity_einvoice_address__c.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+              workflowaction88294 = {
+                scriptid = "workflowaction88294"
+                field = "[scriptid=custentity_psg_ei_auto_select_temp_sm]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isEmpty(\"eInvoice Address\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      eInvoice_Address@s = {
+                        name = "eInvoice Address"
+                        value = netsuite.entitycustomfield.instance.custentity_einvoice_address__c.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 3
+              }
+            }
+            index = 2
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

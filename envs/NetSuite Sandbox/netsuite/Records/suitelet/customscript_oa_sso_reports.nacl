@@ -1,0 +1,25 @@
+netsuite.suitelet customscript_oa_sso_reports {
+  scriptid = "customscript_oa_sso_reports"
+  defaultfunction = "buildSuiteletOAReports"
+  isinactive = false
+  name = "OpenAir: Reports module"
+  notifyadmins = false
+  notifyowner = false
+  notifyuser = true
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_single_sign_on.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_sso_reports_deploy = {
+        scriptid = "customdeploy_oa_sso_reports_deploy"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = false
+        loglevel = "ERROR"
+        status = "RELEASED"
+        title = "OpenAir: Reports module deployments"
+      }
+    }
+  }
+}

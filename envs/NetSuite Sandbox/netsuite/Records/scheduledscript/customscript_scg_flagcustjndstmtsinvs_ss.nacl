@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_scg_flagcustjndstmtsinvs_ss {
+  scriptid = "customscript_scg_flagcustjndstmtsinvs_ss"
+  defaultfunction = "is_fcjsi_flagCustsForJoinedStmtsInvs"
+  isinactive = false
+  name = "SCG flagCustsForJoinedStmtsInvoices SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_flagCustsForJoinedStmtsInvoices_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_flagcustjndstmtsinvs_ss = {
+        scriptid = "customdeploy_scg_flagcustjndstmtsinvs_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG flagCustsForJoinedStmtsInvoices SS"
+        recurrence = {
+          monthly = {
+            everyxmonths = 1
+            startdate = "2020-04-10"
+            starttime = "21:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

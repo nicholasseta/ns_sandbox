@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_530_5172601_438 {
+  scriptid = "custimport_530_5172601_438"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "SFB Data Fix - Project Update (ARM ID)"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_sf_order_product_id = {
+              field = netsuite.entitycustomfield.instance.custentity_sf_order_product_id.scriptid
+              columnreference = {
+                column = "Order Product Ext ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Project Int ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+netsuite.savedcsvimport custimport_133_5172601_501 {
+  scriptid = "custimport_133_5172601_501"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "E4A Customer Update"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_saascg_customernotes = {
+              field = netsuite.entitycustomfield.instance.custentity_saascg_customernotes.scriptid
+              columnreference = {
+                column = "Customer Notes"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            custentity_saascg_taxid = {
+              field = netsuite.entitycustomfield.instance.custentity_saascg_taxid.scriptid
+              columnreference = {
+                column = "Tax ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NS Internal ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

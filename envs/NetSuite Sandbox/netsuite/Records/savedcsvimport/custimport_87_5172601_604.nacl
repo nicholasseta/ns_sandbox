@@ -1,0 +1,84 @@
+netsuite.savedcsvimport custimport_87_5172601_604 {
+  scriptid = "custimport_87_5172601_604"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "Customer - Multiple Emails Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            CUSTENTITY_INVOICE_TO_TYPE = {
+              field = "CUSTENTITY_INVOICE_TO_TYPE"
+              columnreference = {
+                column = "InvoiceToType"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            custentity_scg_mult_inv_emails = {
+              field = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+              columnreference = {
+                column = "CombinedEmail"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            EMAILTRANSACTIONS = {
+              field = "EMAILTRANSACTIONS"
+              columnreference = {
+                column = "Send Via Email"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NetSuiteID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            PRINTTRANSACTIONS = {
+              field = "PRINTTRANSACTIONS"
+              columnreference = {
+                column = "Send Via Print"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

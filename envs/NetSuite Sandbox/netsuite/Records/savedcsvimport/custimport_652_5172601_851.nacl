@@ -1,0 +1,63 @@
+netsuite.savedcsvimport custimport_652_5172601_851 {
+  scriptid = "custimport_652_5172601_851"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_121_5172601_113.scriptid
+  ignorereadonly = true
+  importname = "PhoneCallUpdate"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "PHONECALL"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      PHONECALL = {
+        file = "PHONECALL"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      PHONECALL = {
+        record = "PHONECALL"
+        fieldmappings = {
+          fieldmapping = {
+            ASSIGNED = {
+              field = "ASSIGNED"
+              value = "13533644"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+            STARTDATE = {
+              field = "STARTDATE"
+              value = "11/1/2022"
+            }
+            STATUS = {
+              field = "STATUS"
+              value = "SCHEDULED"
+            }
+          }
+        }
+      }
+    }
+  }
+}

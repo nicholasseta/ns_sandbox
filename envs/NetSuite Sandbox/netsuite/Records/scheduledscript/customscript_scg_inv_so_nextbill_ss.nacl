@@ -1,0 +1,28 @@
+netsuite.scheduledscript customscript_scg_inv_so_nextbill_ss {
+  scriptid = "customscript_scg_inv_so_nextbill_ss"
+  defaultfunction = "is_createInvNextBill"
+  isinactive = false
+  name = "SCG InvoiceSO NextBill SS"
+  notifyadmins = false
+  notifyemails = "bizappshelp@insightsoftware.com"
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_InvoiceSO_NextBill_SS_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_inv_so_nextbill_ss = {
+        scriptid = "customdeploy_scg_inv_so_nextbill_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG InvoiceSO NextBill SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2020-03-11"
+            starttime = "00:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

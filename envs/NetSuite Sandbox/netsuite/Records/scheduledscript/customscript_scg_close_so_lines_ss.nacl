@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_scg_close_so_lines_ss {
+  scriptid = "customscript_scg_close_so_lines_ss"
+  defaultfunction = "is_closeSOlines"
+  isinactive = false
+  name = "SCG Close SO Lines SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Close_SO_Lines_SS_js@duuuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_close_so_lines_ss = {
+        scriptid = "customdeploy_scg_close_so_lines_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG Close SO Lines SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2020-06-26"
+            starttime = "06:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

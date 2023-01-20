@@ -1,0 +1,61 @@
+netsuite.workflow customworkflowbulk_email {
+  scriptid = "customworkflowbulk_email"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch280.scriptid
+  isinactive = true
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Annual Maintenance Enhancements Letter"
+  recordtypes = "INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  recurrence = {
+    single = {
+      startdate = "2018-12-17"
+      starttime = "05:00:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate28 = {
+        scriptid = "workflowstate28"
+        donotexitworkflow = false
+        name = "Send Email"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction119 = {
+                scriptid = "workflowaction119"
+                attachmentfile = "[/Announcement Letters/Atlas Product Investments 2018_logo PDF.pdf]"
+                attachmenttype = "SPECIFIC"
+                includerecordlink = false
+                includetransaction = false
+                isinactive = false
+                recipientfield = "STDBODYEMAIL"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.transactionbodycustomfield.instance.custbody_invoice_email_sender.scriptid
+                sendertype = "FIELD"
+                template = "[NOT_YET_SUPPORTED]"
+                usetemplate = true
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

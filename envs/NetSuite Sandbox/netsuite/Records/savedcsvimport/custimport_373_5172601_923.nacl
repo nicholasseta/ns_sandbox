@@ -1,0 +1,191 @@
+netsuite.savedcsvimport custimport_373_5172601_923 {
+  scriptid = "custimport_373_5172601_923"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "deferred revenue (CM), negative balance import SF"
+  ignorereadonly = true
+  importname = "deferred revenue (CM) import SF"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CREDITMEMO"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_credit_memo.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CREDITMEMO = {
+        file = "CREDITMEMO"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CREDITMEMO = {
+        record = "CREDITMEMO"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Base Currency"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End User customer ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "NetSuite Customer Internal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID (Prior System Reference)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Netsuite Subsidiary Internal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Transaction /Invoice Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CREDITMEMO_ITEM@f = {
+        record = "CREDITMEMO:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Deferred Rev Base Amount"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_erp_version = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_erp_version.scriptid
+              columnreference = {
+                column = "ERP Version"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev End Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Start Date"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_so_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "NetSuite Item Internal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Code"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,226 @@
+netsuite.savedcsvimport custimport_po_by_items {
+  scriptid = "custimport_po_by_items"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Purchase Order by Items - NEW"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "PURCHASEORDER"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_po_purchaseorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      PURCHASEORDER = {
+        file = "PURCHASEORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      PURCHASEORDER_ITEM@f = {
+        record = "PURCHASEORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            custcol_so_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Department"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo Line"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Rate"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            TAX1AMT = {
+              field = "TAX1AMT"
+              columnreference = {
+                column = "Tax Amount"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Code"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      PURCHASEORDER = {
+        record = "PURCHASEORDER"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            custbody_delay_email_to_vendor = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_delay_email_to_vendor.scriptid
+              columnreference = {
+                column = "Delay Email to Vendor"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            custbody_scg_dept_resp_4_apprvl = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_scg_dept_resp_4_apprvl.scriptid
+              columnreference = {
+                column = "Dept Resp for Approval"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            EMPLOYEE = {
+              field = "EMPLOYEE"
+              columnreference = {
+                column = "Employee"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary ID"
+                file = "PURCHASEORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            TERMS = {
+              field = "TERMS"
+              columnreference = {
+                column = "Terms"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "PURCHASEORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

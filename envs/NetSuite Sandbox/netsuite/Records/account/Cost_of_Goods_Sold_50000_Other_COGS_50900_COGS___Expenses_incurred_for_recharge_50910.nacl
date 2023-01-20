@@ -1,0 +1,35 @@
+netsuite.account Cost_of_Goods_Sold_50000_Other_COGS_50900_COGS___Expenses_incurred_for_recharge_50910@sssuusuusbssssu {
+  acctType = "_costOfGoodsSold"
+  acctNumber = "50910"
+  acctName = "COGS - Expenses incurred for recharge"
+  includeChildren = true
+  generalRate = "_average"
+  parent = netsuite.account.instance.Cost_of_Goods_Sold_50000_Other_COGS_50900@sssuusu
+  cashFlowRate = "_average"
+  deferralAcct = {
+    name = "13540 Prepaid Assets : Prepaid Expenses"
+    id = "[ACCOUNT_SPECIFIC_VALUE]"
+  }
+  isInactive = false
+  eliminate = false
+  subsidiaryList = [
+    netsuite.subsidiary.instance.GS_Topco__LP@szds,
+  ]
+  localizationsList = {
+    accountLocalizations = [
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_2
+        acctName = "Bezogene Leistungen"
+      },
+    ]
+  }
+  revalue = false
+  identifier = "Cost of Goods Sold_50000_Other COGS_50900_COGS - Expenses incurred for recharge_50910"
+  externalId = "50910"
+  custom_custrecord_account_number = "50910"
+  custom_custrecord_csv_update = "2"
+  custom_custrecord_elim_checkbox = false
+  custom_custrecord_glm_include = false
+  custom_custrecord_has_mx_localization = false
+  custom_custrecord_revalue_checkbox = false
+}

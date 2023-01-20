@@ -1,0 +1,48 @@
+netsuite.workflow customworkflow_product_line {
+  scriptid = "customworkflow_product_line"
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Product Line"
+  recordtypes = "LOCATION"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate31 = {
+        scriptid = "workflowstate31"
+        donotexitworkflow = false
+        name = "Set ZIP"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFOREUSERSUBMIT = {
+            triggertype = "BEFOREUSERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction140 = {
+                scriptid = "workflowaction140"
+                field = "STDRECORDLOCATIONZIP"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetext = "27609"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

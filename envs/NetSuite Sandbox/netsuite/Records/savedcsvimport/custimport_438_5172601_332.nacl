@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_438_5172601_332 {
+  scriptid = "custimport_438_5172601_332"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "CustomDateCreated"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CHECK"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_check.scriptid
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CHECK = {
+        file = "CHECK"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CHECK = {
+        record = "CHECK"
+        fieldmappings = {
+          fieldmapping = {
+            CUSTBODY_DATE_CREATED = {
+              field = "CUSTBODY_DATE_CREATED"
+              columnreference = {
+                column = "Date Created"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CHECK"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

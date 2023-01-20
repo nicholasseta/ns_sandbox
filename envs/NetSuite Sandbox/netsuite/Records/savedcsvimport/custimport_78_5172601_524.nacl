@@ -1,0 +1,59 @@
+netsuite.savedcsvimport custimport_78_5172601_524 {
+  scriptid = "custimport_78_5172601_524"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "Deferral Account Update"
+  ignorereadonly = true
+  importname = "Deferral Account Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "ACCOUNT"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      ACCOUNT = {
+        file = "ACCOUNT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      ACCOUNT = {
+        record = "ACCOUNT"
+        fieldmappings = {
+          fieldmapping = {
+            DEFERRALACCT = {
+              field = "DEFERRALACCT"
+              columnreference = {
+                column = "Deferral Account"
+                file = "ACCOUNT"
+                type = "INTERNAL_ID"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

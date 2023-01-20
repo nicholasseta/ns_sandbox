@@ -1,0 +1,54 @@
+netsuite.savedcsvimport custimport_638_5172601_901 {
+  scriptid = "custimport_638_5172601_901"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Logi Item Flag - Services"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SERVICESALEITEM"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SERVICESALEITEM = {
+        file = "SERVICESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SERVICESALEITEM = {
+        record = "SERVICESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custitem_logi_migration = {
+              field = netsuite.itemcustomfield.instance.custitem_logi_migration.scriptid
+              value = "T"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NetSuiteID"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

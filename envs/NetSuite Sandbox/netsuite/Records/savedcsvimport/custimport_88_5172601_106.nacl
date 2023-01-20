@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_88_5172601_106 {
+  scriptid = "custimport_88_5172601_106"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Consolidated Exchange Rate Update"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CONSOLIDATEDEXCHANGERATE"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CONSOLIDATEDEXCHANGERATE = {
+        file = "CONSOLIDATEDEXCHANGERATE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CONSOLIDATEDEXCHANGERATE = {
+        record = "CONSOLIDATEDEXCHANGERATE"
+        fieldmappings = {
+          fieldmapping = {
+            AVERAGERATE = {
+              field = "AVERAGERATE"
+              columnreference = {
+                column = "Average"
+                file = "CONSOLIDATEDEXCHANGERATE"
+                type = "NAME"
+              }
+            }
+            CURRENTRATE = {
+              field = "CURRENTRATE"
+              columnreference = {
+                column = "Current"
+                file = "CONSOLIDATEDEXCHANGERATE"
+                type = "NAME"
+              }
+            }
+            HISTORICALRATE = {
+              field = "HISTORICALRATE"
+              columnreference = {
+                column = "Historical"
+                file = "CONSOLIDATEDEXCHANGERATE"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Production Internal ID"
+                file = "CONSOLIDATEDEXCHANGERATE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

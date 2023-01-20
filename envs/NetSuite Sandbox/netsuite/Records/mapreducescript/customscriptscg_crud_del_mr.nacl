@@ -1,0 +1,51 @@
+netsuite.mapreducescript customscriptscg_crud_del_mr {
+  scriptid = "customscriptscg_crud_del_mr"
+  isinactive = false
+  name = "SCG | Delete Records | MR"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 421992/delete_recs_mr.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscriptscg_srch_del_id = {
+        scriptid = "custscriptscg_srch_del_id"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Enter a saved search ID in the deployment parameter to delete all records"
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Search to Delete"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeployscg_crud_del_mr = {
+        scriptid = "customdeployscg_crud_del_mr"
+        buffersize = "1"
+        concurrencylimit = "2"
+        custscriptscg_srch_del_id = 4752
+        isdeployed = true
+        loglevel = "EMERGENCY"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "SCG | Delete Records | MR"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2021-07-31"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

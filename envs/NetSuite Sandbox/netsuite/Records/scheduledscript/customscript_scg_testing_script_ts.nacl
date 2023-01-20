@@ -1,0 +1,25 @@
+netsuite.scheduledscript customscript_scg_testing_script_ts {
+  scriptid = "customscript_scg_testing_script_ts"
+  isinactive = false
+  name = "Testing Script"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_testing_script_js@duv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_testing_script_ts = {
+        scriptid = "customdeploy_scg_testing_script_ts"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "Testing Script"
+        recurrence = {
+          single = {
+            startdate = "2023-01-05"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

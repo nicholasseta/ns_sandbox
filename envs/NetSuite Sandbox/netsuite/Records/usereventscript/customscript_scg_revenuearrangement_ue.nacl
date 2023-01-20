@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_scg_revenuearrangement_ue {
+  scriptid = "customscript_scg_revenuearrangement_ue"
+  aftersubmitfunction = "is_ra_afterSubmit"
+  isinactive = false
+  name = "SCG RevenueArrangement UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RevenueArrangement_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_revenuearrangement_ue = {
+        scriptid = "customdeploy_scg_revenuearrangement_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|OCRPLUGIN|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WORKBOOKBUILDER|WORKFLOW|MAPREDUCE"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "REVENUEARRANGEMENT"
+        runasrole = "FULL_ACCESS"
+        status = "RELEASED"
+      }
+    }
+  }
+}

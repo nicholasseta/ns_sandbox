@@ -1,0 +1,85 @@
+netsuite.savedcsvimport custimport_456_5172601_979 {
+  scriptid = "custimport_456_5172601_979"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Customer Quick Add - John"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "Customer Quick Add - John"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "Bill To Customer Name"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "13"
+            }
+            custentity_sales_geo = {
+              field = netsuite.entitycustomfield.instance.custentity_sales_geo.scriptid
+              value = "3"
+            }
+            custentity_salesforceid = {
+              field = netsuite.entitycustomfield.instance.custentity_salesforceid.scriptid
+              value = "Pending"
+            }
+            ENTITYSTATUS = {
+              field = "ENTITYSTATUS"
+              value = "13"
+            }
+            ISPERSON = {
+              field = "ISPERSON"
+              value = "F"
+            }
+            LANGUAGE = {
+              field = "LANGUAGE"
+              value = "de_DE"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "132"
+            }
+            TERMS = {
+              field = "TERMS"
+              value = "2"
+            }
+          }
+        }
+      }
+    }
+  }
+}

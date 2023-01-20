@@ -1,0 +1,169 @@
+netsuite.savedcsvimport custimport_ap_bill_credits {
+  scriptid = "custimport_ap_bill_credits"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "*Data Migration - AP Credits"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORCREDIT"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_credit.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORCREDIT = {
+        file = "VENDORCREDIT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORCREDIT = {
+        record = "VENDORCREDIT"
+        fieldmappings = {
+          fieldmapping = {
+            AUTOAPPLY = {
+              field = "AUTOAPPLY"
+              value = "F"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_vendor_bill_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_vendor_bill_date.scriptid
+              columnreference = {
+                column = "Vendor Bill Date"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor Internal ID"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "114"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Internal ID"
+                file = "VENDORCREDIT"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Invoice No"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDORCREDIT_ITEM@f = {
+        record = "VENDORCREDIT:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Department"
+                file = "VENDORCREDIT"
+                type = "EXTERNAL_ID"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              value = "1458"
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            TAX1AMT = {
+              field = "TAX1AMT"
+              value = "0"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Code"
+                file = "VENDORCREDIT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

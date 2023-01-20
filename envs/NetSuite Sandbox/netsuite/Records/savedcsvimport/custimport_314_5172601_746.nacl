@@ -1,0 +1,106 @@
+netsuite.savedcsvimport custimport_314_5172601_746 {
+  scriptid = "custimport_314_5172601_746"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "LV IC Schedule"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOURNALENTRY"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_69_5172601_639.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOURNALENTRY = {
+        file = "JOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOURNALENTRY = {
+        record = "JOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            APPROVED = {
+              field = "APPROVED"
+              value = "T"
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            MEMO = {
+              field = "MEMO"
+              value = "IC AR Schedule"
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "94"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "103"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "6/30/2020"
+            }
+          }
+        }
+      }
+      JOURNALENTRY_LINE@f = {
+        record = "JOURNALENTRY:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account"
+                file = "JOURNALENTRY"
+                type = "EXTERNAL_ID"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "Balance in base currency"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer ID"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

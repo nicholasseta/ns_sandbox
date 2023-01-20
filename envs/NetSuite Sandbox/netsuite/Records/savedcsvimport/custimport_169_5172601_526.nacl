@@ -1,0 +1,128 @@
+netsuite.savedcsvimport custimport_169_5172601_526 {
+  scriptid = "custimport_169_5172601_526"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customtransaction = netsuite.customtransactiontype.instance.customtransaction_acquisition_entry.scriptid
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "CXO BV TB Import Reversals"
+  ignorereadonly = true
+  importname = "CXO BV TB Import Reversals"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMTRANSACTION"
+  runserversuitescript = true
+  transactionform = "[scriptid=custform_62_5172601_399]"
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMTRANSACTION = {
+        file = "CUSTOMTRANSACTION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMTRANSACTION = {
+        record = "CUSTOMTRANSACTION"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange rate"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo Rev"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "66"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Reversal Date"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Entry No. Rev"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CUSTOMTRANSACTION_LINE@f = {
+        record = "CUSTOMTRANSACTION:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account ID"
+                file = "CUSTOMTRANSACTION"
+                type = "INTERNAL_ID"
+              }
+            }
+            CREDIT = {
+              field = "CREDIT"
+              columnreference = {
+                column = "Transaction Amount"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Name"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo Rev"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

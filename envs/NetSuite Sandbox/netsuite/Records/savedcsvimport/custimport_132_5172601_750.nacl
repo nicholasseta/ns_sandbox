@@ -1,0 +1,119 @@
+netsuite.savedcsvimport custimport_132_5172601_750 {
+  scriptid = "custimport_132_5172601_750"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "LTD Accruals Journals Import"
+  ignorereadonly = true
+  importname = "LTD Accruals Journals Import"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOURNALENTRY"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_journalentry.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      JOURNALENTRY = {
+        file = "JOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOURNALENTRY = {
+        record = "JOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            REVERSALDATE = {
+              field = "REVERSALDATE"
+              value = "1/4/2019"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "33"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "31/3/2019"
+            }
+          }
+        }
+      }
+      JOURNALENTRY_LINE@f = {
+        record = "JOURNALENTRY:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "NS GL ID"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            CREDIT = {
+              field = "CREDIT"
+              columnreference = {
+                column = "CR"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "DR"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "NS Dept ID"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Location"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Line Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

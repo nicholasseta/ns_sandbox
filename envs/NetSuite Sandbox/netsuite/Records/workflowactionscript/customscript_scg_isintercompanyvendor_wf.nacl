@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_scg_isintercompanyvendor_wf {
+  scriptid = "customscript_scg_isintercompanyvendor_wf"
+  defaultfunction = "is_iiv_isIntercompanyVendor"
+  isinactive = false
+  name = "SCG_isIntercompanyVendor_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "CHECKBOX"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_isIntercompanyVendor_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_isintercompanyvendor_wf = {
+        scriptid = "customdeploy_scg_isintercompanyvendor_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

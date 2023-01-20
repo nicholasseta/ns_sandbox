@@ -1,0 +1,52 @@
+netsuite.mapreducescript customscript_scg_order_product_mr {
+  scriptid = "customscript_scg_order_product_mr"
+  isinactive = false
+  name = "SCG Order Product MR - Update Events"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_SCG_Order_Product_MR_js@dduuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_order_product_mr2 = {
+        scriptid = "customdeploy_scg_order_product_mr2"
+        buffersize = "1"
+        concurrencylimit = "6"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "SCG Order Product MR Manual"
+        yieldaftermins = "60"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT1H"
+            startdate = "2022-06-07"
+            starttime = "07:00:00Z"
+          }
+        }
+      }
+      customdeploy_scg_order_product_mr1 = {
+        scriptid = "customdeploy_scg_order_product_mr1"
+        buffersize = "1"
+        concurrencylimit = "6"
+        isdeployed = false
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "SCHEDULED"
+        title = "SCG Order Product MR Scheduled"
+        yieldaftermins = "60"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT1H"
+            startdate = "2022-06-07"
+            starttime = "07:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

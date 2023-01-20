@@ -1,0 +1,291 @@
+netsuite.savedsearch customsearch_ncfar_asset_register_ss_7 {
+  scriptid = "customsearch_ncfar_asset_register_ss_7"
+  dependencies = {
+    dependency = [
+      "[scriptid=customrecord_fam_assetvalues.custrecord_slavebookvalue]",
+      "[scriptid=customrecord_fam_assetvalues.custrecord_slavecurrentage]",
+      "[scriptid=customrecord_fam_assetvalues.custrecord_slavelastdeprdate]",
+      "[scriptid=customrecord_fam_assetvalues]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetaccmethod]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetcost]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetcreatedfrom]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetcurrentcost]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetdeprstartdate]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetdescr]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetdisposaldate]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetlifetime]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetlocation]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetparent]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetphysicallocn]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetpurchasedate]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetsourcetrn]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetsourcetrnline]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetsubsidiary]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assettype]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_assetvals]",
+      "[scriptid=customrecord_ncfar_asset.custrecord_fam_state]",
+      "[scriptid=customrecord_ncfar_asset.custrecordfam_country]",
+      "[scriptid=customrecord_ncfar_asset]",
+      "[scriptid=customrecord_ncfar_assettype]",
+      "[scriptid=customrecord_ncfar_deprmethod]",
+      netsuite.othercustomfield.instance.custrecord_subsidiary_name.scriptid,
+    ]
+  }
+  definition = "906b331999df9547f9b3b4421f18de1c218117231309f1a9fffccf36e67396e9@GZC@2022.2.15@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"
+  search_filter = [
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "CUSTRECORD_ASSETTYPE"
+      FIELD_TYPE = "SELECT"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "@ALL@"
+        },
+      ]
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "CUSTRECORD_ASSETSUBSIDIARY"
+      FIELD_TYPE = "SELECT"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "@ALL@"
+        },
+      ]
+    },
+  ]
+  available_filters = [
+    {
+      SEQ_NUMBER = 1
+      FIELD_NAME = "CUSTRECORD_ASSETSUBSIDIARY"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+    {
+      SEQ_NUMBER = 2
+      FIELD_NAME = "CUSTRECORD_ASSETTYPE"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+    {
+      SEQ_NUMBER = 3
+      FIELD_NAME = "CUSTRECORD_ASSETLOCATION"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+    {
+      SEQ_NUMBER = 4
+      FIELD_NAME = "Custom_IDTEXT"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+  ]
+  return_fields = [
+    {
+      FIELD_ALIAS = "Custom_NAME"
+      FIELD_INDEX = 1
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Custom_ALTNAME"
+      FIELD_INDEX = 2
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETDESCR"
+      FIELD_INDEX = 3
+      FIELD_LABEL = "Description"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETTYPE"
+      FIELD_INDEX = 4
+      FIELD_LABEL = "Type"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETPURCHASEDATE"
+      FIELD_INDEX = 5
+      FIELD_LABEL = "Purchase"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETDISPOSALDATE"
+      FIELD_INDEX = 6
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETDEPRSTARTDATE"
+      FIELD_INDEX = 7
+      FIELD_LABEL = "In Service"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETCOST"
+      FIELD_INDEX = 8
+      FIELD_LABEL = "OC"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETCURRENTCOST"
+      FIELD_INDEX = 9
+      FIELD_LABEL = "CC"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETACCMETHOD"
+      FIELD_INDEX = 10
+      FIELD_LABEL = "Method"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AEG_CUSTRECORD_SLAVEBOOKVALUE"
+      FIELD_INDEX = 11
+      FIELD_LABEL = "NBV"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Custom_FORMULACURRENCY"
+      FIELD_INDEX = 12
+      FIELD_LABEL = "Depreciation To Date"
+      FIELD_FORMULA = "{custrecord_assetcurrentcost}-{custrecord_assetvals.custrecord_slavebookvalue}"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AEG_CUSTRECORD_SLAVELASTDEPRDATE"
+      FIELD_INDEX = 13
+      FIELD_LABEL = "Last Depreciation Date"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETLIFETIME"
+      FIELD_INDEX = 14
+      FIELD_LABEL = "Lifetime"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AEG_CUSTRECORD_SLAVECURRENTAGE"
+      FIELD_INDEX = 15
+      FIELD_LABEL = "Last Depreciation Period"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_ASSETSOURCETRN"
+      FIELD_INDEX = 16
+      FIELD_LABEL = "Transaction"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AFB_Subsidiary_INTERNALID"
+      FIELD_INDEX = 17
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AFB_CUSTRECORD_SUBSIDIARY_NAME"
+      FIELD_INDEX = 18
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORD_FAM_STATE"
+      FIELD_INDEX = 19
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "CUSTRECORDFAM_COUNTRY"
+      FIELD_INDEX = 20
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AFC_CUSTRECORD_ASSETCREATEDFROM"
+      FIELD_INDEX = 21
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AFC_CUSTRECORD_ASSETSOURCETRN"
+      FIELD_INDEX = 22
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AFC_CUSTRECORD_ASSETSOURCETRNLINE"
+      FIELD_INDEX = 23
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "AFC_CUSTRECORD_ASSETPHYSICALLOCN"
+      FIELD_INDEX = 24
+      FIELD_FORMULA_ERROR = false
+    },
+  ]
+  sort_columns = [
+    {
+      KEY_FIELD = "CUSTRECORD_ASSETTYPE"
+      FILELD_ORDER = 1
+      FLAG_DESCENDING = false
+    },
+    {
+      KEY_FIELD = "Custom_NAME"
+      FILELD_ORDER = 2
+      FLAG_DESCENDING = false
+    },
+  ]
+  audience = {
+    FLAG_AUDIENCE_ALL_CUSTOMERS = false
+    FLAG_AUDIENCE_ALL_EMPLOYEES = false
+    FLAG_AUDIENCE_ALL_PARTNERS = false
+    FLAG_AUDIENCE_ALL_ROLES = true
+    FLAG_AUDIENCE_ALL_VENDORS = false
+  }
+  KEY_SCRIPT_ID = "customsearch_ncfar_asset_register_ss_7"
+  FIELD_DEFAULT_NAME = "FAM Asset List- (MM)"
+  FIELD_SEARCH_TYPE = "Custom"
+  FLAG_PUBLIC = true
+  FLAG_LIST = false
+  FLAG_PORTLET = false
+  FLAG_MACHINE = false
+  FLAG_REMINDER = false
+  FLAG_SHOW_LINK = false
+  FLAG_PREFERRED_LIST = false
+  FLAG_PREFERRED_PORTLET = false
+  FLAG_PREFERRED_MACHINE = false
+  FLAG_PREFERRED_FORM = false
+  FLAG_PREFERRED_RESULTS = false
+  KEY_RECORD_TYPE = 36
+  FLAG_VIEW_AS_REPORT = false
+  FLAG_VIEW_AS_GRAPH = false
+  FLAG_VIEW_AS_GRID = false
+  FLAG_UNRESTRICTED = false
+  FLAG_DISABLE_DRILL_DOWN = false
+  FLAG_HIDE_FILTER_DROPDOWNS = false
+  KEY_DEFAULT_TEXT_FIELD_FILTER = "ANY"
+  FLAG_AVAILABLE_AS_FEED = false
+  FLAG_GLOBAL_EDIT = false
+  FLAG_CSV = false
+  FLAG_EXCEL = false
+  FLAG_PDF = false
+  FLAG_TRIGGERED_ALERT = false
+  FLAG_SCHEDULED_ALERT = false
+  FLAG_SCHEDULED_ALERT_SUMMARIES = false
+  FLAG_SEND_EMPTY_RESULTS = false
+  FLAG_ALERT_ALLOW_SUBSCRIBE = false
+  FLAG_ALERT_INCLUDE_VIEW_LINK = false
+  FLAG_HAS_TOTALS = true
+  FLAG_INCLUDE_PERIOD_END_TRANSACTIONS = false
+  FLAG_BUILT_IN = false
+  FLAG_SEND_ON_UPDATE = false
+  FLAG_SHOW_AUDIT_TRAIL = false
+  KEY_AUDIENCE = 0
+}

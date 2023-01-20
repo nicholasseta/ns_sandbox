@@ -1,0 +1,26 @@
+netsuite.suitelet customscript_scg_createpdf_sl {
+  scriptid = "customscript_scg_createpdf_sl"
+  defaultfunction = "is_inv_createPDF"
+  isinactive = false
+  name = "SCG CreatePDF SL"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_CreatePDF_SL_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_createpdf_sl = {
+        scriptid = "customdeploy_scg_createpdf_sl"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = true
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "SCG CreatePDF SL"
+      }
+    }
+  }
+}

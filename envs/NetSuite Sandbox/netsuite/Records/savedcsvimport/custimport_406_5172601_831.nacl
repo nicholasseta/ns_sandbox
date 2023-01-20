@@ -1,0 +1,164 @@
+netsuite.savedcsvimport custimport_406_5172601_831 {
+  scriptid = "custimport_406_5172601_831"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_contact_form.scriptid
+  ignorereadonly = true
+  importname = "Viareport Contacts"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CONTACT"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CONTACT = {
+        file = "CONTACT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CONTACT = {
+        record = "CONTACT"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANY = {
+              field = "COMPANY"
+              columnreference = {
+                column = "Account ns ID"
+                file = "CONTACT"
+                type = "INTERNAL_ID"
+              }
+            }
+            custentity_champion = {
+              field = netsuite.entitycustomfield.instance.custentity_champion.scriptid
+              columnreference = {
+                column = "Champion"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_invoice_delivery = {
+              field = netsuite.entitycustomfield.instance.custentity_invoice_delivery.scriptid
+              columnreference = {
+                column = "Invoice Delivery"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_legacy_source = {
+              field = netsuite.entitycustomfield.instance.custentity_legacy_source.scriptid
+              columnreference = {
+                column = "From Data Source"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_license_key_contact = {
+              field = netsuite.entitycustomfield.instance.custentity_license_key_contact.scriptid
+              columnreference = {
+                column = "License Key Contact"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              value = "T"
+            }
+            custentity_salesforceid = {
+              field = netsuite.entitycustomfield.instance.custentity_salesforceid.scriptid
+              columnreference = {
+                column = "18 Digit Contact ID"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_services_contact_cb = {
+              field = netsuite.entitycustomfield.instance.custentity_services_contact_cb.scriptid
+              columnreference = {
+                column = "Services Contact"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_support_contact = {
+              field = netsuite.entitycustomfield.instance.custentity_support_contact.scriptid
+              columnreference = {
+                column = "Support Contact"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentity_technical_contact = {
+              field = netsuite.entitycustomfield.instance.custentity_technical_contact.scriptid
+              columnreference = {
+                column = "Technical Contact"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            custentityeconomic_buyer = {
+              field = netsuite.entitycustomfield.instance.custentityeconomic_buyer.scriptid
+              columnreference = {
+                column = "Economic Buyer"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            EMAIL = {
+              field = "EMAIL"
+              columnreference = {
+                column = "Email"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "18 Digit Contact ID"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            FIRSTNAME = {
+              field = "FIRSTNAME"
+              columnreference = {
+                column = "First Name"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            LASTNAME = {
+              field = "LASTNAME"
+              columnreference = {
+                column = "Last Name"
+                file = "CONTACT"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "122"
+            }
+          }
+        }
+      }
+    }
+  }
+}

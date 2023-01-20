@@ -1,0 +1,113 @@
+netsuite.workflow customworkflow_auto_invoice_mekko_dr {
+  scriptid = "customworkflow_auto_invoice_mekko_dr"
+  description = "Invoices Sales Orders with Mekko/DR Order Source (based off of Automate Invoicing)"
+  initoncreate = true
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Auto-Invoice Mekko/DR Orders"
+  recordtypes = "SALESORDER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    formula = "isEmpty(\"Order Source\") = 'F'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Order_Source@s = {
+          name = "Order Source"
+          value = netsuite.transactionbodycustomfield.instance.custbody_order_source.scriptid
+          index = 0
+        }
+      }
+    }
+  }
+  workflowcustomfields = {
+    workflowcustomfield = {
+      custworkflow2_2 = {
+        scriptid = "custworkflow2_2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Join Record"
+        selectrecordtype = "-30"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate47 = {
+        scriptid = "workflowstate47"
+        donotexitworkflow = false
+        name = "State 1: Create Invoice"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction87939 = {
+                scriptid = "workflowaction87939"
+                eventtypes = "CREATE"
+                field = "STDBODYORDERSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "12"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "( \"Order Source\" = 'Digital River' OR \"Order Source\" = 'Mekko Admin' )"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Order_Source@s = {
+                        name = "Order Source"
+                        value = netsuite.transactionbodycustomfield.instance.custbody_order_source.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            customaction = {
+              workflowaction169 = {
+                scriptid = "workflowaction169"
+                eventtypes = "CREATE"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_auto_invoice_mekko_dr.workflowcustomfields.workflowcustomfield.custworkflow2_2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_inv_so_nextbill_wf.scriptid
+                initcondition = {
+                  formula = "( \"Order Source\" = 'Digital River' OR \"Order Source\" = 'Mekko Admin' )"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Order_Source@s = {
+                        name = "Order Source"
+                        value = netsuite.transactionbodycustomfield.instance.custbody_order_source.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

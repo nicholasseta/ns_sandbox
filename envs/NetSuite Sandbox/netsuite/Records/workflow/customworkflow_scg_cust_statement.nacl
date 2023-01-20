@@ -1,0 +1,67 @@
+netsuite.workflow customworkflow_scg_cust_statement {
+  scriptid = "customworkflow_scg_cust_statement"
+  description = "To send the statements in bulk - Only Statements, NO Invoices"
+  initoncreate = false
+  initonvieworupdate = false
+  initsavedsearchfilter = netsuite.savedsearch.instance.customsearch773.scriptid
+  isinactive = true
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Mass Email - Customer Statement"
+  recordtypes = "CUSTOMER"
+  releasestatus = "TESTING"
+  runasadmin = true
+  recurrence = {
+    single = {
+      startdate = "2019-11-13"
+      starttime = "18:00:00Z"
+    }
+  }
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate35 = {
+        scriptid = "workflowstate35"
+        donotexitworkflow = false
+        name = "Send Mass Email"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            customaction = {
+              workflowaction150 = {
+                scriptid = "workflowaction150"
+                isinactive = false
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_cust_statment_email_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                parametersettings = {
+                  parametersetting = {
+                    customscript_scg_cust_statment_email_wf_custscript_email_template@uuuuuvuu = {
+                      targetparameter = netsuite.workflowactionscript.instance.customscript_scg_cust_statment_email_wf.scriptcustomfields.scriptcustomfield.custscript_email_template.scriptid
+                      valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                      index = 0
+                    }
+                    customscript_scg_cust_statment_email_wf_custscript_email_author@uuuuuvuu = {
+                      targetparameter = netsuite.workflowactionscript.instance.customscript_scg_cust_statment_email_wf.scriptcustomfields.scriptcustomfield.custscript_email_author.scriptid
+                      valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                      index = 1
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

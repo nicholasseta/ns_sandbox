@@ -1,0 +1,267 @@
+netsuite.savedcsvimport custimport_236_5172601_740 {
+  scriptid = "custimport_236_5172601_740"
+  charencoding = "MacRoman"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Bizview Vendor Import"
+  entryform = netsuite.entryForm.instance.custformis_vendor_form.scriptid
+  ignorereadonly = true
+  importname = "Bizview Vendor Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "VENDOR"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDOR = {
+        file = "VENDOR"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDOR = {
+        record = "VENDOR"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "Company Name"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Primary Currency"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              value = "F"
+            }
+            EMAIL = {
+              field = "EMAIL"
+              columnreference = {
+                column = "Email"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            FAX = {
+              field = "FAX"
+              columnreference = {
+                column = "Fax"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            FIRSTNAME = {
+              field = "FIRSTNAME"
+              columnreference = {
+                column = "First Name"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            IS1099ELIGIBLE = {
+              field = "IS1099ELIGIBLE"
+              columnreference = {
+                column = "1099 Eligible"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ISPERSON = {
+              field = "ISPERSON"
+              columnreference = {
+                column = "Individual (Req)"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            LASTNAME = {
+              field = "LASTNAME"
+              columnreference = {
+                column = "Last Name"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            LEGALNAME = {
+              field = "LEGALNAME"
+              columnreference = {
+                column = "Legal Name"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            MIDDLENAME = {
+              field = "MIDDLENAME"
+              columnreference = {
+                column = "Middle Name"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            PHONE = {
+              field = "PHONE"
+              columnreference = {
+                column = "Phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            PRINTONCHECKAS = {
+              field = "PRINTONCHECKAS"
+              columnreference = {
+                column = "Print on Check As"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Sub Internal ID"
+                file = "VENDOR"
+                type = "INTERNAL_ID"
+              }
+            }
+            TAXIDNUM = {
+              field = "TAXIDNUM"
+              columnreference = {
+                column = "Tax ID"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            TERMS = {
+              field = "TERMS"
+              columnreference = {
+                column = "Terms"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            URL = {
+              field = "URL"
+              columnreference = {
+                column = "Web Address"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            VATREGNUMBER = {
+              field = "VATREGNUMBER"
+              columnreference = {
+                column = "Tax Reg. Number"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            WORKCALENDAR = {
+              field = "WORKCALENDAR"
+              value = "1"
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK@f = {
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              value = "T"
+            }
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              value = "T"
+            }
+            LABEL = {
+              field = "LABEL"
+              columnreference = {
+                column = "address1_addressName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS@f = {
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "address1_line1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "address1_line2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "address1_city"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "address1_country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "address1_state"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "address1_zipCode"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+netsuite.workflow customworkflow_scg_invoice_approval {
+  scriptid = "customworkflow_scg_invoice_approval"
+  description = "Copied to account to prevent loss of work during sandbox refresh. Plan to copy back to sandbox once the refresh is complete."
+  initoncreate = true
+  initonvieworupdate = false
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Invoice Approval"
+  recordtypes = "INVOICE"
+  releasestatus = "NOTINITIATING"
+  runasadmin = true
+  initcondition = {
+    formula = "\"Approval Status\" IN (\"Approval Status1\")"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Approval_Status@s = {
+          name = "Approval Status"
+          value = "STDBODYAPPROVALSTATUS"
+          index = 0
+        }
+        Approval_Status1@s = {
+          name = "Approval Status1"
+          selectrecordtype = "-243"
+          value = "1"
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15176 = {
+        scriptid = "workflowstate15176"
+        donotexitworkflow = false
+        name = "Pending Approval"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction88281 = {
+                scriptid = "workflowaction88281"
+                checkconditionbeforeexecution = true
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition116 = {
+              scriptid = "workflowtransition116"
+              buttonaction = netsuite.workflow.instance.customworkflow_scg_invoice_approval.workflowstates.workflowstate.workflowstate15176.workflowactions.BEFORELOAD.addbuttonaction.workflowaction88281.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_scg_invoice_approval.workflowstates.workflowstate.workflowstate15177.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate15177 = {
+        scriptid = "workflowstate15177"
+        donotexitworkflow = false
+        name = "Approved"
+        positionx = 243
+        positiony = 233
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction88280 = {
+                scriptid = "workflowaction88280"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "2"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+      workflowstate15174 = {
+        scriptid = "workflowstate15174"
+        donotexitworkflow = false
+        name = "Pending Approval"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction88279 = {
+                scriptid = "workflowaction88279"
+                checkconditionbeforeexecution = true
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 2
+      }
+    }
+  }
+}

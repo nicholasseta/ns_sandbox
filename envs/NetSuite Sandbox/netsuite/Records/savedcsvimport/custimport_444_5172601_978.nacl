@@ -1,0 +1,177 @@
+netsuite.savedcsvimport custimport_444_5172601_978 {
+  scriptid = "custimport_444_5172601_978"
+  charencoding = "UTF_8"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = false
+  importname = "*Data Migration - AR Credit Memos | Certent"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CREDITMEMO"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_credit_memo.scriptid
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CREDITMEMO = {
+        file = "CREDITMEMO"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CREDITMEMO = {
+        record = "CREDITMEMO"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency: Currency Symbol"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_ava_taxoverride = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_ava_taxoverride.scriptid
+              value = "T"
+            }
+            custbody_contract_reference = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_contract_reference.scriptid
+              columnreference = {
+                column = "Source Opportunity: CR-Contract Reference"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_disable_invoice_email_notice = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_disable_invoice_email_notice.scriptid
+              value = "T"
+            }
+            custbody_legacy_transaction_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_legacy_transaction_number.scriptid
+              columnreference = {
+                column = "Document Number"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Internal ID"
+                file = "CREDITMEMO"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Document Number"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            OTHERREFNUM = {
+              field = "OTHERREFNUM"
+              columnreference = {
+                column = "Reference Number (PO#)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "110"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "146"
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "5/1/2021"
+            }
+          }
+        }
+      }
+      CREDITMEMO_ITEM@f = {
+        record = "CREDITMEMO:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount Due (Foreign Currency)"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              value = "1"
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo"
+                file = "CREDITMEMO"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              value = "1137"
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              value = "1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

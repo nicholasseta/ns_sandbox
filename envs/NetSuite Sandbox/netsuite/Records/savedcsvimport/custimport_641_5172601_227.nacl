@@ -1,0 +1,63 @@
+netsuite.savedcsvimport custimport_641_5172601_227 {
+  scriptid = "custimport_641_5172601_227"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Project_Flag SCG Search"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_scg_search = {
+              field = netsuite.entitycustomfield.instance.custentity_scg_search.scriptid
+              value = "T"
+            }
+            custentity_sf_order_product_id = {
+              field = netsuite.entitycustomfield.instance.custentity_sf_order_product_id.scriptid
+              columnreference = {
+                column = "External ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Project Internal ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+netsuite.publisheddashboard custpubdashboard_3_5172601_963 {
+  scriptid = "custpubdashboard_3_5172601_963"
+  center = "ACCOUNTCENTER"
+  locknewbar = false
+  lockshortcuts = false
+  name = "A/P & A/R Dashboard (Mgr)"
+  roles = {
+    role = [
+      {
+        role = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+      },
+    ]
+  }
+  dashboards = {
+    dashboard = [
+      {
+        centertab = "BASICCENTERHOMEHOME"
+        layout = "THREE_COLUMN"
+        mode = "UNLOCKED"
+        leftcolumn = {
+          analytics = [
+            {
+              height = "MEDIUM"
+              isminimized = false
+              name = "Open Cases by Case Type"
+              portlettype = "CHART"
+              visualization = "[scriptid=custworkbook3.custchart22_16213609241257719331]"
+            },
+            {
+              height = "MEDIUM"
+              isminimized = false
+              name = "Avg Days to Close by Case Type"
+              portlettype = "CHART"
+              visualization = "[scriptid=custworkbook3.custchart10_16213585760722534198]"
+            },
+          ]
+        }
+        centercolumn = {
+          customportlet = [
+            {
+              isminimized = false
+              source = "[scriptid=customscript_dt_portlet_tiles.customdeploy_dt_portlet_custom_tile]"
+              parameters = {
+                parameter = [
+                  {
+                    id = "[scriptid=customscript_dt_portlet_tiles.custscript_dt_portlet_title]"
+                    value = "A/R & A/P Aging"
+                  },
+                ]
+              }
+            },
+          ]
+          list = [
+            {
+              allowinlineediting = true
+              isminimized = false
+              size = 10
+              type = "CASE"
+            },
+          ]
+          analytics = [
+            {
+              height = "MEDIUM"
+              isminimized = false
+              name = "Open A/P Cases by Date Opened"
+              portlettype = "CHART"
+              visualization = "[scriptid=custworkbook3.custchart12_16213589933421889774]"
+            },
+            {
+              height = "MEDIUM"
+              isminimized = false
+              name = "Closed Cases by Date Closed (prev three months)"
+              portlettype = "CHART"
+              visualization = "[scriptid=custworkbook3.custchart5_16213569120111229003]"
+            },
+            {
+              isminimized = false
+              name = "Vendor Bills Entered by Date (previous month)"
+              portlettype = "PIVOT"
+              visiblerows = 10
+              visualization = "[scriptid=custworkbook3.custpivot34_16213707411902825208]"
+            },
+          ]
+          settings = [
+            {
+              isminimized = false
+            },
+          ]
+        }
+        rightcolumn = {
+          analytics = [
+            {
+              height = "MEDIUM"
+              isminimized = false
+              name = "Open vs Assigned Cases by Rep"
+              portlettype = "CHART"
+              visualization = "[scriptid=custworkbook3.custchart20_16213608448653579681]"
+            },
+            {
+              height = "MEDIUM"
+              isminimized = false
+              name = "Avg Days to Close by Support Rep"
+              portlettype = "CHART"
+              visualization = "[scriptid=custworkbook3.custchart9_16213585759771880550]"
+            },
+          ]
+        }
+      },
+    ]
+  }
+}

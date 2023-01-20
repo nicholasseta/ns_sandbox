@@ -1,0 +1,53 @@
+netsuite.savedcsvimport custimport_10_5172601_297 {
+  scriptid = "custimport_10_5172601_297"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Update Item Services"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SERVICESALEITEM"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SERVICESALEITEM = {
+        file = "SERVICESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SERVICESALEITEM = {
+        record = "SERVICESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "SERVICESALEITEM"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+            }
+          }
+        }
+      }
+    }
+  }
+}

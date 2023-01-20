@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_avagettaxhistory_suitelet {
+  scriptid = "customscript_avagettaxhistory_suitelet"
+  isinactive = false
+  name = "AVA_GetTaxHistory_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_ViewTaxDetails.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_gettaxhistoryroleid = {
+        scriptid = "custscript_gettaxhistoryroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_gettaxhistory = {
+        scriptid = "customdeploy_gettaxhistory"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_gettaxhistoryroleid = "1014,1013,1035,1028,1012,1034,1026,1029,1022"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "AvaTax GetTaxHistory"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_scg_upd_consolexchrates_ss {
+  scriptid = "customscript_scg_upd_consolexchrates_ss"
+  defaultfunction = "is_updcer_updConsolidatedExchRates"
+  isinactive = false
+  name = "SCG Update ConsolidatedExchRates SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Update_ConsolidatedExchRates_SS_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_upd_consolexchrates_ss = {
+        scriptid = "customdeploy_scg_upd_consolexchrates_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG Update ConsolidatedExchRates SS"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            startdate = "2019-11-08"
+            starttime = "04:30:00Z"
+          }
+        }
+      }
+    }
+  }
+}

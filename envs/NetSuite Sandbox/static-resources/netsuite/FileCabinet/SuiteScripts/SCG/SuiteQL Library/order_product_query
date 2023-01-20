@@ -1,0 +1,18 @@
+SELECT 
+  RevenueElement.revenuearrangement.internalid as 'rev arr id', 
+  CUSTOMRECORD_CONTRACTLINES.name as 'order product',
+  CUSTOMRECORD_CONTRACTLINES.id as 'order product id',
+  CUSTOMRECORD_CONTRACTLINES.custrecord_is_cl_sf_deal_id,
+  RevenueElement.id as 'rev element id',
+CUSTOMRECORD_CONTRACTLINES.custrecord_cl_rev_arr_updated
+
+FROM 
+  CUSTOMRECORD_CONTRACTLINES, 
+  RevenueElement
+WHERE 
+  CUSTOMRECORD_CONTRACTLINES.custrecord_is_cl_revenue_element = RevenueElement."ID"(+) AND
+  CUSTOMRECORD_CONTRACTLINES.custrecord_is_cl_sf_deal_id IS NOT NULL AND
+  RevenueElement.id IS NOT NULL AND
+  CUSTOMRECORD_CONTRACTLINES.custrecord_cl_rev_arr_updated IS NULL
+FETCH FIRST 10 ROWS ONLY
+

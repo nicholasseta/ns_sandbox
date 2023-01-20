@@ -1,0 +1,158 @@
+netsuite.savedcsvimport custimport_635_5172601_sb1_199 {
+  scriptid = "custimport_635_5172601_sb1_199"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Logi Cash Sale Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CASHSALE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_cash_sale.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      CASHSALE = {
+        file = "CASHSALE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CASHSALE = {
+        record = "CASHSALE"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Base Currency"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custbody_logi_migrating_transaction = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_logi_migrating_transaction.scriptid
+              value = "T"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Internal ID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Transaction Exchange Rate"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID (Prior System Reference)"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "132"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "10"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CASHSALE_ITEM@f = {
+        record = "CASHSALE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Deferred Rev Base Amount - Amount"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev End Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Start Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "NetSuite Item Name"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Qty"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Deferred Rev Base Amount - Rate"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+netsuite.workflowactionscript customscript_scg_sendrejectionemail_wf {
+  scriptid = "customscript_scg_sendrejectionemail_wf"
+  defaultfunction = "is_send_Rejected_Email"
+  isinactive = false
+  name = "SCG_sendRejectionEmail_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendRejectionEmail_WF_js@duuv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_scg_wf_submitter_2 = {
+        scriptid = "custscript_scg_wf_submitter_2"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "WF Submitter"
+        onparentdelete = "SET_NULL"
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendrejectionemail_wf = {
+        scriptid = "customdeploy_scg_sendrejectionemail_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

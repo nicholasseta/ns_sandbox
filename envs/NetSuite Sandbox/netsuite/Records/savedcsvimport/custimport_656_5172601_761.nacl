@@ -1,0 +1,194 @@
+netsuite.savedcsvimport custimport_656_5172601_761 {
+  scriptid = "custimport_656_5172601_761"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Import Hist Logi Invoices_SN"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_118_5172601_591.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_arm_sourceexternalid = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_arm_sourceexternalid.scriptid
+              columnreference = {
+                column = "Order product External ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_reference_contractline = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_reference_contractline.scriptid
+              columnreference = {
+                column = "Name"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_so_business_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Rate"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            TAX1AMT = {
+              field = "TAX1AMT"
+              value = "0"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "25785"
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_logi_migrating_transaction = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_logi_migrating_transaction.scriptid
+              value = "T"
+            }
+            custbody_ns_order_ref = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_ns_order_ref.scriptid
+              columnreference = {
+                column = "Name / Order Id"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_sf_order_id = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sf_order_id.scriptid
+              columnreference = {
+                column = "SF Order ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End User"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "End User"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Name / Order Id"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "9/30/2022"
+            }
+          }
+        }
+      }
+    }
+  }
+}

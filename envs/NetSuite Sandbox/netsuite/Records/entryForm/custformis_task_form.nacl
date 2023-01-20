@@ -1,0 +1,571 @@
+netsuite.entryForm custformis_task_form {
+  scriptid = "custformis_task_form"
+  standard = "STANDARDTASKFORM"
+  name = "IS Task Form"
+  recordType = "TASK"
+  inactive = false
+  preferred = true
+  storedWithRecord = false
+  mainFields = {
+    fieldGroup = {
+      primaryinformation = {
+        scriptid = "primaryinformation"
+        label = "Primary Information"
+        visible = true
+        showTitle = true
+        singleColumn = false
+        fields = {
+          MIDDLE = {
+            position = "MIDDLE"
+            field = {
+              CUSTOMFORM = {
+                id = "CUSTOMFORM"
+                label = "Custom Form"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 0
+              }
+              TITLE = {
+                id = "TITLE"
+                label = "Title"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = true
+                index = 1
+              }
+              ASSIGNED = {
+                id = "ASSIGNED"
+                label = "Assigned To"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 2
+              }
+              SENDEMAIL = {
+                id = "SENDEMAIL"
+                label = "Notify Assignee by Email"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 3
+              }
+              PRIORITY = {
+                id = "PRIORITY"
+                label = "Priority"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = true
+                index = 4
+              }
+              ORDER = {
+                id = "ORDER"
+                label = "Insert Before"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = true
+                index = 5
+              }
+              STATUS = {
+                id = "STATUS"
+                label = "Status"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 6
+              }
+              ACCESSLEVEL = {
+                id = "ACCESSLEVEL"
+                label = "Private Task"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 7
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+      dateandtime = {
+        scriptid = "dateandtime"
+        label = "Date and Time"
+        visible = true
+        showTitle = true
+        singleColumn = false
+        fields = {
+          MIDDLE = {
+            position = "MIDDLE"
+            field = {
+              STARTDATE = {
+                id = "STARTDATE"
+                label = "Start Date"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = true
+                index = 0
+              }
+              DUEDATE = {
+                id = "DUEDATE"
+                label = "Due Date"
+                visible = true
+                mandatory = true
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = true
+                index = 1
+              }
+              COMPLETEDDATE = {
+                id = "COMPLETEDDATE"
+                label = "Date Completed"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 2
+              }
+              TIMEDEVENT = {
+                id = "TIMEDEVENT"
+                label = "Reserve Time"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 3
+              }
+              STARTTIME = {
+                id = "STARTTIME"
+                label = "Start Time"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 4
+              }
+              ENDTIME = {
+                id = "ENDTIME"
+                label = "End Time"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 5
+              }
+              REMINDERTYPE = {
+                id = "REMINDERTYPE"
+                label = "Reminder Type"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 6
+              }
+              REMINDERMINUTES = {
+                id = "REMINDERMINUTES"
+                label = "Reminder"
+                visible = true
+                mandatory = false
+                displayType = "NORMAL"
+                columnBreak = false
+                sameRowAsPrevious = false
+                quickAdd = false
+                index = 7
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+    }
+    defaultFieldGroup = {
+      fields = {
+        MIDDLE = {
+          position = "MIDDLE"
+          field = {
+            PARENT = {
+              id = "PARENT"
+              label = "Parent Task"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 0
+            }
+          }
+          index = 0
+        }
+      }
+    }
+  }
+  tabs = {
+    tab = {
+      CRMMESSAGE = {
+        id = "CRMMESSAGE"
+        label = "Message"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  MESSAGE = {
+                    id = "MESSAGE"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        index = 0
+      }
+      CRMRELATEDINFO = {
+        id = "CRMRELATEDINFO"
+        label = "Related Records"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  COMPANY = {
+                    id = "COMPANY"
+                    label = "Company"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                  CONTACT = {
+                    id = "CONTACT"
+                    label = "Contact"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 1
+                  }
+                  TRANSACTION = {
+                    id = "TRANSACTION"
+                    label = "Transaction"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 2
+                  }
+                  SUPPORTCASE = {
+                    id = "SUPPORTCASE"
+                    label = "Support Case"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 3
+                  }
+                  MILESTONE = {
+                    id = "MILESTONE"
+                    label = "Milestone"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 4
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        subItems = {
+          subList = {
+            EVENTCONTACT = {
+              id = "EVENTCONTACT"
+              label = "Companies and Contacts"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+          }
+          subTab = {
+            CRMCONTACTS = {
+              id = "CRMCONTACTS"
+              label = "Contacts"
+              visible = true
+              index = 0
+            }
+          }
+        }
+        index = 1
+      }
+      EVENTICALENDAR = {
+        id = "EVENTICALENDAR"
+        label = "Availability"
+        visible = true
+        subItems = {
+          subList = {
+            EVENTINVITECALENDAR = {
+              id = "EVENTINVITECALENDAR"
+              label = "Availability"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+          }
+        }
+        index = 2
+      }
+      EVENTCOMMUNICATION = {
+        id = "EVENTCOMMUNICATION"
+        label = "Communication"
+        visible = true
+        subItems = {
+          subList = {
+            EVENTMEDIAITEM = {
+              id = "EVENTMEDIAITEM"
+              label = "Files"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+            EVENTUSERNOTES = {
+              id = "EVENTUSERNOTES"
+              label = "User Notes"
+              visible = true
+              neverEmpty = false
+              index = 1
+            }
+          }
+          subTab = {
+            EVENTMEDIA = {
+              id = "EVENTMEDIA"
+              label = "Files"
+              visible = false
+              index = 0
+            }
+          }
+        }
+        index = 3
+      }
+      CRMSYSTEMINFORMATION = {
+        id = "CRMSYSTEMINFORMATION"
+        label = "System Information"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  OWNER = {
+                    id = "OWNER"
+                    label = "Created By"
+                    visible = true
+                    mandatory = true
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        subItems = {
+          subList = {
+            EVENTSYSTEMNOTES = {
+              id = "EVENTSYSTEMNOTES"
+              label = "System Notes"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+            EVENTACTIVEWORKFLOWS = {
+              id = "EVENTACTIVEWORKFLOWS"
+              label = "Active Workflows"
+              visible = true
+              neverEmpty = false
+              index = 1
+            }
+            EVENTWORKFLOWHISTORY = {
+              id = "EVENTWORKFLOWHISTORY"
+              label = "Workflow History"
+              visible = true
+              neverEmpty = false
+              index = 2
+            }
+          }
+        }
+        index = 4
+      }
+      EVENTCUSTOM = {
+        id = "EVENTCUSTOM"
+        label = "Custom"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  custevent_crm_lastmodifiedby = {
+                    id = netsuite.crmcustomfield.instance.custevent_crm_lastmodifiedby.scriptid
+                    label = "CRMLastModifiedBy"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        index = 5
+      }
+      custtab_18_660883_133 = {
+        id = netsuite.subtab.instance.custtab_18_660883_133.scriptid
+        label = "OpenAir"
+        visible = true
+        index = 6
+      }
+    }
+  }
+  quickViewFields = {
+    field = {
+      STATUS = {
+        id = "STATUS"
+        index = 0
+      }
+      PRIORITY = {
+        id = "PRIORITY"
+        index = 1
+      }
+      DUEDATE = {
+        id = "DUEDATE"
+        index = 2
+      }
+      ASSIGNED = {
+        id = "ASSIGNED"
+        index = 3
+      }
+      STARTDATE = {
+        id = "STARTDATE"
+        index = 4
+      }
+    }
+  }
+  actionbar = {
+    menu = {
+      menuitem = {
+        DELETE = {
+          id = "DELETE"
+          label = "Delete"
+          visible = true
+          index = 0
+        }
+        MAKECOPY = {
+          id = "MAKECOPY"
+          label = "Make Copy"
+          visible = true
+          index = 1
+        }
+        NEW = {
+          id = "NEW"
+          label = "New"
+          visible = true
+          index = 2
+        }
+        PRINT = {
+          id = "PRINT"
+          label = "Print"
+          visible = true
+          index = 3
+        }
+        SUBMITCOPY = {
+          id = "SUBMITCOPY"
+          label = "Save & Copy"
+          visible = true
+          index = 4
+        }
+        SUBMITNEW = {
+          id = "SUBMITNEW"
+          label = "Save & New"
+          visible = true
+          index = 5
+        }
+      }
+    }
+  }
+  editingInList = true
+}

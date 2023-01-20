@@ -1,0 +1,60 @@
+netsuite.savedcsvimport custimport_626_5172601_932 {
+  scriptid = "custimport_626_5172601_932"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_contractlines.attr.scriptid
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_109_5172601_591.scriptid
+  ignorereadonly = true
+  importname = "OP - Update Rev End Date (Scripts)"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_contractlines_custrecord_is_revrec_enddate@uvuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_revrec_enddate.scriptid
+              columnreference = {
+                column = "Updated Rev End"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

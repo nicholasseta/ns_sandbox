@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_217_5172601_334 {
+  scriptid = "custimport_217_5172601_334"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Project POC Upload VM"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB_PERCENTCOMPLETEOVERRIDE@f = {
+        record = "JOB:PERCENTCOMPLETEOVERRIDE"
+        fieldmappings = {
+          fieldmapping = {
+            COMMENTS = {
+              field = "COMMENTS"
+              value = "Loaded 07/06/2020 - ITD Reconciliation"
+            }
+            PERCENT = {
+              field = "PERCENT"
+              columnreference = {
+                column = "POC"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            PERIOD = {
+              field = "PERIOD"
+              value = "94"
+            }
+          }
+        }
+      }
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NS Project ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

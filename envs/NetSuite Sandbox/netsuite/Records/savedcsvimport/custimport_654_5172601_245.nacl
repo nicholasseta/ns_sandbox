@@ -1,0 +1,98 @@
+netsuite.savedcsvimport custimport_654_5172601_245 {
+  scriptid = "custimport_654_5172601_245"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Apply Logi Payments to Hist Invoices"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMERPAYMENT"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_45_5172601_sb1_109.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMERPAYMENT = {
+        file = "CUSTOMERPAYMENT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMERPAYMENT_APPLY@f = {
+        record = "CUSTOMERPAYMENT:APPLY"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            DOC = {
+              field = "DOC"
+              columnreference = {
+                column = "Invoice ID"
+                file = "CUSTOMERPAYMENT"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+      CUSTOMERPAYMENT = {
+        record = "CUSTOMERPAYMENT"
+        fieldmappings = {
+          fieldmapping = {
+            CUSTOMER = {
+              field = "CUSTOMER"
+              columnreference = {
+                column = "Name"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              value = "118"
+            }
+            PAYMENT = {
+              field = "PAYMENT"
+              columnreference = {
+                column = "Amount"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "9/30/2022"
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Invoice ID"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

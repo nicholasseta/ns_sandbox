@@ -1,0 +1,158 @@
+netsuite.savedcsvimport custimport_257_5172601_389 {
+  scriptid = "custimport_257_5172601_389"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "BS AIJE Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "ADVINTERCOMPANYJOURNALENTRY"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_journalentry.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      ADVINTERCOMPANYJOURNALENTRY = {
+        file = "ADVINTERCOMPANYJOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      ADVINTERCOMPANYJOURNALENTRY_LINE@f = {
+        record = "ADVINTERCOMPANYJOURNALENTRY:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "LineAccount"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "EXTERNAL_ID"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "Class"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            CREDIT = {
+              field = "CREDIT"
+              columnreference = {
+                column = "Credit"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "Debit"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Department"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "EXTERNAL_ID"
+              }
+            }
+            DUETOFROMSUBSIDIARY = {
+              field = "DUETOFROMSUBSIDIARY"
+              columnreference = {
+                column = "Due To Entity"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            LINESUBSIDIARY = {
+              field = "LINESUBSIDIARY"
+              columnreference = {
+                column = "Line Subsidiary"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Location"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Line Memo"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      ADVINTERCOMPANYJOURNALENTRY = {
+        record = "ADVINTERCOMPANYJOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "1"
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "ExternalId"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "JESubsidiary"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "ADVINTERCOMPANYJOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

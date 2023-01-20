@@ -1,0 +1,39 @@
+netsuite.mapreducescript customscript_yp_mr_deleteoldspdfs {
+  scriptid = "customscript_yp_mr_deleteoldspdfs"
+  description = "This script is to clear the old pdf files from the Document Folder. It will remove/delete invoice PDFs that were created ten days ago or more"
+  isinactive = false
+  name = "YP_MR_DeleteOldPDFs.js"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_YP_MR_DeleteOldPdfs_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_yp_mr_deleteoldpdfs = {
+        scriptid = "customdeploy_yp_mr_deleteoldpdfs"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = true
+        loglevel = "AUDIT"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "SCHEDULED"
+        title = "YP_MR_DeleteOldPDFs.js"
+        yieldaftermins = "60"
+        recurrence = {
+          weekly = {
+            everyxweeks = 1
+            friday = false
+            monday = false
+            saturday = true
+            startdate = "2020-03-07"
+            starttime = "23:00:00Z"
+            sunday = false
+            thursday = false
+            tuesday = false
+            wednesday = false
+          }
+        }
+      }
+    }
+  }
+}

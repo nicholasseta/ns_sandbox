@@ -1,0 +1,48 @@
+netsuite.workflow customworkflow_remittance_information {
+  scriptid = "customworkflow_remittance_information"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "NEVER"
+  name = "Remittance Info"
+  recordtypes = netsuite.customrecord_remittance_information.attr.scriptid
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate16 = {
+        scriptid = "workflowstate16"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction87 = {
+                scriptid = "workflowaction87"
+                field = "STDRECORDNAME"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "{custrecord_subsidiary.id}||'-'||{custrecord_currency}"
+                valuetype = "FORMULA"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

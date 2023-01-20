@@ -1,0 +1,909 @@
+netsuite.entryForm custformis_partner_form {
+  scriptid = "custformis_partner_form"
+  standard = "STANDARDEXTERNALPARTNERFORM"
+  name = "IS Partner Form"
+  recordType = "PARTNER"
+  inactive = false
+  preferred = true
+  storedWithRecord = false
+  mainFields = {
+    defaultFieldGroup = {
+      fields = {
+        MIDDLE = {
+          position = "MIDDLE"
+          field = {
+            CUSTOMFORM = {
+              id = "CUSTOMFORM"
+              label = "Template"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 0
+            }
+            ENTITYID = {
+              id = "ENTITYID"
+              label = "Partner ID"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 1
+            }
+            AUTONAME = {
+              id = "AUTONAME"
+              label = "Auto"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = true
+              quickAdd = false
+              index = 2
+            }
+            ALTNAME = {
+              id = "ALTNAME"
+              label = "Name"
+              visible = true
+              mandatory = false
+              displayType = "INLINETEXT"
+              columnBreak = false
+              sameRowAsPrevious = true
+              quickAdd = false
+              index = 3
+            }
+            PARTNERCODE = {
+              id = "PARTNERCODE"
+              label = "Partner Code"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 4
+            }
+            AUTOPARTNERCODE = {
+              id = "AUTOPARTNERCODE"
+              label = "Auto"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = true
+              quickAdd = false
+              index = 5
+            }
+            ISINDIVIDUAL = {
+              id = "ISINDIVIDUAL"
+              label = "Type"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 6
+            }
+            PHONETICNAME = {
+              id = "PHONETICNAME"
+              label = "Furigana"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 7
+            }
+            SALUTATION = {
+              id = "SALUTATION"
+              label = "Mr./Ms..."
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 8
+            }
+            FIRSTNAME = {
+              id = "FIRSTNAME"
+              label = "Name"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 9
+            }
+            COMPANYNAME = {
+              id = "COMPANYNAME"
+              label = "Company Name"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 10
+            }
+            PARENT = {
+              id = "PARENT"
+              label = "Subpartner of"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 11
+            }
+            SUBSIDIARY = {
+              id = "SUBSIDIARY"
+              label = "Subsidiary"
+              visible = true
+              mandatory = true
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 12
+            }
+            PHONE = {
+              id = "PHONE"
+              label = "Phone"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 13
+            }
+            FAX = {
+              id = "FAX"
+              label = "Fax"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 14
+            }
+            EMAIL = {
+              id = "EMAIL"
+              label = "Email"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = true
+              index = 15
+            }
+            URL = {
+              id = "URL"
+              label = "Web Address"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 16
+            }
+            DEFAULTADDRESS = {
+              id = "DEFAULTADDRESS"
+              label = "Address"
+              visible = true
+              mandatory = false
+              displayType = "DISABLED"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 17
+            }
+            ISINACTIVE = {
+              id = "ISINACTIVE"
+              label = "Inactive"
+              visible = true
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 18
+            }
+            custentity_2663_email_address_notif = {
+              id = "[scriptid=custentity_2663_email_address_notif]"
+              label = "Email Address for Payment Notification"
+              visible = false
+              mandatory = false
+              displayType = "NORMAL"
+              columnBreak = false
+              sameRowAsPrevious = false
+              quickAdd = false
+              index = 19
+            }
+          }
+          index = 0
+        }
+      }
+    }
+  }
+  tabs = {
+    tab = {
+      ENTITYPREFERENCES = {
+        id = "ENTITYPREFERENCES"
+        label = "Preferences"
+        visible = true
+        index = 0
+      }
+      ENTITYS_SYSINFO = {
+        id = "ENTITYS_SYSINFO"
+        label = "System Information"
+        visible = true
+        index = 1
+      }
+      ENTITYSUBSCRIPTIONS = {
+        id = "ENTITYSUBSCRIPTIONS"
+        label = "Subscriptions"
+        visible = true
+        index = 2
+      }
+      ENTITYRELATIONSHIPS = {
+        id = "ENTITYRELATIONSHIPS"
+        label = "Relationships"
+        visible = true
+        index = 3
+      }
+      ENTITYCOMMUNICATION = {
+        id = "ENTITYCOMMUNICATION"
+        label = "Communication"
+        visible = true
+        index = 4
+      }
+      ENTITYGENERAL = {
+        id = "ENTITYGENERAL"
+        label = "General"
+        visible = true
+        subItems = {
+          subList = {
+            ENTITYCONTACT = {
+              id = "ENTITYCONTACT"
+              label = "Contacts"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+            ENTITYACTIVITIES = {
+              id = "ENTITYACTIVITIES"
+              label = "Activities"
+              visible = true
+              neverEmpty = false
+              index = 1
+            }
+            ENTITYEVENTS = {
+              id = "ENTITYEVENTS"
+              label = "Events"
+              visible = false
+              neverEmpty = false
+              index = 2
+            }
+            ENTITYTASKS = {
+              id = "ENTITYTASKS"
+              label = "Tasks"
+              visible = false
+              neverEmpty = false
+              index = 3
+            }
+            ENTITYCALLS = {
+              id = "ENTITYCALLS"
+              label = "Calls"
+              visible = false
+              neverEmpty = false
+              index = 4
+            }
+            ENTITYUSERNOTES = {
+              id = "ENTITYUSERNOTES"
+              label = "User Notes"
+              visible = true
+              neverEmpty = false
+              index = 5
+            }
+            ENTITYSYSTEMNOTES = {
+              id = "ENTITYSYSTEMNOTES"
+              label = "System Notes"
+              visible = true
+              neverEmpty = false
+              index = 6
+            }
+            ENTITYMESSAGES = {
+              id = "ENTITYMESSAGES"
+              label = "Messages"
+              visible = true
+              neverEmpty = false
+              index = 7
+            }
+            ENTITYMEDIAITEM = {
+              id = "ENTITYMEDIAITEM"
+              label = "Files"
+              visible = true
+              neverEmpty = false
+              index = 8
+            }
+            ENTITYBULKMERGE = {
+              id = "ENTITYBULKMERGE"
+              label = "Bulk Merge"
+              visible = false
+              neverEmpty = false
+              index = 9
+            }
+            ENTITYSUBS = {
+              id = "ENTITYSUBS"
+              label = "Subpartners"
+              visible = true
+              neverEmpty = false
+              index = 10
+            }
+            ENTITYCASES = {
+              id = "ENTITYCASES"
+              label = "Cases"
+              visible = true
+              neverEmpty = false
+              index = 11
+            }
+          }
+        }
+        index = 5
+      }
+      ENTITYINFO = {
+        id = "ENTITYINFO"
+        label = "Info"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  CATEGORY = {
+                    id = "CATEGORY"
+                    label = "Category"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                  TITLE = {
+                    id = "TITLE"
+                    label = "Job Title"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 1
+                  }
+                  PRINTONCHECKAS = {
+                    id = "PRINTONCHECKAS"
+                    label = "Print on Check As"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 2
+                  }
+                  TAXIDNUM = {
+                    id = "TAXIDNUM"
+                    label = "Tax ID"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 3
+                  }
+                  DEFAULTORDERPRIORITY = {
+                    id = "DEFAULTORDERPRIORITY"
+                    label = "Default Order Priority"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 4
+                  }
+                  COMMENTS = {
+                    id = "COMMENTS"
+                    label = "Comments"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 5
+                  }
+                  IMAGE = {
+                    id = "IMAGE"
+                    label = "Image"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 6
+                  }
+                  EMAILPREFERENCE = {
+                    id = "EMAILPREFERENCE"
+                    label = "Email Preference"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 7
+                  }
+                  DEPARTMENT = {
+                    id = "DEPARTMENT"
+                    label = "Department"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 8
+                  }
+                  CLASS = {
+                    id = "CLASS"
+                    label = "Class"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 9
+                  }
+                  LOCATION = {
+                    id = "LOCATION"
+                    label = "Location"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 10
+                  }
+                  OTHERRELATIONSHIPS = {
+                    id = "OTHERRELATIONSHIPS"
+                    label = "Other Relationships"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 11
+                  }
+                  HOMEPHONE = {
+                    id = "HOMEPHONE"
+                    label = "Home Phone"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 12
+                  }
+                  MOBILEPHONE = {
+                    id = "MOBILEPHONE"
+                    label = "Mobile Phone"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 13
+                  }
+                  ALTEMAIL = {
+                    id = "ALTEMAIL"
+                    label = "Alt. Email"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 14
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        index = 6
+      }
+      ENTITYMARKETING = {
+        id = "ENTITYMARKETING"
+        label = "Marketing"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  REFERRINGURL = {
+                    id = "REFERRINGURL"
+                    label = "Referring URL"
+                    visible = true
+                    mandatory = false
+                    displayType = "INLINETEXT"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        subItems = {
+          subList = {
+            ENTITYPROMOCODE = {
+              id = "ENTITYPROMOCODE"
+              label = "Promotion Codes"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+          }
+        }
+        index = 7
+      }
+      ENTITYADDRESS = {
+        id = "ENTITYADDRESS"
+        label = "Address"
+        visible = true
+        subItems = {
+          subList = {
+            ENTITYADDRESSBOOK = {
+              id = "ENTITYADDRESSBOOK"
+              label = "Address"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+          }
+        }
+        index = 8
+      }
+      ENTITYPROMOCODES = {
+        id = "ENTITYPROMOCODES"
+        label = "Promotion Codes"
+        visible = true
+        index = 9
+      }
+      ENTITYACCESS = {
+        id = "ENTITYACCESS"
+        label = "Access"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  GIVEACCESS = {
+                    id = "GIVEACCESS"
+                    label = "Give Access"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                  ACCESSROLE = {
+                    id = "ACCESSROLE"
+                    label = "Role"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 1
+                  }
+                  SENDEMAIL = {
+                    id = "SENDEMAIL"
+                    label = "Send Notification Email"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 2
+                  }
+                  FILLPASSWORD = {
+                    id = "FILLPASSWORD"
+                    label = "Manually assign or change password"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 3
+                  }
+                  PASSWORD = {
+                    id = "PASSWORD"
+                    label = "Password"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 4
+                  }
+                  PASSWORD2 = {
+                    id = "PASSWORD2"
+                    label = "Confirm Password"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 5
+                  }
+                  REQUIREPWDCHANGE = {
+                    id = "REQUIREPWDCHANGE"
+                    label = "Require Password Change On Next Login"
+                    visible = true
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 6
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        index = 10
+      }
+      ENTITYWORKFLOW = {
+        id = "ENTITYWORKFLOW"
+        label = "Workflow"
+        visible = true
+        subItems = {
+          subList = {
+            ENTITYACTIVEWORKFLOWS = {
+              id = "ENTITYACTIVEWORKFLOWS"
+              label = "Active Workflows"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+            ENTITYWORKFLOWHISTORY = {
+              id = "ENTITYWORKFLOWHISTORY"
+              label = "Workflow History"
+              visible = true
+              neverEmpty = false
+              index = 1
+            }
+          }
+        }
+        index = 11
+      }
+      ENTITYCUSTOM = {
+        id = "ENTITYCUSTOM"
+        label = "Custom"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  custentity_4599_sg_uen = {
+                    id = "[scriptid=custentity_4599_sg_uen]"
+                    label = "UEN (2)"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                  custentity_my_brn = {
+                    id = "[scriptid=custentity_my_brn]"
+                    label = "BRN (2)"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 1
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        index = 12
+      }
+      custtab_str_entity_tab = {
+        id = netsuite.subtab.instance.custtab_str_entity_tab.scriptid
+        label = "Tax Reporting"
+        visible = true
+        index = 13
+      }
+      custtab_17_3776644_208 = {
+        id = netsuite.subtab.instance.custtab_17_3776644_208.scriptid
+        label = "Tax Reporting"
+        visible = true
+        index = 14
+      }
+      custtab_6_4346104_208 = {
+        id = netsuite.subtab.instance.custtab_6_4346104_208.scriptid
+        label = "E-Document"
+        visible = true
+        index = 15
+      }
+      custtab_10_4533432_230 = {
+        id = netsuite.subtab.instance.custtab_10_4533432_230.scriptid
+        label = "Bank Payment Details"
+        visible = true
+        fieldGroups = {
+          defaultFieldGroup = {
+            fields = {
+              MIDDLE = {
+                position = "MIDDLE"
+                field = {
+                  custentity_2663_payment_method = {
+                    id = "[scriptid=custentity_2663_payment_method]"
+                    label = "EFT Bill Payment"
+                    visible = false
+                    mandatory = false
+                    displayType = "NORMAL"
+                    columnBreak = false
+                    sameRowAsPrevious = false
+                    quickAdd = false
+                    index = 0
+                  }
+                }
+                index = 0
+              }
+            }
+          }
+        }
+        subItems = {
+          subList = {
+            customrecord_2663_entity_bank_details_custrecord_2663_parent_partner@uuuuvuuu = {
+              id = netsuite.customrecord_2663_entity_bank_details.field.custom_custrecord_2663_parent_partner.scriptid
+              label = "Bank Details"
+              visible = true
+              neverEmpty = false
+              index = 0
+            }
+          }
+        }
+        index = 16
+      }
+      custtab_12_4533432_230 = {
+        id = netsuite.subtab.instance.custtab_12_4533432_230.scriptid
+        label = "Bank Payment Details (Debit)"
+        visible = true
+        index = 17
+      }
+      custtab_8_660883_627 = {
+        id = netsuite.subtab.instance.custtab_8_660883_627.scriptid
+        label = "OpenAir Project Template"
+        visible = true
+        index = 18
+      }
+      custtab_11_4533432_230 = {
+        id = netsuite.subtab.instance.custtab_11_4533432_230.scriptid
+        label = "Bank Payment Details (Credit)"
+        visible = true
+        index = 19
+      }
+      custtab_16_660883_648 = {
+        id = netsuite.subtab.instance.custtab_16_660883_648.scriptid
+        label = "OpenAir"
+        visible = true
+        subItems = {
+          subTab = {
+            custtab_19_660883_713 = {
+              id = netsuite.subtab.instance.custtab_19_660883_713.scriptid
+              label = "Template"
+              visible = true
+              index = 0
+            }
+            custtab_20_660883_152 = {
+              id = netsuite.subtab.instance.custtab_20_660883_152.scriptid
+              label = "Financial"
+              visible = true
+              index = 1
+            }
+          }
+        }
+        index = 20
+      }
+      custtab_59_5172601_142 = {
+        id = netsuite.subtab.instance.custtab_59_5172601_142.scriptid
+        label = "End User/Partner/JV/Reseller"
+        visible = true
+        index = 21
+      }
+      custtab_58_5172601_998 = {
+        id = netsuite.subtab.instance.custtab_58_5172601_998.scriptid
+        label = "Transactions"
+        visible = true
+        index = 22
+      }
+      custtab_anz_entity_aus_reporting = {
+        id = "[appid=com.netsuite.anzlocalization, scriptid=custtab_anz_entity_aus_reporting]"
+        label = "AUS Reporting"
+        visible = true
+        index = 23
+      }
+      custtab_111_5172601_132 = {
+        id = netsuite.subtab.instance.custtab_111_5172601_132.scriptid
+        label = "Invoicing Instructions"
+        visible = true
+        index = 24
+      }
+      custtab_emea_entity_setup = {
+        id = netsuite.subtab.instance.custtab_emea_entity_setup.scriptid
+        label = "EMEA Setup"
+        visible = true
+        index = 25
+      }
+      custtab_216_5172601_501 = {
+        id = netsuite.subtab.instance.custtab_216_5172601_501.scriptid
+        label = "General"
+        visible = true
+        index = 26
+      }
+    }
+  }
+  editingInList = true
+}

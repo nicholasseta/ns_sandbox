@@ -1,0 +1,12 @@
+netsuite.emailtemplate custemailtmpl_invoice_due_today {
+  scriptid = "custemailtmpl_invoice_due_today"
+  addcompanyaddress = true
+  addunsubscribelink = true
+  isinactive = true
+  isprivate = false
+  name = "Invoice - Due Today"
+  recordtype = "TRANSACTION"
+  subject = "<#if transaction.custbody_so_enduser !=''>\${transaction.custbody_end_user_companyname}<#else>\${customer.companyName}</#if> Invoice# \${transaction.tranId} from \${transaction.subsidiary} Due Today"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_invoice_due_today.html")
+}

@@ -1,0 +1,70 @@
+netsuite.savedcsvimport custimport_447_5172601_297 {
+  scriptid = "custimport_447_5172601_297"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "COA Localization Update"
+  ignorereadonly = true
+  importname = "COA Localization Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "ACCOUNT"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      ACCOUNT = {
+        file = "ACCOUNT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      ACCOUNT_LOCALIZATIONS@f = {
+        record = "ACCOUNT:LOCALIZATIONS"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNTINGCONTEXT = {
+              field = "ACCOUNTINGCONTEXT"
+              value = "2"
+            }
+            ACCTNAME = {
+              field = "ACCTNAME"
+              columnreference = {
+                column = "German Account description"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      ACCOUNT = {
+        record = "ACCOUNT"
+        fieldmappings = {
+          fieldmapping = {
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "NS CoA"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

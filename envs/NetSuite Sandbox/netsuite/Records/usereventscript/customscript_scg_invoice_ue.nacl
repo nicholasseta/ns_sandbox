@@ -1,0 +1,35 @@
+netsuite.usereventscript customscript_scg_invoice_ue {
+  scriptid = "customscript_scg_invoice_ue"
+  aftersubmitfunction = "is_inv_afterSubmit"
+  beforesubmitfunction = "is_inv_beforeSubmit"
+  isinactive = true
+  name = "SCG Invoice UE (Deprecated)"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Invoice_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_invoice_ue = {
+        scriptid = "customdeploy_scg_invoice_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WORKBOOKBUILDER|WORKFLOW|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "INVOICE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = netsuite.file.instance.SuiteScripts_SCG_Invoice_UE_Print_js@duuuv.path
+      },
+    ]
+  }
+}

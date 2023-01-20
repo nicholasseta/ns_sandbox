@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript1467 {
+  scriptid = "customscript1467"
+  isinactive = false
+  name = "Saved Search - File Cabinet"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SavedSearch__js@duv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "TEST"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT15M"
+            startdate = "2022-12-12"
+            starttime = "00:30:00Z"
+          }
+        }
+      }
+    }
+  }
+}

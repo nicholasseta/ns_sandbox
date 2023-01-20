@@ -1,0 +1,66 @@
+netsuite.savedcsvimport custimport_539_5172601_406 {
+  scriptid = "custimport_539_5172601_406"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = false
+  importname = "ERP Value Load"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CLASSIFICATION"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CLASSIFICATION = {
+        file = "CLASSIFICATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CLASSIFICATION = {
+        record = "CLASSIFICATION"
+        fieldmappings = {
+          fieldmapping = {
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Name"
+                file = "CLASSIFICATION"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "CLASSIFICATION"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

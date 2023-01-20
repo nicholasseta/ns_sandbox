@@ -1,0 +1,29 @@
+netsuite.usereventscript customscript_scg_consolidatedexchrate_ue {
+  scriptid = "customscript_scg_consolidatedexchrate_ue"
+  aftersubmitfunction = "is_consExchRate_afterSubmit"
+  beforeloadfunction = "is_consExchRate_beforeLoad"
+  beforesubmitfunction = "is_consExchRate_beforeSubmit"
+  isinactive = false
+  name = "SCG ConsolidatedExchRates UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_ConsolidatedExchRates_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_consolidatedexchrate_ue = {
+        scriptid = "customdeploy_scg_consolidatedexchrate_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "CSVIMPORT|ACTION|BUNDLEINSTALLATION|CLIENT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "CONSOLIDATEDEXCHANGERATE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

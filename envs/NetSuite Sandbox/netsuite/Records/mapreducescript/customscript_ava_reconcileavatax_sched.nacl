@@ -1,0 +1,29 @@
+netsuite.mapreducescript customscript_ava_reconcileavatax_sched {
+  scriptid = "customscript_ava_reconcileavatax_sched"
+  isinactive = false
+  name = "AVA_ReconcileTax_Map"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_MAP_ReconcileTax.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_reconciletax = {
+        scriptid = "customdeploy_reconciletax"
+        buffersize = "1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "AVA_ReconcileTax_Map"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2021-03-01"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

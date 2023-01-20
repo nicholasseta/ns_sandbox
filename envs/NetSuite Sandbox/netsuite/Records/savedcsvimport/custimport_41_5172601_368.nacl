@@ -1,0 +1,118 @@
+netsuite.savedcsvimport custimport_41_5172601_368 {
+  scriptid = "custimport_41_5172601_368"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Items For Resale Migration"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYRESALEITEM"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYRESALEITEM = {
+        file = "NONINVENTORYRESALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYRESALEITEM = {
+        record = "NONINVENTORYRESALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              value = "1"
+            }
+            DEFERREDREVENUEACCOUNT = {
+              field = "DEFERREDREVENUEACCOUNT"
+              columnreference = {
+                column = "Deferred Rev Account ID"
+                file = "NONINVENTORYRESALEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            DISPLAYNAME = {
+              field = "DISPLAYNAME"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYRESALEITEM"
+                type = "NAME"
+              }
+            }
+            EXPENSEACCOUNT = {
+              field = "EXPENSEACCOUNT"
+              columnreference = {
+                column = "GL Account ID"
+                file = "NONINVENTORYRESALEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            INCOMEACCOUNT = {
+              field = "INCOMEACCOUNT"
+              columnreference = {
+                column = "Income Account ID"
+                file = "NONINVENTORYRESALEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            ITEMID = {
+              field = "ITEMID"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYRESALEITEM"
+                type = "NAME"
+              }
+            }
+            REVENUERECOGNITIONRULE = {
+              field = "REVENUERECOGNITIONRULE"
+              value = "7"
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              value = "7"
+            }
+            SALESDESCRIPTION = {
+              field = "SALESDESCRIPTION"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYRESALEITEM"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+            TAXSCHEDULE = {
+              field = "TAXSCHEDULE"
+              columnreference = {
+                column = "Tax Schedule"
+                file = "NONINVENTORYRESALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

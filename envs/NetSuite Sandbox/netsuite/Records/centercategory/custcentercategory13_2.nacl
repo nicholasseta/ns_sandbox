@@ -1,0 +1,24 @@
+netsuite.centercategory custcentercategory13_2 {
+  scriptid = "custcentercategory13_2"
+  center = "BASIC"
+  centertab = netsuite.centertab.instance.custcentertab17_2.scriptid
+  label = "Tax Recalculation"
+  links = {
+    link = {
+      customscript_ava_recalcutility_customdeploy_recalcform@uuvu = {
+        linklabel = "Create Recalculation Batch"
+        linkobject = netsuite.suitelet.instance.customscript_ava_recalcutility.scriptdeployments.scriptdeployment.customdeploy_recalcform.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 0
+      }
+      customscript_ava_recalcbatches_customdeploy_ava_recalcbatches@uuvuu = {
+        linklabel = "View Recalculation Batches"
+        linkobject = netsuite.suitelet.instance.customscript_ava_recalcbatches.scriptdeployments.scriptdeployment.customdeploy_ava_recalcbatches.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 1
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+netsuite.savedcsvimport custimport_168_5172601_588 {
+  scriptid = "custimport_168_5172601_588"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customtransaction = netsuite.customtransactiontype.instance.customtransaction_acquisition_entry.scriptid
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "CXO BV TB Import"
+  ignorereadonly = true
+  importname = "CXO BV TB Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMTRANSACTION"
+  runserversuitescript = true
+  transactionform = "[scriptid=custform_62_5172601_399]"
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMTRANSACTION = {
+        file = "CUSTOMTRANSACTION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMTRANSACTION = {
+        record = "CUSTOMTRANSACTION"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange rate"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "66"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Entry No."
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CUSTOMTRANSACTION_LINE@f = {
+        record = "CUSTOMTRANSACTION:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Account ID"
+                file = "CUSTOMTRANSACTION"
+                type = "INTERNAL_ID"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "Transaction Amount"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Name"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CUSTOMTRANSACTION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

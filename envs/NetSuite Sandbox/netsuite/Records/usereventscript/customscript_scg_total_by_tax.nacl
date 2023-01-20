@@ -1,0 +1,40 @@
+netsuite.usereventscript customscript_scg_total_by_tax {
+  scriptid = "customscript_scg_total_by_tax"
+  aftersubmitfunction = "is_tbt_afterSubmit"
+  isinactive = false
+  name = "SCG Total By Tax UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Total_By_Tax_UE_js@duuuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_total_by_tax_cm = {
+        scriptid = "customdeploy_scg_total_by_tax_cm"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|FIPARSER|DATASETBUILDER|WORKBOOKBUILDER|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "CREDITMEMO"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+      customdeploy_scg_total_by_tax_inv = {
+        scriptid = "customdeploy_scg_total_by_tax_inv"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|FIPARSER|DATASETBUILDER|WORKBOOKBUILDER|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "INVOICE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

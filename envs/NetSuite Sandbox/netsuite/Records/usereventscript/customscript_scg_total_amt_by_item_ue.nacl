@@ -1,0 +1,40 @@
+netsuite.usereventscript customscript_scg_total_amt_by_item_ue {
+  scriptid = "customscript_scg_total_amt_by_item_ue"
+  beforesubmitfunction = "is_tai_beforeSubmit"
+  isinactive = false
+  name = "SCG Total Amt By Item UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Total_Amt_By_Item_UE_js@duuuuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_total_amt_by_item_ue_cm = {
+        scriptid = "customdeploy_scg_total_amt_by_item_ue_cm"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|FIPARSER|DATASETBUILDER|WORKBOOKBUILDER|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "CREDITMEMO"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+      customdeploy_scg_total_amt_by_item_ue_in = {
+        scriptid = "customdeploy_scg_total_amt_by_item_ue_in"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|FIPARSER|DATASETBUILDER|WORKBOOKBUILDER|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "INVOICE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+netsuite.savedcsvimport custimport_86_5172601_504 {
+  scriptid = "custimport_86_5172601_504"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Item Non Inventory Migration2"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYSALEITEM"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYSALEITEM = {
+        file = "NONINVENTORYSALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYSALEITEM = {
+        record = "NONINVENTORYSALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custitem_integration_id = {
+              field = netsuite.itemcustomfield.instance.custitem_integration_id.scriptid
+              columnreference = {
+                column = "External ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_family = {
+              field = netsuite.itemcustomfield.instance.custitem_product_family.scriptid
+              columnreference = {
+                column = "ProductFamily"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_product_type = {
+              field = netsuite.itemcustomfield.instance.custitem_product_type.scriptid
+              columnreference = {
+                column = "Product Type"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_proj_service_type = {
+              field = netsuite.itemcustomfield.instance.custitem_proj_service_type.scriptid
+            }
+            DISPLAYNAME = {
+              field = "DISPLAYNAME"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            ITEMID = {
+              field = "ITEMID"
+              columnreference = {
+                column = "Product Code (new)"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            REVENUERECOGNITIONRULE = {
+              field = "REVENUERECOGNITIONRULE"
+              value = "7"
+            }
+            REVRECFORECASTRULE = {
+              field = "REVRECFORECASTRULE"
+              value = "7"
+            }
+            SALESDESCRIPTION = {
+              field = "SALESDESCRIPTION"
+              columnreference = {
+                column = "Name"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+            TAXSCHEDULE = {
+              field = "TAXSCHEDULE"
+              value = "1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

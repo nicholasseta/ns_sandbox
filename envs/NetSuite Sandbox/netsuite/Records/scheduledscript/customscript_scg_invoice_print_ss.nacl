@@ -1,0 +1,41 @@
+netsuite.scheduledscript customscript_scg_invoice_print_ss {
+  scriptid = "customscript_scg_invoice_print_ss"
+  defaultfunction = "is_upa_updPrintAmt"
+  isinactive = false
+  name = "SCG Invoice Print SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Invoice_Print_SS_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_invoice_print_ss_sched = {
+        scriptid = "customdeploy_scg_invoice_print_ss_sched"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "SCG Invoice Print SS Scheduled"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT15M"
+            startdate = "2020-04-28"
+            starttime = "09:00:00Z"
+          }
+        }
+      }
+      customdeploy_scg_invoice_print_ss = {
+        scriptid = "customdeploy_scg_invoice_print_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG Invoice Print SS"
+        recurrence = {
+          single = {
+            startdate = "2020-04-27"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

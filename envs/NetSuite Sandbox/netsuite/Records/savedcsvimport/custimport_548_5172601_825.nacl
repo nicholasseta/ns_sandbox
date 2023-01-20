@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_548_5172601_825 {
+  scriptid = "custimport_548_5172601_825"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_employee_form.scriptid
+  ignorereadonly = false
+  importname = "REFRESH Employee Role & Access Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "EMPLOYEE"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      EMPLOYEE = {
+        file = "EMPLOYEE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      EMPLOYEE_ROLES@f = {
+        record = "EMPLOYEE:ROLES"
+        fieldmappings = {
+          fieldmapping = {
+            SELECTEDROLE = {
+              field = "SELECTEDROLE"
+              columnreference = {
+                column = "Role"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      EMPLOYEE = {
+        record = "EMPLOYEE"
+        fieldmappings = {
+          fieldmapping = {
+            GIVEACCESS = {
+              field = "GIVEACCESS"
+              value = "T"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "EMPLOYEE"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "F"
+            }
+          }
+        }
+      }
+    }
+  }
+}

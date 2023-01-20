@@ -1,0 +1,114 @@
+netsuite.savedcsvimport custimport_315_5172601_628 {
+  scriptid = "custimport_315_5172601_628"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "LV - Deferred Revenue Schedule Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = true
+  recordtype = "CASHSALE"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_cash_sale.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CASHSALE = {
+        file = "CASHSALE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CASHSALE = {
+        record = "CASHSALE"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CASHSALE_ITEM@f = {
+        record = "CASHSALE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              value = "1"
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev Rec End Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Rec Start Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item Internal ID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              value = "1"
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Amount"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Item"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+netsuite.savedcsvimport custimport_open_ar_payments {
+  scriptid = "custimport_open_ar_payments"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Open AR - Payments"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMERPAYMENT"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_45_5172601_sb1_109.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMERPAYMENT = {
+        file = "CUSTOMERPAYMENT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMERPAYMENT = {
+        record = "CUSTOMERPAYMENT"
+        fieldmappings = {
+          fieldmapping = {
+            ARACCT = {
+              field = "ARACCT"
+              value = "122"
+            }
+            AUTOAPPLY = {
+              field = "AUTOAPPLY"
+              value = "F"
+            }
+            CHECKNUM = {
+              field = "CHECKNUM"
+              columnreference = {
+                column = "Document No."
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            CUSTOMER = {
+              field = "CUSTOMER"
+              columnreference = {
+                column = "Customer Internal ID"
+                file = "CUSTOMERPAYMENT"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange Rate"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            PAYMENT = {
+              field = "PAYMENT"
+              columnreference = {
+                column = "Balance Due  local currency"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "79"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "72"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Trx Date"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Document No."
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            UNDEPFUNDS = {
+              field = "UNDEPFUNDS"
+              value = "T"
+            }
+          }
+        }
+      }
+    }
+  }
+}

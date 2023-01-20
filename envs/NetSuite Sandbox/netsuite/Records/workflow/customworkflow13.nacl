@@ -1,0 +1,73 @@
+netsuite.workflow customworkflow13 {
+  scriptid = "customworkflow13"
+  description = "Things that need to happen on Order Products"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Order Product Engine"
+  recordtypes = netsuite.customrecord_contractlines.attr.scriptid
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    formula = "isChecked(\"Send to OpenAir\") = 'F' AND isEmpty(\"OA Order Product Internal ID\") = 'T' AND isChecked(\"Create Project by Script\") = 'T' AND isEmpty(\"Project\") = 'F'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Send_to_OpenAir@s = {
+          name = "Send to OpenAir"
+          value = netsuite.customrecord_contractlines.field.custom_custrecord1.scriptid
+          index = 0
+        }
+        OA_Order_Product_Internal_ID@s = {
+          name = "OA Order Product Internal ID"
+          value = netsuite.customrecord_contractlines.field.custom_custrecord_oa_op_id.scriptid
+          index = 1
+        }
+        Create_Project_by_Script@s = {
+          name = "Create Project by Script"
+          value = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_create_proj_by_script.scriptid
+          index = 2
+        }
+        Project = {
+          name = "Project"
+          value = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_job.scriptid
+          index = 3
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15158 = {
+        scriptid = "workflowstate15158"
+        donotexitworkflow = false
+        name = "1: Set Send to OpenAir to True"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction88208 = {
+                scriptid = "workflowaction88208"
+                field = netsuite.customrecord_contractlines.field.custom_custrecord1.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+netsuite.transactionbodycustomfield custbody_gst_hst {
+  scriptid = "custbody_gst_hst"
+  accesslevel = "2"
+  applyformatting = false
+  bodycustomerpayment = false
+  bodydeposit = false
+  bodydepositapplication = false
+  bodyexpensereport = false
+  bodyitemfulfillment = false
+  bodyitemfulfillmentorder = false
+  bodyjournal = false
+  bodyothertransaction = false
+  bodyperiodendjournal = false
+  bodypickingticket = false
+  bodyprintflag = false
+  bodyprintpackingslip = false
+  bodyprintstatement = false
+  bodypurchase = false
+  bodysale = true
+  bodyvendorpayment = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = "case when {shipstate} IN ('NB','NL','NS','ON','PE', 'New Brunswick', 'Newfoundland','Nova Scotia','Ontario','Prince Edward Island') AND {shipcountry}='CA' then 'HST' WHEN {shipstate} IN ('AB','BC','MB','NT','NU','QC','SK','YT','Alberta','British Columbia','Manitoba','Northwest Territories','Nunavut','Quebec','Saskatchewan','Yukon') AND  {shipcountry}='CA' then 'GST' WHEN {shipstate} is null AND {shipcountry}='CA' then 'GST' End"
+  displaytype = "STATICTEXT"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  globalsearch = false
+  help = '''
+&lt;html&gt; &lt;b&gt;Label on the invoice PDF based on the following:&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+
+Shipping Province is NB, NL, NS, ON, PE then HST&lt;br/&gt;
+Shipping Province is AB, BC, MB, NT, NU, QC, SK, YT then GST&lt;br/&gt;
+If the shipping province is empty, then GST&lt;br/&gt;
+'''
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "GST/HST"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = false
+  storevalue = false
+  subtab = "TRANSACTIONBILLING"
+}

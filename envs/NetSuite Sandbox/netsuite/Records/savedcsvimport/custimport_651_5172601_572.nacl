@@ -1,0 +1,95 @@
+netsuite.savedcsvimport custimport_651_5172601_572 {
+  scriptid = "custimport_651_5172601_572"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_121_5172601_113.scriptid
+  ignorereadonly = true
+  importname = "CollectionPhoneCall"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "PHONECALL"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      PHONECALL = {
+        file = "PHONECALL"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      PHONECALL = {
+        record = "PHONECALL"
+        fieldmappings = {
+          fieldmapping = {
+            ASSIGNED = {
+              field = "ASSIGNED"
+              columnreference = {
+                column = "Assigned To"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+            COMPANY = {
+              field = "COMPANY"
+              columnreference = {
+                column = "Company"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+            custevent_ar_call_subject = {
+              field = netsuite.crmcustomfield.instance.custevent_ar_call_subject.scriptid
+              columnreference = {
+                column = "AR Call Subject"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+            custevent_ar_collection_status = {
+              field = netsuite.crmcustomfield.instance.custevent_ar_collection_status.scriptid
+              columnreference = {
+                column = "AR Collection Status"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+            STARTDATE = {
+              field = "STARTDATE"
+              columnreference = {
+                column = "Phone Call Date"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+            STATUS = {
+              field = "STATUS"
+              value = "SCHEDULED"
+            }
+            TITLE = {
+              field = "TITLE"
+              columnreference = {
+                column = "Subject"
+                file = "PHONECALL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

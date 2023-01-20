@@ -1,0 +1,201 @@
+netsuite.savedcsvimport custimport_174_5172601_463 {
+  scriptid = "custimport_174_5172601_463"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Deferred Revenue Schedule (CashSale)"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CASHSALE"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custformis_cash_sale.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      CASHSALE = {
+        file = "CASHSALE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CASHSALE = {
+        record = "CASHSALE"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Base Currency"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_legacy_transaction_number = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_legacy_transaction_number.scriptid
+              columnreference = {
+                column = "External ID (Prior System Reference)"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "NetSuite Internal ID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              value = "1"
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID (Prior System Reference)"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Contract Number"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              value = "105"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "81"
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TOBEPRINTED = {
+              field = "TOBEPRINTED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Transaction /Invoice Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            UNDEPFUNDS = {
+              field = "UNDEPFUNDS"
+              value = "T"
+            }
+          }
+        }
+      }
+      CASHSALE_ITEM@f = {
+        record = "CASHSALE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Deferred Rev Base Amount"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_erp_version = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_erp_version.scriptid
+              columnreference = {
+                column = "ERP Version"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev End Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Start Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "NetSuite Item Internal ID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              value = "1"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "1487"
+            }
+          }
+        }
+      }
+    }
+  }
+}

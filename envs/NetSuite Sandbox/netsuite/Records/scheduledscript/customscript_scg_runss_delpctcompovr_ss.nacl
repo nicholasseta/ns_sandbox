@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_runss_delpctcompovr_ss {
+  scriptid = "customscript_scg_runss_delpctcompovr_ss"
+  defaultfunction = "runScheduledScript"
+  isinactive = false
+  name = "SCG RunSchedScript DelPctCompOvrrde SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RunSchedScript_DelPctCompOvrrde_SS_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_runss_delpctcompovr_ss = {
+        scriptid = "customdeploy_scg_runss_delpctcompovr_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG RunSchedScript DelPctCompOvrrde SS"
+        recurrence = {
+          single = {
+            startdate = "2020-08-10"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

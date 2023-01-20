@@ -1,0 +1,62 @@
+netsuite.workflow customworkflow4 {
+  scriptid = "customworkflow4"
+  description = "Unsets Department field mandatory on Customer Payments if the Date field is on or before 12/31/2018."
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Unset Department Mandatory"
+  recordtypes = "CUSTOMERPAYMENT"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate41 = {
+        scriptid = "workflowstate41"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setfieldmandatoryaction = {
+              workflowaction156 = {
+                scriptid = "workflowaction156"
+                field = "STDBODYDEPARTMENT"
+                isinactive = false
+                ismandatory = false
+                issublistfield = false
+                initcondition = {
+                  formula = "isEmpty(\"Department (Main)\") = 'T' AND \"Date\" <= '2018-12-31'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Department__Main_@sjk = {
+                        name = "Department (Main)"
+                        value = "STDBODYDEPARTMENT"
+                        index = 0
+                      }
+                      Date = {
+                        name = "Date"
+                        value = "STDBODYTRANDATE"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,445 @@
+netsuite.savedcsvimport custimport_22_5172601_sb1_102 {
+  scriptid = "custimport_22_5172601_sb1_102"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_vendor_form.scriptid
+  ignorereadonly = true
+  importname = "SCG Vendor Import"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "VENDOR"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      VENDOR = {
+        file = "VENDOR"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDOR = {
+        record = "VENDOR"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              columnreference = {
+                column = "CompanyName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "PrimaryCurrency"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            custentity_legacy_id = {
+              field = netsuite.entitycustomfield.instance.custentity_legacy_id.scriptid
+              columnreference = {
+                column = "Legacy_ID_No"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            custentity_legacy_source = {
+              field = netsuite.entitycustomfield.instance.custentity_legacy_source.scriptid
+              columnreference = {
+                column = "Legacy_Data_Source"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            EMAIL = {
+              field = "EMAIL"
+              columnreference = {
+                column = "email"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            EMAILTRANSACTIONS = {
+              field = "EMAILTRANSACTIONS"
+              value = "F"
+            }
+            FAXTRANSACTIONS = {
+              field = "FAXTRANSACTIONS"
+              value = "F"
+            }
+            FIRSTNAME = {
+              field = "FIRSTNAME"
+              columnreference = {
+                column = "FirstName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            IS1099ELIGIBLE = {
+              field = "IS1099ELIGIBLE"
+              columnreference = {
+                column = "1099Eligible"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ISPERSON = {
+              field = "ISPERSON"
+              columnreference = {
+                column = "Individual"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            LASTNAME = {
+              field = "LASTNAME"
+              columnreference = {
+                column = "LastName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            LEGALNAME = {
+              field = "LEGALNAME"
+              columnreference = {
+                column = "LegalName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            MIDDLENAME = {
+              field = "MIDDLENAME"
+              columnreference = {
+                column = "MiddleName"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            PAYABLESACCOUNT = {
+              field = "PAYABLESACCOUNT"
+              columnreference = {
+                column = "DefaultAPAccount"
+                file = "VENDOR"
+                type = "INTERNAL_ID"
+              }
+            }
+            PRINTONCHECKAS = {
+              field = "PRINTONCHECKAS"
+              columnreference = {
+                column = "printOncheckAs"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            PRINTTRANSACTIONS = {
+              field = "PRINTTRANSACTIONS"
+              value = "F"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "PrimarySubsidiaryID"
+                file = "VENDOR"
+                type = "INTERNAL_ID"
+              }
+            }
+            TAXIDNUM = {
+              field = "TAXIDNUM"
+              columnreference = {
+                column = "TaxID"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            TERMS = {
+              field = "TERMS"
+              columnreference = {
+                column = "Terms"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            URL = {
+              field = "URL"
+              columnreference = {
+                column = "WebAddress"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            VATREGNUMBER = {
+              field = "VATREGNUMBER"
+              columnreference = {
+                column = "TaxRegNumber"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS@f = {
+        line = 1
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "address2_Line1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "address2_Line2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "address2_addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "address2_phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "address2_attention"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "address2_Lcity"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "address2_country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "address2_state"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "address2_zipcode"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK@f = {
+        record = "VENDOR:ADDRESSBOOK"
+        fieldmappings = {
+          fieldmapping = {
+            DEFAULTBILLING = {
+              field = "DEFAULTBILLING"
+              value = "T"
+            }
+            DEFAULTSHIPPING = {
+              field = "DEFAULTSHIPPING"
+              value = "T"
+            }
+          }
+        }
+      }
+      VENDOR_ADDRESSBOOK_ADDRESSBOOKADDRESS_2@ffu = {
+        record = "VENDOR:ADDRESSBOOK:ADDRESSBOOKADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            ADDR1 = {
+              field = "ADDR1"
+              columnreference = {
+                column = "address1_addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR2 = {
+              field = "ADDR2"
+              columnreference = {
+                column = "address1_Line1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDR3 = {
+              field = "ADDR3"
+              columnreference = {
+                column = "address1_Line2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRESSEE = {
+              field = "ADDRESSEE"
+              columnreference = {
+                column = "address1_addressee"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ADDRPHONE = {
+              field = "ADDRPHONE"
+              columnreference = {
+                column = "address2_phone"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ATTENTION = {
+              field = "ATTENTION"
+              columnreference = {
+                column = "address1_attention"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            CITY = {
+              field = "CITY"
+              columnreference = {
+                column = "address1_Lcity"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "address1_country"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            STATE = {
+              field = "STATE"
+              columnreference = {
+                column = "address2_state"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+            ZIP = {
+              field = "ZIP"
+              columnreference = {
+                column = "address2_zipcode"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_CURRENCY@f = {
+        line = 3
+        record = "VENDOR:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "VendorCurrencies4"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_CURRENCY_2@fu = {
+        line = 2
+        record = "VENDOR:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "VendorCurrencies3"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_CURRENCY_3@fu = {
+        line = 1
+        record = "VENDOR:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "VendorCurrencies2"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDOR_CURRENCY_4@fu = {
+        record = "VENDOR:CURRENCY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "VendorCurrencies1"
+                file = "VENDOR"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

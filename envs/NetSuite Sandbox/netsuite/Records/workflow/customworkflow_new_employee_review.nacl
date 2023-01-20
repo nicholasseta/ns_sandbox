@@ -1,0 +1,109 @@
+netsuite.workflow customworkflow_new_employee_review {
+  scriptid = "customworkflow_new_employee_review"
+  description = "Inactivates employee as long as Sub = Topco and/or Dept = Null"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "New Employee Review"
+  recordtypes = "EMPLOYEE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate26 = {
+        scriptid = "workflowstate26"
+        donotexitworkflow = false
+        name = "Mark Inactive"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFOREUSERSUBMIT = {
+            triggertype = "BEFOREUSERSUBMIT"
+            showmessageaction = {
+              workflowaction106 = {
+                scriptid = "workflowaction106"
+                isinactive = false
+                messagetext = '''
+Employees are marked inactive if the following is true:  Subsidiary = GS Topco, LP AND/OR Department is blank.
+
+This is to avoid problems with OpenAir and submitting expense reports.
+'''
+                initcondition = {
+                  formula = "\"Subsidiary\" IN (\"{#Subsidiary#}1\") OR isEmpty(\"Department\") = 'T' OR ( \"Subsidiary\" IN (\"{#Subsidiary#}1\") AND isEmpty(\"Department\") = 'T' )"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary = {
+                        name = "Subsidiary"
+                        value = "STDENTITYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      Department = {
+                        name = "Department"
+                        value = "STDENTITYDEPARTMENT"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction105 = {
+                scriptid = "workflowaction105"
+                field = "STDENTITYISINACTIVE"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary\" IN (\"{#Subsidiary#}1\") OR isEmpty(\"Department\") = 'T' OR ( \"Subsidiary\" IN (\"{#Subsidiary#}1\") AND isEmpty(\"Department\") = 'T' )"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary = {
+                        name = "Subsidiary"
+                        value = "STDENTITYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      Department = {
+                        name = "Department"
+                        value = "STDENTITYDEPARTMENT"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

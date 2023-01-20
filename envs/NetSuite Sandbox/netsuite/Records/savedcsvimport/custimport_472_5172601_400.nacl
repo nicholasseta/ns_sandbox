@@ -1,0 +1,83 @@
+netsuite.savedcsvimport custimport_472_5172601_400 {
+  scriptid = "custimport_472_5172601_400"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Project Field Updates BS"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_so_amount = {
+              field = netsuite.entitycustomfield.instance.custentity_so_amount.scriptid
+              columnreference = {
+                column = "Budget"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_business_line = {
+              field = netsuite.entitycustomfield.instance.custentity_so_business_line.scriptid
+              columnreference = {
+                column = "Business Line"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_product_family = {
+              field = netsuite.entitycustomfield.instance.custentity_so_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_product_line = {
+              field = netsuite.entitycustomfield.instance.custentity_so_product_line.scriptid
+              columnreference = {
+                column = "Product Line"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Project ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

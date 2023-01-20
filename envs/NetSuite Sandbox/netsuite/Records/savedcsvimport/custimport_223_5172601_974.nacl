@@ -1,0 +1,86 @@
+netsuite.savedcsvimport custimport_223_5172601_974 {
+  scriptid = "custimport_223_5172601_974"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Rev Dates Update - RA"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "RETURNAUTHORIZATION"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_46_5172601_sb1_477.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      RETURNAUTHORIZATION = {
+        file = "RETURNAUTHORIZATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      RETURNAUTHORIZATION = {
+        record = "RETURNAUTHORIZATION"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_trigger_script_wf = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_trigger_script_wf.scriptid
+              value = "12/4/2019 2:15:00 am"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      RETURNAUTHORIZATION_ITEM@f = {
+        record = "RETURNAUTHORIZATION:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev Rec End Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Rec Start Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+              columnreference = {
+                column = "Line ID"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

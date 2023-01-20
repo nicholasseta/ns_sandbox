@@ -1,0 +1,99 @@
+netsuite.workflow customworkflow_scg_invoice_preferences {
+  scriptid = "customworkflow_scg_invoice_preferences"
+  initoncreate = true
+  initonvieworupdate = true
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "Invoice Preferences"
+  recordtypes = "CREDITMEMO|INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15137 = {
+        scriptid = "workflowstate15137"
+        donotexitworkflow = false
+        name = "Set Values"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction87937 = {
+                scriptid = "workflowaction87937"
+                eventtypes = "CREATE"
+                field = netsuite.transactionbodycustomfield.instance.custbody_expand_licenses_on_invoice.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main):Subsidiary Group\" IN (\"Subsidiary Reporting Group1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main__Subsidiary_Group@sjkfs = {
+                        name = "Subsidiary (Main):Subsidiary Group"
+                        value = "STDBODYSUBSIDIARY:[scriptid=custrecord_subsidiary_group]"
+                        index = 0
+                      }
+                      Subsidiary_Reporting_Group1@s = {
+                        name = "Subsidiary Reporting Group1"
+                        selectrecordtype = netsuite.customlist.instance.customlist_subsidiary_reporting_group.scriptid
+                        value = netsuite.customlist.instance.customlist_subsidiary_reporting_group.customvalues.customvalue.val_36480414_5172601_232.scriptid
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction88210 = {
+                scriptid = "workflowaction88210"
+                field = "STDBODYDUEDATE"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueformula = "(CASE WHEN {trandate} BETWEEN TRUNC(LAST_DAY({TODAY})-1, 'mm')+15 AND TRUNC(LAST_DAY({TODAY})+1, 'mm')+15 THEN (LAST_DAY({TODAY})+16) ELSE (TRUNC(LAST_DAY({TODAY})-1, 'mm')+15) END)+45"
+                valuetype = "FORMULA"
+                initcondition = {
+                  formula = "\"Terms\" IN (\"Term1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Terms = {
+                        name = "Terms"
+                        value = "STDBODYTERMS"
+                        index = 0
+                      }
+                      Term1 = {
+                        name = "Term1"
+                        selectrecordtype = "-199"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.othercustomfield.instance.custrecord_subsidiary_group.scriptid
+    },
+  ]
+}

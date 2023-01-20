@@ -1,0 +1,195 @@
+netsuite.savedcsvimport custimport_205_5172601_584 {
+  scriptid = "custimport_205_5172601_584"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Epicor SO Import"
+  ignorereadonly = true
+  importname = "Epicor SO Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SALESORDER"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_so_salesorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SALESORDER = {
+        file = "SALESORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SALESORDER = {
+        record = "SALESORDER"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_distributor = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_distributor.scriptid
+              value = "1350470"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              value = "1350470"
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "A"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "8/1/2019"
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Order #"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      SALESORDER_ITEM@f = {
+        record = "SALESORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "SaaS Royalty Amount"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_customer_code = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_customer_code.scriptid
+              columnreference = {
+                column = "cust code"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_customer_name_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_customer_name_line.scriptid
+              columnreference = {
+                column = "cust name"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_end_user_customer_line = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_end_user_customer_line.scriptid
+              columnreference = {
+                column = "end user"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_invoice_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_invoice_date.scriptid
+              columnreference = {
+                column = "Invoice Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_invoice_num = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_invoice_num.scriptid
+              columnreference = {
+                column = "Invoice #"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_quantity_for_customer = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_quantity_for_customer.scriptid
+              columnreference = {
+                column = "Qty"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Period End Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Period Start Date"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custcol_site_id = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_site_id.scriptid
+              columnreference = {
+                column = "site ID"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Line Description (map to sales description field)"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "NS Item ID"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              value = "117"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Qty"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Subscription SLP (per month/unit)"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "-7"
+            }
+          }
+        }
+      }
+    }
+  }
+}

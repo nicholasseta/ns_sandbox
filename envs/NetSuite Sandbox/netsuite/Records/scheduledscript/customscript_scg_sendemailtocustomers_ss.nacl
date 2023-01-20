@@ -1,0 +1,159 @@
+netsuite.scheduledscript customscript_scg_sendemailtocustomers_ss {
+  scriptid = "customscript_scg_sendemailtocustomers_ss"
+  defaultfunction = "is_sendBulkEmail"
+  isinactive = false
+  name = "SCG sendEmailToCustomers SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendEmailToCustomers_SS_js@duuv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_subsidiary_ids = {
+        scriptid = "custscript_subsidiary_ids"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Subsidiary Ids"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+      custscript_template_id = {
+        scriptid = "custscript_template_id"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Template"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = "-120"
+        storevalue = true
+        index = 1
+      }
+      custscript_send_email_author = {
+        scriptid = "custscript_send_email_author"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Author"
+        onparentdelete = "SET_NULL"
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 2
+      }
+      custscript_reprocess = {
+        scriptid = "custscript_reprocess"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Reprocess Failed Emails"
+        searchlevel = "2"
+        storevalue = true
+        index = 3
+      }
+      custscript_date_last_sale_from = {
+        scriptid = "custscript_date_last_sale_from"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "DATE"
+        isformula = false
+        ismandatory = false
+        label = "Date of Last Sale From"
+        searchlevel = "2"
+        storevalue = true
+        index = 4
+      }
+      custscript_date_last_sale_to = {
+        scriptid = "custscript_date_last_sale_to"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "DATE"
+        isformula = false
+        ismandatory = false
+        label = "Date of Last Sale To"
+        searchlevel = "2"
+        storevalue = true
+        index = 5
+      }
+      custscript_ler_email_blast = {
+        scriptid = "custscript_ler_email_blast"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "LER Email Blast"
+        searchlevel = "2"
+        storevalue = true
+        index = 6
+      }
+      custscript_incl_disabled_email_custs = {
+        scriptid = "custscript_incl_disabled_email_custs"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Include Disabled Invoice Email Customers"
+        searchlevel = "2"
+        storevalue = true
+        index = 7
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendemailtocustomers_ss = {
+        scriptid = "customdeploy_scg_sendemailtocustomers_ss"
+        custscript_incl_disabled_email_custs = false
+        custscript_ler_email_blast = false
+        custscript_reprocess = false
+        custscript_send_email_author = "[ACCOUNT_SPECIFIC_VALUE]"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG sendEmailToCustomers SS"
+        recurrence = {
+          single = {
+            startdate = "2020-07-29"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

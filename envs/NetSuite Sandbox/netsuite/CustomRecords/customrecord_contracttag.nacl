@@ -1,0 +1,802 @@
+type netsuite.customrecord_contracttag {
+  annotations {
+    serviceid scriptid {
+    }
+    string recordname {
+    }
+    string customsegment {
+    }
+    netsuite.customrecordtype_accesstype accesstype {
+    }
+    boolean allowattachments {
+    }
+    boolean allowinlineediting {
+    }
+    boolean allowinlinedeleting {
+    }
+    boolean allowinlinedetaching {
+    }
+    boolean allowmobileaccess {
+    }
+    boolean allownumberingoverride {
+    }
+    boolean allowquickadd {
+    }
+    boolean allowquicksearch {
+    }
+    boolean allowuiaccess {
+    }
+    string description {
+    }
+    boolean enabledle {
+    }
+    boolean enablekeywords {
+    }
+    boolean enablemailmerge {
+    }
+    boolean enablenametranslation {
+    }
+    boolean enablenumbering {
+    }
+    boolean enableoptimisticlocking {
+    }
+    boolean enablesystemnotes {
+    }
+    boolean hierarchical {
+    }
+    string numberingprefix {
+    }
+    string numberingsuffix {
+    }
+    string numberingmindigits {
+    }
+    string numberinginit {
+    }
+    string icon {
+    }
+    boolean iconbuiltin {
+    }
+    netsuite.generic_custom_record_icon iconindex {
+    }
+    boolean includeinsearchmenu {
+    }
+    boolean includename {
+    }
+    boolean isinactive {
+    }
+    boolean isordered {
+    }
+    boolean showcreationdate {
+    }
+    boolean showcreationdateonlist {
+    }
+    boolean showid {
+    }
+    boolean showlastmodified {
+    }
+    boolean showlastmodifiedonlist {
+    }
+    boolean shownotes {
+    }
+    boolean showowner {
+    }
+    boolean showownerallowchange {
+    }
+    boolean showowneronlist {
+    }
+    netsuite.customrecordtype_instances instances {
+    }
+    netsuite.customrecordtype_links links {
+    }
+    netsuite.customrecordtype_permissions permissions {
+    }
+    netsuite.customrecordtype_recordsublists recordsublists {
+    }
+    netsuite.customrecordtype_subtabs subtabs {
+    }
+    string application_id {
+    }
+    hidden_string source {
+    }
+    hidden_string internalId {
+    }
+  }
+  serviceid scriptid {
+    _required = true
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.customRecordTranslationsList translationsList {
+  }
+  string custom_custrecord_is_ct_contractnumber {
+    scriptid = "custrecord_is_ct_contractnumber"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Contract Number"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 0
+  }
+  boolean custom_custrecord_is_ct_autorenew {
+    scriptid = "custrecord_is_ct_autorenew"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Auto Renew"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 1
+  }
+  netsuite.customer custom_custrecord_is_ct_accountid {
+    scriptid = "custrecord_is_ct_accountid"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Account Name"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 2
+  }
+  netsuite.customer custom_custrecord_is_ct_billtoacct {
+    scriptid = "custrecord_is_ct_billtoacct"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Bill To Account"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 3
+  }
+  netsuite.customer custom_custrecord_is_ct_partneraccount {
+    scriptid = "custrecord_is_ct_partneraccount"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Partner Account"
+    onparentdelete = "SET_NULL"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-2"
+    showinlist = false
+    storevalue = true
+    index = 4
+  }
+  netsuite.subsidiary custom_custrecord_is_ct_subsidiary {
+    scriptid = "custrecord_is_ct_subsidiary"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Subsidiary"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-117"
+    showinlist = false
+    storevalue = true
+    index = 5
+  }
+  string custom_custrecord_is_ct_bdom {
+    scriptid = "custrecord_is_ct_bdom"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "BDOM"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 6
+  }
+  string custom_custrecord_is_ct_billingdate_annual {
+    scriptid = "custrecord_is_ct_billingdate_annual"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Alignment Date - Annual"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 7
+  }
+  string custom_custrecord_is_ct_billingdate_qone {
+    scriptid = "custrecord_is_ct_billingdate_qone"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Alignment Date - Q1"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 8
+  }
+  string custom_custrecord_is_ct_billingdate_qtwo {
+    scriptid = "custrecord_is_ct_billingdate_qtwo"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Alignment Date - Q2"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 9
+  }
+  string custom_custrecord_is_ct_billingdate_qthree {
+    scriptid = "custrecord_is_ct_billingdate_qthree"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Alignment Date - Q3"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 10
+  }
+  netsuite.term custom_custrecord_is_ct_paymentterms {
+    scriptid = "custrecord_is_ct_paymentterms"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Payment Terms"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-199"
+    showinlist = false
+    storevalue = true
+    index = 11
+  }
+  string custom_custrecord_is_ct_paymentmethod {
+    scriptid = "custrecord_is_ct_paymentmethod"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Payment Method"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 12
+  }
+  string custom_custrecord_is_ct_startdate {
+    scriptid = "custrecord_is_ct_startdate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Start Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 13
+  }
+  string custom_custrecord_is_ct_enddate {
+    scriptid = "custrecord_is_ct_enddate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "End Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 14
+  }
+  string custom_custrecord_is_ct_termmonths {
+    scriptid = "custrecord_is_ct_termmonths"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Term (Months)"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 15
+  }
+  number custom_custrecord_is_ct_total_price {
+    scriptid = "custrecord_is_ct_total_price"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Total Price"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 16
+  }
+  boolean custom_custrecord_is_ct_evergreen {
+    scriptid = "custrecord_is_ct_evergreen"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Evergreen"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 17
+  }
+  netsuite.currency custom_custrecord_is_ct_currency {
+    scriptid = "custrecord_is_ct_currency"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Currency"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-122"
+    showinlist = false
+    storevalue = true
+    index = 18
+  }
+  netsuite.billingSchedule custom_custrecord_is_ct_billingfrequency {
+    scriptid = "custrecord_is_ct_billingfrequency"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Billing Frequency"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-141"
+    showinlist = false
+    storevalue = true
+    index = 19
+  }
+  number custom_custrecord_is_ct_tot_annmain {
+    scriptid = "custrecord_is_ct_tot_annmain"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Total Annual Maintenance"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 20
+  }
+  number custom_custrecord_is_ct_total_annsub {
+    scriptid = "custrecord_is_ct_total_annsub"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Total Annual Subscription"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 21
+  }
+  number custom_custrecord_is_ct_contractarr {
+    scriptid = "custrecord_is_ct_contractarr"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Total Contract ARR"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 22
+  }
+  number custom_custrecord_is_ct_sublicsense_totval {
+    scriptid = "custrecord_is_ct_sublicsense_totval"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = true
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CURRENCY"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Subscription License Fee Total Value"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 23
+  }
+  unknown custom_custrecord_is_ct_geo {
+    scriptid = "custrecord_is_ct_geo"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Sales Geo"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = netsuite.customlist.instance.customlist_sales_geo_list.scriptid
+    showinlist = false
+    storevalue = true
+    index = 24
+  }
+  string custom_custrecord_is_ct_sf_sc {
+    scriptid = "custrecord_is_ct_sf_sc"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    defaultvalue = "'https://glsft2--full.lightning.force.com/lightning/r/ServiceContract/'||{externalid}||'/view'"
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "URL"
+    globalsearch = false
+    isformula = true
+    ismandatory = false
+    isparent = false
+    label = "Salesforce Service Contract"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = false
+    index = 25
+  }
+  scriptid = "customrecord_contracttag"
+  accesstype = "CUSTRECORDENTRYPERM"
+  allowattachments = true
+  allowinlinedeleting = false
+  allowinlinedetaching = true
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = false
+  allowquickadd = true
+  allowquicksearch = false
+  allowuiaccess = true
+  enabledle = true
+  enablekeywords = true
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = true
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = true
+  isinactive = false
+  isordered = false
+  recordname = "Service Contract"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = false
+  showlastmodifiedonlist = false
+  shownotes = true
+  showowner = false
+  showownerallowchange = false
+  showowneronlist = false
+  permissions = {
+    permission = {
+      ADMINISTRATOR = {
+        permittedlevel = "FULL"
+        permittedrole = "ADMINISTRATOR"
+      }
+      customrole_is_ap_clerk = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_ap_clerk.scriptid
+      }
+      customrole1024 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1024.scriptid
+      }
+      customrole_is_ar_clerk = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_ar_clerk.scriptid
+      }
+      customrole1023 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1023.scriptid
+      }
+      customrole_is_accountant = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_accountant.scriptid
+      }
+      customrole1054 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1054.scriptid
+      }
+      customrole1028 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1028.scriptid
+      }
+      customrole1051 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1051.scriptid
+      }
+      customrole1041 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1041.scriptid
+      }
+      customrole_is_acct_mgr = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+      }
+      customrole1034 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1034.scriptid
+      }
+      customrole1050 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1050.scriptid
+      }
+      customrole1036 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1036.scriptid
+      }
+      customrole1026 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1026.scriptid
+      }
+      customrole1047 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1047.scriptid
+      }
+      customrole_tax = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole_tax.scriptid
+      }
+      customrole1046 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1046.scriptid
+      }
+      customrole1049 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1049.scriptid
+      }
+      customrole1048 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1048.scriptid
+      }
+    }
+  }
+  links = {
+    link = {
+      BASICTRANSACTIONSORDERMANAGEMENT = {
+        linkcategory = "BASICTRANSACTIONSORDERMANAGEMENT"
+        linktasktype = "LIST"
+      }
+    }
+  }
+  metadataType = "customrecordtype"
+}

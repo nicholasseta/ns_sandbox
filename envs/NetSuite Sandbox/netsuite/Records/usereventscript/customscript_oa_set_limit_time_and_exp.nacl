@@ -1,0 +1,26 @@
+netsuite.usereventscript customscript_oa_set_limit_time_and_exp {
+  scriptid = "customscript_oa_set_limit_time_and_exp"
+  beforesubmitfunction = "setProjectFieldsUE"
+  isinactive = false
+  name = "OpenAir: Set 'Limit Time and Expenses'"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_export_to_openair_flags.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_set_limit_time_and_exp = {
+        scriptid = "customdeploy_set_limit_time_and_exp"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "JOB"
+        status = "RELEASED"
+      }
+    }
+  }
+}

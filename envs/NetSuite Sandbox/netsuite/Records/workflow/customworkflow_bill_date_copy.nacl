@@ -1,0 +1,28 @@
+netsuite.workflow customworkflow_bill_date_copy {
+  scriptid = "customworkflow_bill_date_copy"
+  description = "Copies date from Vendor Bill Date to standard Date field"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = true
+  keephistory = "ONLYWHENTESTING"
+  name = "Bill Date Copy"
+  recordtypes = "VENDORBILL"
+  releasestatus = "TESTING"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate19 = {
+        scriptid = "workflowstate19"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        index = 0
+      }
+    }
+  }
+}

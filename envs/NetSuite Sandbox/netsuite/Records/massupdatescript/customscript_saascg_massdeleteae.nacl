@@ -1,0 +1,25 @@
+netsuite.massupdatescript customscript_saascg_massdeleteae {
+  scriptid = "customscript_saascg_massdeleteae"
+  defaultfunction = "massDelete"
+  isinactive = false
+  name = "Mass Delete Acquisition Entries"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_massdeletecustom_js@duv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audslctrole = "ADMINISTRATOR"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = netsuite.customtransactiontype.instance.customtransaction_acquisition_entry.scriptid
+        status = "RELEASED"
+      }
+    }
+  }
+}

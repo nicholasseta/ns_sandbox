@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_updjenames_ss {
+  scriptid = "customscript_scg_updjenames_ss"
+  defaultfunction = "is_updateJournalEntryNames"
+  isinactive = false
+  name = "SCG updateJournalEntryNames SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_updateJournalEntryNames_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_updjenames_ss = {
+        scriptid = "customdeploy_scg_updjenames_ss"
+        isdeployed = true
+        loglevel = "AUDIT"
+        status = "NOTSCHEDULED"
+        title = "SCG updateJournalEntryNames SS"
+        recurrence = {
+          single = {
+            startdate = "2019-03-22"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

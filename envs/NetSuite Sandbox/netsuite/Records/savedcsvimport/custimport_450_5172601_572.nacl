@@ -1,0 +1,166 @@
+netsuite.savedcsvimport custimport_450_5172601_572 {
+  scriptid = "custimport_450_5172601_572"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "IDL Ongoing Migration"
+  ignorereadonly = true
+  importname = "IDL Ongoing Migration"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "SALESORDER"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_so_salesorder.scriptid
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      SALESORDER = {
+        file = "SALESORDER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      SALESORDER = {
+        record = "SALESORDER"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            custbody_data_migration = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+              value = "T"
+            }
+            custbody_disable_invoice_email_notice = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_disable_invoice_email_notice.scriptid
+              value = "F"
+            }
+            custbody_sales_geo = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sales_geo.scriptid
+              value = "3"
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "end user id"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "bill to int id"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Project name"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              value = "IDL Ongoing Migration"
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "A"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Name"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+            TOBEEMAILED = {
+              field = "TOBEEMAILED"
+              value = "F"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "8/1/2021"
+            }
+          }
+        }
+      }
+      SALESORDER_ITEM@f = {
+        record = "SALESORDER:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              value = "0"
+            }
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              value = "10"
+            }
+            ITEM = {
+              field = "ITEM"
+              value = "11002"
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              value = "1"
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "IDL: Ongoing Consulting/Standard hourly Rate"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Code"
+                file = "SALESORDER"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+      SALESORDER__SHIPPINGADDRESS@f = {
+        record = "SALESORDER::SHIPPINGADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            COUNTRY = {
+              field = "COUNTRY"
+              columnreference = {
+                column = "Project Country"
+                file = "SALESORDER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

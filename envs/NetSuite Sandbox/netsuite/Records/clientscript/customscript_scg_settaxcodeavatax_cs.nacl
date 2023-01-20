@@ -1,0 +1,124 @@
+netsuite.clientscript customscript_scg_settaxcodeavatax_cs {
+  scriptid = "customscript_scg_settaxcodeavatax_cs"
+  fieldchangedfunction = "is_avatax_fieldChanged"
+  isinactive = false
+  name = "SCG SetTaxCodeAvatax CS"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  postsourcingfunction = "is_avatax_postSourcing"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_SetTaxCodeAvatax_CS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_settaxcodeavatax_inv_cs = {
+        scriptid = "customdeploy_scg_settaxcodeavatax_inv_cs"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        audslctrole = "AP_CLERK|AR_CLERK|ACCOUNTANT|ACCOUNTANT__REVIEWER|ADMINISTRATOR|BOOKKEEPER|BUYER|CEO|CEO_HANDS_OFF|CUSTOMROLE41|CHIEF_PEOPLE_OFFICER_CPO|CONSULTANT|[scriptid=customrole1002_2]|[scriptid=customrole1003]|CUSTOMER_CENTER|EMPLOYEE_CENTER|[scriptid=customrole_ncfar]|[scriptid=customrole_fpa_view]|FULL_ACCESS|HUMAN_RESOURCES_GENERALIST|[scriptid=customrole1008_24]|INTRANET_MANAGER|[scriptid=customrole_is_ap_clerk]|[scriptid=customrole1024]|[scriptid=customrole_is_ar_clerk]|[scriptid=customrole_is_accountant]|[scriptid=customrole_is_acct_mgr]|[scriptid=customrole1000_14]|[scriptid=customrole_is_fam]|[scriptid=customrole1022]|[scriptid=customrole1000_13]|[scriptid=customrole1014]|NETSUITE_SUPPORT_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|[scriptid=customrole1015]|PARTNER_CENTER|CUSTOMROLE42|REVENUE_ACCOUNTANT|REVENUE_MANAGER|SALES_ADMINISTRATOR|SALES_MANAGER|SALES_PERSON|SALES_VICE_PRESIDENT|SYSTEM_ADMINISTRATOR|[scriptid=customrole1000]|[scriptid=customrole1001]|[scriptid=customrole1004]|[scriptid=customrole1002]|VENDOR_CENTER"
+        executioncontext = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WORKBOOKBUILDER|WORKFLOW|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "INVOICE"
+        status = "RELEASED"
+      }
+      customdeploy_scg_settaxcodeavatax_cm_cs = {
+        scriptid = "customdeploy_scg_settaxcodeavatax_cm_cs"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = false
+        audslctrole = "AP_CLERK|AR_CLERK|ACCOUNTANT|ACCOUNTANT__REVIEWER|ADMINISTRATOR|BOOKKEEPER|BUYER|CEO|CEO_HANDS_OFF|CUSTOMROLE41|CHIEF_PEOPLE_OFFICER_CPO|CONSULTANT|[scriptid=customrole1002_2]|[scriptid=customrole1003]|CUSTOMER_CENTER|EMPLOYEE_CENTER|[scriptid=customrole_ncfar]|[scriptid=customrole_fpa_view]|FULL_ACCESS|HUMAN_RESOURCES_GENERALIST|[scriptid=customrole1008_24]|INTRANET_MANAGER|[scriptid=customrole_is_ap_clerk]|[scriptid=customrole1024]|[scriptid=customrole_is_ar_clerk]|[scriptid=customrole_is_accountant]|[scriptid=customrole1028]|[scriptid=customrole_is_acct_mgr]|[scriptid=customrole1000_14]|[scriptid=customrole_is_fam]|[scriptid=customrole1026]|[scriptid=customrole1022]|[scriptid=customrole_tax]|[scriptid=customrole1000_13]|[scriptid=customrole1014]|NETSUITE_SUPPORT_CENTER|NETSUITE_SUPPORT_CENTER__BASIC|[scriptid=customrole1015]|PARTNER_CENTER|CUSTOMROLE42|REVENUE_ACCOUNTANT|REVENUE_MANAGER|SALES_ADMINISTRATOR|SALES_MANAGER|SALES_PERSON|SALES_VICE_PRESIDENT|[scriptid=customrole_suitesync_limited_access]|SYSTEM_ADMINISTRATOR|[scriptid=customrole1000]|[scriptid=customrole1001]|[scriptid=customrole1004]|[scriptid=customrole1002]|VENDOR_CENTER|[scriptid=customrole1025]"
+        executioncontext = "BUNDLEINSTALLATION|ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WORKFLOW|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "CREDITMEMO"
+        status = "RELEASED"
+      }
+      customdeploy_scg_settaxcodeavatax_ra_cs = {
+        scriptid = "customdeploy_scg_settaxcodeavatax_ra_cs"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "RETURNAUTHORIZATION"
+        status = "RELEASED"
+      }
+      customdeploy_scg_settaxcodeavatax_so_cs = {
+        scriptid = "customdeploy_scg_settaxcodeavatax_so_cs"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = false
+        loglevel = "DEBUG"
+        recordtype = "SALESORDER"
+        status = "RELEASED"
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.role.instance.customrole1000_13.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1000_14.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1003.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1008_24.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1014.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1015.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1022.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1024.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1025.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1026.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole1028.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_fpa_view.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_accountant.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_ap_clerk.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_ar_clerk.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_fam.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_suitesync_limited_access.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_tax.scriptid
+    },
+  ]
+}

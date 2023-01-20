@@ -1,0 +1,46 @@
+netsuite.suitelet customscript_ava_recalcbatches {
+  scriptid = "customscript_ava_recalcbatches"
+  description = "Utility to show Recalculation Batches"
+  isinactive = false
+  name = "AVA_RecalculationBatches_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_RecalcViewBatches.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_viewbatchesroleid = {
+        scriptid = "custscript_viewbatchesroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_ava_recalcbatches = {
+        scriptid = "customdeploy_ava_recalcbatches"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_viewbatchesroleid = "1,1029"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "View Recalculation Batches"
+      }
+    }
+  }
+}

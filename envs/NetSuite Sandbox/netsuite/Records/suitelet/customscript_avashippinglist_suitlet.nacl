@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_avashippinglist_suitlet {
+  scriptid = "customscript_avashippinglist_suitlet"
+  isinactive = false
+  name = "AVA_ShippingCodeList_Suitlet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_ShippingCodeList.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_shippinglistroleid = {
+        scriptid = "custscript_shippinglistroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_shippingcodelist = {
+        scriptid = "customdeploy_shippingcodelist"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_shippinglistroleid = "1,1029"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "Shipping Code List"
+      }
+    }
+  }
+}

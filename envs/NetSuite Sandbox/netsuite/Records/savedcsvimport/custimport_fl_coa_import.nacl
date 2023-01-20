@@ -1,0 +1,115 @@
+netsuite.savedcsvimport custimport_fl_coa_import {
+  scriptid = "custimport_fl_coa_import"
+  charencoding = "UTF_8"
+  columndelimiter = "SEMICOLON"
+  datahandling = "ADDUPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "France Chart of Accounts"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "ACCOUNT"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+    roles = "ACCOUNTANT|ACCOUNTANT__REVIEWER|ADMINISTRATOR|CEO|CEO_HANDS_OFF|CUSTOMROLE41|FULL_ACCESS"
+  }
+  filemappings = {
+    filemapping = {
+      ACCOUNT = {
+        file = "ACCOUNT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      ACCOUNT = {
+        record = "ACCOUNT"
+        fieldmappings = {
+          fieldmapping = {
+            ACCTNAME = {
+              field = "ACCTNAME"
+              columnreference = {
+                column = "French Short Name"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            ACCTNUMBER = {
+              field = "ACCTNUMBER"
+              columnreference = {
+                column = "Number"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            ACCTTYPE = {
+              field = "ACCTTYPE"
+              columnreference = {
+                column = "Type"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "English Short Name"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              columnreference = {
+                column = "Include Children"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+            PARENT = {
+              field = "PARENT"
+              columnreference = {
+                column = "Subaccount of (External ID)"
+                file = "ACCOUNT"
+                type = "EXTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "ACCOUNT"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

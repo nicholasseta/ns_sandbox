@@ -1,0 +1,47 @@
+netsuite.workflow customworkflow5 {
+  scriptid = "customworkflow5"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Set Department Mandatory on BIll Lines"
+  recordtypes = "VENDORBILL"
+  releasestatus = "TESTING"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate43 = {
+        scriptid = "workflowstate43"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldmandatoryaction = {
+              workflowaction159 = {
+                scriptid = "workflowaction159"
+                field = "STDCOLDEPARTMENT"
+                isinactive = false
+                ismandatory = true
+                issublistfield = true
+                sublist = "ITEM"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,645 @@
+type netsuite.customrecord_avaaddressvalidationbatch {
+  annotations {
+    serviceid scriptid {
+    }
+    string recordname {
+    }
+    string customsegment {
+    }
+    netsuite.customrecordtype_accesstype accesstype {
+    }
+    boolean allowattachments {
+    }
+    boolean allowinlineediting {
+    }
+    boolean allowinlinedeleting {
+    }
+    boolean allowinlinedetaching {
+    }
+    boolean allowmobileaccess {
+    }
+    boolean allownumberingoverride {
+    }
+    boolean allowquickadd {
+    }
+    boolean allowquicksearch {
+    }
+    boolean allowuiaccess {
+    }
+    string description {
+    }
+    boolean enabledle {
+    }
+    boolean enablekeywords {
+    }
+    boolean enablemailmerge {
+    }
+    boolean enablenametranslation {
+    }
+    boolean enablenumbering {
+    }
+    boolean enableoptimisticlocking {
+    }
+    boolean enablesystemnotes {
+    }
+    boolean hierarchical {
+    }
+    string numberingprefix {
+    }
+    string numberingsuffix {
+    }
+    string numberingmindigits {
+    }
+    string numberinginit {
+    }
+    string icon {
+    }
+    boolean iconbuiltin {
+    }
+    netsuite.generic_custom_record_icon iconindex {
+    }
+    boolean includeinsearchmenu {
+    }
+    boolean includename {
+    }
+    boolean isinactive {
+    }
+    boolean isordered {
+    }
+    boolean showcreationdate {
+    }
+    boolean showcreationdateonlist {
+    }
+    boolean showid {
+    }
+    boolean showlastmodified {
+    }
+    boolean showlastmodifiedonlist {
+    }
+    boolean shownotes {
+    }
+    boolean showowner {
+    }
+    boolean showownerallowchange {
+    }
+    boolean showowneronlist {
+    }
+    netsuite.customrecordtype_instances instances {
+    }
+    netsuite.customrecordtype_links links {
+    }
+    netsuite.customrecordtype_permissions permissions {
+    }
+    netsuite.customrecordtype_recordsublists recordsublists {
+    }
+    netsuite.customrecordtype_subtabs subtabs {
+    }
+    string application_id {
+    }
+    hidden_string source {
+    }
+    hidden_string internalId {
+    }
+  }
+  serviceid scriptid {
+    _required = true
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.customRecordTranslationsList translationsList {
+  }
+  string custom_custrecord_ava_recordtype {
+    scriptid = "custrecord_ava_recordtype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+Can be any one of the following:
+Subsidiary
+Location
+Customer
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Record Type"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 0
+  }
+  number custom_custrecord_ava_progress {
+    scriptid = "custrecord_ava_progress"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "PERCENT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Batch Progress"
+    maxvalue = "100"
+    minvalue = "0"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 1
+  }
+  number custom_custrecord_ava_status {
+    scriptid = "custrecord_ava_status"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    help = '''
+0 - In Queue
+1 - In Progress
+2 - Validation Completed
+3 - Marking Records for Updation
+4 - Records Marked for Updation
+5 - Updation Completed
+6 - Deletion
+7 - Error
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Batch Status"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 2
+  }
+  "List<netsuite.subsidiary>" custom_custrecord_ava_subsidiaries {
+    scriptid = "custrecord_ava_subsidiaries"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "MULTISELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Applicable Subsidiary(s)"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-117"
+    showinlist = false
+    storevalue = true
+    index = 3
+  }
+  string custom_custrecord_ava_subaddresstype {
+    scriptid = "custrecord_ava_subaddresstype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+When Record Type is selected as Subsidiary, following type of addresses can be validated in a Subsidiary record:
+All (a)
+Subsidiary Address (s)
+Shipping Address (h)
+Return Address (r)
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Subsidiary Address Type"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 4
+  }
+  string custom_custrecord_ava_customertype {
+    scriptid = "custrecord_ava_customertype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+When the record type selected is Customer, user can validate addresses of following type of customers:
+- Individual(i)
+- Company(c)
+- Both(b)
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Customer Type"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 5
+  }
+  string custom_custrecord_ava_customersubtype {
+    scriptid = "custrecord_ava_customersubtype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+Type of Customer sub record:
+Lead (l)
+Prospect (p)
+Customer (c)
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Customer Sub Type"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 6
+  }
+  string custom_custrecord_ava_custname {
+    scriptid = "custrecord_ava_custname"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Customer Name Starts With"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 7
+  }
+  string custom_custrecord_ava_customerstartdate {
+    scriptid = "custrecord_ava_customerstartdate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    help = "Start Date to be considered while filtering customers for address validation."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Start Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 8
+  }
+  string custom_custrecord_ava_customerenddate {
+    scriptid = "custrecord_ava_customerenddate"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "DATE"
+    globalsearch = false
+    help = "End Date for filtering customers for address validation."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "End Date"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 9
+  }
+  string custom_custrecord_ava_custaddresstype {
+    scriptid = "custrecord_ava_custaddresstype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+Customer Address Types to be validated:
+-All (a) 
+-Default Billing (b)
+-Default Shipping (s)  
+-Default Billing & Shipping (bs)
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Customer Address Type"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 10
+  }
+  "List<netsuite.location>" custom_custrecord_ava_locationlist {
+    scriptid = "custrecord_ava_locationlist"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "MULTISELECT"
+    globalsearch = false
+    help = "Locations for which validation needs to be run. If none is selected, and no subsidiary is also selected then All Locations needs to be validated."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Location"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-103"
+    showinlist = false
+    storevalue = true
+    index = 11
+  }
+  boolean custom_custrecord_ava_includesublocations {
+    scriptid = "custrecord_ava_includesublocations"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    help = "Include Sub-Location of all or selected Locations."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Include Sub-Location(s)"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 12
+  }
+  boolean custom_custrecord_ava_onlyactive {
+    scriptid = "custrecord_ava_onlyactive"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CHECKBOX"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Only Active Records"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 13
+  }
+  string custom_custrecord_ava_batchdescription {
+    scriptid = "custrecord_ava_batchdescription"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXTAREA"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Description"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 14
+  }
+  string custom_custrecord_ava_locationaddresstype {
+    scriptid = "custrecord_ava_locationaddresstype"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+Location Address to be validated can be:
+- All Addresses (a)
+- Particular Subsidiary Locations (s)
+- Specific Locations (p)
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Location Type"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 15
+  }
+  number custom_custrecord_ava_totaladdresses {
+    scriptid = "custrecord_ava_totaladdresses"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Total Addresses"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 16
+  }
+  number custom_custrecord_ava_validaddresses {
+    scriptid = "custrecord_ava_validaddresses"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Valid Addresses"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 17
+  }
+  number custom_custrecord_ava_invalidaddresses {
+    scriptid = "custrecord_ava_invalidaddresses"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Invalid Addresses"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 18
+  }
+  number custom_custrecord_ava_lastprocessedid {
+    scriptid = "custrecord_ava_lastprocessedid"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "STATICTEXT"
+    encryptatrest = false
+    fieldtype = "INTEGER"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Last Processed ID"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 19
+  }
+  scriptid = "customrecord_avaaddressvalidationbatch"
+  accesstype = "NONENEEDED"
+  allowattachments = true
+  allowinlinedeleting = false
+  allowinlinedetaching = true
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = false
+  allowquickadd = false
+  allowquicksearch = false
+  allowuiaccess = true
+  enabledle = true
+  enablekeywords = true
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = false
+  enableoptimisticlocking = false
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = true
+  isinactive = false
+  isordered = false
+  recordname = "AVAADDRESSVALIDATIONBATCH"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = false
+  showlastmodified = false
+  showlastmodifiedonlist = false
+  shownotes = true
+  showowner = false
+  showownerallowchange = false
+  showowneronlist = false
+  permissions = {
+    permission = {
+      customrole1028 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1028.scriptid
+      }
+      customrole1051 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1051.scriptid
+      }
+      customrole1041 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1041.scriptid
+      }
+      customrole_tax = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_tax.scriptid
+      }
+    }
+  }
+  metadataType = "customrecordtype"
+}

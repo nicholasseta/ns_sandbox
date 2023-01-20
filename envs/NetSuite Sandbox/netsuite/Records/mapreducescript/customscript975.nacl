@@ -1,0 +1,29 @@
+netsuite.mapreducescript customscript975 {
+  scriptid = "customscript975"
+  isinactive = false
+  name = "SCG Update Arrangement Source IDs"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_one_time_update_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        buffersize = "1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "SCG Update Arrangement Source IDs"
+        yieldaftermins = "15"
+        recurrence = {
+          single = {
+            startdate = "2022-06-09"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

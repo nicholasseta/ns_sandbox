@@ -1,0 +1,62 @@
+netsuite.workflow customworkflow_set_default_fields {
+  scriptid = "customworkflow_set_default_fields"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Set Default Fields"
+  recordtypes = "VENDOR"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate29 = {
+        scriptid = "workflowstate29"
+        donotexitworkflow = false
+        name = "Set Field Values"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction128 = {
+                scriptid = "workflowaction128"
+                field = netsuite.entitycustomfield.instance.custentity_intercompany.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetext = "Yes"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "{representingsubsidiary.id} is not null"
+                  type = "FORMULA"
+                }
+                index = 0
+              }
+              workflowaction129 = {
+                scriptid = "workflowaction129"
+                field = netsuite.entitycustomfield.instance.custentity_intercompany.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "{representingsubsidiary.id} is null"
+                  type = "FORMULA"
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+netsuite.suitelet customscript_scg_sendemailtocustomers_sl {
+  scriptid = "customscript_scg_sendemailtocustomers_sl"
+  defaultfunction = "is_setc_sendEmailToCustomers"
+  isinactive = false
+  name = "SCG sendEmailToCustomers SL"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendEmailToCustomers_SL_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendemailtocustomers_sl = {
+        scriptid = "customdeploy_scg_sendemailtocustomers_sl"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audemployee = "[ACCOUNT_SPECIFIC_VALUE]"
+        audslctrole = "ADMINISTRATOR|[scriptid=customrole_is_acct_mgr]"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "SCG sendEmailToCustomers SL"
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+    },
+  ]
+}

@@ -1,0 +1,12 @@
+netsuite.emailtemplate custemailtmpl_before_due_date {
+  scriptid = "custemailtmpl_before_due_date"
+  addcompanyaddress = true
+  addunsubscribelink = true
+  isinactive = true
+  isprivate = false
+  name = "Invoice - Before Due Date"
+  recordtype = "TRANSACTION"
+  subject = "Invoice Due: Invoice# \${transaction.tranId} from \${transaction.subsidiary.namenohierarchy}"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_before_due_date.html")
+}

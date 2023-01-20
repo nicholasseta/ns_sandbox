@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_avacertstatus_suitelet {
+  scriptid = "customscript_avacertstatus_suitelet"
+  isinactive = false
+  name = "AVA_GetCertificatesStatus_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_GetCertificatesStatus.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_certificatestatusroleid = {
+        scriptid = "custscript_certificatestatusroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avacertstatus = {
+        scriptid = "customdeploy_avacertstatus"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audslctrole = "ADMINISTRATOR"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "AVA_GetCertificatesStatus_Suitelet"
+      }
+    }
+  }
+}

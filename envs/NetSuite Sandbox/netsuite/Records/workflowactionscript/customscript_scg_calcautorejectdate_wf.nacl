@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_scg_calcautorejectdate_wf {
+  scriptid = "customscript_scg_calcautorejectdate_wf"
+  defaultfunction = "is_card_calcAutoRejectDate"
+  isinactive = false
+  name = "SCG calcAutoRejectDate WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "DATE"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_calcAutoRejectDate_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_calcautorejectdate_wf = {
+        scriptid = "customdeploy_scg_calcautorejectdate_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

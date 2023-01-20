@@ -1,0 +1,135 @@
+netsuite.workflow customworkflow_item_setup_check {
+  scriptid = "customworkflow_item_setup_check"
+  description = '''
+Checks if Revenue Recognition Rule = Percent Complete, the following must be set:
+
+Create Revenue Plan On = Project Progress
+Create Project = Check
+'''
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "NEVER"
+  name = "Item Setup Check"
+  recordtypes = "NONINVENTORYITEM|SERVICEITEM"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate39 = {
+        scriptid = "workflowstate39"
+        donotexitworkflow = false
+        name = "Check Setup"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            returnusererroraction = {
+              workflowaction153 = {
+                scriptid = "workflowaction153"
+                errortext = '''
+Since Revenue Recognition Rule = Percent Complete, the following must be set:
+
+Create Revenue Plan On = Project Progress
+Create Project = Check
+'''
+                eventtypes = "CREATE|EDIT"
+                isinactive = false
+                initcondition = {
+                  formula = "( \"Revenue Recognition Rule\" IN (\"Revenue Recognition Rule1\") AND \"Create Revenue Plans On\" NOT IN (\"Create Revenue Plans On1\") ) OR ( \"Revenue Recognition Rule\" IN (\"Revenue Recognition Rule1\") AND isChecked(\"Create Job\") = 'F' )"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Revenue_Recognition_Rule@s = {
+                        name = "Revenue Recognition Rule"
+                        value = "STDITEMREVENUERECOGNITIONRULE"
+                        index = 0
+                      }
+                      Revenue_Recognition_Rule1@s = {
+                        name = "Revenue Recognition Rule1"
+                        selectrecordtype = "-357"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      Create_Revenue_Plans_On@s = {
+                        name = "Create Revenue Plans On"
+                        value = "STDITEMCREATEREVENUEPLANSON"
+                        index = 2
+                      }
+                      Create_Revenue_Plans_On1@s = {
+                        name = "Create Revenue Plans On1"
+                        selectrecordtype = "-349"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 3
+                      }
+                      Create_Job@s = {
+                        name = "Create Job"
+                        value = "STDITEMCREATEJOB"
+                        index = 4
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction154 = {
+                scriptid = "workflowaction154"
+                errortext = '''
+Since Revenue Recognition Rule = Per Start and End Date or License, the following must be set:
+
+Create Revenue Plan On = Revenue Arrangement Creation
+'''
+                eventtypes = "CREATE|EDIT"
+                isinactive = false
+                initcondition = {
+                  formula = "\"Revenue Recognition Rule\" IN (\"Revenue Recognition Rule1\",\"Revenue Recognition Rule2\") AND \"Create Revenue Plans On\" NOT IN (\"Create Revenue Plans On1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Revenue_Recognition_Rule@s = {
+                        name = "Revenue Recognition Rule"
+                        value = "STDITEMREVENUERECOGNITIONRULE"
+                        index = 0
+                      }
+                      Revenue_Recognition_Rule1@s = {
+                        name = "Revenue Recognition Rule1"
+                        selectrecordtype = "-357"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      Revenue_Recognition_Rule2@s = {
+                        name = "Revenue Recognition Rule2"
+                        selectrecordtype = "-357"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 2
+                      }
+                      Create_Revenue_Plans_On@s = {
+                        name = "Create Revenue Plans On"
+                        value = "STDITEMCREATEREVENUEPLANSON"
+                        index = 3
+                      }
+                      Create_Revenue_Plans_On1@s = {
+                        name = "Create Revenue Plans On1"
+                        selectrecordtype = "-349"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 4
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

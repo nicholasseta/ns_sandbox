@@ -1,0 +1,83 @@
+netsuite.savedcsvimport custimport_607_5172601_672 {
+  scriptid = "custimport_607_5172601_672"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Order Product Proj PCO Updates Rev Script"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_oa_pco_date = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_pco_date.scriptid
+              columnreference = {
+                column = "OpenAir: Last Rev Rec Date (Custom)"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_oa_pco_value = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_pco_value.scriptid
+              columnreference = {
+                column = "OpenAir: PCO (Custom)"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_openair_last_rev_rec_date_cus = {
+              field = netsuite.entitycustomfield.instance.custentity_openair_last_rev_rec_date_cus.scriptid
+              columnreference = {
+                column = "OpenAir: Last Rev Rec Date (Custom)"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_openair_pco_custom = {
+              field = netsuite.entitycustomfield.instance.custentity_openair_pco_custom.scriptid
+              columnreference = {
+                column = "OpenAir: PCO (Custom)"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

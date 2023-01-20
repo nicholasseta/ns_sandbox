@@ -1,0 +1,91 @@
+netsuite.savedcsvimport custimport_148_5172601_245 {
+  scriptid = "custimport_148_5172601_245"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "CXO Non-Inventory Item Update"
+  ignorereadonly = true
+  importname = "CXO Non-Inventory Item Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "NONINVENTORYSALEITEM"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      NONINVENTORYSALEITEM = {
+        file = "NONINVENTORYSALEITEM"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      NONINVENTORYSALEITEM = {
+        record = "NONINVENTORYSALEITEM"
+        fieldmappings = {
+          fieldmapping = {
+            BILLINGSCHEDULE = {
+              field = "BILLINGSCHEDULE"
+              columnreference = {
+                column = "Item Billing Schedule"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_ava_taxcode = {
+              field = netsuite.itemcustomfield.instance.custitem_ava_taxcode.scriptid
+              columnreference = {
+                column = "AvaTax Taxcode"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            custitem_sf_isinactive = {
+              field = netsuite.itemcustomfield.instance.custitem_sf_isinactive.scriptid
+              columnreference = {
+                column = "SF IsActive"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            DEFERREDREVENUEACCOUNT = {
+              field = "DEFERREDREVENUEACCOUNT"
+              columnreference = {
+                column = "Deferred Revenue Account"
+                file = "NONINVENTORYSALEITEM"
+                type = "INTERNAL_ID"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+            SALESDESCRIPTION = {
+              field = "SALESDESCRIPTION"
+              columnreference = {
+                column = "Description"
+                file = "NONINVENTORYSALEITEM"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

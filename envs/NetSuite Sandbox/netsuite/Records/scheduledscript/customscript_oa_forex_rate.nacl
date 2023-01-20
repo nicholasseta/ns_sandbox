@@ -1,0 +1,75 @@
+netsuite.scheduledscript customscript_oa_forex_rate {
+  scriptid = "customscript_oa_forex_rate"
+  defaultfunction = "copyExchangeRates"
+  isinactive = false
+  name = "OpenAir: Exchange Rates"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 2851/openair_exchange_rate.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_forex_integration = {
+        scriptid = "custscript_oa_forex_integration"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = "Enable this for the exchange rate integration with OpenAir. Be sure to read all documentation before enabling and make sure this is configured in OpenAir. This is only relevant for OneWorld accounts."
+        isformula = false
+        ismandatory = false
+        label = "Exchange Rate Integration - OneWorld"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+      custscript_oa_forex_prev_day = {
+        scriptid = "custscript_oa_forex_prev_day"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = '''
+Enable this preference if the "OpenAir: Exchange Rates" custom script is scheduled to run at a time that is the day prior to the OpenAir exchange rate integration. For example, if the "OpenAir: Exchange Rates" script is scheduled to run at 10:30 PM PST and the exchange rate synchronization is scheduled to run at 12:15 AM PST, the "OpenAir: Exchange Rates" script runs the previous day. The effective date of the exchange rates will therefore be the previous day. Enabling this preference adjusts the effective date for this scenario to give the exchange rates with an effective date that is the same as the day the OpenAir exchange rate synchronization runs.
+
+This preference should not be enabled if the OpenAir exchange rate synchronization and the "OpenAir: Exchange Rates" script are scheduled to run on the same day PST.
+'''
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        help = '''
+Enable this preference if the "OpenAir: Exchange Rates" custom script is scheduled to run at a time that is the day prior to the OpenAir exchange rate integration. For example, if the "OpenAir: Exchange Rates" script is scheduled to run at 10:30 PM PST and the exchange rate synchronization is scheduled to run at 12:15 AM PST, the "OpenAir: Exchange Rates" script runs the previous day. The effective date of the exchange rates will therefore be the previous day. Enabling this preference adjusts the effective date for this scenario to give the exchange rates with an effective date that is the same as the day the OpenAir exchange rate synchronization runs.
+
+This preference should not be enabled if the OpenAir exchange rate synchronization and the "OpenAir: Exchange Rates" script are scheduled to run on the same day PST.
+'''
+        isformula = false
+        ismandatory = false
+        label = "OpenAir Forex Time Zone Adjust"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 1
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_forex_rate = {
+        scriptid = "customdeploy_oa_forex_rate"
+        custscript_oa_forex_integration = false
+        custscript_oa_forex_prev_day = false
+        isdeployed = true
+        loglevel = "ERROR"
+        status = "NOTSCHEDULED"
+        title = "OpenAir: Exchange Rates"
+        recurrence = {
+          single = {
+            startdate = "2010-11-19"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

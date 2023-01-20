@@ -1,0 +1,203 @@
+netsuite.savedcsvimport custimport_92_5172601_507 {
+  scriptid = "custimport_92_5172601_507"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "International version with JV mapping"
+  ignorereadonly = true
+  importname = "Hubble Historic Transactions Import Intl JW"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOURNALENTRY"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_journalentry.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOURNALENTRY = {
+        file = "JOURNALENTRY"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOURNALENTRY = {
+        record = "JOURNALENTRY"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Journal Entry : Currency"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Journal Entry : Exchange Rate"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Journal Entry : Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              columnreference = {
+                column = "Journal Entry : Posting Period"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Journal Entry : Subsidiary ID (Req)"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Journal Entry : Date (Req)"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Journal Entry : Entry No."
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      JOURNALENTRY_LINE@f = {
+        record = "JOURNALENTRY:LINE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Journal Entry Line ID : Account"
+                file = "JOURNALENTRY"
+                type = "INTERNAL_ID"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "Journal Entry Line : ERP"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            CREDIT = {
+              field = "CREDIT"
+              columnreference = {
+                column = "Journal Entry Line : Credit"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            custcol_partnerjvreseller = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_partnerjvreseller.scriptid
+              columnreference = {
+                column = "Journal Entry Line : JV Name"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEBIT = {
+              field = "DEBIT"
+              columnreference = {
+                column = "Journal Entry Line : Debit"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Journal Entry Line : Department"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            ENDDATE = {
+              field = "ENDDATE"
+              columnreference = {
+                column = "Journal Entry Line : End Date"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Journal Entry Line : Name"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Journal Entry Line : Location"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Journal Entry Line : Memo"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            REVENUERECOGNITIONRULE = {
+              field = "REVENUERECOGNITIONRULE"
+              columnreference = {
+                column = "Journal Entry Line : Revenue Recognition Rule"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+            STARTDATE = {
+              field = "STARTDATE"
+              columnreference = {
+                column = "Journal Entry Line : Start Date"
+                file = "JOURNALENTRY"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

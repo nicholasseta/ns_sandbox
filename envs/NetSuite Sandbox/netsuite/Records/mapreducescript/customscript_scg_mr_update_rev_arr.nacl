@@ -1,0 +1,32 @@
+netsuite.mapreducescript customscript_scg_mr_update_rev_arr {
+  scriptid = "customscript_scg_mr_update_rev_arr"
+  isinactive = false
+  name = "SCG | MR | Update Revenue Arrangement"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_mr_update_rev_arrangement_js@duuuuv.path
+  
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_mr_update_rev_arr = {
+        scriptid = "customdeploy_scg_mr_update_rev_arr"
+        buffersize = "1"
+        concurrencylimit = "9"
+        
+        isdeployed = true
+        loglevel = "AUDIT"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "SCG | MR | Update Revenue Arrangement"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2023-01-12"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

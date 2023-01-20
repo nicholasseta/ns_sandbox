@@ -1,0 +1,286 @@
+netsuite.workflow customworkflow_scg_einvoice {
+  scriptid = "customworkflow_scg_einvoice"
+  description = "Set electronic invoice (e-documents) on records"
+  initeventtypes = "CREATE|EDIT"
+  initoncreate = true
+  initonvieworupdate = true
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "e-Invoice"
+  recordtypes = "CREDITMEMO|INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\") AND isChecked(\"Data Migration\") = 'F'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Subsidiary__Main_@sjk = {
+          name = "Subsidiary (Main)"
+          value = "STDBODYSUBSIDIARY"
+          index = 0
+        }
+        __Subsidiary__1@_00123nn_00125 = {
+          name = "{#Subsidiary#}1"
+          selectrecordtype = "-117"
+          value = "[ACCOUNT_SPECIFIC_VALUE]"
+          index = 1
+        }
+        Data_Migration@s = {
+          name = "Data Migration"
+          value = netsuite.transactionbodycustomfield.instance.custbody_data_migration.scriptid
+          index = 2
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15137 = {
+        scriptid = "workflowstate15137"
+        donotexitworkflow = false
+        name = "Set e-Invoice"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction88289 = {
+                scriptid = "workflowaction88289"
+                field = "[scriptid=custbody_psg_ei_trans_edoc_standard]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "[scriptid=custentity_psg_ei_entity_edoc_standard]"
+                valuejoinfield = "STDBODYCUSTOMER"
+                valuetype = "FIELD"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\") AND isEmpty(\"E-Document Package\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      E_Document_Package@bs = {
+                        name = "E-Document Package"
+                        value = "[scriptid=custbody_psg_ei_trans_edoc_standard]"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 0
+                eventtypes = "CREATE|EDIT"
+              }
+              workflowaction88290 = {
+                scriptid = "workflowaction88290"
+                field = "[scriptid=custbody_psg_ei_template]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[scriptid=customrecord_psg_ei_template.val_61389711_5172601_809]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\") AND \"Type\" IN (\"Transaction Type1\") AND \"Customer:E-Document Package\" IN (\"E-Document Package1\") AND isEmpty(\"E-Document Template\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      Type = {
+                        name = "Type"
+                        value = "STDBODYTRANTYPE"
+                        index = 2
+                      }
+                      Transaction_Type1@s = {
+                        name = "Transaction Type1"
+                        selectrecordtype = "-100"
+                        value = "INVOICE"
+                        index = 3
+                      }
+                      Customer_E_Document_Package@fbs = {
+                        name = "Customer:E-Document Package"
+                        value = "STDBODYCUSTOMER:[scriptid=custentity_psg_ei_entity_edoc_standard]"
+                        index = 4
+                      }
+                      E_Document_Package1@bs = {
+                        name = "E-Document Package1"
+                        selectrecordtype = "[scriptid=customrecord_psg_ei_standards]"
+                        value = "[scriptid=customrecord_psg_ei_standards.val_60990010_5172601_371]"
+                        index = 5
+                      }
+                      E_Document_Template@bs = {
+                        name = "E-Document Template"
+                        value = "[scriptid=custbody_psg_ei_template]"
+                        index = 6
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction88295 = {
+                scriptid = "workflowaction88295"
+                field = "[scriptid=custbody_psg_ei_template]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[scriptid=customrecord_psg_ei_template.val_61389712_5172601_773]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\") AND \"Type\" IN (\"Transaction Type1\") AND \"Customer:E-Document Package\" IN (\"E-Document Package1\") AND isEmpty(\"E-Document Template\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      Type = {
+                        name = "Type"
+                        value = "STDBODYTRANTYPE"
+                        index = 2
+                      }
+                      Transaction_Type1@s = {
+                        name = "Transaction Type1"
+                        selectrecordtype = "-100"
+                        value = "CREDITMEMO"
+                        index = 3
+                      }
+                      Customer_E_Document_Package@fbs = {
+                        name = "Customer:E-Document Package"
+                        value = "STDBODYCUSTOMER:[scriptid=custentity_psg_ei_entity_edoc_standard]"
+                        index = 4
+                      }
+                      E_Document_Package1@bs = {
+                        name = "E-Document Package1"
+                        selectrecordtype = "[scriptid=customrecord_psg_ei_standards]"
+                        value = "[scriptid=customrecord_psg_ei_standards.val_60990010_5172601_371]"
+                        index = 5
+                      }
+                      E_Document_Template@bs = {
+                        name = "E-Document Template"
+                        value = "[scriptid=custbody_psg_ei_template]"
+                        index = 6
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+              workflowaction88292 = {
+                scriptid = "workflowaction88292"
+                field = "[scriptid=custbody_psg_ei_sending_method]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[scriptid=customrecord_ei_sending_method.val_60990020_5172601_571]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\") AND isEmpty(\"E-Document Template\") = 'F' AND isEmpty(\"E-Document Sending Method\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      E_Document_Template@bs = {
+                        name = "E-Document Template"
+                        value = "[scriptid=custbody_psg_ei_template]"
+                        index = 2
+                      }
+                      E_Document_Sending_Method@bss = {
+                        name = "E-Document Sending Method"
+                        value = "[scriptid=custbody_psg_ei_sending_method]"
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 3
+              }
+              workflowaction88293 = {
+                scriptid = "workflowaction88293"
+                eventtypes = "CREATE|EDIT"
+                field = "[scriptid=custbody_psg_ei_status]"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[scriptid=customlist_psg_ei_status.value_1_4346104_349]"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Subsidiary (Main)\" IN (\"{#Subsidiary#}1\") AND isEmpty(\"E-Document Template\") = 'F' AND isEmpty(\"E-Document Status\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Subsidiary__Main_@sjk = {
+                        name = "Subsidiary (Main)"
+                        value = "STDBODYSUBSIDIARY"
+                        index = 0
+                      }
+                      __Subsidiary__1@_00123nn_00125 = {
+                        name = "{#Subsidiary#}1"
+                        selectrecordtype = "-117"
+                        value = "[ACCOUNT_SPECIFIC_VALUE]"
+                        index = 1
+                      }
+                      E_Document_Template@bs = {
+                        name = "E-Document Template"
+                        value = "[scriptid=custbody_psg_ei_template]"
+                        index = 2
+                      }
+                      E_Document_Status@bs = {
+                        name = "E-Document Status"
+                        value = "[scriptid=custbody_psg_ei_status]"
+                        index = 3
+                      }
+                    }
+                  }
+                }
+                index = 4
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

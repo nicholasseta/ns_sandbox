@@ -1,0 +1,30 @@
+netsuite.mapreducescript customscript_scg_rev_arr_checkbox_mr {
+  scriptid = "customscript_scg_rev_arr_checkbox_mr"
+  isinactive = false
+  name = "Rev Arrangment Checkbox MR"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_rev_arrangment_MR_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_rev_arr_checkbox_mr = {
+        scriptid = "customdeploy_scg_rev_arr_checkbox_mr"
+        buffersize = "1"
+        concurrencylimit = "5"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "Rev Arrangment Checkbox MR"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2022-06-30"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

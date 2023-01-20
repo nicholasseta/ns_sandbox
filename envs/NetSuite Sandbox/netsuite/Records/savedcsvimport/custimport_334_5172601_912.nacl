@@ -1,0 +1,194 @@
+netsuite.savedcsvimport custimport_334_5172601_912 {
+  scriptid = "custimport_334_5172601_912"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = false
+  importname = "Longview Europe GmbH RA Import - RH"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "RETURNAUTHORIZATION"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_46_5172601_sb1_477.scriptid
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      RETURNAUTHORIZATION = {
+        file = "RETURNAUTHORIZATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      RETURNAUTHORIZATION = {
+        record = "RETURNAUTHORIZATION"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "Partner/Reseller Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End User Customer Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Bill To Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "ExternalID"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Header Memo"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "A"
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      RETURNAUTHORIZATION_ITEM@f = {
+        record = "RETURNAUTHORIZATION:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev Rec End Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Rec Start Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_term_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_end_date.scriptid
+              columnreference = {
+                column = "Rev Rec End Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_term_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_term_start_date.scriptid
+              columnreference = {
+                column = "Rev Rec Start Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Rate"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "5572"
+            }
+          }
+        }
+      }
+    }
+  }
+}

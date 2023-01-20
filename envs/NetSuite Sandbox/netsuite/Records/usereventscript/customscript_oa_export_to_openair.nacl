@@ -1,0 +1,48 @@
+netsuite.usereventscript customscript_oa_export_to_openair {
+  scriptid = "customscript_oa_export_to_openair"
+  beforesubmitfunction = "beforeSubmitSetProjectTaskFields"
+  isinactive = false
+  name = "OpenAir: Set Project Task Fields"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_export_to_openair_flags.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_export_project_task = {
+        scriptid = "custscript_oa_export_project_task"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Enable OpenAir Task Integration"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_export_project_task = {
+        scriptid = "customdeploy_oa_export_project_task"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = true
+        allroles = true
+        custscript_oa_export_project_task = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "PROJECTTASK"
+        runasrole = netsuite.role.instance.customrole1015.scriptid
+        status = "RELEASED"
+      }
+    }
+  }
+}

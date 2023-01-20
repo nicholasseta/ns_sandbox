@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_scg_chkinactiveapprvrs_wf {
+  scriptid = "customscript_scg_chkinactiveapprvrs_wf"
+  defaultfunction = "is_cia_chkForInactiveApprovers"
+  isinactive = false
+  name = "SCG_chkInactiveApprovers_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "CHECKBOX"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_chkInactiveApprovers_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_chkinactiveapprvrs_wf = {
+        scriptid = "customdeploy_scg_chkinactiveapprvrs_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

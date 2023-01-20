@@ -1,0 +1,102 @@
+netsuite.savedcsvimport custimport_523_5172601_660 {
+  scriptid = "custimport_523_5172601_660"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SFB Data Fix_INVOICE UPDATE"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_70_5172601_239.scriptid
+  usemultithread = false
+  validatemandatorycustfields = false
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            custcol_arm_sourceexternalid = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_arm_sourceexternalid.scriptid
+              columnreference = {
+                column = "ARM Source External ID UPDATE"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_dont_create_rev_override = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_dont_create_rev_override.scriptid
+              columnreference = {
+                column = "Override Element"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_reference_contractline = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_reference_contractline.scriptid
+              columnreference = {
+                column = "NetSuite Order Product Int ID"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+              columnreference = {
+                column = "Line ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            custbody_ns_order_ref = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_ns_order_ref.scriptid
+              columnreference = {
+                column = "NetSuite Order Reference Int ID"
+                file = "INVOICE"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_sfbilling_data_fix = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sfbilling_data_fix.scriptid
+              value = "T"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

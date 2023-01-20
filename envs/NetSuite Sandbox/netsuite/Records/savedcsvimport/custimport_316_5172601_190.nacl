@@ -1,0 +1,239 @@
+netsuite.savedcsvimport custimport_316_5172601_190 {
+  scriptid = "custimport_316_5172601_190"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Return Authorization Import Template"
+  ignorereadonly = true
+  importname = "Return Authorization Import Template"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "RETURNAUTHORIZATION"
+  runserversuitescript = true
+  transactionform = netsuite.transactionForm.instance.custform_46_5172601_sb1_477.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      RETURNAUTHORIZATION = {
+        file = "RETURNAUTHORIZATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      RETURNAUTHORIZATION = {
+        record = "RETURNAUTHORIZATION"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custbody_contract_start_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_contract_start_date.scriptid
+              columnreference = {
+                column = "Contract Start Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custbody_distributor = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_distributor.scriptid
+              columnreference = {
+                column = "Distributor Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "Partner/Reseller Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End User Customer Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_ordertype = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+              columnreference = {
+                column = "Order Type"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Customer Bill To Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Header Memo"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            ORDERSTATUS = {
+              field = "ORDERSTATUS"
+              value = "A"
+            }
+            OTHERREFNUM = {
+              field = "OTHERREFNUM"
+              columnreference = {
+                column = "PO #"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "#"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      RETURNAUTHORIZATION_ITEM@f = {
+        record = "RETURNAUTHORIZATION:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Amount"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "ERP"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_erp_version = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_erp_version.scriptid
+              columnreference = {
+                column = "ERP Version"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_product_family = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_product_family.scriptid
+              columnreference = {
+                column = "Product Family"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "Rev Rec End Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "Rev Rec Start Date"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Product Line"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Rate"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "Tax Code"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+netsuite.account Sales_Intercompany_48000_Transfer_Pricing_48010@suusu {
+  acctType = "_income"
+  acctNumber = "48010"
+  acctName = "Transfer Pricing"
+  includeChildren = true
+  generalRate = "_average"
+  parent = netsuite.account.instance.Sales_Intercompany_48000@su
+  cashFlowRate = "_average"
+  isInactive = false
+  eliminate = true
+  subsidiaryList = [
+    netsuite.subsidiary.instance.GS_Topco__LP@szds,
+  ]
+  localizationsList = {
+    accountLocalizations = [
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_2
+        acctName = "Umsatz verbundene Unternehmen"
+      },
+    ]
+  }
+  revalue = false
+  identifier = "Sales Intercompany_48000_Transfer Pricing_48010"
+  externalId = "48010"
+  custom_custrecord_account_number = "48010"
+  custom_custrecord_csv_update = "2"
+  custom_custrecord_elim_checkbox = true
+  custom_custrecord_glm_include = false
+  custom_custrecord_has_mx_localization = false
+  custom_custrecord_revalue_checkbox = false
+}

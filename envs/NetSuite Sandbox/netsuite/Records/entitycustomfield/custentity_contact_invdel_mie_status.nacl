@@ -1,0 +1,34 @@
+netsuite.entitycustomfield custentity_contact_invdel_mie_status {
+  scriptid = "custentity_contact_invdel_mie_status"
+  accesslevel = "2"
+  appliestocontact = true
+  appliestocustomer = false
+  appliestoemployee = false
+  appliestogenericrsrc = false
+  appliestogroup = false
+  appliestoothername = false
+  appliestopartner = false
+  appliestopricelist = false
+  appliestoproject = false
+  appliestoprojecttemplate = false
+  appliestostatement = false
+  appliestovendor = false
+  applyformatting = false
+  availableexternally = false
+  availabletosso = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = "CASE WHEN {custentity_invoice_delivery} = 'F' OR {custentity_invoice_delivery} IS NULL THEN 'Not Applicable' WHEN {email} IS NULL THEN 'Email Blank' WHEN INSTR({company.custentity_scg_mult_inv_emails}, {email}) > 0 THEN 'Present' ELSE 'Missing' END"
+  displaytype = "STATICTEXT"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  globalsearch = false
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "Invoice Delivery MIE Status"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = true
+  storevalue = false
+}

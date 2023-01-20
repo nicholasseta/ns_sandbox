@@ -1,0 +1,135 @@
+netsuite.savedcsvimport custimport_25_5172601_sb1_715 {
+  scriptid = "custimport_25_5172601_sb1_715"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG AR Undeposited Funds"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMERPAYMENT"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_45_5172601_sb1_109.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMERPAYMENT = {
+        file = "CUSTOMERPAYMENT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMERPAYMENT = {
+        record = "CUSTOMERPAYMENT"
+        fieldmappings = {
+          fieldmapping = {
+            ARACCT = {
+              field = "ARACCT"
+              columnreference = {
+                column = "Customer Payment : AR Account"
+                file = "CUSTOMERPAYMENT"
+                type = "INTERNAL_ID"
+              }
+            }
+            CHECKNUM = {
+              field = "CHECKNUM"
+              columnreference = {
+                column = "Customer Payment : Check #"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Customer Payment : Currency"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            CUSTOMER = {
+              field = "CUSTOMER"
+              columnreference = {
+                column = "Customer Payment : Customer ID (Req)"
+                file = "CUSTOMERPAYMENT"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Customer Payment : Exchange Rate"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Customer Payment : Memo"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            PAYMENT = {
+              field = "PAYMENT"
+              columnreference = {
+                column = "Customer Payment : Payment Amount"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            PAYMENTMETHOD = {
+              field = "PAYMENTMETHOD"
+              columnreference = {
+                column = "Customer Payment : Payment Method"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              columnreference = {
+                column = "Customer Payment : Posting Period"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Customer Payment : Date (Req)"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Customer Payment : Payment #"
+                file = "CUSTOMERPAYMENT"
+                type = "NAME"
+              }
+            }
+            UNDEPFUNDS = {
+              field = "UNDEPFUNDS"
+              value = "T"
+            }
+          }
+        }
+      }
+    }
+  }
+}

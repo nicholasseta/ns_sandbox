@@ -1,0 +1,36 @@
+netsuite.account Office_Expenses_65000_Equipment_Lease_Rent_65050@suusdu {
+  acctType = "_expense"
+  acctNumber = "65050"
+  acctName = "Equipment Lease/Rent"
+  includeChildren = true
+  generalRate = "_average"
+  parent = netsuite.account.instance.Office_Expenses_65000@su
+  cashFlowRate = "_average"
+  deferralAcct = {
+    name = "13540 Prepaid Assets : Prepaid Expenses"
+    id = "[ACCOUNT_SPECIFIC_VALUE]"
+  }
+  isInactive = false
+  eliminate = false
+  subsidiaryList = [
+    netsuite.subsidiary.instance.GS_Topco__LP@szds,
+  ]
+  localizationsList = {
+    accountLocalizations = [
+      {
+        accountingContext = netsuite.recordRef.instance.account_accountingContext_1
+        acctNumber = "61342000"
+        acctName = "LOCATION PHOTOCOPIEURS RICOH"
+      },
+    ]
+  }
+  revalue = false
+  identifier = "Office Expenses_65000_Equipment Lease/Rent_65050"
+  externalId = "65050"
+  custom_custrecord_account_number = "65050"
+  custom_custrecord_csv_update = "2"
+  custom_custrecord_elim_checkbox = false
+  custom_custrecord_glm_include = false
+  custom_custrecord_has_mx_localization = false
+  custom_custrecord_revalue_checkbox = false
+}

@@ -1,0 +1,25 @@
+netsuite.scheduledscript customscript_avadeleteaddvalbatch_sched {
+  scriptid = "customscript_avadeleteaddvalbatch_sched"
+  isinactive = false
+  name = "AVA_DeleteAddressValidationBatches_Sched"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SCH_DeleteAddressValidationRecords.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avadeladdvalbatch_deploy1 = {
+        scriptid = "customdeploy_avadeladdvalbatch_deploy1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "AVA_DeleteAddValBatches_Sched1"
+        recurrence = {
+          single = {
+            startdate = "2020-05-25"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

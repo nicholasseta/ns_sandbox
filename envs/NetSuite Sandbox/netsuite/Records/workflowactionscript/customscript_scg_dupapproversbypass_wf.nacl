@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_scg_dupapproversbypass_wf {
+  scriptid = "customscript_scg_dupapproversbypass_wf"
+  defaultfunction = "is_datb_dupApproversToBypass"
+  isinactive = false
+  name = "SCG_dupApproversToBypass_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "TEXT"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_dupApproversToBypass_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_dupapproversbypass_wf = {
+        scriptid = "customdeploy_scg_dupapproversbypass_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

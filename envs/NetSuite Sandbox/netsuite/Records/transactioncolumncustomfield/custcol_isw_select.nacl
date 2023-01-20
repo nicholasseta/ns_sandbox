@@ -1,0 +1,32 @@
+netsuite.transactioncolumncustomfield custcol_isw_select {
+  scriptid = "custcol_isw_select"
+  accesslevel = "2"
+  applyformatting = true
+  colexpense = false
+  colexpensereport = false
+  colgrouponinvoices = false
+  colitemfulfillment = false
+  colitemfulfillmentorder = "F"
+  coljournal = false
+  colkititem = false
+  colpackingslip = false
+  colperiodendjournal = false
+  colpickingticket = false
+  colprintflag = false
+  colpurchase = false
+  colreturnform = false
+  colsale = true
+  colstorewithgroups = false
+  defaultchecked = false
+  defaultvalue = "CASE WHEN {custcol_isw_vol_based_pricing} IS NOT NULL THEN {custcol_isw_vol_based_pricing} ELSE {custcol_isw_tier_multiplier} END"
+  description = "Will choose Vol Based Pricing if populated otherwise Tier"
+  displaytype = "NORMAL"
+  encryptatrest = false
+  fieldtype = "FLOAT"
+  isformula = true
+  ismandatory = false
+  label = "Select Vol vs. Tier Multiplier"
+  searchlevel = "2"
+  showhierarchy = false
+  storevalue = false
+}

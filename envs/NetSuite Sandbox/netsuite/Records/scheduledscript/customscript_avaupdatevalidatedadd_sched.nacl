@@ -1,0 +1,27 @@
+netsuite.scheduledscript customscript_avaupdatevalidatedadd_sched {
+  scriptid = "customscript_avaupdatevalidatedadd_sched"
+  isinactive = false
+  name = "AVA_UpdateValidatedAddress_Sched"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SCH_UpdateValidatedAddress.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_ava_updatevalidationdeploy1 = {
+        scriptid = "customdeploy_ava_updatevalidationdeploy1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "AVA_UpdateValidation_deploy1"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT1H"
+            startdate = "2020-08-31"
+            starttime = "04:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

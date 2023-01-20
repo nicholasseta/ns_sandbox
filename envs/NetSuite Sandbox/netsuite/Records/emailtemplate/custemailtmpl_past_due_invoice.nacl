@@ -1,0 +1,12 @@
+netsuite.emailtemplate custemailtmpl_past_due_invoice {
+  scriptid = "custemailtmpl_past_due_invoice"
+  addcompanyaddress = true
+  addunsubscribelink = false
+  isinactive = true
+  isprivate = false
+  name = "Invoice - Past Due"
+  recordtype = "TRANSACTION"
+  subject = "Past Due: Invoice# \${transaction.tranId} from \${transaction.subsidiary.namenohierarchy}"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_past_due_invoice.html")
+}

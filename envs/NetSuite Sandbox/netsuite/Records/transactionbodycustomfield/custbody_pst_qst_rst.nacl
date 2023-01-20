@@ -1,0 +1,43 @@
+netsuite.transactionbodycustomfield custbody_pst_qst_rst {
+  scriptid = "custbody_pst_qst_rst"
+  accesslevel = "2"
+  applyformatting = false
+  bodycustomerpayment = false
+  bodydeposit = false
+  bodydepositapplication = false
+  bodyexpensereport = false
+  bodyitemfulfillment = false
+  bodyitemfulfillmentorder = false
+  bodyjournal = false
+  bodyothertransaction = false
+  bodyperiodendjournal = false
+  bodypickingticket = false
+  bodyprintflag = false
+  bodyprintpackingslip = false
+  bodyprintstatement = false
+  bodypurchase = false
+  bodysale = true
+  bodyvendorpayment = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = "case when {shipstate} IN ('MB','Manitoba') THEN 'RST' when {shipstate} IN ('QC','Quebec') then 'QST' when {shipstate} IN ('BC','SK','British Columbia','Saskatchewan') then 'PST' end"
+  displaytype = "STATICTEXT"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  globalsearch = false
+  help = '''
+<html><b>Label on the invoice PDF based on the following:</b><br/><br/>
+Shipping Province is MB then RST<br/>
+Shipping Province is QC then QST<br/>
+Shipping Province is BC, or SK, then PST</html>
+'''
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "PST/QST/RST"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = false
+  storevalue = false
+  subtab = "TRANSACTIONBILLING"
+}

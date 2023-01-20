@@ -1,0 +1,58 @@
+netsuite.workflow customworkflow_set_dept_customer_pmnts {
+  scriptid = "customworkflow_set_dept_customer_pmnts"
+  initoncreate = false
+  initonvieworupdate = false
+  isinactive = false
+  islogenabled = true
+  keephistory = "ONLYWHENTESTING"
+  name = "Set Department on Payments"
+  recordtypes = "CUSTOMERPAYMENT"
+  releasestatus = "TESTING"
+  runasadmin = true
+  initcondition = {
+    formula = "isEmpty(\"Department (Main)\") = 'T'"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Department__Main_@sjk = {
+          name = "Department (Main)"
+          value = "STDBODYDEPARTMENT"
+          index = 0
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate40 = {
+        scriptid = "workflowstate40"
+        donotexitworkflow = false
+        name = "Set Department"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction155 = {
+                scriptid = "workflowaction155"
+                field = "STDBODYDEPARTMENT"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

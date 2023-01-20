@@ -1,0 +1,57 @@
+netsuite.usereventscript customscript_oa_export_supportcase {
+  scriptid = "customscript_oa_export_supportcase"
+  beforesubmitfunction = "beforeSubmitSetSupportCaseFields"
+  description = "Set custom fields on support cases when exporting to OpenAir"
+  isinactive = false
+  name = "OpenAir: Set Support Case Fields"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 2851/oa_export_to_openair_flags.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_oa_export_support_case = {
+        scriptid = "custscript_oa_export_support_case"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        description = "Enable this to export support cases to OpenAir"
+        displaytype = "NORMAL"
+        fieldtype = "CHECKBOX"
+        isformula = false
+        ismandatory = false
+        label = "Export Support Cases to OpenAir"
+        searchlevel = "2"
+        setting = "COMPANY"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_oa_export_supportcase = {
+        scriptid = "customdeploy_oa_export_supportcase"
+        allemployees = true
+        alllocalizationcontexts = true
+        allpartners = true
+        allroles = true
+        custscript_oa_export_support_case = false
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WEBSTORE|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "SUPPORTCASE"
+        runasrole = netsuite.role.instance.customrole1015.scriptid
+        status = "RELEASED"
+      }
+    }
+  }
+  libraries = {
+    library = [
+      {
+        scriptfile = "[/SuiteBundles/Bundle 2851/features_and_preferences.js]"
+      },
+    ]
+  }
+}

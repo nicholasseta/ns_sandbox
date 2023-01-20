@@ -1,0 +1,113 @@
+netsuite.publisheddashboard custpubdashboard_purchasing_dashboard {
+  scriptid = "custpubdashboard_purchasing_dashboard"
+  center = "ACCOUNTCENTER"
+  locknewbar = false
+  lockshortcuts = false
+  name = "Purchasing Dashboard"
+  roles = {
+    role = [
+      {
+        role = netsuite.role.instance.customrole1048.scriptid
+      },
+    ]
+  }
+  dashboards = {
+    dashboard = [
+      {
+        centertab = "BASICCENTERHOMEHOME"
+        layout = "TWO_COLUMN"
+        mode = "ADD_MOVE"
+        leftcolumn = {
+          reminders = [
+            {
+              isminimized = false
+              showzeroresults = false
+              other = {
+                reminder = [
+                  {
+                    id = "EVENTSTORESPOND"
+                  },
+                ]
+              }
+            },
+          ]
+          keyperformanceindicators = [
+            {
+              cacheddata = false
+              isminimized = false
+              kpis = {
+                kpi = [
+                  {
+                    compare = false
+                    comparedaterange = "LAST_MONTH"
+                    compareperiodrange = "FIRST_FISCAL_QUARTER_LAST_FY"
+                    daterange = "THIS_YEAR_TO_DATE"
+                    headline = false
+                    kpi = "CUSTOM"
+                    periodrange = "FIRST_FISCAL_QUARTER_LAST_FY"
+                    savedsearch = netsuite.savedsearch.instance.customsearch_all_pos_apprvl_routing_kpi.scriptid
+                  },
+                  {
+                    compare = false
+                    comparedaterange = "LAST_MONTH"
+                    compareperiodrange = "FIRST_FISCAL_QUARTER_LAST_FY"
+                    daterange = "THIS_YEAR_TO_DATE"
+                    headline = false
+                    kpi = "CUSTOM2"
+                    periodrange = "FIRST_FISCAL_QUARTER_LAST_FY"
+                    savedsearch = netsuite.savedsearch.instance.customsearch_all_pending_approval_po_kpi.scriptid
+                  },
+                ]
+              }
+            },
+          ]
+          settings = [
+            {
+              isminimized = false
+            },
+          ]
+        }
+        centercolumn = {
+          customsearch = [
+            {
+              allowinlineediting = true
+              backgroundtype = "GLOBAL_BACKGROUND"
+              charttheme = "GLOBAL_THEME"
+              drilldown = "NEW_PAGE"
+              isminimized = false
+              resultssize = 25
+              savedsearch = netsuite.savedsearch.instance.customsearch_pos_pending_my_apprvl.scriptid
+            },
+            {
+              allowinlineediting = true
+              backgroundtype = "GLOBAL_BACKGROUND"
+              charttheme = "GLOBAL_THEME"
+              drilldown = "NEW_PAGE"
+              isminimized = false
+              resultssize = 25
+              savedsearch = netsuite.savedsearch.instance.customsearch_all_open_part_bill_pos.scriptid
+            },
+            {
+              allowinlineediting = true
+              backgroundtype = "GLOBAL_BACKGROUND"
+              charttheme = "GLOBAL_THEME"
+              drilldown = "NEW_PAGE"
+              isminimized = false
+              resultssize = 25
+              savedsearch = netsuite.savedsearch.instance.customsearch_rejected_pos.scriptid
+            },
+            {
+              allowinlineediting = true
+              backgroundtype = "GLOBAL_BACKGROUND"
+              charttheme = "GLOBAL_THEME"
+              drilldown = "NEW_PAGE"
+              isminimized = false
+              resultssize = 25
+              savedsearch = netsuite.savedsearch.instance.customsearch_all_pos_apprvl_routing.scriptid
+            },
+          ]
+        }
+      },
+    ]
+  }
+}

@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+
+    <head>
+      <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+      <#if .locale=="zh_CN">
+        <link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+        <#elseif .locale=="zh_TW">
+          <link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+          <#elseif .locale=="ja_JP">
+            <link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+            <#elseif .locale=="ko_KR">
+              <link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+              <#elseif .locale=="th_TH">
+                <link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+      </#if>
+      <macrolist>
+        <macro id="nlheader">
+              
+          <#if record.custbody_remittance_information.custrecord_remittance_message?has_content>
+          <div style="position: absolute; top: 90; left: 170; width: 300px;" >
+          <table style="width: 250px;">
+                <tr>
+                <td line-height="105%" border="1" border-color="red" align="center"><b>${record.custbody_remittance_information.custrecord_remittance_message}</b></td>
+                  </tr>
+          </table> </div></#if>
+            
+          <table line-height="100%" style="width: 100%;">
+            <tr>
+              <td valign="top" rowspan="11" width="50%">
+                <#if subsidiary.logo@url?has_content><img src="${subsidiary.logo@url}" style="float: left;"/></#if><br/><p valign="top" style="font-size:10px">
+                <#if record.custbody_print_old_remittance?has_content> ${record.custbody_remittance_information.custrecord_old_remittance_address} <#else>
+                  ${subsidiary.mainaddress_text}</#if></p></td>
+              <td align="right" colspan="6" font-size="20px">&nbsp;</td>
+              <td align="left" colspan="4" font-size="20px"><b>Rechnung</b></td>
+            </tr>
+            <tr>
+              <td align="right" colspan="6">Rechnungsdatum</td>
+              <td align="left" colspan="4"><#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${record.trandate?string('yyyy-MM-dd')} <#else>${record.trandate?string('MMM-dd-yyyy')}</#if></td>
+            </tr>
+            <tr>
+              <td align="right" colspan="6">Rechnungs-Nr.</td>
+              <td align="left" colspan="4"><b>
+                  <#if record.custbody_legacy_transaction_number?has_content> ${record.custbody_legacy_transaction_number} <#else> ${subsidiary.id}-${record.tranid}</#if>
+                </b></td>
+            </tr>
+            <tr>
+              <td align="right" colspan="6">Auftrags-Nr.</td>
+              <td align="left" colspan="4">${record.otherrefnum}</td>
+            </tr>
+              <tr>
+              <td align="right" colspan="6">Zahlbar Bis Zum</td>
+              <td align="left" colspan="4">
+                <#if record.duedate?has_content><#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${record.duedate?string('yyyy-MM-dd')} <#else>${record.duedate?string('MMM-dd-yyyy')}</#if></#if></td>
+            </tr>
+            <tr>
+			<td colspan="6" align="right" padding-top="5px" style="text-align: right;">USt-IdNr</td>
+              <td align="left" colspan="4" padding-top="5px">${record.subsidiary.taxidnum}</td>
+            </tr>
+          </table>
+        </macro>
+        <macro id="nlfooter">
+          <table class="footer" style="width: 100%;">
+            <tr>
+              <td align="center">Thank you for your business!</td>
+            </tr>
+            <tr>
+              <td align="center" padding-top="10px"><#if subsidiary.custrecord_ar_phonenum?has_content || subsidiary.email?has_content> Billing Questions:&nbsp;&nbsp;&nbsp;${subsidiary.custrecord_ar_phonenum}</#if> &nbsp;&nbsp;&nbsp;${subsidiary.email}</td>
+            </tr>
+            <tr>
+              <td align="center" padding-top="20px">${subsidiary.custrecord_invoice_footer1}</td>
+            </tr>
+            <tr>
+              <td align="center" padding-top="20px">${subsidiary.custrecord_invoice_footer2}</td>
+            </tr>
+            <tr>
+            <td align="right"><pagenumber /> of <totalpages /></td>
+            </tr>  
+          </table>
+        </macro>
+      </macrolist>
+      <style type="text/css">
+        * {
+          <#if .locale=="zh_CN">font-family: NotoSans, NotoSansCJKsc, sans-serif;
+          <#elseif .locale=="zh_TW">font-family: NotoSans, NotoSansCJKtc, sans-serif;
+          <#elseif .locale=="ja_JP">font-family: NotoSans, NotoSansCJKjp, sans-serif;
+          <#elseif .locale=="ko_KR">font-family: NotoSans, NotoSansCJKkr, sans-serif;
+          <#elseif .locale=="th_TH">font-family: NotoSans, NotoSansThai, sans-serif;
+          <#else>font-family: NotoSans, sans-serif;
+          </#if>
+        }
+
+        table {
+          font-size: 9pt;
+          table-layout: fixed;
+        }
+
+        th {
+          font-weight: bold;
+          font-size: 8pt;
+          vertical-align: middle;
+          padding: 5px 6px 3px;
+          background-color: #e3e3e3;
+          color: #333333;
+        }
+
+        td {
+          padding: 4px 6px;
+        }
+
+        td p {
+          text-align: left
+        }
+
+        b {
+          font-weight: bold;
+          color: #333333;
+        }
+
+        table.header td {
+          padding: 0px;
+          font-size: 10px;
+        }
+
+        table.footer td {
+          padding: 0px;
+          font-size: 9pt;
+        }
+
+        table.itemtable th {
+          padding-bottom: 10px;
+          padding-top: 10px;
+        }
+
+        table.body td {
+          padding-top: 2px;
+        }
+
+        table.total {
+          page-break-inside: avoid;
+        }
+
+        tr.totalrow {
+          background-color: #e3e3e3;
+          line-height: 200%;
+        }
+
+        td.totalboxtop {
+          font-size: 12pt;
+          background-color: #e3e3e3;
+        }
+
+        td.addressheader {
+          font-size: 8pt;
+          padding-top: 6px;
+          padding-bottom: 2px;
+        }
+
+        td.address {
+          padding-top: 0px;
+        }
+
+        td.totalboxmid {
+          font-size: 28pt;
+          padding-top: 20px;
+          background-color: #e3e3e3;
+        }
+
+        td.totalboxbot {
+          background-color: #e3e3e3;
+          font-weight: bold;
+        }
+
+        span.title {
+          font-size: 28pt;
+        }
+
+        span.number {
+          font-size: 16pt;
+        }
+
+        span.itemname {
+          font-weight: bold;
+          line-height: 150%;
+        }
+
+        hr {
+          width: 100%;
+          color: #d3d3d3;
+          background-color: #d3d3d3;
+          height: 1px;
+        }
+      </style>
+    </head>
+
+    <body header="nlheader" header-height="20%" footer="nlfooter" padding="0.25in 0.25in 0.25in 0.25in" size="Letter" footer-height= <#if record.subsidiary.custrecord_invoice_footer1?has_content>"15%" <#else>"5%" </#if> >
+
+        <table style="width: 100%; margin-top: 10px;">
+          <tr>
+            <td class="address" colspan="3"><strong>Rechnungsempfänger:</strong></td>
+            <td class="address" colspan="3" padding-left=".5in">
+              <#if record.subsidiary.custrecord_print_shipto_address==true><strong>Lieferanschrift:</strong></#if>
+            </td>
+          </tr>
+          <tr>
+            <td class="address" colspan="3" rowspan="2">
+              <#if record.custbody_bill_to_address_override?has_content>${record.custbody_bill_to_address_override}&nbsp;
+                <#elseif record.billaddressee="" && record.billcountry=='DE'>
+                  	${record.entity.companyname}<br />
+                  	<#if record.billattention?has_content>${record.billattention}<br/></#if>
+                   	<#if record.billaddr1?has_content>${record.billaddr1}<br/></#if>
+                    <#if record.billaddr2?has_content>${record.billaddr2}<br/></#if>
+                    <#if record.billzip?has_content>${record.billzip}</#if>  <#if record.billcity?has_content>${record.billcity}<br/></#if> 
+ 					<#if record.billstate?has_content>${record.billstate}<br/></#if> 
+                    ${record.billingaddress.country}
+                <#elseif record.billaddressee="">${record.entity.companyname}<br />${record.billaddress}&nbsp; 
+                <#elseif record.billcountry=='DE'>
+                 	<#if record.billaddressee?has_content>${record.billaddressee}<br/></#if>
+                 	<#if record.billattention?has_content>${record.billattention}<br/></#if>
+                   	<#if record.billaddr1?has_content>${record.billaddr1}<br/></#if>
+                    <#if record.billaddr2?has_content>${record.billaddr2}<br/></#if>
+                    <#if record.billzip?has_content>${record.billzip}</#if>  <#if record.billcity?has_content>${record.billcity}<br/></#if> 
+ 					<#if record.billstate?has_content>${record.billstate}<br/></#if> 
+                    ${record.billingaddress.country}
+                <#else> ${record.billaddress}&nbsp;
+              </#if>
+
+              <#if record.entity.vatregnumber?has_content> <br /> <br /> <b>USt-IdNr: </b>${record.entity.vatregnumber}</#if>
+            </td>
+            <td class="address" colspan="3" padding-left=".5in">
+              <#if record.subsidiary.custrecord_print_shipto_address==true>${record.shipaddress}</#if>
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td class="address" colspan="3">&nbsp;</td>
+            <td class="address" colspan="3">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="address" colspan="3" padding-top="10" ><strong>Endkunde:</strong></td>
+            <td class="address" colspan="3" padding-top="10" padding-left=".5in"><strong>Ansprechpartner:</strong></td>
+          </tr>
+          <tr>
+            <td class="address" colspan="3" >${record.custbody_so_enduser.altname}</td>
+            <td class="address" colspan="3" padding-left=".5in">${record.custbody_invoice_contact.firstname}&nbsp;${record.custbody_invoice_contact.middlename}&nbsp;${record.custbody_invoice_contact.lastname}</td>
+          </tr>
+          <#if record.custbody_distributor == record.entity>  
+           <tr>
+            <td class="address" colspan="3" padding-top="10"><strong>Partner/JV/Reseller:</strong></td>
+            <td class="address" colspan="3">&nbsp;</td>
+            </tr>
+           <tr>
+            <td class="address" colspan="3">${record.custbody_partnerjvreseller.altname}</td>
+            <td class="address" colspan="3">&nbsp;</td>
+          </tr>    
+              </#if>
+        </table>
+
+          <table style="width: 100%; margin-top: 10px;">
+  <tr>
+    <td><b>Rechnungs Nachricht:</b></td></tr>
+  <tr>
+    <td> <#if subsidiary.country='Germany'>If no other period is indicated, then delivery was made in the same period as the invoice. </#if>${record.message} ${record.custbody_invoice_message}</td></tr>
+          </table>   
+
+        <#if record.item?has_content>
+          <#if record.custbody_expand_licenses_on_invoice==true>
+            <table border="1" class="itemtable" style="width: 100%; margin-top: 10px;">
+              <!-- start items -->
+              <#list record.item as item>
+                <#if item_index==0>
+                  <thead>
+                    <tr border-bottom="1">
+                      <th align="center" border-color="#bdc3c7" border-right="1" colspan="3">Position</th>
+                      <th border-color="#bdc3c7" border-right="1" colspan="6">Beschreibung</th>
+                      <#if record.subsidiary.custrecord_print_erp_epm==true>
+                     	<th align="center" border-color="#bdc3c7" border-right="1" colspan="2">ERP/EPM</th></#if>
+					  	<th align="center" border-color="#bdc3c7" border-right="1" colspan="2">Einheiten</th>
+                      <#if record.subsidiary.custrecord_print_unit_price==true>
+                        <th align="center" border-color="#bdc3c7" border-right="1" colspan="3">Einzelpreis</th></#if>
+                      <#if subsidiary.custrecord_print_discount_gross_amount==true && record.custbody_print_discount=='T'>
+                        <th align="center" border-color="#bdc3c7" border-right="1" colspan="3"><span style="nowrap;">Bruttobetrag</span></th>
+                        <th align="center" border-color="#bdc3c7" border-right="1" colspan="2">Rabbatt%</th></#if>
+                      <th align="right" border-color="#bdc3c7" border-right="1" colspan="3">Gesamtpreis</th>
+                      <#if record.subsidiary.custrecord_print_tax_column==true>
+                      <th align="right" border-color="#bdc3c7" border-right="1" colspan="1">MwSt</th></#if>
+                    </tr>
+                  </thead>
+                </#if>
+ 				<#if item.custcol_print_time_entry==false && item.custcol_print_milestone_item==false>
+                <tr>
+                  <td align="left" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                  	 <#if record.subsidiary.id== "10" && item.custcol_item_display_name?has_content>${item.custcol_item_display_name}<#else>${item.item}</#if></td>
+                    	<td border-right="1" colspan="6" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.description}
+                     <#if item.custcol_term_start_date?has_content><br /><#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${item.custcol_term_start_date?string('yyyy-MM-dd')} <#else>${item.custcol_term_start_date?string('MMM-dd-yyyy')}</#if></#if>
+                     <#if item.custcol_term_end_date?has_content> to <#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${item.custcol_term_end_date?string('yyyy-MM-dd')} <#else>${item.custcol_term_end_date?string('MMM-dd-yyyy')}</#if></#if></td>
+                     <#if record.subsidiary.custrecord_print_erp_epm==true>
+                       <td align="center" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.class}</td></#if>
+                     <td align="right"  padding-right="20px" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_qty?string.number}</td>
+                      <#if record.subsidiary.custrecord_print_unit_price==true>
+                        <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                           <#setting number_format=",##0.00">${item.custcol_gross_unit_price/item.quantity}</td></#if>
+                       <#if subsidiary.custrecord_print_discount_gross_amount==true && record.custbody_print_discount=='T'>
+                        <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;"><#setting number_format=",##0.00">${item.custcol_gross_unit_price}</td>
+                        <td align="right" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_discount_precent?string.percent}</td></#if>
+                     <td align="right" colspan="3" line-height="150%" style="border-bottom:1; border-right:1; border-color: #bdc3c7;"><#setting number_format=",##0.00">${item.amount}</td>
+                     <#if record.subsidiary.custrecord_print_tax_column==true>
+                        <td align="right" border-right="1" colspan="1" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;"><#setting number_format="0.##">${item.taxrate1 * 100}%</td></#if>  
+                </tr></#if>
+              </#list>
+            </table>
+
+          <#else>
+            <table border="1" class="itemtable" style="width: 100%; margin-top: 10px;">
+                <!-- start items -->
+                <#list record.item as item>
+                  <#if item_index==0>
+                    <thead>
+                      <tr border-bottom="1">
+                       <th align="center" border-color="#bdc3c7" border-right="1" colspan="3">Position</th>
+                       <th border-color="#bdc3c7" border-right="1" colspan="6">Beschreibung</th>
+                       <#if record.subsidiary.custrecord_print_erp_epm==true>
+                          <th align="center" border-color="#bdc3c7" border-right="1" colspan="2">ERP/EPM</th></#if>
+                       <th align="center" border-color="#bdc3c7" border-right="1" colspan="2">Einheiten</th>
+                  	   <#if record.subsidiary.custrecord_print_unit_price==true>
+                          <th align="center" border-color="#bdc3c7" border-right="1" colspan="3">Einzelpreis</th></#if>
+                       <#if subsidiary.custrecord_print_discount_gross_amount==true && record.custbody_print_discount=='T'>
+                         <th align="center" border-color="#bdc3c7" border-right="1" colspan="3">Bruttobetrag</th>
+                         <th align="center" border-color="#bdc3c7" border-right="1" colspan="2">Rabbatt%</th></#if>
+                       <th align="right" border-color="#bdc3c7" border-right="1" colspan="3">Gesamtpreis</th>
+                       <#if record.subsidiary.custrecord_print_tax_column==true>
+                       <th align="right" border-color="#bdc3c7" border-right="1" colspan="1">MwSt</th></#if>  
+                      </tr>
+                    </thead>
+                    </#if>
+
+                  <#if (item.custcol_print_amount?has_content && item.custcol_print_amount!=0) && item.custcol_print_time_entry==false && item.custcol_print_milestone_item==false>
+                    <tr>
+                       <td align="left" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_item}</td>
+                       <td border-right="1" colspan="6" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_description}
+                       <#if item.custcol_term_start_date?has_content><br /><#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${item.custcol_term_start_date?string('yyyy-MM-dd')} <#else>${item.custcol_term_start_date?string('MMM-dd-yyyy')}</#if></#if>
+                       <#if item.custcol_term_end_date?has_content> to <#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${item.custcol_term_end_date?string('yyyy-MM-dd')} <#else>${item.custcol_term_end_date?string('MMM-dd-yyyy')}</#if></#if> </td>
+                       <#if record.subsidiary.custrecord_print_erp_epm==true>  
+                         <td align="center" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_erp_epm}</td></#if>
+                       <td align="right" padding-right="20px" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                         ${item.custcol_print_qty?string.number}</td>
+                       <#if record.subsidiary.custrecord_print_unit_price==true>
+                         <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                           <#setting number_format=",##0.00">${item.custcol_print_item_rate}</td></#if>
+                       <#if subsidiary.custrecord_print_discount_gross_amount==true && record.custbody_print_discount=='T'>
+                         <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;"><#setting number_format=",##0.00">${item.custcol_print_gross_unit_price}</td>
+                         <td align="right" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_discount_precent?string.percent}</td></#if>
+                      <td align="right" colspan="3" line-height="150%" style="border-bottom:1; border-right:1; border-color: #bdc3c7;"><#setting number_format=",##0.00">${item.custcol_print_amount}</td>
+                      <#if record.subsidiary.custrecord_print_tax_column==true>
+                        <td align="right" border-right="1" colspan="1" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;"><#setting number_format="0.##">${item.taxrate1 * 100}%</td></#if>  
+                    </tr>
+
+                   <#elseif item.custcol_print_milestone_item==true && item.item !="OpenAir Integration">
+                     <tr>
+                  	 <td align="left" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_item}</td>
+                       <td border-right="1" colspan="6" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_description}
+                       <#if item.custcol_term_start_date?has_content><br /><#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${item.custcol_term_start_date?string('yyyy-MM-dd')} <#else>${item.custcol_term_start_date?string('MMM-dd-yyyy')}</#if></#if>
+                       <#if item.custcol_term_end_date?has_content> to <#if subsidiary.country='Sweden' || subsidiary.country='Norway'> ${item.custcol_term_end_date?string('yyyy-MM-dd')} <#else>${item.custcol_term_end_date?string('MMM-dd-yyyy')}</#if></#if> </td>
+                       <#if record.subsidiary.custrecord_print_erp_epm==true>  
+                         <td align="center" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_erp_epm}</td></#if>
+                       <td align="right" padding-right="20px" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                         ${item.custcol_print_qty?string.number}</td>
+                       <#if record.subsidiary.custrecord_print_unit_price==true>
+                         <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                           <#setting number_format=",##0.00">${item.custcol_print_item_rate}</td></#if>
+                       <#if subsidiary.custrecord_print_discount_gross_amount==true && record.custbody_print_discount=='T'>
+                         <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_gross_unit_price}</td>
+                         <td align="right" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_discount_precent?string.percent}</td></#if>
+                      <td align="right" colspan="3" line-height="150%" style="border-bottom:1; border-right:1; border-color: #bdc3c7;"><#setting number_format=",##0.00">${item.custcol_print_amount}</td>
+                      <#if record.subsidiary.custrecord_print_tax_column==true>
+                        <td align="right" border-right="1" colspan="1" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;"><#setting number_format="0.##">${item.taxrate1 * 100}%</td></#if>  
+                    </tr>
+
+                   <#elseif item.custcol_print_total_qty_byitem?has_content && item.custcol_print_time_entry==true && item.item !="OpenAir Integration">
+                     <tr>
+                       <td align="left" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_item}</td>
+                       <td border-right="1" colspan="6" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">${item.custcol_print_description}</td>
+                       <td align="right" padding-right="20px" border-right="1" colspan="2" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                         ${item.custcol_print_total_qty_byitem?string.number}</td>
+                       <#if record.subsidiary.custrecord_print_unit_price==true>
+                         <td align="right" border-right="1" colspan="3" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;">
+                           <#setting number_format=",##0.00"><#if item.custcol_print_total_qty_byitem!=0 && item.custcol_total_amount_by_item?has_content && item.custcol_total_amount_by_item!=0 >${item.custcol_total_amount_by_item/item.custcol_print_total_qty_byitem}<#else>${record.subtotal / item.custcol_print_total_qty_byitem}</#if></td></#if>
+                       <td align="right" colspan="3" line-height="150%" style="border-bottom:1; border-right:1; border-color: #bdc3c7;"><#if (item.custcol_total_amount_by_item?has_content && item.custcol_total_amount_by_item!=0)> <#setting number_format=",##0.00">${item.custcol_total_amount_by_item} <#else>${record.subtotal}</#if></td>
+<#if record.subsidiary.custrecord_print_tax_column==true>
+                        <td align="right" border-right="1" colspan="1" line-height="150%" style="border-bottom:1; border-color: #bdc3c7;"><#setting number_format="0.##">${item.taxrate1 * 100}%</td></#if>
+                     </tr>
+                      </#if>
+                  </#list>
+              </table>
+          </#if>
+        </#if>
+
+<#if record.item?has_content && record.custbody_print_milestone=='T'>
+  <p font-size="10px">
+    <b>Detail der festen Gebühr</b>
+  </p>
+            <table border="1" style="width: 100%; margin-top: 10px;">
+              <!-- start items -->
+              <#list record.item as item>
+                <#if item_index==0>
+                  <thead>
+                  <tr border-bottom="1">
+                    <th colspan="3">Datum</th>
+                    <th colspan="16">Beschreibung</th>
+                    <th colspan="2" align="right">Menge</th>
+                    </tr>
+                  </thead>
+                  </#if>
+              <#if item.custcol_print_milestone_item==true>
+                 <tr>
+                    <td colspan="3">${item.custcol_oa_date}</td>
+                    <td colspan="16">${item.description}</td>
+				    <#setting number_format=",##0.00"><td colspan="2" align="right">${item.custcol_unit_price}</td>
+                	  </tr>
+                </#if></#list></table></#if>  
+                  
+<#if record.item?has_content && ((record.custbody_print_time_entry=='T' && record.custbody_expand_service_items==true) || (record.custbody_print_time_entry=='T' && subsidiary.custrecord_expand_service_items_invoice==true))>
+    <b>SERVICE DETAILS</b>
+  </p>
+            <table border="1" style="width: 100%; margin-top: 10px;">
+              <!-- start items -->
+              <#list record.item as item>
+                <#if item_index==0>
+                  <thead>
+                  <tr border-bottom="1">
+                    <th colspan="3">Datum</th>
+					<th colspan="4"> <span style="nowrap;">Name</span></th>
+                    <th colspan="9">Aufgabe</th>
+                    <th colspan="2" align="right" padding-right="10" >Units</th>
+                    <th colspan="2" align="center">Rate</th>
+                    <th colspan="2" align="right">Menge</th>
+                    </tr>
+                  </thead>
+                  </#if>
+             <#if item.custcol_print_time_entry==true>
+                 <tr>
+                    <td colspan="3">${item.custcol_oa_date}</td>
+    				<td colspan="4">${item.custcol_oa_wbs_assignees}</td>
+                   <td colspan="9"><#if item.custcol_oa_wbs_task_name?has_content> ${item.custcol_oa_wbs_task_name}: </#if>${item.description}</td>
+				    <td colspan="2" align="right" padding-right="10">${item.custcol_quantity_for_customer}</td>
+              		<#setting number_format=",##0.00"><td colspan="2" align="right">${item.custcol_unit_price}</td>
+				    <#setting number_format=",##0.00"><td colspan="2" align="right">${item.custcol_print_qty*item.custcol_unit_price}</td>  
+                	  </tr>
+                </#if></#list></table></#if>
+
+<#if record.item?has_content && record.custbody_print_time_entry=='T' && record.custbody_expand_service_items!=true && subsidiary.custrecord_expand_service_items_invoice!=true>
+  <p font-size="10px">
+    <b>SERVICES</b>
+  </p>
+            <table border="1" style="width: 100%; margin-top: 10px;">
+              <!-- start items -->
+              <#list record.item?sort_by("custcol_oa_wbs_task_name","custcol_oa_wbs_assignees") as item>
+                <#if item_index==0>
+                  <thead>
+                  <tr border-bottom="1">
+					<th colspan="4"> <span style="nowrap;">Name</span></th>
+                    <th colspan="9">Aufgabe</th>
+                    <th colspan="2" align="right" padding-right="10" >Units</th>
+                    <th colspan="2" align="center" >Rate</th>
+                    <th colspan="2" align="right">Menge</th>
+                    </tr>
+                  </thead>
+                  </#if>
+              <#if item.custcol_print_time_entry==true && item.custcol_print_total_hours_bytask_byem?has_content>
+                 <tr>
+    				<td colspan="4">${item.custcol_oa_wbs_assignees}</td>
+                    <td colspan="9">${item.custcol_oa_wbs_task_name}</td>
+				    <td colspan="2" align="right" padding-right="10">${item.custcol_print_total_hours_bytask_byem?string.number}</td>
+   				    <#setting number_format=",##0.00"><td colspan="2" align="right">${item.custcol_unit_price}</td>
+                      <#setting number_format=",##0.00"><td colspan="2" align="right">${item.custcol_print_total_hours_bytask_byem*item.custcol_unit_price}</td>  
+                	  </tr>
+                </#if></#list></table></#if>                  
+              
+        <table line-height="150%" style="margin-top:10px;width:100%;">
+          <tr>
+            <td style="vertical-align: top; width:57%;">
+             <#if record.custbody_remittance_information.custrecord_remittance_message?has_content>
+              <table line-height="105%" border="1" border-color="red" margin-top="5px" style="margin-left:-5px;">
+                <tr>
+                <td><b>${record.custbody_remittance_information.custrecord_remittance_message}</b></td>
+                  </tr>
+          </table></#if> 
+              
+              <table align="top" padding-top="10px" rowspan="5" style="vertical-align: top; width:100%; margin-left:-5px;">
+                 <tr>
+ 					<td ><b>${record.custbody_ava_invoicemessage}</b><br /><br />
+                      <#if record.custbody_remittance_information.custrecord_remittance_message?has_content>
+                      <b style="color:red;">Remit To:</b><br />
+                        <#if record.custbody_print_old_remittance?has_content> ${record.custbody_remittance_information.custrecord_old_remittance_address} <#elseif 
+                        record.custbody_remittance_information.custrecord_remittance_address?has_content> <b>${record.custbody_remittance_information.custrecord_remittance_address}</b> <#else> <b>${subsidiary.mainaddress_text}</b></#if>
+                        <#else>
+                       <b>Remit To:</b><br />
+                      <#if record.custbody_print_old_remittance?has_content> ${record.custbody_remittance_information.custrecord_old_remittance_address} <#elseif record.custbody_remittance_information.custrecord_remittance_address?has_content> ${record.custbody_remittance_information.custrecord_remittance_address} <#else> ${subsidiary.mainaddress_text}</#if>
+                      <br />
+                         <#if record.subsidiary.id='69' || record.subsidiary.id='71'|| record.subsidiary.id='72'|| record.subsidiary.id='73'>
+                          <a href = "${record.custbody_stripe_invoice_payment_link@url}"> Click here to pay this invoice online.</a></#if>                          
+                      
+                     </#if>
+            		</td>  
+                </tr>
+              </table></td>     
+           
+            <td align="right" rowspan="4" style="vertical-align: top; width:43%;">
+              
+              <table border="1" style="width:100%; margin-right:-5px;" >
+                <tr>
+                <th align="center" colspan="9" style="border-bottom:1px;"><b>TOTAL TAX BREAKDOWN</b></th>
+                </tr>
+                <tr>
+                  <td align="right" colspan="5"><b>Nettobetrag</b></td>
+                  <td align="right" colspan="4"><#setting number_format=",##0.00">${record.subtotal} ${record.currency}</td>
+                </tr>
+                
+                 <#if subsidiary.country=='Germany' && record.taxtotal!=0>
+                <tr>
+                    <td colspan="9" style="border-top:1px; border-color: #bdc3c7;">   
+                    <table style="width:100%; margin-right:-5px;"><!-- start items --><#list record.item as item>
+                          <#if item.custcol_scg_total_tax_by_taxcode?has_content && item.custcol_scg_total_tax_by_taxcode!=0>
+                                <tr>  
+                                <td align="right" margin-right="-13"><b>MwSt (<#setting number_format="0.##">${item.taxrate1 * 100}%)</b></td>  
+                                <td align="right"> ${item.custcol_scg_total_tax_by_taxcode} ${record.currency}</td></tr>
+                            </#if></#list></table>
+                  </td></tr>   
+                <#else>
+                <tr style="border-top:1px; border-color: #bdc3c7;">
+                  <td align="right" colspan="5"><b>
+                    <#if record.custbody_gst_hst?has_content>${record.custbody_gst_hst}<#elseif subsidiary.country='United States'>Tax<#elseif subsidiary.country='Australia'>GST <#elseif subsidiary.country='Germany'>MwSt<#else>VAT</#if> 
+                      <#setting number_format=",##0.00"> <#if record.custbody_gst_hst='HST' && record.taxtotal !=0> (${((record.taxtotal+record.tax2total)/record.subtotal) * 100}%) <#elseif record.taxtotal !=0> (${record.taxtotal / record.subtotal * 100}%) <#else>(0%)</#if></b></td>
+                   <td align="right" colspan="4"> <#if record.custbody_gst_hst='HST' && record.taxtotal !=0> ${record.taxtotal+record.tax2total} <#else>${record.taxtotal} </#if> ${record.currency}</td>
+                      </tr></#if>
+				<#if record.custbody_gst_hst?has_content>
+                    <tr style="padding-top:-10px;">
+                      <td align="right" colspan="5" >Reg. No. ${subsidiary.custrecord_ca_gst_hst_id}</td>
+                      <td align="right" colspan="4" ></td></tr></#if>
+                
+                 <#if (record.custbody_pst_qst_rst?has_content && record.tax2total?has_content && record.tax2total !=0) || (record.custbody_gst_hst='' && record.tax2total?has_content && record.tax2total !=0)>                   
+                  <tr style="border-top:1px; border-color: #bdc3c7;">
+                   <td align="right" colspan="5"><b>${record.custbody_pst_qst_rst} <#setting number_format=",##0.00"> (${record.tax2total / record.subtotal * 100}%)</b></td>
+                   <td align="right" colspan="4">${record.tax2total} ${record.currency}</td>
+                   </tr>
+
+                   <#if record.subsidiary.custrecord_ca_bc_id?has_content && record.shipstate=='BC'>
+                    <tr style="padding-top:-10px;">
+                      <td align="right" colspan="5" >Reg. No. ${record.subsidiary.custrecord_ca_bc_id}</td>
+                      <td align="right" colspan="4" ></td></tr></#if>
+                   <#if record.subsidiary.custrecord_ca_sk_id?has_content && record.shipstate=='SK'>
+                    <tr style="padding-top:-10px;">
+                      <td align="right" colspan="5" >Reg. No. ${record.subsidiary.custrecord_ca_sk_id}</td>
+                      <td align="right" colspan="4" ></td></tr></#if>
+                   <#if record.subsidiary.custrecord_ca_rst_id?has_content && record.shipstate=='MB'>
+                    <tr style="padding-top:-10px;">
+                      <td align="right" colspan="5" >Reg. No. ${record.subsidiary.custrecord_ca_rst_id}</td>
+                      <td align="right" colspan="4" ></td></tr></#if>
+                  <#if record.subsidiary.custrecord_ca_qst_id?has_content && record.shipstate=='QC'>
+                    <tr style="padding-top:-10px;">
+                      <td align="right" colspan="5" >Reg. No. ${record.subsidiary.custrecord_ca_qst_id}</td>
+                      <td align="right" colspan="4" ></td></tr></#if>
+                  </#if>
+                      
+                  <#if record.custbody_reversed_charge==true>
+                    <tr style="border-top:1px; border-color: #bdc3c7;">
+                    <td colspan="9" align="center"><b>REVERSE CHARGE</b></td></tr>
+                    </#if>
+                <tr style="border-top:1px; border-color: #bdc3c7;">
+                  <td align="right" colspan="5"><b>Bruttobetrag</b></td>
+                  <td align="right" colspan="4">${record.total} ${record.currency}</td>
+                </tr>
+				<tr style="border-top:1px; border-color: #bdc3c7;">
+                  <td align="right" colspan="5" ><b>Credits/Zahlungen</b></td>
+                  <td align="right" colspan="4" >(${record.amountpaid}) ${record.currency}</td>
+                </tr>                      
+                <tr style="border-top:1px; border-color: #bdc3c7;">
+                  <td align="right" colspan="5" ><b>Offener Betrag</b></td>
+                  <td align="right" colspan="4" ><b>${record.amountremaining} ${record.currency}</b></td>
+                </tr>
+              </table>
+
+                  <table  margin-top="20px" style="width:100%;">
+                    <#if record.custbody_reversed_charge==true>
+            		<tr>
+              			<td>${subsidiary.custrecord_reversed_charge_message} </td>
+            		</tr></#if>
+                    </table>
+                  
+            </td>
+          </tr>
+          <#if record.custbody_remittance_information?has_content>
+            <tr><td>
+              <table align="top" padding-top="10px" rowspan="5" style="vertical-align: top; width:450px; margin-left:-5px;"><tr>
+                <td rowspan="5"><strong>Information for Electronic Remittance:</strong><br />
+                  Bank Name:&nbsp; &nbsp; ${record.custbody_remittance_information.custrecord_bank_name}<br />
+                  Bank Branch:&nbsp;&nbsp;${record.custbody_remittance_information.custrecord_bank_address}<br />
+                  <#if record.custbody_remittance_information.custrecord_bank_accountnum_sortcode?has_content> <#if subsidiary.country=='Sweden'>Bankgiro: <#else>Branch Sort Code/ABA:</#if>&nbsp;&nbsp;${record.custbody_remittance_information.custrecord_bank_accountnum_sortcode}<br /></#if>
+                  <#if record.custbody_remittance_information.custrecord_accountnum?has_content>Account Number:&nbsp; &nbsp; ${record.custbody_remittance_information.custrecord_accountnum}<br /> </#if>
+                  <#if record.custbody_remittance_information.custrecord_Intermediary_Bank?has_content>Intermediary Bank:&nbsp;&nbsp;${record.custbody_remittance_information.custrecord_Intermediary_Bank}<br /></#if> 
+                  <#if record.custbody_remittance_information.custrecord_swift_code?has_content> SWIFT/BIC:&nbsp;&nbsp;${record.custbody_remittance_information.custrecord_swift_code}<br /></#if>
+                 <#if record.custbody_remittance_information.custrecord_iban?has_content> IBAN:&nbsp;&nbsp;${record.custbody_remittance_information.custrecord_iban}</#if>
+                </td>             
+                </tr> </table>
+              </td>
+            </tr>
+          </#if>
+        </table>
+                    
+<#-- REMOVING UNTIL REPLACEMENT READY
+<#if record.custbody_contract_start_date?has_content && record.custbody_contract_start_date  lt "01/01/2021"?date("MM/dd/yyyy")>
+<#if record.custbody_so_ordertype="Renewal" && record.custbody_invoice_days_overdue lte 0 && record.entity=record.custbody_so_enduser && record.custbody_exclude_ceo_letter !=true>
+<pbr margin-top=".5in" margin-left=".5in" margin-right=".5in" header="noheader" footer ="nofooter" />
+<img src="https://5172601.app.netsuite.com/core/media/media.nl?id=683&amp;c=5172601&amp;h=197942274a67c48e3510" />
+<span font-size="10pt">
+<br/><br/>
+Dear ${record.entity.companyName},<br/>
+<br/>              
+
+Thank you for being one of our valued customers.  As <b>insightsoftware</b> looks forward to 2020, our goal continues to be profoundly improving how you leverage your enterprise data to achieve better business outcomes. As a result of your investment in us, we continue to make key investments to improve your experience and expand your capability to run your business.<br/>
+<br/>              
+Timely and relevant upgrades, innovative functionality enhancements, and unfettered access to our technical support experts are all cornerstones of our maintenance and support programs.  We want to continue to help you get the most out of your insightsoftware products. Below is a short summary of just some of the ways we are doing that.<br/>
+<br/>              
+<b>Expanded Support and Product Capabilities</b><br/>
+<br/>              
+In 2019, insightsoftware invested substantially in improving our product development and enhancement.  We’ve implemented quarterly feature upgrades and monthly maintenance releases.  Regulating upgrades quarterly reduces your risk by allowing you to employ the update when it’s best for your business.  Smaller, incremental release cycles also reduce your risk by providing you with the ability to deliver feedback and moderating the amount of change per release. Monthly maintenance releases ensure customer reported issues are addressed in a timely manner.<br/>
+<br/>              
+<b>Enhanced Access and Interaction via the Community Portal</b><br/>
+<br/>              
+The Community is an online portal where you can submit and track support requests. In addition, you can share experiences with other users around the globe, learn tips and best practices, and often find solutions to problems that you may experience from time to time.  The Community has been an under-used resource, which will be a focus for us in 2020.  At insightsoftware, we aim to make it easier for you to find the information you need when you need it and to simplify the process of submitting support requests and providing valuable feedback.<br/>
+<br/>              
+<b>New Service Offerings</b><br/>
+<br/>              
+One of the ways we are helping to deliver world class training will be with our expansion of insightuniversity in 2020.  insightuniversity is an online learning management system that will enable you to find and access the training you need, when you need it. We are also continuing to expand our virtual instructor led offerings and on-site trainings.<br/>
+<br/>
+<b>Relationship Building</b><br/>
+<br/>              
+As insightsoftware has experienced rapid growth worldwide, we recognize it may, at times, feel more challenging for our customers to know where to turn to ensure they are heard. In 2019, we assembled a Customer Success team whose primary focus is to address your concerns, remove obstacles, and ensure you get the best return on your investment with insightsoftware. That includes your ability to plan more than a year out, so we will continue to offer the option of a 3-year renewal with capped price increases.<br/>
+<br/>              
+2019 was a year with many changes and we are looking forward to continued progress and investment in 2020 to deliver the best ERP and EMP solutions on the market. 
+We have enclosed a summary of our 2019 product enhancements. We designed the program with value in mind and our goal is to provide updates that are compelling and that help your organization deliver higher performance at less cost each and every day.<br/>
+<br/>              
+As always, we appreciate you partnering with us. Please contact me at any time if you have any questions or feedback regarding our maintenance and support program.<br/>
+<br/>  
+Sincerely,<br/>
+<br/>
+<br/>
+<img src="https://5172601.app.netsuite.com/core/media/media.nl?id=8482&amp;c=5172601&amp;h=d8d41ea8a5e07be04688" />
+<span style="font-size:14px; font-weight: bold; color:#3d84c7;">
+<br/><br/>
+  Mike Lipps</span>
+<br/>
+  </span></#if>   </#if>        
+END OF COMMENT-->
+    </body>
+  </pdf>

@@ -1,0 +1,49 @@
+netsuite.mapreducescript customscript_yp_mr_initcreateinvoicepdfs {
+  scriptid = "customscript_yp_mr_initcreateinvoicepdfs"
+  description = "This is the PDF Upload script."
+  isinactive = false
+  name = "YP_MR_InitCreateInvoicePdfs.js"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_YP_MR_InitCreateInvoicePdfs_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = false
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "YP_MR_InitCreateInvoicePdfs.js"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2020-03-04"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+      customdeploy2 = {
+        scriptid = "customdeploy2"
+        buffersize = "1"
+        concurrencylimit = "1"
+        isdeployed = false
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "YP_MR_InitCreateInvoicePdfs.js"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2020-03-04"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

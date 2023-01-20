@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript1468 {
+  scriptid = "customscript1468"
+  isinactive = false
+  name = "SavedSearch_"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SavedSearch__js@duv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy1 = {
+        scriptid = "customdeploy1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "TEST"
+        recurrence = {
+          single = {
+            repeat = "PT1H"
+            startdate = "2022-12-12"
+            starttime = "00:30:00Z"
+          }
+        }
+      }
+    }
+  }
+}

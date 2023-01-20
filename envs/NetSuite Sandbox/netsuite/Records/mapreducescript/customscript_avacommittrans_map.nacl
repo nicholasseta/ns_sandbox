@@ -1,0 +1,31 @@
+netsuite.mapreducescript customscript_avacommittrans_map {
+  scriptid = "customscript_avacommittrans_map"
+  isinactive = false
+  name = "AVA_CommitTransaction_Map"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_MAP_CommitTransaction.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avacommittrans_map = {
+        scriptid = "customdeploy_avacommittrans_map"
+        buffersize = "1"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "SCHEDULED"
+        title = "AVA_CommitTransaction_Map"
+        yieldaftermins = "60"
+        recurrence = {
+          daily = {
+            everyxdays = 1
+            repeat = "PT15M"
+            startdate = "2021-01-18"
+            starttime = "05:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

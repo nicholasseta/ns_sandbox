@@ -1,0 +1,139 @@
+netsuite.savedcsvimport custimport_467_5172601_763 {
+  scriptid = "custimport_467_5172601_763"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Automated Spreadsheet Server Install Cases"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = false
+  usemultithread = true
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            COMPANYNAME = {
+              field = "COMPANYNAME"
+              value = "Automated Spreadsheet Server Install"
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+            custentity_oa_business_line = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_business_line.scriptid
+              value = "1"
+            }
+            custentity_oa_export_to_openair = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+              value = "T"
+            }
+            custentity_oa_project_template = {
+              field = netsuite.entitycustomfield.instance.custentity_oa_project_template.scriptid
+              value = "53"
+            }
+            custentity_oppty_close_date = {
+              field = netsuite.entitycustomfield.instance.custentity_oppty_close_date.scriptid
+              columnreference = {
+                column = "Oppty Close Date"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_sales_geo = {
+              field = netsuite.entitycustomfield.instance.custentity_sales_geo.scriptid
+              columnreference = {
+                column = "Sales Geo"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+            custentity_sf_opportunity_id_project = {
+              field = netsuite.entitycustomfield.instance.custentity_sf_opportunity_id_project.scriptid
+              columnreference = {
+                column = "SF Opportunity ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            custentity_so_billing_schedule = {
+              field = netsuite.entitycustomfield.instance.custentity_so_billing_schedule.scriptid
+              value = "1"
+            }
+            custentity_so_business_line = {
+              field = netsuite.entitycustomfield.instance.custentity_so_business_line.scriptid
+              value = "1"
+            }
+            custentity_so_end_user_customer = {
+              field = netsuite.entitycustomfield.instance.custentity_so_end_user_customer.scriptid
+              columnreference = {
+                column = "SO End User Customer"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+            custentity_so_erp = {
+              field = netsuite.entitycustomfield.instance.custentity_so_erp.scriptid
+              columnreference = {
+                column = "ERP"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+            custentity_so_product_family = {
+              field = netsuite.entitycustomfield.instance.custentity_so_product_family.scriptid
+              value = "2"
+            }
+            custentity_so_product_line = {
+              field = netsuite.entitycustomfield.instance.custentity_so_product_line.scriptid
+              value = "17"
+            }
+            PARENT = {
+              field = "PARENT"
+              columnreference = {
+                column = "Parent"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "Subsidiary"
+                file = "JOB"
+                type = "INTERNAL_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

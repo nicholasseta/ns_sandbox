@@ -1,0 +1,41 @@
+type netsuite.classification {
+  annotations {
+    hidden_string source {
+    }
+  }
+  netsuite.nullField nullFieldList {
+  }
+  string name {
+  }
+  boolean includeChildren {
+  }
+  netsuite.classification parent {
+    isReference = true
+  }
+  boolean isInactive {
+  }
+  netsuite.classTranslationList classTranslationList {
+  }
+  "List<netsuite.subsidiary>" subsidiaryList {
+    isReference = true
+  }
+  netsuite.customFieldList customFieldList {
+  }
+  string internalId {
+    isAttribute = true
+    _hidden_value = true
+  }
+  string externalId {
+    isAttribute = true
+  }
+  serviceid identifier {
+  }
+  unknown custom_custrecord_erp_subsegment {
+    select_type_id = netsuite.customlist.instance.customlist_erp_subseg_list.scriptid
+    field_instance = netsuite.othercustomfield.instance.custrecord_erp_subsegment.scriptid
+  }
+  unknown custom_custrecord_erp_tier {
+    select_type_id = netsuite.customlist.instance.customlist_tier.scriptid
+    field_instance = netsuite.othercustomfield.instance.custrecord_erp_tier.scriptid
+  }
+}

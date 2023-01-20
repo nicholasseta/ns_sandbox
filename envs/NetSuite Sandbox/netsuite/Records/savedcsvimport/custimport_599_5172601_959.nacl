@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_599_5172601_959 {
+  scriptid = "custimport_599_5172601_959"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Add Project - Returns"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "RETURNAUTHORIZATION"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_46_5172601_sb1_477.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      RETURNAUTHORIZATION = {
+        file = "RETURNAUTHORIZATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      RETURNAUTHORIZATION = {
+        record = "RETURNAUTHORIZATION"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Trxn Int ID"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      RETURNAUTHORIZATION_ITEM@f = {
+        record = "RETURNAUTHORIZATION:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            JOB = {
+              field = "JOB"
+              columnreference = {
+                column = "Project Internal ID"
+                file = "RETURNAUTHORIZATION"
+                type = "INTERNAL_ID"
+              }
+            }
+            ORDERLINE = {
+              field = "ORDERLINE"
+              columnreference = {
+                column = "Line ID"
+                file = "RETURNAUTHORIZATION"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

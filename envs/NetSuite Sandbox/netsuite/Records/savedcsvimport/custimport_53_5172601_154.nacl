@@ -1,0 +1,55 @@
+netsuite.savedcsvimport custimport_53_5172601_154 {
+  scriptid = "custimport_53_5172601_154"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "ERP Update"
+  ignorereadonly = true
+  importname = "ERP Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CLASSIFICATION"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CLASSIFICATION = {
+        file = "CLASSIFICATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CLASSIFICATION = {
+        record = "CLASSIFICATION"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CLASSIFICATION"
+                type = "NAME"
+              }
+            }
+            ISINACTIVE = {
+              field = "ISINACTIVE"
+              value = "T"
+            }
+          }
+        }
+      }
+    }
+  }
+}

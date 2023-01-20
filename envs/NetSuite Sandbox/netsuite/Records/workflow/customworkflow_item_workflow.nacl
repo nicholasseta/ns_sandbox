@@ -1,0 +1,97 @@
+netsuite.workflow customworkflow_item_workflow {
+  scriptid = "customworkflow_item_workflow"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Item Workflow"
+  recordtypes = "NONINVENTORYITEM|OTHERCHARGEITEM|SERVICEITEM"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate45 = {
+        scriptid = "workflowstate45"
+        donotexitworkflow = false
+        name = "Set Field Values"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERFIELDEDIT = {
+            triggertype = "AFTERFIELDEDIT"
+            setfieldvalueaction = {
+              workflowaction166 = {
+                scriptid = "workflowaction166"
+                clienttriggerfields = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+                field = "STDITEMLOCATION"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction167 = {
+                scriptid = "workflowaction167"
+                clienttriggerfields = "STDITEMLOCATION"
+                field = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDITEMLOCATION"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction165 = {
+                scriptid = "workflowaction165"
+                eventtypes = "CREATE|XEDIT|EDIT"
+                field = "STDITEMLOCATION"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction168 = {
+                scriptid = "workflowaction168"
+                eventtypes = "CREATE|XEDIT|EDIT"
+                field = netsuite.itemcustomfield.instance.custitem_product_line_item.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDITEMLOCATION"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            index = 1
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

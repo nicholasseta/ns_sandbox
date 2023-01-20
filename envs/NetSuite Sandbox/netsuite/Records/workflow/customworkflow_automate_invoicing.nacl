@@ -1,0 +1,198 @@
+netsuite.workflow customworkflow_automate_invoicing {
+  scriptid = "customworkflow_automate_invoicing"
+  description = "Invoices Sales Orders when they are Approved"
+  initeventtypes = "APPROVE"
+  initoncreate = true
+  initonvieworupdate = true
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Automate Invoicing"
+  recordtypes = "SALESORDER"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowcustomfields = {
+    workflowcustomfield = {
+      custworkflow2 = {
+        scriptid = "custworkflow2"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Join Record"
+        selectrecordtype = "-30"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate47 = {
+        scriptid = "workflowstate47"
+        donotexitworkflow = false
+        name = "State 1: Create Invoice"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            customaction = {
+              workflowaction169 = {
+                scriptid = "workflowaction169"
+                eventtypes = "APPROVE"
+                isinactive = false
+                resultfield = netsuite.workflow.instance.customworkflow_automate_invoicing.workflowcustomfields.workflowcustomfield.custworkflow2.scriptid
+                schedulemode = "DELAY"
+                scripttype = netsuite.workflowactionscript.instance.customscript_scg_inv_so_nextbill_wf.scriptid
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition31 = {
+              scriptid = "workflowtransition31"
+              contexttypes = "ACTION|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OFFLINECLIENT|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|ADVANCEDREVREC|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKBOOKBUILDER|WORKFLOW"
+              tostate = netsuite.workflow.instance.customworkflow_automate_invoicing.workflowstates.workflowstate.workflowstate15138.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate15138 = {
+        scriptid = "workflowstate15138"
+        donotexitworkflow = false
+        name = "State 2: Create Install Project"
+        positionx = 243
+        positiony = 243
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            createrecordaction = {
+              workflowaction87940 = {
+                scriptid = "workflowaction87940"
+                isinactive = false
+                recordtype = "JOB"
+                schedulemode = "DELAY"
+                initcondition = {
+                  formula = "isChecked(\"Create Install Project\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Create_Install_Project@s = {
+                        name = "Create Install Project"
+                        value = netsuite.transactionbodycustomfield.instance.custbody_create_install_project.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                fieldsettings = {
+                  fieldsetting = {
+                    STDENTITYPARENT = {
+                      targetfield = "STDENTITYPARENT"
+                      valueformula = "{entity.id}"
+                      index = 0
+                    }
+                    STDENTITYSUBSIDIARY = {
+                      targetfield = "STDENTITYSUBSIDIARY"
+                      valueformula = "{subsidiary.id}"
+                      index = 1
+                    }
+                    custentity_oa_project_template = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_oa_project_template.scriptid
+                      valueselect = "[scriptid=customrecord_oa_project_templates.val_46611221_5172601_493]"
+                      index = 2
+                    }
+                    custentity_so_end_user_customer = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_so_end_user_customer.scriptid
+                      valueformula = "{custbody_so_enduser.id}"
+                      index = 3
+                    }
+                    STDENTITYCOMPANYNAME = {
+                      targetfield = "STDENTITYCOMPANYNAME"
+                      valuetext = "Automated Spreadsheet Server Install"
+                      index = 4
+                    }
+                    custentity_so_product_line = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_so_product_line.scriptid
+                      valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                      index = 5
+                    }
+                    custentity_so_product_family = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_so_product_family.scriptid
+                      valuetext = "2"
+                      index = 6
+                    }
+                    custentity_so_business_line = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_so_business_line.scriptid
+                      valueselect = netsuite.customlist.instance.customlist192.customvalues.customvalue.val_1454167_5172601_317.scriptid
+                      index = 7
+                    }
+                    custentity_oa_business_line = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_oa_business_line.scriptid
+                      valueselect = netsuite.customlist.instance.customlist_oa_business_line.customvalues.customvalue.val_42249619_5172601_802.scriptid
+                      index = 8
+                    }
+                    custentity_so_billing_schedule = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_so_billing_schedule.scriptid
+                      valueselect = "[ACCOUNT_SPECIFIC_VALUE]"
+                      index = 9
+                    }
+                    STDENTITYCURRENCY = {
+                      targetfield = "STDENTITYCURRENCY"
+                      valueformula = "{currency.id}"
+                      index = 10
+                    }
+                    custentity_sf_opportunity_id_project = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_sf_opportunity_id_project.scriptid
+                      valueformula = "{custbody_sf_opportunity_id}"
+                      index = 11
+                    }
+                    custentity_oppty_close_date = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_oppty_close_date.scriptid
+                      valueformula = "{custbody_oppty_close_date}"
+                      index = 12
+                    }
+                    custentity_oa_export_to_openair = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_oa_export_to_openair.scriptid
+                      valuechecked = true
+                      index = 13
+                    }
+                    custentity_sales_geo = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_sales_geo.scriptid
+                      valueformula = "{custbody_sales_geo.id}"
+                      index = 14
+                    }
+                    custentity_so_erp = {
+                      targetfield = netsuite.entitycustomfield.instance.custentity_so_erp.scriptid
+                      valueformula = "{class}"
+                      index = 15
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 1
+      }
+    }
+  }
+}

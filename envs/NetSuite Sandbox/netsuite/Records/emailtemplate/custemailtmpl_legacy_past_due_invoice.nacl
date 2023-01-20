@@ -1,0 +1,13 @@
+netsuite.emailtemplate custemailtmpl_legacy_past_due_invoice {
+  scriptid = "custemailtmpl_legacy_past_due_invoice"
+  addcompanyaddress = true
+  addunsubscribelink = true
+  description = "For data migration invoices"
+  isinactive = true
+  isprivate = false
+  name = "Legacy Invoice - Past Due"
+  recordtype = "TRANSACTION"
+  subject = "Past Due: Invoice# <#if transaction.custbody_legacy_transaction_number?has_content> \${transaction.custbody_legacy_transaction_number} </#if> from \${transaction.subsidiary.namenohierarchy}"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_legacy_past_due_invoice.html")
+}

@@ -1,0 +1,64 @@
+netsuite.savedcsvimport custimport_635_5172601_792 {
+  scriptid = "custimport_635_5172601_792"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_contractlines.attr.scriptid
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_109_5172601_591.scriptid
+  ignorereadonly = true
+  importname = "Update Order Product"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_contractlines_custrecord_ins_migrating_order_product@uvuuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_ins_migrating_order_product.scriptid
+              value = "T"
+            }
+            customrecord_contractlines_custrecord_is_cl_order@uvuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_order.scriptid
+              columnreference = {
+                column = "18 Digit Order ID"
+                file = "CUSTOMRECORD"
+                type = "EXTERNAL_ID"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "18 Digit Order Product ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

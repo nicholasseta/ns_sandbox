@@ -1,0 +1,258 @@
+netsuite.savedcsvimport custimport_94_5172601_820 {
+  scriptid = "custimport_94_5172601_820"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Hubble Def Revenue Cash Sale - New"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CASHSALE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_cash_sale.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CASHSALE = {
+        file = "CASHSALE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CASHSALE = {
+        record = "CASHSALE"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Currency"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custbody_partnerjvreseller = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_partnerjvreseller.scriptid
+              columnreference = {
+                column = "JV ID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_sales_geo = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_sales_geo.scriptid
+              columnreference = {
+                column = "Sales Geo"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custbody_so_bdr = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_bdr.scriptid
+              columnreference = {
+                column = "BDR"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custbody_so_demorep = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_demorep.scriptid
+              columnreference = {
+                column = "Demo_Rep"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custbody_so_enduser = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_enduser.scriptid
+              columnreference = {
+                column = "End_user_ID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            custbody_so_ordertype = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+              columnreference = {
+                column = "OrderType"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Bill_To_Code"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Exchange_rate"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "ExternalID"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Memo"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            OTHERREFNUM = {
+              field = "OTHERREFNUM"
+              columnreference = {
+                column = "PONumber"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            PAYMENTMETHOD = {
+              field = "PAYMENTMETHOD"
+              value = "2"
+            }
+            POSTINGPERIOD = {
+              field = "POSTINGPERIOD"
+              columnreference = {
+                column = "Period"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            SALESREP = {
+              field = "SALESREP"
+              columnreference = {
+                column = "SalesRep"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              columnreference = {
+                column = "subsidiaryID"
+                file = "CASHSALE"
+                type = "INTERNAL_ID"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Sales_Order_Date"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "OrderNumber"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            UNDEPFUNDS = {
+              field = "UNDEPFUNDS"
+              value = "T"
+            }
+          }
+        }
+      }
+      CASHSALE_ITEM@f = {
+        record = "CASHSALE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "DeferredRevenue"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "Erp"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              columnreference = {
+                column = "RevRecEndDate"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              columnreference = {
+                column = "RevRecStartDate"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            DESCRIPTION = {
+              field = "DESCRIPTION"
+              columnreference = {
+                column = "Memo"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Item"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "Quantity"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              columnreference = {
+                column = "TaxCode"
+                file = "CASHSALE"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+netsuite.savedcsvimport custimport_157_5172601_510 {
+  scriptid = "custimport_157_5172601_510"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Project POC Upload"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB_PERCENTCOMPLETEOVERRIDE@f = {
+        record = "JOB:PERCENTCOMPLETEOVERRIDE"
+        fieldmappings = {
+          fieldmapping = {
+            PERCENT = {
+              field = "PERCENT"
+              columnreference = {
+                column = "Percent Complete"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            PERIOD = {
+              field = "PERIOD"
+              value = "77"
+            }
+          }
+        }
+      }
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NetSuite Project ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

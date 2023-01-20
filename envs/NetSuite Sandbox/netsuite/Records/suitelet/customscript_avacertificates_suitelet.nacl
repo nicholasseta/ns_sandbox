@@ -1,0 +1,45 @@
+netsuite.suitelet customscript_avacertificates_suitelet {
+  scriptid = "customscript_avacertificates_suitelet"
+  isinactive = false
+  name = "AVA_CertificatesForm_Suitelet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_CertificatesForm.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_certificatesroleid = {
+        scriptid = "custscript_certificatesroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avacertificates_suitelet = {
+        scriptid = "customdeploy_avacertificates_suitelet"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        custscript_certificatesroleid = "1, 1028, 1012, 1029"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "AVA_Certificates_Suitelet"
+      }
+    }
+  }
+}

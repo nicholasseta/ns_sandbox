@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_runscheduledscript_ss {
+  scriptid = "customscript_scg_runscheduledscript_ss"
+  defaultfunction = "runScheduledScript"
+  isinactive = false
+  name = "SCG RunScheduledScript SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RunScheduledScript_SS_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_runscheduledscript_ss = {
+        scriptid = "customdeploy_scg_runscheduledscript_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG RunScheduledScript SS"
+        recurrence = {
+          single = {
+            startdate = "2018-10-24"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

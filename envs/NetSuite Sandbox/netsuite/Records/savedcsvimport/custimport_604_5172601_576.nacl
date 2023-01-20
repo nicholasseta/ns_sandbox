@@ -1,0 +1,101 @@
+netsuite.savedcsvimport custimport_604_5172601_576 {
+  scriptid = "custimport_604_5172601_576"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_billing_portal.attr.scriptid
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Import billing portals and details"
+  entryform = netsuite.entryForm.instance.custform_119_5172601_178.scriptid
+  ignorereadonly = true
+  importname = "Billing Portal"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_billing_portal_custrecord_bill_port_account_number@uuvuuuu = {
+              field = netsuite.customrecord_billing_portal.field.custom_custrecord_bill_port_account_number.scriptid
+              columnreference = {
+                column = "Account Number"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_billing_portal_custrecord_bill_port_comments@uuvuuu = {
+              field = netsuite.customrecord_billing_portal.field.custom_custrecord_bill_port_comments.scriptid
+              columnreference = {
+                column = "Comments"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_billing_portal_custrecord_bill_port_login_password@uuvuuuu = {
+              field = netsuite.customrecord_billing_portal.field.custom_custrecord_bill_port_login_password.scriptid
+              columnreference = {
+                column = "Login Password"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_billing_portal_custrecord_bill_port_login_username@uuvuuuu = {
+              field = netsuite.customrecord_billing_portal.field.custom_custrecord_bill_port_login_username.scriptid
+              columnreference = {
+                column = "Login Username"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_billing_portal_custrecord_bill_port_security_q_a@uuvuuuuu = {
+              field = netsuite.customrecord_billing_portal.field.custom_custrecord_bill_port_security_q_a.scriptid
+              columnreference = {
+                column = "Security Questions / Answers"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_billing_portal_custrecord_bill_port_url@uuvuuu = {
+              field = netsuite.customrecord_billing_portal.field.custom_custrecord_bill_port_url.scriptid
+              columnreference = {
+                column = "URL"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

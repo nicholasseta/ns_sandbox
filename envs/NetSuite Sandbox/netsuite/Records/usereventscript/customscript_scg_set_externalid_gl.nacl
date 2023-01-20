@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_scg_set_externalid_gl {
+  scriptid = "customscript_scg_set_externalid_gl"
+  aftersubmitfunction = "acct_afterSubmit"
+  description = "Set the external ID on the GL when creating or updating it."
+  isinactive = false
+  name = "Set External ID on GL"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_Set_External_ID___GL_Account_js@dsssbssv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_set_externalid_gl = {
+        scriptid = "customdeploy_scg_set_externalid_gl"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "ACTION|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PORTLET|PROMOTIONS|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBAPPLICATION|WEBSERVICES|WORKFLOW|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|PLATFORMEXTENSION|FICONNECTIVITY|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "ACCOUNT"
+        status = "RELEASED"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+netsuite.workflowactionscript customscript_scg_setinvapprvlstatus_wf {
+  scriptid = "customscript_scg_setinvapprvlstatus_wf"
+  defaultfunction = "is_sias_setInvoiceApprovalStatus"
+  isinactive = false
+  name = "SCG_setInvoiceApprovalStatus_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returntype = "CHECKBOX"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_setInvoiceApprovalStatus_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_setinvapprvlstatus_wf = {
+        scriptid = "customdeploy_scg_setinvapprvlstatus_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "ERROR"
+        recordtype = "INVOICE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

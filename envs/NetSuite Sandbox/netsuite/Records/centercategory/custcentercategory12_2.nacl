@@ -1,0 +1,31 @@
+netsuite.centercategory custcentercategory12_2 {
+  scriptid = "custcentercategory12_2"
+  center = "BASIC"
+  centertab = netsuite.centertab.instance.custcentertab17_2.scriptid
+  label = "Address Validation"
+  links = {
+    link = {
+      customscript_avaquickvalidation_suitlet_customdeploy_avaquickaddressvalidation@uuvu = {
+        linklabel = "Quick Validate"
+        linkobject = netsuite.suitelet.instance.customscript_avaquickvalidation_suitlet.scriptdeployments.scriptdeployment.customdeploy_avaquickaddressvalidation.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 0
+      }
+      customscript_avaddressvalidation_suitlet_customdeploy_avaaddressvalidation@uuvu = {
+        linklabel = "Create Address Validation Batch"
+        linkobject = netsuite.suitelet.instance.customscript_avaddressvalidation_suitlet.scriptdeployments.scriptdeployment.customdeploy_avaaddressvalidation.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 1
+      }
+      customscript_avaaddvalidresults_suitelet_customdeploy_avaaddressvalidationresults@uuvu = {
+        linklabel = "View Address Validation Batches"
+        linkobject = netsuite.suitelet.instance.customscript_avaaddvalidresults_suitelet.scriptdeployments.scriptdeployment.customdeploy_avaaddressvalidationresults.scriptid
+        linktasktype = "SCRIPT"
+        shortlist = false
+        index = 2
+      }
+    }
+  }
+}

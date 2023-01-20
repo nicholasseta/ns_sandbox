@@ -1,0 +1,67 @@
+netsuite.savedcsvimport custimport_1_5172601_331 {
+  scriptid = "custimport_1_5172601_331"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Dept Import"
+  ignorereadonly = true
+  importname = "Dept Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "DEPARTMENT"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      DEPARTMENT = {
+        file = "DEPARTMENT"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      DEPARTMENT = {
+        record = "DEPARTMENT"
+        fieldmappings = {
+          fieldmapping = {
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "DEPARTMENT"
+                type = "NAME"
+              }
+            }
+            PARENT = {
+              field = "PARENT"
+              columnreference = {
+                column = "Parent"
+                file = "DEPARTMENT"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

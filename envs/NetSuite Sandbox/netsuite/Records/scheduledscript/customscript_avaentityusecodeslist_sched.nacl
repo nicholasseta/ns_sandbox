@@ -1,0 +1,33 @@
+netsuite.scheduledscript customscript_avaentityusecodeslist_sched {
+  scriptid = "customscript_avaentityusecodeslist_sched"
+  isinactive = false
+  name = "AVA_GetEntityUseCodesList_Scheduled"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SCH_GetEntityUseCodesList.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avaentityusecodes_deploy = {
+        scriptid = "customdeploy_avaentityusecodes_deploy"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "SCHEDULED"
+        title = "AVA_GetEntityUseCodesList_Scheduled"
+        recurrence = {
+          weekly = {
+            everyxweeks = 1
+            friday = false
+            monday = true
+            saturday = false
+            startdate = "2020-11-23"
+            starttime = "11:00:00Z"
+            sunday = false
+            thursday = false
+            tuesday = false
+            wednesday = false
+          }
+        }
+      }
+    }
+  }
+}

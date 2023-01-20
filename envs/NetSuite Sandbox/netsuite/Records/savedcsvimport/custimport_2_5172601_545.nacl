@@ -1,0 +1,78 @@
+netsuite.savedcsvimport custimport_2_5172601_545 {
+  scriptid = "custimport_2_5172601_545"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  description = "Product Line Import"
+  ignorereadonly = true
+  importname = "Product Line Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "LOCATION"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      LOCATION = {
+        file = "LOCATION"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      LOCATION = {
+        record = "LOCATION"
+        fieldmappings = {
+          fieldmapping = {
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "Name"
+                file = "LOCATION"
+                type = "NAME"
+              }
+            }
+            INCLUDECHILDREN = {
+              field = "INCLUDECHILDREN"
+              value = "T"
+            }
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "LOCATION"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "1"
+            }
+          }
+        }
+      }
+      LOCATION__MAINADDRESS@f = {
+        record = "LOCATION::MAINADDRESS"
+        fieldmappings = {
+          fieldmapping = {
+            COUNTRY = {
+              field = "COUNTRY"
+              value = "US"
+            }
+          }
+        }
+      }
+    }
+  }
+}

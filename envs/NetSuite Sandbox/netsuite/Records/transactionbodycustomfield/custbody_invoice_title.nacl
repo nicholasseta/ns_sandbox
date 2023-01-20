@@ -1,0 +1,39 @@
+netsuite.transactionbodycustomfield custbody_invoice_title {
+  scriptid = "custbody_invoice_title"
+  accesslevel = "2"
+  applyformatting = false
+  bodycustomerpayment = false
+  bodydeposit = false
+  bodydepositapplication = false
+  bodyexpensereport = false
+  bodyitemfulfillment = false
+  bodyitemfulfillmentorder = false
+  bodyjournal = false
+  bodyothertransaction = false
+  bodyperiodendjournal = false
+  bodypickingticket = false
+  bodyprintflag = false
+  bodyprintpackingslip = false
+  bodyprintstatement = false
+  bodypurchase = false
+  bodysale = true
+  bodyvendorpayment = false
+  checkspelling = false
+  defaultchecked = false
+  defaultvalue = "CASE WHEN ({subsidiary.country} ='Norway' or {subsidiary.country} ='Sweden') THEN 'INVOICE' when ({shipcountry} ='US' OR {shipcountry} ='CA') then 'INVOICE' ELSE 'TAX INVOICE' END"
+  description = "The title that prints on the Invoice PDF"
+  displaytype = "STATICTEXT"
+  encryptatrest = false
+  fieldtype = "TEXT"
+  globalsearch = false
+  help = "The title that prints on the Invoice PDF"
+  isformula = true
+  ismandatory = false
+  isparent = false
+  label = "Invoice  Title"
+  searchlevel = "2"
+  showhierarchy = false
+  showinlist = false
+  storevalue = false
+  subtab = "TRANSACTIONBILLING"
+}

@@ -1,0 +1,577 @@
+type netsuite.customrecord_remittance_information {
+  annotations {
+    serviceid scriptid {
+    }
+    string recordname {
+    }
+    string customsegment {
+    }
+    netsuite.customrecordtype_accesstype accesstype {
+    }
+    boolean allowattachments {
+    }
+    boolean allowinlineediting {
+    }
+    boolean allowinlinedeleting {
+    }
+    boolean allowinlinedetaching {
+    }
+    boolean allowmobileaccess {
+    }
+    boolean allownumberingoverride {
+    }
+    boolean allowquickadd {
+    }
+    boolean allowquicksearch {
+    }
+    boolean allowuiaccess {
+    }
+    string description {
+    }
+    boolean enabledle {
+    }
+    boolean enablekeywords {
+    }
+    boolean enablemailmerge {
+    }
+    boolean enablenametranslation {
+    }
+    boolean enablenumbering {
+    }
+    boolean enableoptimisticlocking {
+    }
+    boolean enablesystemnotes {
+    }
+    boolean hierarchical {
+    }
+    string numberingprefix {
+    }
+    string numberingsuffix {
+    }
+    string numberingmindigits {
+    }
+    string numberinginit {
+    }
+    string icon {
+    }
+    boolean iconbuiltin {
+    }
+    netsuite.generic_custom_record_icon iconindex {
+    }
+    boolean includeinsearchmenu {
+    }
+    boolean includename {
+    }
+    boolean isinactive {
+    }
+    boolean isordered {
+    }
+    boolean showcreationdate {
+    }
+    boolean showcreationdateonlist {
+    }
+    boolean showid {
+    }
+    boolean showlastmodified {
+    }
+    boolean showlastmodifiedonlist {
+    }
+    boolean shownotes {
+    }
+    boolean showowner {
+    }
+    boolean showownerallowchange {
+    }
+    boolean showowneronlist {
+    }
+    netsuite.customrecordtype_instances instances {
+    }
+    netsuite.customrecordtype_links links {
+    }
+    netsuite.customrecordtype_permissions permissions {
+    }
+    netsuite.customrecordtype_recordsublists recordsublists {
+    }
+    netsuite.customrecordtype_subtabs subtabs {
+    }
+    string application_id {
+    }
+    hidden_string source {
+    }
+    hidden_string internalId {
+    }
+  }
+  serviceid scriptid {
+    _required = true
+  }
+  string internalId {
+    _hidden_value = true
+  }
+  netsuite.customRecordTranslationsList translationsList {
+  }
+  netsuite.subsidiary custom_custrecord_subsidiary {
+    scriptid = "custrecord_subsidiary"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Subsidiary"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-117"
+    showinlist = true
+    storevalue = true
+    index = 0
+  }
+  netsuite.currency custom_custrecord_currency {
+    scriptid = "custrecord_currency"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "SELECT"
+    globalsearch = false
+    help = "Select a currency if this bank is exclusive to this."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Currency"
+    onparentdelete = "NO_ACTION"
+    rolerestrict = false
+    searchlevel = "2"
+    selectrecordtype = "-122"
+    showinlist = true
+    storevalue = true
+    index = 1
+  }
+  string custom_custrecord_currency_help {
+    scriptid = "custrecord_currency_help"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "HELP"
+    globalsearch = false
+    help = "Only select a currency if this remittance is just for this currency. If this is blank, this remittance applies to all or other invoices where there's no specific remittance by currency."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Currency Help"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = false
+    index = 2
+  }
+  string custom_custrecord_bank_name {
+    scriptid = "custrecord_bank_name"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Bank Name"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 3
+  }
+  string custom_custrecord_bank_address {
+    scriptid = "custrecord_bank_address"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CLOBTEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Bank Address"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 4
+  }
+  string custom_custrecord_bank_accountnum_sortcode {
+    scriptid = "custrecord_bank_accountnum_sortcode"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Bank Account Number/Sort Code"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 5
+  }
+  string custom_custrecord_accountnum {
+    scriptid = "custrecord_accountnum"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Account Number"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 6
+  }
+  string custom_custrecord_account_name {
+    scriptid = "custrecord_account_name"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Account Name"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 7
+  }
+  string custom_custrecord_account_address {
+    scriptid = "custrecord_account_address"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "CLOBTEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Account Address"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 8
+  }
+  string custom_custrecord_intermediary_bank {
+    scriptid = "custrecord_intermediary_bank"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Intermediary Bank"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 9
+  }
+  string custom_custrecord_swift_code {
+    scriptid = "custrecord_swift_code"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "SWIFT/BIC Code"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 10
+  }
+  string custom_custrecord_iban {
+    scriptid = "custrecord_iban"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "IBAN"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 11
+  }
+  string custom_custrecord_remittance_address {
+    scriptid = "custrecord_remittance_address"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXTAREA"
+    globalsearch = false
+    help = "Enter the remittance address to print on the invoice if different than the subsidiary address."
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Remittance Address"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    sourcefrom = "STDRECORDSUBSIDIARYADDRTEXT"
+    sourcelist = netsuite.customrecord_remittance_information.field.custom_custrecord_subsidiary.scriptid
+    storevalue = true
+    index = 12
+  }
+  string custom_custrecord_old_remittance_address {
+    scriptid = "custrecord_old_remittance_address"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXTAREA"
+    globalsearch = false
+    help = "The old remittance address that will print on the invoice"
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Old Remittance Address"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = false
+    storevalue = true
+    index = 13
+  }
+  string custom_custrecord_remittance_message {
+    scriptid = "custrecord_remittance_message"
+    accesslevel = "2"
+    allowquickadd = false
+    applyformatting = false
+    checkspelling = false
+    defaultchecked = false
+    displaytype = "NORMAL"
+    encryptatrest = false
+    fieldtype = "TEXT"
+    globalsearch = false
+    help = '''
+Enter a message to show on the invoice above the remittance. This can be used for new remittance address notice. 
+
+This will print inside the red box.
+'''
+    isformula = false
+    ismandatory = false
+    isparent = false
+    label = "Remittance Message"
+    rolerestrict = false
+    searchlevel = "2"
+    showinlist = true
+    storevalue = true
+    index = 14
+  }
+  scriptid = "customrecord_remittance_information"
+  accesstype = "USEPERMISSIONLIST"
+  allowattachments = true
+  allowinlinedeleting = false
+  allowinlinedetaching = true
+  allowinlineediting = false
+  allowmobileaccess = false
+  allownumberingoverride = true
+  allowquickadd = true
+  allowquicksearch = true
+  allowuiaccess = true
+  enabledle = true
+  enablekeywords = false
+  enablemailmerge = false
+  enablenametranslation = false
+  enablenumbering = true
+  enableoptimisticlocking = true
+  enablesystemnotes = true
+  hierarchical = false
+  iconbuiltin = true
+  includeinsearchmenu = true
+  includename = false
+  isinactive = false
+  isordered = false
+  recordname = "Remittance Information"
+  showcreationdate = false
+  showcreationdateonlist = false
+  showid = true
+  showlastmodified = false
+  showlastmodifiedonlist = false
+  shownotes = true
+  showowner = false
+  showownerallowchange = false
+  showowneronlist = false
+  permissions = {
+    permission = {
+      ADMINISTRATOR = {
+        permittedlevel = "FULL"
+        permittedrole = "ADMINISTRATOR"
+      }
+      FULL_ACCESS = {
+        permittedlevel = "FULL"
+        permittedrole = "FULL_ACCESS"
+      }
+      customrole1024 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1024.scriptid
+      }
+      customrole_is_ar_clerk = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole_is_ar_clerk.scriptid
+      }
+      customrole1023 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1023.scriptid
+      }
+      customrole_is_accountant = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_is_accountant.scriptid
+      }
+      customrole1054 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1054.scriptid
+      }
+      customrole1035 = {
+        permittedlevel = "EDIT"
+        permittedrole = netsuite.role.instance.customrole1035.scriptid
+      }
+      customrole1028 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1028.scriptid
+      }
+      customrole1051 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1051.scriptid
+      }
+      customrole1041 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1041.scriptid
+      }
+      customrole_is_acct_mgr = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+      }
+      customrole1034_2 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1034_2.scriptid
+      }
+      customrole1034 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1034.scriptid
+      }
+      customrole1050 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1050.scriptid
+      }
+      customrole1036 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1036.scriptid
+      }
+      customrole1026 = {
+        permittedlevel = "VIEW"
+        permittedrole = netsuite.role.instance.customrole1026.scriptid
+      }
+      customrole1047 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1047.scriptid
+      }
+      customrole1008_24 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1008_24.scriptid
+      }
+      customrole1046 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1046.scriptid
+      }
+      customrole1015 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1015.scriptid
+      }
+      customrole1049 = {
+        permittedlevel = "FULL"
+        permittedrole = netsuite.role.instance.customrole1049.scriptid
+      }
+    }
+  }
+  links = {
+    link = {
+      BASICSETUPACCOUNTING = {
+        linkcategory = "BASICSETUPACCOUNTING"
+        linktasktype = "LIST"
+      }
+    }
+  }
+  metadataType = "customrecordtype"
+}

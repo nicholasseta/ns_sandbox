@@ -1,0 +1,27 @@
+netsuite.workflowactionscript customscript_scg_getnextapprover_wf {
+  scriptid = "customscript_scg_getnextapprover_wf"
+  defaultfunction = "is_gna_getNextApprover"
+  isinactive = false
+  name = "SCG getNextApprover WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returnrecordtype = "-4"
+  returntype = "SELECT"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_getNextApprover_WF_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_getnextapprover_wf = {
+        scriptid = "customdeploy_scg_getnextapprover_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

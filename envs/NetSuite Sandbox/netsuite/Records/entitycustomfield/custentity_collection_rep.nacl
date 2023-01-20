@@ -1,0 +1,49 @@
+netsuite.entitycustomfield custentity_collection_rep {
+  scriptid = "custentity_collection_rep"
+  accesslevel = "2"
+  appliestocontact = false
+  appliestocustomer = true
+  appliestoemployee = false
+  appliestogenericrsrc = false
+  appliestogroup = false
+  appliestoothername = false
+  appliestopartner = false
+  appliestopricelist = false
+  appliestoproject = false
+  appliestoprojecttemplate = false
+  appliestostatement = false
+  appliestovendor = false
+  applyformatting = false
+  availableexternally = false
+  availabletosso = false
+  checkspelling = false
+  defaultchecked = false
+  displaytype = "NORMAL"
+  encryptatrest = false
+  fieldtype = "SELECT"
+  globalsearch = false
+  help = "Select the default collector for this customer."
+  isformula = false
+  ismandatory = false
+  isparent = false
+  label = "Collection Rep"
+  onparentdelete = "SET_NULL"
+  searchlevel = "2"
+  selectrecordtype = "-4"
+  showhierarchy = false
+  showinlist = false
+  storevalue = true
+  subtab = "ENTITYMAIN"
+  customfieldfilters = {
+    customfieldfilter = {
+      STDENTITYDEPARTMENT = {
+        fldfilter = "STDENTITYDEPARTMENT"
+        fldfiltercomparetype = "EQ"
+        fldfilternotnull = false
+        fldfilternull = false
+        fldfiltersel = "[ACCOUNT_SPECIFIC_VALUE]"
+        index = 0
+      }
+    }
+  }
+}

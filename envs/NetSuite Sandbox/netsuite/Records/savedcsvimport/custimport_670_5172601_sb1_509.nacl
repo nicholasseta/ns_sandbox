@@ -1,0 +1,72 @@
+netsuite.savedcsvimport custimport_670_5172601_sb1_509 {
+  scriptid = "custimport_670_5172601_sb1_509"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  customrecord = netsuite.customrecord_contractlines.attr.scriptid
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custform_109_5172601_591.scriptid
+  ignorereadonly = true
+  importname = "Update Order Products - Reverse sign"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMRECORD"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMRECORD = {
+        file = "CUSTOMRECORD"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMRECORD = {
+        record = "CUSTOMRECORD"
+        fieldmappings = {
+          fieldmapping = {
+            customrecord_contractlines_custrecord_is_cl_price@uvuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_price.scriptid
+              columnreference = {
+                column = "Rev Rate"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_contractlines_custrecord_is_cl_quantity@uvuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_cl_quantity.scriptid
+              columnreference = {
+                column = "Rev Qty"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+            customrecord_contractlines_custrecord_is_update_rev_element@uvuuuu = {
+              field = netsuite.customrecord_contractlines.field.custom_custrecord_is_update_rev_element.scriptid
+              value = "T"
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMRECORD"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

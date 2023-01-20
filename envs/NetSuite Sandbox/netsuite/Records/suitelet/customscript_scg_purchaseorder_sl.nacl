@@ -1,0 +1,25 @@
+netsuite.suitelet customscript_scg_purchaseorder_sl {
+  scriptid = "customscript_scg_purchaseorder_sl"
+  defaultfunction = "is_po_rejectButton"
+  isinactive = false
+  name = "SCG PurchaseOrder SL"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_PurchaseOrder_SL_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_purchaseorder_sl = {
+        scriptid = "customdeploy_scg_purchaseorder_sl"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        isonline = true
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "SCG PurchaseOrder SL"
+      }
+    }
+  }
+}

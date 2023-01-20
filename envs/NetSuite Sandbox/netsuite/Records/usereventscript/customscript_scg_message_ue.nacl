@@ -1,0 +1,27 @@
+netsuite.usereventscript customscript_scg_message_ue {
+  scriptid = "customscript_scg_message_ue"
+  beforeloadfunction = "is_msg_beforeLoad"
+  isinactive = false
+  name = "SCG Message UE"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_Message_UE_js@duuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_message_ue = {
+        scriptid = "customdeploy_scg_message_ue"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "CSVIMPORT|ACTION|BUNDLEINSTALLATION|CLIENT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DEBUGGER|EMAILCAPTURE|MAPREDUCE|OTHER|PAYMENTPOSTBACK|PAYMENTGATEWAY|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTLET|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBSERVICES|WORKFLOW|PLATFORMEXTENSION|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|DATASETBUILDER|WORKBOOKBUILDER|FIPARSER|RECORDACTION|OCRPLUGIN"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "MESSAGE"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

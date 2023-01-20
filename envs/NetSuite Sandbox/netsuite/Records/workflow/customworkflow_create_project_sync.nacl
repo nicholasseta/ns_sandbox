@@ -1,0 +1,128 @@
+netsuite.workflow customworkflow_create_project_sync {
+  scriptid = "customworkflow_create_project_sync"
+  description = "Syncs the created project standard box with create project by script box."
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Create Project Sync"
+  recordtypes = "SERVICEITEM"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15128 = {
+        scriptid = "workflowstate15128"
+        donotexitworkflow = false
+        name = "Sync Create Project Boxes"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERFIELDEDIT = {
+            triggertype = "AFTERFIELDEDIT"
+            setfieldvalueaction = {
+              workflowaction87923 = {
+                scriptid = "workflowaction87923"
+                clienttriggerfields = "STDITEMCREATEJOB"
+                field = netsuite.itemcustomfield.instance.custitem_create_project_by_script.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isChecked(\"Create Job\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Create_Job@s = {
+                        name = "Create Job"
+                        value = "STDITEMCREATEJOB"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction87924 = {
+                scriptid = "workflowaction87924"
+                clienttriggerfields = "STDITEMCREATEJOB"
+                field = netsuite.itemcustomfield.instance.custitem_create_project_by_script.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isChecked(\"Create Job\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Create_Job@s = {
+                        name = "Create Job"
+                        value = "STDITEMCREATEJOB"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+              workflowaction87925 = {
+                scriptid = "workflowaction87925"
+                clienttriggerfields = netsuite.itemcustomfield.instance.custitem_create_project_by_script.scriptid
+                field = "STDITEMCREATEJOB"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isChecked(\"Create Project By Script\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Create_Project_By_Script@s = {
+                        name = "Create Project By Script"
+                        value = netsuite.itemcustomfield.instance.custitem_create_project_by_script.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 2
+              }
+              workflowaction87926 = {
+                scriptid = "workflowaction87926"
+                clienttriggerfields = netsuite.itemcustomfield.instance.custitem_create_project_by_script.scriptid
+                field = "STDITEMCREATEJOB"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isChecked(\"Create Project By Script\") = 'F'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Create_Project_By_Script@s = {
+                        name = "Create Project By Script"
+                        value = netsuite.itemcustomfield.instance.custitem_create_project_by_script.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 3
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

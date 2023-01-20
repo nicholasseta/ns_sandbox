@@ -1,0 +1,21 @@
+netsuite.bundleinstallationscript customscript_ei_bi_ctt_dep_create {
+  scriptid = "customscript_ei_bi_ctt_dep_create"
+  description = "This script triggers the Update CTT Deployment MR script, which creates script deployments of all registered custom transaction types in an account. You can create the script deployments only after the Electronic Invoicing SuiteApp is updated in that account."
+  isinactive = false
+  name = "Update CTT Deployments"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = "[/SuiteBundles/Bundle 436209/com.netsuite.electronicinvoicing/src/comp/bi/biUpdateCttDeployments.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeployei_bi_ctt_dep_create = {
+        scriptid = "customdeployei_bi_ctt_dep_create"
+        isdeployed = true
+        loglevel = "ERROR"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+        title = "Update CTT Deployments"
+      }
+    }
+  }
+}

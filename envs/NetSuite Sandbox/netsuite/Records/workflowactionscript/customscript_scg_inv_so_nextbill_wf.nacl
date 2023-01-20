@@ -1,0 +1,27 @@
+netsuite.workflowactionscript customscript_scg_inv_so_nextbill_wf {
+  scriptid = "customscript_scg_inv_so_nextbill_wf"
+  defaultfunction = "invoiceSO_NextBill"
+  isinactive = false
+  name = "SCG_InvoiceSO_NextBill_WF"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  returnrecordtype = "-30"
+  returntype = "SELECT"
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_InvoiceSO_NextBill_WF_js@duuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_inv_so_nextbill_wf = {
+        scriptid = "customdeploy_scg_inv_so_nextbill_wf"
+        allemployees = false
+        allpartners = false
+        allroles = true
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "SALESORDER"
+        runasrole = "ADMINISTRATOR"
+        status = "RELEASED"
+      }
+    }
+  }
+}

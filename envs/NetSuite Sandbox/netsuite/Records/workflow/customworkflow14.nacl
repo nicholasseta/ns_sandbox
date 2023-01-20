@@ -1,0 +1,107 @@
+netsuite.workflow customworkflow14 {
+  scriptid = "customworkflow14"
+  initoncreate = true
+  initonvieworupdate = true
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "SCG | Project/ARM Source Ext ID on Trxn"
+  recordtypes = "CREDITMEMO|INVOICE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15159 = {
+        scriptid = "workflowstate15159"
+        donotexitworkflow = false
+        name = "Set ARM Source Ext ID or Project"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            workflowsublistactiongroup = {
+              workflowaction88233 = {
+                scriptid = "workflowaction88233"
+                conditionsavedsearch = netsuite.savedsearch.instance.customsearch3386.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                sublist = "ITEM"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                setfieldvalueaction = {
+                  workflowaction88234 = {
+                    scriptid = "workflowaction88234"
+                    field = "STDCOLJOB"
+                    isinactive = false
+                    valuechecked = false
+                    valuefield = netsuite.transactioncolumncustomfield.instance.custcol_op_project.scriptid
+                    valuetype = "FIELD"
+                    initcondition = {
+                      formula = "isEmpty(\"Line:Job\") = 'T'"
+                      type = "VISUAL_BUILDER"
+                      parameters = {
+                        parameter = {
+                          Line_Job@f = {
+                            name = "Line:Job"
+                            value = "STDCOLJOB"
+                            index = 0
+                          }
+                        }
+                      }
+                    }
+                    index = 0
+                  }
+                }
+                index = 0
+              }
+              workflowaction88223 = {
+                scriptid = "workflowaction88223"
+                conditionsavedsearch = "[scriptid=customsearch3187]"
+                isinactive = true
+                schedulemode = "DELAY"
+                sublist = "ITEM"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                setfieldvalueaction = {
+                  workflowaction88224 = {
+                    scriptid = "workflowaction88224"
+                    field = netsuite.transactioncolumncustomfield.instance.custcol_arm_sourceexternalid.scriptid
+                    isinactive = true
+                    valuechecked = false
+                    valuefield = netsuite.entitycustomfield.instance.custentity_sf_order_product_id.scriptid
+                    valuejoinfield = "STDCOLJOB"
+                    valuetype = "FIELD"
+                    initcondition = {
+                      formula = "isEmpty(\"Line:ARM Source External ID\") = 'T'"
+                      type = "VISUAL_BUILDER"
+                      parameters = {
+                        parameter = {
+                          Line_ARM_Source_External_ID@fsss = {
+                            name = "Line:ARM Source External ID"
+                            value = netsuite.transactioncolumncustomfield.instance.custcol_arm_sourceexternalid.scriptid
+                            index = 0
+                          }
+                        }
+                      }
+                    }
+                    index = 0
+                  }
+                }
+                index = 1
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

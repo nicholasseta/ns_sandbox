@@ -1,0 +1,49 @@
+netsuite.clientscript customscript_avapurchase_client {
+  scriptid = "customscript_avapurchase_client"
+  isinactive = false
+  name = "AVA_Purchase_Client"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_CLI_Purchase.js]"
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_avapurchaseorderclient = {
+        scriptid = "customdeploy_avapurchaseorderclient"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "OCRPLUGIN|ACTION|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DEBUGGER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|SCHEDULED|SDFINSTALLATION|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "PURCHASEORDER"
+        status = "RELEASED"
+      }
+      customdeploy_avavendorbillclient = {
+        scriptid = "customdeploy_avavendorbillclient"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "OCRPLUGIN|ACTION|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DEBUGGER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|SCHEDULED|SDFINSTALLATION|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "VENDORBILL"
+        status = "RELEASED"
+      }
+      customdeploy_avavendorcreditclient = {
+        scriptid = "customdeploy_avavendorcreditclient"
+        allemployees = false
+        alllocalizationcontexts = true
+        allpartners = false
+        allroles = true
+        executioncontext = "OCRPLUGIN|ACTION|BUNDLEINSTALLATION|CLIENT|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|RECORDACTION|DEBUGGER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PLATFORMEXTENSION|PORTLET|PROMOTIONS|CONSOLRATEADJUSTOR|RESTWEBSERVICES|RESTLET|SCHEDULED|SDFINSTALLATION|WEBSERVICES|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WORKFLOW"
+        isdeployed = true
+        loglevel = "DEBUG"
+        recordtype = "VENDORCREDIT"
+        status = "RELEASED"
+      }
+    }
+  }
+}

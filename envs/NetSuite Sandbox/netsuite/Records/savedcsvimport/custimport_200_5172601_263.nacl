@@ -1,0 +1,69 @@
+netsuite.savedcsvimport custimport_200_5172601_263 {
+  scriptid = "custimport_200_5172601_263"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "Email and Legacy ID Update"
+  entryform = netsuite.entryForm.instance.custformis_customer_form.scriptid
+  ignorereadonly = true
+  importname = "Email and Legacy ID Update"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  preventduplicates = false
+  recordtype = "CUSTOMER"
+  runserversuitescript = false
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMER = {
+        file = "CUSTOMER"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMER = {
+        record = "CUSTOMER"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_legacy_customer_number = {
+              field = netsuite.entitycustomfield.instance.custentity_legacy_customer_number.scriptid
+              columnreference = {
+                column = "Legacy Customer Number"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            custentity_scg_mult_inv_emails = {
+              field = netsuite.entitycustomfield.instance.custentity_scg_mult_inv_emails.scriptid
+              columnreference = {
+                column = "Multiple Invoice Emails"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "Internal ID"
+                file = "CUSTOMER"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

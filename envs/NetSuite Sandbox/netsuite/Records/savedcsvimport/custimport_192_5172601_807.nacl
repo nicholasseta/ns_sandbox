@@ -1,0 +1,74 @@
+netsuite.savedcsvimport custimport_192_5172601_807 {
+  scriptid = "custimport_192_5172601_807"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  description = "ERP Version List Import"
+  ignorereadonly = true
+  importname = "ERP Version List Import"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "CUSTOMLIST"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      CUSTOMLIST = {
+        file = "CUSTOMLIST"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      CUSTOMLIST = {
+        record = "CUSTOMLIST"
+        fieldmappings = {
+          fieldmapping = {
+            NAME = {
+              field = "NAME"
+              columnreference = {
+                column = "Name"
+                file = "CUSTOMLIST"
+                type = "NAME"
+              }
+            }
+            SCRIPTID = {
+              field = "SCRIPTID"
+              columnreference = {
+                column = "ID"
+                file = "CUSTOMLIST"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      CUSTOMLIST_CUSTOMVALUE@f = {
+        record = "CUSTOMLIST:CUSTOMVALUE"
+        fieldmappings = {
+          fieldmapping = {
+            VALUE = {
+              field = "VALUE"
+              columnreference = {
+                column = "Values"
+                file = "CUSTOMLIST"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

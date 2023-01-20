@@ -1,0 +1,12 @@
+netsuite.emailtemplate custemailtmpl_invoice_7days_pastdue {
+  scriptid = "custemailtmpl_invoice_7days_pastdue"
+  addcompanyaddress = true
+  addunsubscribelink = true
+  isinactive = true
+  isprivate = false
+  name = "Invoice - 7 Days Past Due"
+  recordtype = "TRANSACTION"
+  subject = "Past Due: Invoice# \${transaction.tranId} from \${transaction.subsidiary.namenohierarchy}"
+  usesmedia = false
+  content = file("netsuite/emailtemplate/custemailtmpl_invoice_7days_pastdue.html")
+}

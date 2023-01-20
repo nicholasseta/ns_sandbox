@@ -1,0 +1,194 @@
+netsuite.savedcsvimport custimport_653_5172601_910 {
+  scriptid = "custimport_653_5172601_910"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "Import Deal ID Test Invoices"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "INVOICE"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custform_118_5172601_591.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = true
+  }
+  filemappings = {
+    filemapping = {
+      INVOICE = {
+        file = "INVOICE"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      INVOICE_ITEM@f = {
+        record = "INVOICE:ITEM"
+        fieldmappings = {
+          fieldmapping = {
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Total Sales Price"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_discount_precent = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_discount_precent.scriptid
+              columnreference = {
+                column = "Partner_Discount_Percent__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_base_ssp = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_base_ssp.scriptid
+              columnreference = {
+                column = "Standalone_Selling_Price__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_block_price_desc = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_block_price_desc.scriptid
+              columnreference = {
+                column = "Block_Price_Tier_Description__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_block_price_multiplier = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_block_price_multiplier.scriptid
+              columnreference = {
+                column = "Block_Price_Tier_Multiplier__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_discount_tier_desc = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_discount_tier_desc.scriptid
+              columnreference = {
+                column = "Discount_Tier_Description__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_discount_tier_multiplier = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_discount_tier_multiplier.scriptid
+              columnreference = {
+                column = "Discount_Tier_Multiplier__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_proration_factor = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_proration_factor.scriptid
+              columnreference = {
+                column = "SBQQ__ProrateMultiplier__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_tier_multi_desc = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_tier_multi_desc.scriptid
+              columnreference = {
+                column = "Tier_Multiplier_Description__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_isw_tier_multiplier = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_isw_tier_multiplier.scriptid
+              columnreference = {
+                column = "Tier_Multiplier__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            custcol_rev_rec_end_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_end_date.scriptid
+              value = "12/13/2023"
+            }
+            custcol_rev_rec_start_date = {
+              field = netsuite.transactioncolumncustomfield.instance.custcol_rev_rec_start_date.scriptid
+              value = "12/14/2022"
+            }
+            ITEM = {
+              field = "ITEM"
+              columnreference = {
+                column = "Product2.Name"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            QUANTITY = {
+              field = "QUANTITY"
+              columnreference = {
+                column = "SBQQ__OrderedQuantity__c"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            RATE = {
+              field = "RATE"
+              columnreference = {
+                column = "Unit Selling Price"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            TAX1AMT = {
+              field = "TAX1AMT"
+              value = "0"
+            }
+            TAXCODE = {
+              field = "TAXCODE"
+              value = "25785"
+            }
+          }
+        }
+      }
+      INVOICE = {
+        record = "INVOICE"
+        fieldmappings = {
+          fieldmapping = {
+            CURRENCY = {
+              field = "CURRENCY"
+              value = "1"
+            }
+            ENTITY = {
+              field = "ENTITY"
+              value = "1745178"
+            }
+            EXTERNALID = {
+              field = "EXTERNALID"
+              columnreference = {
+                column = "External ID"
+                file = "INVOICE"
+                type = "NAME"
+              }
+            }
+            SUBSIDIARY = {
+              field = "SUBSIDIARY"
+              value = "10"
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              value = "12/14/2022"
+            }
+          }
+        }
+      }
+    }
+  }
+}

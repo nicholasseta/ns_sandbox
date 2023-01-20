@@ -1,0 +1,86 @@
+netsuite.savedcsvimport custimport_480_5172601_229 {
+  scriptid = "custimport_480_5172601_229"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "UPDATE"
+  decimaldelimiter = "PERIOD"
+  entryform = netsuite.entryForm.instance.custformis_project_form.scriptid
+  ignorereadonly = true
+  importname = "Project PCO Upload"
+  logsystemnotescustfields = true
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "JOB"
+  runserversuitescript = true
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      JOB = {
+        file = "JOB"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      JOB_PERCENTCOMPLETEOVERRIDE@f = {
+        record = "JOB:PERCENTCOMPLETEOVERRIDE"
+        fieldmappings = {
+          fieldmapping = {
+            COMMENTS = {
+              field = "COMMENTS"
+              value = "7/7/22 Manual Upload - OA Integration Issues"
+            }
+            PERCENT = {
+              field = "PERCENT"
+              columnreference = {
+                column = "Import %"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            PERIOD = {
+              field = "PERIOD"
+              value = "128"
+            }
+          }
+        }
+      }
+      JOB = {
+        record = "JOB"
+        fieldmappings = {
+          fieldmapping = {
+            custentity_openair_last_rev_rec_date_cus = {
+              field = netsuite.entitycustomfield.instance.custentity_openair_last_rev_rec_date_cus.scriptid
+              value = "6/30/2022"
+            }
+            custentity_openair_pco_custom = {
+              field = netsuite.entitycustomfield.instance.custentity_openair_pco_custom.scriptid
+              columnreference = {
+                column = "Import %"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+            ID = {
+              field = "ID"
+              columnreference = {
+                column = "NS Project ID"
+                file = "JOB"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,839 @@
+netsuite.workflow customworkflow_scg_vb_approval {
+  scriptid = "customworkflow_scg_vb_approval"
+  initoncreate = true
+  initonvieworupdate = true
+  isinactive = false
+  islogenabled = true
+  keephistory = "ALWAYS"
+  name = "Vendor Bill Approval"
+  recordtypes = "VENDORBILL"
+  releasestatus = "NOTINITIATING"
+  runasadmin = false
+  initcondition = {
+    formula = "\"Approval Status\" NOT IN (\"Approval Status1\")"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Approval_Status@s = {
+          name = "Approval Status"
+          value = "STDBODYAPPROVALSTATUS"
+          index = 0
+        }
+        Approval_Status1@s = {
+          name = "Approval Status1"
+          selectrecordtype = "-243"
+          value = "2"
+          index = 1
+        }
+      }
+    }
+  }
+  workflowcustomfields = {
+    workflowcustomfield = {
+      custworkflow_scg_vb_created_by = {
+        scriptid = "custworkflow_scg_vb_created_by"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Created By"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 0
+      }
+      custworkflow_scg_email_sent_to = {
+        scriptid = "custworkflow_scg_email_sent_to"
+        applyformatting = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        label = "Email Sent To"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 1
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate13 = {
+        scriptid = "workflowstate13"
+        donotexitworkflow = false
+        name = "Created from PO"
+        positionx = 63
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction84 = {
+                scriptid = "workflowaction84"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "2"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "isChecked(\"Created from PO\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Created_from_PO@s = {
+                        name = "Created from PO"
+                        value = netsuite.transactionbodycustomfield.instance.custbody_scg_created_from_po.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition21 = {
+              scriptid = "workflowtransition21"
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate8.scriptid
+              initcondition = {
+                formula = "isChecked(\"Created from PO\") = 'F'"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Created_from_PO@s = {
+                      name = "Created from PO"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_scg_created_from_po.scriptid
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 0
+            }
+            workflowtransition22 = {
+              scriptid = "workflowtransition22"
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate9.scriptid
+              initcondition = {
+                formula = "isChecked(\"Created from PO\") = 'T'"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Created_from_PO@s = {
+                      name = "Created from PO"
+                      value = netsuite.transactionbodycustomfield.instance.custbody_scg_created_from_po.scriptid
+                      index = 0
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+          }
+        }
+        index = 0
+      }
+      workflowstate8 = {
+        scriptid = "workflowstate8"
+        donotexitworkflow = false
+        name = "On Create"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction62 = {
+                scriptid = "workflowaction62"
+                field = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDUSERUSER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setdisplaytypeaction = {
+              workflowaction63 = {
+                scriptid = "workflowaction63"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\",\"Role2\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = netsuite.role.instance.customrole_is_ap_clerk.scriptid
+                        index = 1
+                      }
+                      Role2 = {
+                        name = "Role2"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction64 = {
+                scriptid = "workflowaction64"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "1"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          BEFOREUSEREDIT = {
+            triggertype = "BEFOREUSEREDIT"
+            setfieldvalueaction = {
+              workflowaction65 = {
+                scriptid = "workflowaction65"
+                field = "STDBODYTRANDATE"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 2
+          }
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            returnusererroraction = {
+              workflowaction66 = {
+                scriptid = "workflowaction66"
+                errortext = "You must select a value for \"Next Approver\" if \"Approval Status\" = Pending Approval."
+                eventtypes = "CREATE"
+                isinactive = false
+                initcondition = {
+                  formula = "isEmpty(\"Next Approver\") = 'T' AND \"Approval Status\" IN (\"Approval Status1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Next_Approver@s = {
+                        name = "Next Approver"
+                        value = "STDBODYNEXTAPPROVER"
+                        index = 0
+                      }
+                      Approval_Status@s = {
+                        name = "Approval Status"
+                        value = "STDBODYAPPROVALSTATUS"
+                        index = 1
+                      }
+                      Approval_Status1@s = {
+                        name = "Approval Status1"
+                        selectrecordtype = "-243"
+                        value = "1"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 3
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition16 = {
+              scriptid = "workflowtransition16"
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate9.scriptid
+              triggertype = "AFTERSUBMIT"
+              initcondition = {
+                formula = "\"Approval Status\" IN (\"Approval Status1\")"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Approval_Status@s = {
+                      name = "Approval Status"
+                      value = "STDBODYAPPROVALSTATUS"
+                      index = 0
+                    }
+                    Approval_Status1@s = {
+                      name = "Approval Status1"
+                      selectrecordtype = "-243"
+                      value = "2"
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 0
+            }
+            workflowtransition17 = {
+              scriptid = "workflowtransition17"
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate10.scriptid
+              triggertype = "AFTERSUBMIT"
+              initcondition = {
+                formula = "\"Approval Status\" IN (\"Approval Status1\") AND isEmpty(\"Next Approver\") = 'F'"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Approval_Status@s = {
+                      name = "Approval Status"
+                      value = "STDBODYAPPROVALSTATUS"
+                      index = 0
+                    }
+                    Approval_Status1@s = {
+                      name = "Approval Status1"
+                      selectrecordtype = "-243"
+                      value = "1"
+                      index = 1
+                    }
+                    Next_Approver@s = {
+                      name = "Next Approver"
+                      value = "STDBODYNEXTAPPROVER"
+                      index = 2
+                    }
+                  }
+                }
+              }
+              index = 1
+            }
+          }
+        }
+        index = 1
+      }
+      workflowstate9 = {
+        scriptid = "workflowstate9"
+        donotexitworkflow = false
+        name = "Approved by Creator"
+        positionx = 423
+        positiony = 133
+        index = 2
+      }
+      workflowstate10 = {
+        scriptid = "workflowstate10"
+        donotexitworkflow = false
+        name = "Pending Approval"
+        positionx = 243
+        positiony = 223
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            sendemailaction = {
+              workflowaction67 = {
+                scriptid = "workflowaction67"
+                attachmenttype = "SPECIFIC"
+                body = "Dear {nextapprover.firstname},<br><br>This Vendor Bill requires your approval.<br><br>Vendor: {entity}<br>Bill #: {transactionnumber}<br>Date: {trandate}<br>Total: {total}<br><br>If you have any questions, please reply to this email.<br><br>Thank you,&nbsp;<br><br>{custworkflow_scg_vb_created_by.firstname}<br>{custworkflow_scg_vb_created_by.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = false
+                recipientfield = "STDBODYNEXTAPPROVER"
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                sendertype = "FIELD"
+                subject = "Vendor Bill {transactionnumber} Requires Your Approval"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            setfieldvalueaction = {
+              workflowaction68 = {
+                scriptid = "workflowaction68"
+                field = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_email_sent_to.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = "STDBODYNEXTAPPROVER"
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            addbuttonaction = {
+              workflowaction69 = {
+                scriptid = "workflowaction69"
+                checkconditionbeforeexecution = true
+                isinactive = false
+                label = "Approve"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "\"Next Approver\" IN (\"Current User\") OR \"User Role\" IN (\"Role1\") AND \"Approval Status\" IN (\"Approval Status1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Next_Approver@s = {
+                        name = "Next Approver"
+                        value = "STDBODYNEXTAPPROVER"
+                        index = 0
+                      }
+                      Current_User@s = {
+                        name = "Current User"
+                        selectrecordtype = "-4"
+                        value = "@CURRENTUSER@"
+                        index = 1
+                      }
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 2
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 3
+                      }
+                      Approval_Status@s = {
+                        name = "Approval Status"
+                        value = "STDBODYAPPROVALSTATUS"
+                        index = 4
+                      }
+                      Approval_Status1@s = {
+                        name = "Approval Status1"
+                        selectrecordtype = "-243"
+                        value = "1"
+                        index = 5
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction70 = {
+                scriptid = "workflowaction70"
+                checkconditionbeforeexecution = false
+                isinactive = false
+                label = "Reject"
+                saverecordfirst = false
+                initcondition = {
+                  formula = "isEmpty(\"User\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User = {
+                        name = "User"
+                        value = "STDUSERUSER"
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            lockrecordaction = {
+              workflowaction71 = {
+                scriptid = "workflowaction71"
+                isinactive = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            setdisplaytypeaction = {
+              workflowaction72 = {
+                scriptid = "workflowaction72"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition18 = {
+              scriptid = "workflowtransition18"
+              buttonaction = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate10.workflowactions.BEFORELOAD.addbuttonaction.workflowaction69.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate11.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 0
+            }
+            workflowtransition19 = {
+              scriptid = "workflowtransition19"
+              buttonaction = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate10.workflowactions.BEFORELOAD.addbuttonaction.workflowaction70.scriptid
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate12.scriptid
+              initcondition = {
+                type = "VISUAL_BUILDER"
+              }
+              index = 1
+            }
+          }
+        }
+        index = 3
+      }
+      workflowstate11 = {
+        scriptid = "workflowstate11"
+        donotexitworkflow = false
+        name = "Approved"
+        positionx = 243
+        positiony = 313
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction73 = {
+                scriptid = "workflowaction73"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "2"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction75 = {
+                scriptid = "workflowaction75"
+                field = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_email_sent_to.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            sendemailaction = {
+              workflowaction74 = {
+                scriptid = "workflowaction74"
+                attachmenttype = "SPECIFIC"
+                body = "Dear {custworkflow_scg_vb_created_by.firstname},<BR><br>This Vendor Bill was Approved.<BR><br>Employee: {custworkflow_scg_vb_created_by}<BR>Bill #: {transactionnumber}<BR>Date: {trandate}<BR>Total: {total}<BR><br>Approved By: {nextapprover.firstname} {nextapprover.lastname}<BR><br>If you have any questions, please reply to this email.<BR><br>Thank you,&nbsp;<BR><br>{nextapprover.firstname}<BR>{nextapprover.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = false
+                recipientfield = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYNEXTAPPROVER"
+                sendertype = "FIELD"
+                subject = "Vendor Bill {transactionnumber} was Approved"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            lockrecordaction = {
+              workflowaction76 = {
+                scriptid = "workflowaction76"
+                isinactive = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\",\"Role2\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = netsuite.role.instance.customrole_is_ap_clerk.scriptid
+                        index = 1
+                      }
+                      Role2 = {
+                        name = "Role2"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 2
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+        }
+        index = 4
+      }
+      workflowstate12 = {
+        scriptid = "workflowstate12"
+        donotexitworkflow = false
+        name = "Rejected"
+        positionx = 423
+        positiony = 223
+        workflowactions = {
+          ONENTRY = {
+            triggertype = "ONENTRY"
+            setfieldvalueaction = {
+              workflowaction77 = {
+                scriptid = "workflowaction77"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "3"
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+              workflowaction80 = {
+                scriptid = "workflowaction80"
+                field = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_email_sent_to.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuefield = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                valuetype = "FIELD"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 1
+              }
+            }
+            sendemailaction = {
+              workflowaction79 = {
+                scriptid = "workflowaction79"
+                attachmenttype = "SPECIFIC"
+                body = "Dear {custworkflow_scg_vb_created_by.firstname},<BR><br>This Vendor Bill was Rejected.<BR><br>Employee: {custworkflow_scg_vb_created_by}<BR>Bill #: {transactionnumber}<BR>Date: {trandate}<BR>Total: {total}<BR><br>Rejected By: {nextapprover.firstname} {nextapprover.lastname}<BR>Rejection Reason: {custbody_scg_reject_reason_vb}<BR><br>If you have any questions, please reply to this email.<BR><br>Thank you,<BR><br>{nextapprover.firstname}<BR>{nextapprover.email}"
+                includeformat = "PDF"
+                includerecordlink = true
+                includetransaction = true
+                isinactive = false
+                recipientfield = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                recipienttype = "FIELD"
+                schedulemode = "DELAY"
+                senderfield = "STDBODYNEXTAPPROVER"
+                sendertype = "FIELD"
+                subject = "Vendor Bill {transactionnumber} was Rejected"
+                usetemplate = false
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+          BEFORELOAD = {
+            triggertype = "BEFORELOAD"
+            setdisplaytypeaction = {
+              workflowaction81 = {
+                scriptid = "workflowaction81"
+                displaytype = "DISABLED"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                issublistfield = false
+                initcondition = {
+                  formula = "\"User Role\" NOT IN (\"Role1\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      User_Role@s = {
+                        name = "User Role"
+                        value = "STDUSERROLE"
+                        index = 0
+                      }
+                      Role1 = {
+                        name = "Role1"
+                        selectrecordtype = "-118"
+                        value = "ADMINISTRATOR"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 1
+          }
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction82 = {
+                scriptid = "workflowaction82"
+                field = netsuite.transactionbodycustomfield.instance.custbody_scg_reject_reason_vb.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Workflow:Created By\" IN (\"Current User\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Workflow_Created_By@fs = {
+                        name = "Workflow:Created By"
+                        value = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                        index = 0
+                      }
+                      Current_User@s = {
+                        name = "Current User"
+                        selectrecordtype = "-4"
+                        value = "@CURRENTUSER@"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+              workflowaction83 = {
+                scriptid = "workflowaction83"
+                field = "STDBODYAPPROVALSTATUS"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valueselect = "1"
+                valuetype = "STATIC"
+                initcondition = {
+                  formula = "\"Workflow:Created By\" IN (\"Current User\")"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Workflow_Created_By@fs = {
+                        name = "Workflow:Created By"
+                        value = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                        index = 0
+                      }
+                      Current_User@s = {
+                        name = "Current User"
+                        selectrecordtype = "-4"
+                        value = "@CURRENTUSER@"
+                        index = 1
+                      }
+                    }
+                  }
+                }
+                index = 1
+              }
+            }
+            index = 2
+          }
+        }
+        workflowtransitions = {
+          workflowtransition = {
+            workflowtransition20 = {
+              scriptid = "workflowtransition20"
+              tostate = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowstates.workflowstate.workflowstate10.scriptid
+              triggertype = "AFTERSUBMIT"
+              initcondition = {
+                formula = "\"Workflow:Created By\" IN (\"Current User\")"
+                type = "VISUAL_BUILDER"
+                parameters = {
+                  parameter = {
+                    Workflow_Created_By@fs = {
+                      name = "Workflow:Created By"
+                      value = netsuite.workflow.instance.customworkflow_scg_vb_approval.workflowcustomfields.workflowcustomfield.custworkflow_scg_vb_created_by.scriptid
+                      index = 0
+                    }
+                    Current_User@s = {
+                      name = "Current User"
+                      selectrecordtype = "-4"
+                      value = "@CURRENTUSER@"
+                      index = 1
+                    }
+                  }
+                }
+              }
+              index = 0
+            }
+          }
+        }
+        index = 5
+      }
+    }
+  }
+}

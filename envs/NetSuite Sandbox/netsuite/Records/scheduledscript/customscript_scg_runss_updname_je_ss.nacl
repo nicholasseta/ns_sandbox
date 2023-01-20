@@ -1,0 +1,26 @@
+netsuite.scheduledscript customscript_scg_runss_updname_je_ss {
+  scriptid = "customscript_scg_runss_updname_je_ss"
+  defaultfunction = "runScheduledScript"
+  isinactive = false
+  name = "SCG RunSchedScript UpdName JE SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RunSchedScript_UpdName_JE_SS_js@duuuuv.path
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_runss_updname_je_ss = {
+        scriptid = "customdeploy_scg_runss_updname_je_ss"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG RunSchedScript UpdName JE SS"
+        recurrence = {
+          single = {
+            startdate = "2021-11-23"
+            starttime = "23:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

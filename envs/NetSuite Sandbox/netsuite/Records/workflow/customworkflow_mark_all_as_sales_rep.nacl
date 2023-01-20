@@ -1,0 +1,49 @@
+netsuite.workflow customworkflow_mark_all_as_sales_rep {
+  scriptid = "customworkflow_mark_all_as_sales_rep"
+  description = "Marks all employees as sales reps."
+  initoncreate = true
+  initonvieworupdate = true
+  inittriggertype = "BEFORESUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ALWAYS"
+  name = "Mark All As Sales Rep"
+  recordtypes = "EMPLOYEE"
+  releasestatus = "RELEASED"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate14 = {
+        scriptid = "workflowstate14"
+        donotexitworkflow = false
+        name = "Mark Sales Rep"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          BEFORESUBMIT = {
+            triggertype = "BEFORESUBMIT"
+            setfieldvalueaction = {
+              workflowaction85 = {
+                scriptid = "workflowaction85"
+                field = "STDENTITYISSALESREP"
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = true
+                valuetype = "STATIC"
+                initcondition = {
+                  type = "VISUAL_BUILDER"
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+netsuite.mapreducescript customscript_scg_revplans_hold_upd_2_mr {
+  scriptid = "customscript_scg_revplans_hold_upd_2_mr"
+  isinactive = false
+  name = "SCG RevPlans Hold Update 2 MR"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_RevPlans_Hold_Update_2_MR_js@duuuuuv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_scg_rphu_savedsearch_id = {
+        scriptid = "custscript_scg_rphu_savedsearch_id"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        displaywidth = 40
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Rev Plan Search ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_revplans_hold_upd_2_mr = {
+        scriptid = "customdeploy_scg_revplans_hold_upd_2_mr"
+        buffersize = "1"
+        concurrencylimit = "1"
+        custscript_scg_rphu_savedsearch_id = "customsearch_scg_logi_plans_on_hold"
+        isdeployed = true
+        loglevel = "DEBUG"
+        queueallstagesatonce = true
+        runasrole = "ADMINISTRATOR"
+        status = "NOTSCHEDULED"
+        title = "SCG RevPlans Hold Update 2 MR"
+        yieldaftermins = "60"
+        recurrence = {
+          single = {
+            startdate = "2022-09-26"
+            starttime = "22:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

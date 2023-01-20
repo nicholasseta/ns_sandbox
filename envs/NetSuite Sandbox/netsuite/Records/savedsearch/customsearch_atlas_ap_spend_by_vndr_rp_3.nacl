@@ -1,0 +1,364 @@
+netsuite.savedsearch customsearch_atlas_ap_spend_by_vndr_rp_3 {
+  scriptid = "customsearch_atlas_ap_spend_by_vndr_rp_3"
+  dependencies = {
+    dependency = [
+      netsuite.transactionbodycustomfield.instance.custbody_subsidiary_name.scriptid,
+      netsuite.customlist.instance.customlist_subsidiary_name.scriptid,
+    ]
+  }
+  definition = "a893e0a3159a7290b40ed7b0e17d985c5ac9ddd6c51bc2d9b562fd928a2cdd2a@GZC@2022.2.15@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"
+  search_filter = [
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_TYPE"
+      FIELD_ATTRIBUTE = "ANYOF"
+      FIELD_TYPE = "SELECT"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "VendBill"
+        },
+        {
+          KEY_ID = 1
+          FIELD_VALUE = "PurchOrd"
+        },
+      ]
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_MAINLINE"
+      FIELD_ATTRIBUTE = "T"
+      FIELD_TYPE = "CHECKBOX"
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_STATUS"
+      FIELD_ATTRIBUTE = "ANYOF"
+      FIELD_TYPE = "SELECT"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "VendBill:A"
+        },
+        {
+          KEY_ID = 1
+          FIELD_VALUE = "VendBill:B"
+        },
+        {
+          KEY_ID = 2
+          FIELD_VALUE = "PurchOrd:F"
+        },
+        {
+          KEY_ID = 3
+          FIELD_VALUE = "PurchOrd:E"
+        },
+      ]
+    },
+    {
+      FLAG_DATE_TIME_SECOND = false
+      FLAG_FROM_AVAILABLE_FILTER = false
+      FLAG_NOT = false
+      FLAG_OR = false
+      FIELD_OR_CLAUSE_STATUS = "N"
+      FIELD_NUM_LEFT_PARENS = 0
+      FIELD_NUM_RIGHT_PARENS = 0
+      FIELD_FILTER_NAME = "Transaction_TRANDATE"
+      FIELD_MODIFIER = "WITHIN"
+      FIELD_ATTRIBUTE = "TY"
+      FIELD_TYPE = "DATE"
+      RECORDS = [
+        {
+          KEY_ID = 0
+          FIELD_VALUE = "2019-01-01 05:00:00.0 UTC"
+        },
+        {
+          KEY_ID = 1
+          FIELD_VALUE = "2019-12-31 05:00:00.0 UTC"
+        },
+      ]
+    },
+  ]
+  available_filters = [
+    {
+      SEQ_NUMBER = 1
+      FIELD_NAME = "Transaction_TRANDATE"
+      FIELD_CUSTOM_LABEL = "Transaction Date"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+    {
+      SEQ_NUMBER = 2
+      FIELD_NAME = "VE_Entity_ENTITYID"
+      FIELD_CUSTOM_LABEL = "Vendor"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+    {
+      SEQ_NUMBER = 3
+      FIELD_NAME = "CUSTBODY_SUBSIDIARY_NAME"
+      FIELD_CUSTOM_LABEL = "Subsidiary"
+      FLAG_FOOTER = true
+      FLAG_FOOTER_MULTI_SELECT = false
+    },
+  ]
+  return_fields = [
+    {
+      FIELD_ALIAS = "VE_Entity_ENTITYID"
+      FIELD_INDEX = 1
+      FIELD_LABEL = "Vendor"
+      FIELD_SUMMARY_TYPE = "GROUP"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_AMOUNT"
+      FIELD_INDEX = 2
+      FIELD_SUMMARY_LABEL = "Total Amount"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 3
+      FIELD_LABEL = "Jan"
+      FIELD_SUMMARY_LABEL = "Jan"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 1 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 4
+      FIELD_LABEL = "Feb"
+      FIELD_SUMMARY_LABEL = "Feb"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 2 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 5
+      FIELD_LABEL = "Mar"
+      FIELD_SUMMARY_LABEL = "Mar"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 3 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 6
+      FIELD_LABEL = "Apr"
+      FIELD_SUMMARY_LABEL = "Apr"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 4 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 7
+      FIELD_LABEL = "May"
+      FIELD_SUMMARY_LABEL = "May"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 5 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 8
+      FIELD_LABEL = "Jun"
+      FIELD_SUMMARY_LABEL = "Jun"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 6 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 9
+      FIELD_LABEL = "Jul"
+      FIELD_SUMMARY_LABEL = "Jul"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 7 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 10
+      FIELD_LABEL = "Aug"
+      FIELD_SUMMARY_LABEL = "Aug"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 8 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 11
+      FIELD_LABEL = "Sep"
+      FIELD_SUMMARY_LABEL = "Sep"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 9 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 12
+      FIELD_LABEL = "Oct"
+      FIELD_SUMMARY_LABEL = "Oct"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 10 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 13
+      FIELD_LABEL = "Nov"
+      FIELD_SUMMARY_LABEL = "Nov"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 11 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_FORMULACURRENCY"
+      FIELD_INDEX = 14
+      FIELD_LABEL = "Dec"
+      FIELD_SUMMARY_LABEL = "Dec"
+      FIELD_SUMMARY_TYPE = "SUM"
+      FIELD_FUNCTION = "ABSOLUTEVALUE"
+      FIELD_FORMULA = "CASE WHEN TO_CHAR({trandate}, &apos;YYYY&apos;) = (TO_CHAR({today}, &apos;YYYY&apos;)) AND TO_CHAR({trandate}, &apos;MM&apos;) = 12 THEN {amount} ELSE 0 END"
+      FIELD_FORMULA_ERROR = false
+    },
+  ]
+  detail_fields = [
+    {
+      FIELD_ALIAS = "Transaction_MAINLINE"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_TRANDATE"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_POSTINGPERIOD"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_TYPE"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_NUMBER"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_NAME"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_ACCOUNT"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_MEMO"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+    {
+      FIELD_ALIAS = "Transaction_AMOUNT"
+      FIELD_INDEX = 15
+      FIELD_FORMULA_ERROR = false
+    },
+  ]
+  sort_columns = [
+    {
+      KEY_FIELD = "Transaction_AMOUNT"
+      FILELD_ORDER = 1
+      FLAG_DESCENDING = true
+    },
+    {
+      KEY_FIELD = "VE_Entity_ENTITYID"
+      FILELD_ORDER = 2
+      FLAG_DESCENDING = false
+    },
+  ]
+  audience = {
+    FLAG_AUDIENCE_ALL_CUSTOMERS = false
+    FLAG_AUDIENCE_ALL_EMPLOYEES = false
+    FLAG_AUDIENCE_ALL_PARTNERS = false
+    FLAG_AUDIENCE_ALL_ROLES = true
+    FLAG_AUDIENCE_ALL_VENDORS = false
+  }
+  KEY_SCRIPT_ID = "customsearch_atlas_ap_spend_by_vndr_rp_3"
+  FIELD_DEFAULT_NAME = "Spend by Vendor - Monthly VM"
+  FIELD_SEARCH_TYPE = "Transaction"
+  FLAG_PUBLIC = true
+  FLAG_LIST = false
+  FLAG_PORTLET = true
+  FLAG_MACHINE = false
+  FLAG_REMINDER = false
+  FLAG_SHOW_LINK = false
+  FLAG_PREFERRED_LIST = false
+  FLAG_PREFERRED_PORTLET = false
+  FLAG_PREFERRED_MACHINE = false
+  FLAG_PREFERRED_FORM = false
+  FLAG_PREFERRED_RESULTS = false
+  FLAG_VIEW_AS_REPORT = true
+  FLAG_VIEW_AS_GRAPH = false
+  FLAG_VIEW_AS_GRID = false
+  FLAG_UNRESTRICTED = false
+  FLAG_DISABLE_DRILL_DOWN = false
+  FIELD_CURRENCY_RATE_TYPE = "HISTORICAL"
+  FLAG_HIDE_FILTER_DROPDOWNS = false
+  KEY_DEFAULT_TEXT_FIELD_FILTER = "STARTSWITH"
+  FLAG_AVAILABLE_AS_FEED = false
+  FLAG_GLOBAL_EDIT = false
+  FLAG_CSV = false
+  FLAG_EXCEL = false
+  FLAG_PDF = false
+  FLAG_TRIGGERED_ALERT = false
+  FLAG_SCHEDULED_ALERT = false
+  FLAG_SCHEDULED_ALERT_SUMMARIES = false
+  FLAG_SEND_EMPTY_RESULTS = false
+  FLAG_ALERT_ALLOW_SUBSCRIBE = false
+  FLAG_ALERT_INCLUDE_VIEW_LINK = true
+  FLAG_HAS_TOTALS = false
+  FLAG_INCLUDE_PERIOD_END_TRANSACTIONS = false
+  FLAG_BUILT_IN = false
+  FLAG_SEND_ON_UPDATE = false
+  FLAG_SHOW_AUDIT_TRAIL = false
+  KEY_AUDIENCE = 0
+}

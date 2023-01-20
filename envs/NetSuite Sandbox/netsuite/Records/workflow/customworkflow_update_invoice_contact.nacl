@@ -1,0 +1,45 @@
+netsuite.workflow customworkflow_update_invoice_contact {
+  scriptid = "customworkflow_update_invoice_contact"
+  description = "Sets the Invoice Contact to Accounts Payable when created"
+  initoncreate = true
+  initonvieworupdate = false
+  inittriggertype = "BEFORELOAD"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Update Invoice Contact"
+  recordtypes = "INVOICE"
+  releasestatus = "TESTING"
+  runasadmin = true
+  initcondition = {
+    formula = "\"Order Type\" IN (\"Order Type1\")"
+    type = "VISUAL_BUILDER"
+    parameters = {
+      parameter = {
+        Order_Type@s = {
+          name = "Order Type"
+          value = netsuite.transactionbodycustomfield.instance.custbody_so_ordertype.scriptid
+          index = 0
+        }
+        Order_Type1@s = {
+          name = "Order Type1"
+          selectrecordtype = netsuite.customlist.instance.customlist_so_ordertype.scriptid
+          value = netsuite.customlist.instance.customlist_so_ordertype.customvalues.customvalue.val_5682_5172601_sb1_660.scriptid
+          index = 1
+        }
+      }
+    }
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate36 = {
+        scriptid = "workflowstate36"
+        donotexitworkflow = false
+        name = "State 1"
+        positionx = 243
+        positiony = 133
+        index = 0
+      }
+    }
+  }
+}

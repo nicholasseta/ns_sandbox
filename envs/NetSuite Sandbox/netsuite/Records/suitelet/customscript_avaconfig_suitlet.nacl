@@ -1,0 +1,56 @@
+netsuite.suitelet customscript_avaconfig_suitlet {
+  scriptid = "customscript_avaconfig_suitlet"
+  isinactive = false
+  name = "AVA_Config_Suitlet"
+  notifyadmins = false
+  notifyowner = true
+  notifyuser = false
+  scriptfile = "[/SuiteBundles/Bundle 296604/AVA_SUT_ConfigForm.js]"
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_configroleid = {
+        scriptid = "custscript_configroleid"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "TEXT"
+        isformula = false
+        ismandatory = false
+        label = "Role ID"
+        searchlevel = "2"
+        storevalue = true
+        index = 0
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_configuration = {
+        scriptid = "customdeploy_configuration"
+        allemployees = false
+        allpartners = false
+        allroles = false
+        audslctrole = "ADMINISTRATOR|[scriptid=customrole1028]|[scriptid=customrole_is_acct_mgr]|[scriptid=customrole_tax]"
+        custscript_configroleid = "1, 1028, 1012, 1029"
+        isdeployed = true
+        isonline = false
+        loglevel = "DEBUG"
+        status = "RELEASED"
+        title = "AvaTax Configuration"
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = netsuite.role.instance.customrole1028.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_is_acct_mgr.scriptid
+    },
+    {
+      reference = netsuite.role.instance.customrole_tax.scriptid
+    },
+  ]
+}

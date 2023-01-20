@@ -1,0 +1,67 @@
+netsuite.scheduledscript customscript_scg_sendjoinedstmtsinvs_ss {
+  scriptid = "customscript_scg_sendjoinedstmtsinvs_ss"
+  defaultfunction = "is_jsi_sendJoinedStmtsInvs"
+  isinactive = false
+  name = "SCG sendJoinedStmtsInvoices SS"
+  notifyadmins = false
+  notifyowner = true
+  scriptfile = netsuite.file.instance.SuiteScripts_SCG_sendJoinedStmtsInvoices_SS_js@duuv.path
+  scriptcustomfields = {
+    scriptcustomfield = {
+      custscript_jsi_email_template = {
+        scriptid = "custscript_jsi_email_template"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Template"
+        onparentdelete = "NO_ACTION"
+        searchlevel = "2"
+        selectrecordtype = "-120"
+        storevalue = true
+        index = 0
+      }
+      custscript_jsi_email_author = {
+        scriptid = "custscript_jsi_email_author"
+        accesslevel = "2"
+        applyformatting = false
+        checkspelling = false
+        defaultchecked = false
+        displaytype = "NORMAL"
+        fieldtype = "SELECT"
+        isformula = false
+        ismandatory = false
+        label = "Email Author"
+        onparentdelete = "SET_NULL"
+        searchlevel = "2"
+        selectrecordtype = "-4"
+        storevalue = true
+        index = 1
+      }
+    }
+  }
+  scriptdeployments = {
+    scriptdeployment = {
+      customdeploy_scg_sendjoinedstmtsinvs_ss = {
+        scriptid = "customdeploy_scg_sendjoinedstmtsinvs_ss"
+        custscript_jsi_email_author = "[ACCOUNT_SPECIFIC_VALUE]"
+        custscript_jsi_email_template = "[ACCOUNT_SPECIFIC_VALUE]"
+        isdeployed = true
+        loglevel = "DEBUG"
+        status = "NOTSCHEDULED"
+        title = "SCG sendJoinedStmtsInvoices SS"
+        recurrence = {
+          monthly = {
+            everyxmonths = 1
+            startdate = "2020-01-11"
+            starttime = "00:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+netsuite.savedcsvimport custimport_79_5172601_sb1_785 {
+  scriptid = "custimport_79_5172601_sb1_785"
+  charencoding = "windows-1252"
+  columndelimiter = "COMMA"
+  datahandling = "ADD"
+  decimaldelimiter = "PERIOD"
+  ignorereadonly = true
+  importname = "SCG Credit Card Vendor Import"
+  logsystemnotescustfields = false
+  multiselectdelimiter = "|"
+  overwritemissingfields = false
+  overwritesublists = false
+  recordtype = "VENDORBILL"
+  runserversuitescript = false
+  transactionform = netsuite.transactionForm.instance.custformis_vendor_bill.scriptid
+  usemultithread = false
+  validatemandatorycustfields = true
+  audience = {
+    allemployees = false
+    allpartners = false
+    allroles = false
+    globaledit = false
+    ispublic = false
+  }
+  filemappings = {
+    filemapping = {
+      VENDORBILL = {
+        file = "VENDORBILL"
+      }
+    }
+  }
+  recordmappings = {
+    recordmapping = {
+      VENDORBILL = {
+        record = "VENDORBILL"
+        fieldmappings = {
+          fieldmapping = {
+            APPROVALSTATUS = {
+              field = "APPROVALSTATUS"
+              columnreference = {
+                column = "Vendor Bill: Approval Status"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            CURRENCY = {
+              field = "CURRENCY"
+              columnreference = {
+                column = "Vendor Bill : Currency"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            custbody_vendor_bill_date = {
+              field = netsuite.transactionbodycustomfield.instance.custbody_vendor_bill_date.scriptid
+              columnreference = {
+                column = "Vendor Bill : Date (Req)"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            ENTITY = {
+              field = "ENTITY"
+              columnreference = {
+                column = "Vendor Bill : Vendor ID (Req)"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            EXCHANGERATE = {
+              field = "EXCHANGERATE"
+              columnreference = {
+                column = "Vendor Bill : Exchange Rate"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Vendor Bill : Memo"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            TERMS = {
+              field = "TERMS"
+              columnreference = {
+                column = "Vendor Bill : Terms"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            TRANDATE = {
+              field = "TRANDATE"
+              columnreference = {
+                column = "Vendor Bill : Date (Req)"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            TRANID = {
+              field = "TRANID"
+              columnreference = {
+                column = "Vendor Bill : Invoice No."
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+      VENDORBILL_EXPENSE@f = {
+        record = "VENDORBILL:EXPENSE"
+        fieldmappings = {
+          fieldmapping = {
+            ACCOUNT = {
+              field = "ACCOUNT"
+              columnreference = {
+                column = "Vendor Bill Expenses : Account Internal ID"
+                file = "VENDORBILL"
+                type = "INTERNAL_ID"
+              }
+            }
+            AMORTIZATIONENDDATE = {
+              field = "AMORTIZATIONENDDATE"
+              columnreference = {
+                column = "Vendor Bill Expenses : Amortization End Date"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            AMORTIZATIONSCHED = {
+              field = "AMORTIZATIONSCHED"
+              columnreference = {
+                column = "Vendor Bill Expenses : Amortization Schedule"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            AMORTIZSTARTDATE = {
+              field = "AMORTIZSTARTDATE"
+              columnreference = {
+                column = "Vendor Bill Expenses : Amortization Start Date"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            AMOUNT = {
+              field = "AMOUNT"
+              columnreference = {
+                column = "Vendor Bill Expenses : Amount (Req)"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            CLASS = {
+              field = "CLASS"
+              columnreference = {
+                column = "Vendor Bill Expenses : ERP"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            CUSTOMER = {
+              field = "CUSTOMER"
+              columnreference = {
+                column = "Vendor Bill Expenses : Customer:Project ID"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            DEPARTMENT = {
+              field = "DEPARTMENT"
+              columnreference = {
+                column = "Vendor Bill Expenses : Department"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            ISBILLABLE = {
+              field = "ISBILLABLE"
+              columnreference = {
+                column = "Vendor Bill Expenses : Billable"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            LOCATION = {
+              field = "LOCATION"
+              columnreference = {
+                column = "Vendor Bill Expenses : Product Line"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+            MEMO = {
+              field = "MEMO"
+              columnreference = {
+                column = "Vendor Bill Expenses : Memo"
+                file = "VENDORBILL"
+                type = "NAME"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

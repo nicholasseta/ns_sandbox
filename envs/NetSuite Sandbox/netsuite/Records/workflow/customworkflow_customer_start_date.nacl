@@ -1,0 +1,60 @@
+netsuite.workflow customworkflow_customer_start_date {
+  scriptid = "customworkflow_customer_start_date"
+  description = "If nothing is set from SF, sets customer start date to \"today\".  Turned off to allow SF to set or leave Null."
+  initoncreate = true
+  initonvieworupdate = false
+  inittriggertype = "AFTERSUBMIT"
+  isinactive = false
+  islogenabled = false
+  keephistory = "ONLYWHENTESTING"
+  name = "Customer Start Date"
+  recordtypes = "CUSTOMER"
+  releasestatus = "NOTINITIATING"
+  runasadmin = true
+  initcondition = {
+    type = "VISUAL_BUILDER"
+  }
+  workflowstates = {
+    workflowstate = {
+      workflowstate15 = {
+        scriptid = "workflowstate15"
+        donotexitworkflow = false
+        name = "Set Start Date"
+        positionx = 243
+        positiony = 133
+        workflowactions = {
+          AFTERSUBMIT = {
+            triggertype = "AFTERSUBMIT"
+            setfieldvalueaction = {
+              workflowaction86 = {
+                scriptid = "workflowaction86"
+                field = netsuite.entitycustomfield.instance.custentity_customer_start_date.scriptid
+                isinactive = false
+                schedulemode = "DELAY"
+                valuechecked = false
+                valuedate = "TODAY"
+                valuetype = "DATE"
+                initcondition = {
+                  formula = "isEmpty(\"Customer Start Date\") = 'T'"
+                  type = "VISUAL_BUILDER"
+                  parameters = {
+                    parameter = {
+                      Customer_Start_Date@s = {
+                        name = "Customer Start Date"
+                        value = netsuite.entitycustomfield.instance.custentity_customer_start_date.scriptid
+                        index = 0
+                      }
+                    }
+                  }
+                }
+                index = 0
+              }
+            }
+            index = 0
+          }
+        }
+        index = 0
+      }
+    }
+  }
+}

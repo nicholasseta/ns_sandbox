@@ -1,0 +1,46 @@
+netsuite.itemcustomfield custitem_commission_charge_item_new {
+  scriptid = "custitem_commission_charge_item_new"
+  accesslevel = "2"
+  appliestogroup = true
+  appliestokit = true
+  appliestononinventory = true
+  appliestoothercharge = true
+  appliestopricelist = false
+  appliestoservice = true
+  appliestospecificitems = false
+  appliestosubplan = false
+  applyformatting = false
+  checkspelling = false
+  defaultchecked = false
+  description = "Used to select which commission item should be added to a SO"
+  displaytype = "NORMAL"
+  encryptatrest = false
+  fieldtype = "SELECT"
+  globalsearch = false
+  help = "Select the commission Item that should be added to the Sales Order when JV/reseller commission is applicable."
+  includechilditems = false
+  isformula = false
+  ismandatory = false
+  isparent = false
+  itemsubtype = "BOTH"
+  label = "Commission Charge Item New"
+  onparentdelete = "SET_NULL"
+  searchlevel = "2"
+  selectrecordtype = "-10"
+  showhierarchy = true
+  showinlist = false
+  storevalue = true
+  subtab = "ITEMMAIN"
+  customfieldfilters = {
+    customfieldfilter = {
+      custitem_commission_item = {
+        fldfilter = netsuite.itemcustomfield.instance.custitem_commission_item.scriptid
+        fldfilterchecked = true
+        fldfiltercomparetype = "EQ"
+        fldfilternotnull = false
+        fldfilternull = false
+        index = 0
+      }
+    }
+  }
+}
